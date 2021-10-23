@@ -8,8 +8,15 @@ public class GameManager : MonoBehaviour
     //Instance of the menu manager that remains alive the entire life of the application.
     public static GameManager instance;
 
+    public UpgradeHolder upgrades;
+
+    [SerializeField]
+    private WeaponController defaultWeapon;
+
     void Start()
     {
+        upgrades = new UpgradeHolder();
+        upgrades.SetWeapon(defaultWeapon);
     }
 
     private void Awake()
