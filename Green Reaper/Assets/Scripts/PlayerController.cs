@@ -31,7 +31,7 @@ public class PlayerController : Moveable
             (lookRightByDefault && movementInput.x < 0 && !spriteRenderer.flipX))
             spriteRenderer.flipX = true;
 
-        if ( || )
+        if (Input.GetMouseButtonDown(0) || Input.GetKey())
         {
 
         }
