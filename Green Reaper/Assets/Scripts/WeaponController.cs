@@ -33,6 +33,7 @@ public class WeaponController : MonoBehaviour
         anim = GetComponent<Animator>();
         damage = new BuffedValueHolder<int>(baseDamage);
         attackSpeed = new BuffedValueHolder<float>(1f);
+        attackSpeed.valueChanged.AddListener((float newSpeed) => anim.speed = newSpeed);
     }
 
     public void SetDamaging(bool newState)
@@ -47,7 +48,7 @@ public class WeaponController : MonoBehaviour
         {
             if (hitPlants.Contains(collision.gameObject))
             {
-                int damageDealt = baseDamage;
+                int damageDealt = damage.GetValue();
 
                 //Deal damage to plant based off of baseDamage (plant will handle special effects)
 
