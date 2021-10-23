@@ -10,6 +10,9 @@ public class PlayerController : Moveable
     [SerializeField]
     private WeaponController weapon;
 
+    [SerializeField]
+    private float weaponRotOffset = 90f;
+
     protected override void Start()
     {
         base.Start();
@@ -31,11 +34,19 @@ public class PlayerController : Moveable
             (lookRightByDefault && movementInput.x < 0 && !spriteRenderer.flipX))
             spriteRenderer.flipX = true;
 
-        if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Space))
-        {
-            weapon.Attack();
-        }
-
         MoveInDirection(movementInput);
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
+            weapon.Attack(CalculateWeaponAngle() + weaponRotOffset);
+    }
+
+    private float CalculateWeaponAngle()
+    {
+        Vector2 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 dir = (targetPos - (Vector2)transform.position);
+        return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
 }
