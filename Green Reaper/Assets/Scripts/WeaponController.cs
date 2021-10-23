@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Buffs;
 
 [RequireComponent(typeof(Animator))]
 public class WeaponController : MonoBehaviour
@@ -9,7 +10,12 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private int baseDamage;
 
+    private ValueHolder<int> damage;
+    private ValueHolder<float> attackSpeed;
+
     public UnityEvent<int> damageEvent;
+
+
 
     private bool isDamaging;
 
@@ -24,6 +30,9 @@ public class WeaponController : MonoBehaviour
     {
         hitPlants = new HashSet<GameObject>();
         anim = GetComponent<Animator>();
+
+        damage = new ValueHolder<int>(baseDamage);
+        attackSpeed = new ValueHolder<float>(1f);
     }
 
     public void SetDamaging(bool newState)
@@ -52,5 +61,12 @@ public class WeaponController : MonoBehaviour
     {
         gameObject.SetActive(true);
         anim.SetTrigger(attackAnimationName);
+        anim.speed = attackSpeed.Value;
+    }
+
+    private void FixedUpdate()
+    {
+        damage.CheckActiveBuffs();
+        attackSpeed.CheckActiveBuffs();
     }
 }
