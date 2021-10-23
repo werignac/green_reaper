@@ -31,7 +31,6 @@ public class WeaponController : MonoBehaviour
     {
         hitPlants = new HashSet<GameObject>();
         anim = GetComponent<Animator>();
-
         damage = new BuffedValueHolder<int>(baseDamage);
         attackSpeed = new BuffedValueHolder<float>(1f);
     }
