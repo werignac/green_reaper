@@ -13,6 +13,6 @@ public class HarvestState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
