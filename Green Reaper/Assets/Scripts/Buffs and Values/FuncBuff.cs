@@ -64,7 +64,7 @@ namespace Buffs
         /// <summary>
         /// FuncBuffs can't combine by default.
         /// </summary>
-        public void Combine(Buff<T> other)
+        public virtual void Combine(Buff<T> other)
         {
             if (other.Name != Name)
                 throw new ArgumentException("Buffs must be of the same type to combine. Received buff of " + other.Name + " while is buff of type " + Name + ".");

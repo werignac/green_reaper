@@ -11,7 +11,7 @@ public class PlayerController : Moveable
     private WeaponController weapon;
 
     [SerializeField]
-    private float weaponRotOffset = 90f;
+    private ParticleSystem pepperEffect;
 
     protected override void Start()
     {
@@ -37,10 +37,12 @@ public class PlayerController : Moveable
         MoveInDirection(movementInput);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
         if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
-            weapon.Attack(CalculateWeaponAngle() + weaponRotOffset);
+            weapon.Attack(CalculateWeaponAngle());
     }
 
     private float CalculateWeaponAngle()
@@ -48,5 +50,20 @@ public class PlayerController : Moveable
         Vector2 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dir = (targetPos - (Vector2)transform.position);
         return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+    }
+
+    public void SetWeapon(WeaponController newWeapon)
+    {
+        weapon = newWeapon;
+    }
+
+    public void TurnOnPepperEffect()
+    {
+        pepperEffect.Play();
+    }
+
+    public void TurnOffPepperEffect()
+    {
+        pepperEffect.Stop();
     }
 }
