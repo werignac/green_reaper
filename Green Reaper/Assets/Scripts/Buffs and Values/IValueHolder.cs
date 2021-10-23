@@ -16,12 +16,12 @@ public abstract class IValueHolder<T> where T : IComparable
     {
         if (!last.Equals(current))
         {
-            valueChanged.Invoke(current);
+            valueChanged?.Invoke(current);
 
             if (current.CompareTo(last) > 0)
-                valueIncreased.Invoke(current);
+                valueIncreased?.Invoke(current);
             else
-                valueDecreased.Invoke(current);
+                valueDecreased?.Invoke(current);
         }
     }
 }
