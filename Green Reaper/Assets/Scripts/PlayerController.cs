@@ -7,6 +7,9 @@ public class PlayerController : Moveable
 {
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField]
+    private WeaponController weapon;
+
     protected override void Start()
     {
         base.Start();
@@ -28,6 +31,10 @@ public class PlayerController : Moveable
             (lookRightByDefault && movementInput.x < 0 && !spriteRenderer.flipX))
             spriteRenderer.flipX = true;
 
+        if (Input.GetMouseButtonDown(0) || Input.GetKey())
+        {
+
+        }
 
         MoveInDirection(movementInput);
     }

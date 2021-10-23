@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Buffs;
 
 [RequireComponent(typeof(Animator))]
 public class WeaponController : MonoBehaviour
@@ -9,7 +10,13 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private int baseDamage;
 
+    private BuffedValueHolder<int> damage;
+    private BuffedValueHolder<float> attackSpeed;
+
     public UnityEvent<int> damageEvent;
+
+    [SerializeField]
+    private bool areaOfEffect;
 
     private bool isDamaging;
 
@@ -24,6 +31,8 @@ public class WeaponController : MonoBehaviour
     {
         hitPlants = new HashSet<GameObject>();
         anim = GetComponent<Animator>();
+        damage = new BuffedValueHolder<int>(baseDamage);
+        attackSpeed = new BuffedValueHolder<float>(1f);
     }
 
     public void SetDamaging(bool newState)
@@ -34,7 +43,7 @@ public class WeaponController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isDamaging)
+        if (isDamaging && (areaOfEffect || hitPlants.Count == 0))
         {
             if (hitPlants.Contains(collision.gameObject))
             {
@@ -50,7 +59,21 @@ public class WeaponController : MonoBehaviour
 
     public void Attack()
     {
-        gameObject.SetActive(true);
-        anim.SetTrigger(attackAnimationName);
+        if (!isActiveAndEnabled)
+        {
+            gameObject.SetActive(true);
+            anim.SetTrigger(attackAnimationName);
+        }
+    }
+
+    public void EndAttack()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void FixedUpdate()
+    {
+        damage.CheckActiveBuffs();
+        attackSpeed.CheckActiveBuffs();
     }
 }
