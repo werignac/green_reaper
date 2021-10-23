@@ -10,7 +10,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private int baseDamage;
 
-    private BuffedValueHolder<int> damage;
+    private BuffedValueHolder<float> damage;
     private BuffedValueHolder<float> attackSpeed;
 
     public UnityEvent<int> damageEvent;
@@ -34,7 +34,7 @@ public class WeaponController : MonoBehaviour
     {
         hitPlants = new HashSet<PlantHealth>();
         anim = GetComponent<Animator>();
-        damage = new BuffedValueHolder<int>(baseDamage);
+        damage = new BuffedValueHolder<float>(baseDamage);
         attackSpeed = new BuffedValueHolder<float>(1f);
         attackSpeed.valueChanged.AddListener((float newSpeed) => anim.speed = newSpeed);
     }
@@ -52,7 +52,7 @@ public class WeaponController : MonoBehaviour
             PlantHealth health = collision.gameObject.GetComponent<PlantHealth>();
             if (health != null && !hitPlants.Contains(health))
             {
-                int damageDealt = damage.GetValue();
+                int damageDealt = (int) damage.GetValue();
 
                 health.ChangeHealth(-damageDealt);
 
@@ -93,7 +93,7 @@ public class WeaponController : MonoBehaviour
         attackSpeed.CheckActiveBuffs();
     }
 
-    public void AddDamageBuff(Buff<int> damageBuff)
+    public void AddDamageBuff(Buff<float> damageBuff)
     {
         damage.AddBuff(damageBuff);
     }

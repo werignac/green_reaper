@@ -9,7 +9,7 @@ namespace Buffs
     {
         private Action<UpgradeBuff<T>, UpgradeBuff<T>> combiner;
 
-        public UpgradeBuff(Func<T, T> _affecter, Action<UpgradeBuff<T>,UpgradeBuff<T>> _combiner, BuffType type, Action _wipe, string _name) : base(_affecter, () => true, type, _wipe, _name)
+        public UpgradeBuff(Func<T, T> _affecter, Action<UpgradeBuff<T>, UpgradeBuff<T>> _combiner, BuffType type, Action _wipe, string _name) : base(_affecter, () => true, type, _wipe, _name)
         {
             combiner = _combiner;
         }

@@ -14,6 +14,11 @@ public class HarvestState : MonoBehaviour
     private bool decreaseTime = false;
     private int score;
 
+    [SerializeField]
+    private PlayerController player;
+    [SerializeField]
+    private Vector3 startLocation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +27,7 @@ public class HarvestState : MonoBehaviour
         returnToHouse.gameObject.SetActive(false);
         timeRemaining = startTime;
     }
+
     private void Update()
     {
         if (decreaseTime)
@@ -50,6 +56,23 @@ public class HarvestState : MonoBehaviour
     {
         beginHarvesting.gameObject.SetActive(false);
         decreaseTime = true;
+
+
+    }
+
+    private void InstatiatePlayer()
+    {
+        GameObject playerInstance = Instantiate(player.gameObject);
+        GameObject weaponInstance = Instantiate(GameManager.instance.upgrades.GetWeapon().gameObject, playerInstance.transform);
+
+        playerInstance.transform.position = startLocation;
+
+        PlayerController pCont = playerInstance.GetComponent<PlayerController>();
+        WeaponController wCont = weaponInstance.GetComponent<WeaponController>();
+
+        pCont.BuffMaxSpeed(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.SPEED));
+        wCont.AddDamageBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.DAMAGE));
+        wCont.AddSpeedBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.ATTACKSPEED));
     }
 
     private void EndGame()
