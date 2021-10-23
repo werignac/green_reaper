@@ -57,7 +57,7 @@ public class HarvestState : MonoBehaviour
         beginHarvesting.gameObject.SetActive(false);
         decreaseTime = true;
 
-
+        InstatiatePlayer();
     }
 
     private void InstatiatePlayer()
@@ -65,12 +65,15 @@ public class HarvestState : MonoBehaviour
         GameObject playerInstance = Instantiate(player.gameObject);
         GameObject weaponInstance = Instantiate(GameManager.instance.upgrades.GetWeapon().gameObject, playerInstance.transform);
 
+        weaponInstance.SetActive(false);
+
         playerInstance.transform.position = startLocation;
 
         PlayerController pCont = playerInstance.GetComponent<PlayerController>();
         WeaponController wCont = weaponInstance.GetComponent<WeaponController>();
 
         pCont.BuffMaxSpeed(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.SPEED));
+        pCont.SetWeapon(wCont);
         wCont.AddDamageBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.DAMAGE));
         wCont.AddSpeedBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.ATTACKSPEED));
     }

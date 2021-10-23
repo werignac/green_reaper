@@ -19,8 +19,10 @@ public class Moveable : MonoBehaviour
     protected virtual void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        maxSpeed = new BuffedValueHolder<float>(baseMaxSpeed);
-        maxVelocityChange = new BuffedValueHolder<float>(baseMaxVelocityChange);
+        if (maxSpeed == null)
+            maxSpeed = new BuffedValueHolder<float>(baseMaxSpeed);
+        if(maxVelocityChange == null)
+            maxVelocityChange = new BuffedValueHolder<float>(baseMaxVelocityChange);
     }
 
     public void MoveInDirection(Vector2 direction)
@@ -40,11 +42,15 @@ public class Moveable : MonoBehaviour
 
     public void BuffMaxSpeed(Buff<float> buff)
     {
+        if (maxSpeed == null)
+            maxSpeed = new BuffedValueHolder<float>(baseMaxSpeed);
         maxSpeed.AddBuff(buff);
     }
 
     public void BuffMaxVelocityChange(Buff<float> buff)
     {
+        if (maxVelocityChange == null)
+            maxVelocityChange = new BuffedValueHolder<float>(baseMaxVelocityChange);
         maxVelocityChange.AddBuff(buff);
     }
 }

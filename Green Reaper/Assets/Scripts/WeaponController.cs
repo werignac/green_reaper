@@ -34,8 +34,10 @@ public class WeaponController : MonoBehaviour
     {
         hitPlants = new HashSet<PlantHealth>();
         anim = GetComponent<Animator>();
-        damage = new BuffedValueHolder<float>(baseDamage);
-        attackSpeed = new BuffedValueHolder<float>(1f);
+        if (damage == null)
+            damage = new BuffedValueHolder<float>(baseDamage);
+        if (attackSpeed == null)
+            attackSpeed = new BuffedValueHolder<float>(1f);
         attackSpeed.valueChanged.AddListener((float newSpeed) => anim.speed = newSpeed);
     }
 
@@ -95,11 +97,15 @@ public class WeaponController : MonoBehaviour
 
     public void AddDamageBuff(Buff<float> damageBuff)
     {
+        if (damage == null)
+            damage = new BuffedValueHolder<float>(baseDamage);
         damage.AddBuff(damageBuff);
     }
 
     public void AddSpeedBuff(Buff<float> speedBuff)
     {
+        if (attackSpeed == null)
+            attackSpeed = new BuffedValueHolder<float>(1f);
         attackSpeed.AddBuff(speedBuff);
     }
 }
