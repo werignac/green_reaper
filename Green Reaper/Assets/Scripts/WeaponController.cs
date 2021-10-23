@@ -18,9 +18,12 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private bool areaOfEffect;
 
+    [SerializeField]
+    private float rotOffset = 90f;
+
     private bool isDamaging;
 
-    private HashSet<GameObject> hitPlants;
+    private HashSet<PlantHealth> hitPlants;
 
     private Animator anim;
 
@@ -29,33 +32,39 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
-        hitPlants = new HashSet<GameObject>();
+        hitPlants = new HashSet<PlantHealth>();
         anim = GetComponent<Animator>();
         damage = new BuffedValueHolder<int>(baseDamage);
         attackSpeed = new BuffedValueHolder<float>(1f);
-        //attackSpeed.valueChanged.AddListener((float newSpeed) => anim.speed = newSpeed);
+        attackSpeed.valueChanged.AddListener((float newSpeed) => anim.speed = newSpeed);
     }
 
     public void StartDamaging()
     {
         isDamaging = true;
-        hitPlants = new HashSet<GameObject>();
+        hitPlants = new HashSet<PlantHealth>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDamaging && (areaOfEffect || hitPlants.Count == 0))
         {
-            if (hitPlants.Contains(collision.gameObject))
+            PlantHealth health = collision.gameObject.GetComponent<PlantHealth>();
+            if (health != null && !hitPlants.Contains(health))
             {
                 int damageDealt = damage.GetValue();
 
-                //Deal damage to plant based off of baseDamage (plant will handle special effects)
+                health.ChangeHealth(-damageDealt);
 
-                hitPlants.Add(collision.gameObject);
+                hitPlants.Add(health);
                 damageEvent?.Invoke(damageDealt);
             }
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        OnTriggerEnter2D(collision);
     }
 
     public void Attack(float rotation)
@@ -69,7 +78,7 @@ public class WeaponController : MonoBehaviour
             anim.SetTrigger(attackAnimationName);
             isDamaging = false;
 
-            transform.rotation = Quaternion.Euler(0, 0, rotation);
+            transform.rotation = Quaternion.Euler(0, 0, rotation + rotOffset);
         }
     }
 
@@ -82,5 +91,15 @@ public class WeaponController : MonoBehaviour
     {
         damage.CheckActiveBuffs();
         attackSpeed.CheckActiveBuffs();
+    }
+
+    public void AddDamageBuff(Buff<int> damageBuff)
+    {
+        damage.AddBuff(damageBuff);
+    }
+
+    public void AddSpeedBuff(Buff<float> speedBuff)
+    {
+        attackSpeed.AddBuff(speedBuff);
     }
 }

@@ -6,9 +6,9 @@ using UnityEngine.Events;
 
 public abstract class IValueHolder<T> where T : IComparable
 {
-    public UnityEvent<T> valueChanged;
-    public UnityEvent<T> valueIncreased;
-    public UnityEvent<T> valueDecreased;
+    public UnityEvent<T> valueChanged = new UnityEvent<T>();
+    public UnityEvent<T> valueIncreased = new UnityEvent<T>();
+    public UnityEvent<T> valueDecreased = new UnityEvent<T>();
 
     public abstract T GetValue();
 
