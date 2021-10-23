@@ -33,12 +33,12 @@ public class WeaponController : MonoBehaviour
         anim = GetComponent<Animator>();
         damage = new BuffedValueHolder<int>(baseDamage);
         attackSpeed = new BuffedValueHolder<float>(1f);
-        attackSpeed.valueChanged.AddListener((float newSpeed) => anim.speed = newSpeed);
+        //attackSpeed.valueChanged.AddListener((float newSpeed) => anim.speed = newSpeed);
     }
 
-    public void SetDamaging(bool newState)
+    public void StartDamaging()
     {
-        isDamaging = newState;
+        isDamaging = true;
         hitPlants = new HashSet<GameObject>();
     }
 
@@ -53,17 +53,23 @@ public class WeaponController : MonoBehaviour
                 //Deal damage to plant based off of baseDamage (plant will handle special effects)
 
                 hitPlants.Add(collision.gameObject);
-                damageEvent.Invoke(damageDealt);
+                damageEvent?.Invoke(damageDealt);
             }
         }
     }
 
-    public void Attack()
+    public void Attack(float rotation)
     {
         if (!isActiveAndEnabled)
         {
             gameObject.SetActive(true);
+            if (anim == null)
+                anim = GetComponent<Animator>();
+
             anim.SetTrigger(attackAnimationName);
+            isDamaging = false;
+
+            transform.rotation = Quaternion.Euler(0, 0, rotation);
         }
     }
 
