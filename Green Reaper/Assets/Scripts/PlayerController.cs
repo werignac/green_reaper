@@ -31,9 +31,9 @@ public class PlayerController : Moveable
             (lookRightByDefault && movementInput.x < 0 && !spriteRenderer.flipX))
             spriteRenderer.flipX = true;
 
-        if (Input.GetMouseButtonDown(0) || Input.GetKey())
+        if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Space))
         {
-
+            weapon.Attack();
         }
 
         MoveInDirection(movementInput);
