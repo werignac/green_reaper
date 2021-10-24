@@ -21,14 +21,13 @@ public class GameManager : MonoBehaviour
     {
         upgrades = new UpgradeHolder();
         upgrades.SetWeapons(weapons);
+
+        SceneManager.sceneLoaded += OnLoadScene;
     }
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-
-
+        instance = this;
     }
 
     /// <summary>
@@ -50,14 +49,21 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
-        GameObject.Find("Win");
-        upgrades = new UpgradeHolder();
-        upgrades.SetWeapons(weapons);
+    }
+
+    private void OnLoadScene(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)
+        {
+            GameObject.Find("Canvas").transform.GetChild(6).gameObject.SetActive(true);
+            upgrades = new UpgradeHolder();
+            upgrades.SetWeapons(weapons);
+            Destroy(gameObject);
+        }
     }
 
     public void EndGame()
     {
         LoadMainMenu();
-        winState.SetActive(true);
     }    
 }
