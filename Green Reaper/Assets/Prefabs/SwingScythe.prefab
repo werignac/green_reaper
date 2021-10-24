@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 31325072440051623}
   - component: {fileID: 5330166751722181965}
   - component: {fileID: 1689945841432825064}
+  - component: {fileID: 5812108957275214258}
   m_Layer: 0
   m_Name: SwingScythe
   m_TagString: Untagged
@@ -64,12 +65,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2ad77f4cb169b44abf5d12e4ba3075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 0
+  baseDamage: 1
   damageEvent:
     m_PersistentCalls:
       m_Calls: []
   areaOfEffect: 1
-  rotOffset: 90
+  rotOffset: -75
+--- !u!50 &5812108957275214258
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4254108838927487221}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7237257055802442514
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +162,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 049b09b17c2a70543846967bf9a9beeb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
