@@ -71,6 +71,10 @@ public class HarvestState : MonoBehaviour
         GameObject playerInstance = Instantiate(player.gameObject);
         GameObject weaponInstance = Instantiate(GameManager.instance.upgrades.GetWeapon().gameObject, playerInstance.transform);
 
+        Camera.main.transform.parent = playerInstance.transform;
+
+        Camera.main.transform.localPosition = new Vector3(0, 0, Camera.main.transform.localPosition.z);
+
         weaponInstance.SetActive(false);
 
         playerInstance.transform.position = startLocation;

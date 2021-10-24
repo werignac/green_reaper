@@ -377,7 +377,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -401,7 +401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37799937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -6, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5432,7 +5432,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &700552657
 RectTransform:
@@ -10155,7 +10155,7 @@ MonoBehaviour:
   returnToHouse: {fileID: 235272732}
   startTime: 10
   player: {fileID: 6259593118671449604, guid: a18373137a9f3c044954dbb1acf25e48, type: 3}
-  startLocation: {x: -6.552819, y: 3.06544, z: 0}
+  startLocation: {x: -6, y: 3, z: 0}
   timePercentUpdate:
     m_PersistentCalls:
       m_Calls:
