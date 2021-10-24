@@ -110,7 +110,6 @@ public class HarvestState : MonoBehaviour
         wCont.AddDamageBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.DAMAGE));
         wCont.AddSpeedBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.ATTACKSPEED));
         wCont.SetAOE((int)GameManager.instance.upgrades.GetMultiplier(UpgradeHolder.UpgradeType.SCYTHESIZE));
-        wCont.damageEvent.AddListener(IncrementScore);
     }
 
     private void EndRound()
