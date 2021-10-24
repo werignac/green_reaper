@@ -71,6 +71,10 @@ public class HarvestState : MonoBehaviour
         score = new ValueHolder<int>(0);
         score.valueChanged.AddListener((int x) => scoreIncrement?.Invoke(x));
         GeneratePowerups();
+
+        corn1Died?.Invoke(Mathf.Max(corn1ThatHasToBeKilled - corn1Killed, 0));
+        corn2Died?.Invoke(Mathf.Max(corn2ThatHasToBeKilled - corn2Killed, 0));
+        corn3Died?.Invoke(Mathf.Max(corn3ThatHasToBeKilled - corn3Killed, 0));
     }
 
     private void Update()
@@ -243,19 +247,19 @@ public class HarvestState : MonoBehaviour
         if(type == PlantType.CORN)
         {
             corn1Killed++;
-            corn1Died?.Invoke(Mathf.Min(corn1ThatHasToBeKilled - corn1Killed, 0));
+            corn1Died?.Invoke(Mathf.Max(corn1ThatHasToBeKilled - corn1Killed, 0));
         }
 
         if (type == PlantType.CORN2)
         {
             corn2Killed++;
-            corn2Died?.Invoke(Mathf.Min(corn2ThatHasToBeKilled - corn2Killed, 0));
+            corn2Died?.Invoke(Mathf.Max(corn2ThatHasToBeKilled - corn2Killed, 0));
         }
 
         if (type == PlantType.CORN3)
         {
             corn3Killed++;
-            corn3Died?.Invoke(Mathf.Min(corn3ThatHasToBeKilled - corn3Killed, 0));
+            corn3Died?.Invoke(Mathf.Max(corn3ThatHasToBeKilled - corn3Killed, 0));
         }
 
         CheckWinState();
