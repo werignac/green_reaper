@@ -110,7 +110,6 @@ public class HarvestState : MonoBehaviour
         wCont.AddDamageBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.DAMAGE));
         wCont.AddSpeedBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.ATTACKSPEED));
         wCont.SetAOE((int)GameManager.instance.upgrades.GetMultiplier(UpgradeHolder.UpgradeType.SCYTHESIZE));
-        wCont.damageEvent.AddListener(IncrementScore);
     }
 
     private void EndRound()
@@ -151,8 +150,14 @@ public class HarvestState : MonoBehaviour
         
         float totalWeight = SumWeightsAndPopulateDictionary(powerUps);
         float randomWeight;
-        
-        for (int i = 0; i < maxNumberOfPowerUps; i++)
+
+        UpgradeHolder upgrades = GameManager.instance.upgrades;
+
+        float sumOfLevels = upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PEPPERPROBABILITY) +
+            upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PUMPKINPROBABILITY) +
+            upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY);
+
+        for (int i = 0; i < (maxNumberOfPowerUps * sumOfLevels / 9f); i++)
         {
             randomWeight = Random.Range(0, totalWeight);
             foreach (UpgradeHolder.UpgradeType upType in powerUps.Keys)

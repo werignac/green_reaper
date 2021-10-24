@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4624429834242507278}
   - component: {fileID: 2618376437855704512}
   - component: {fileID: 3745207576061730844}
-  - component: {fileID: 6399724859430271864}
   m_Layer: 7
   m_Name: bottom right fence
   m_TagString: Untagged
@@ -110,20 +109,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.339057, y: 1.4553796}
   m_EdgeRadius: 0
---- !u!114 &6399724859430271864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8001726069097678197}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25eb2ea64d2b170409ebecd84aaa6742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseHealth: 1
-  deathEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  type: 0

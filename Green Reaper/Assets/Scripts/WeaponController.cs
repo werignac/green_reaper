@@ -29,6 +29,9 @@ public class WeaponController : MonoBehaviour
 
     private const string attackAnimationName = "Attack";
 
+    [SerializeField]
+    public UnityEvent onSwing = new UnityEvent();
+
 
     private void Start()
     {
@@ -73,6 +76,8 @@ public class WeaponController : MonoBehaviour
     {
         if (!isActiveAndEnabled)
         {
+            onSwing?.Invoke();
+
             gameObject.SetActive(true);
             if (anim == null)
                 anim = GetComponent<Animator>();

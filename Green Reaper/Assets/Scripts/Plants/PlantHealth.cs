@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum PlantType {CORN = 0, PEPPER = 1, PUMPKIN = 2, CORN2 = 3, CORN3 = 4}
+public enum PlantType {CORN = 0, PEPPER = 1, PUMPKIN = 2, CORN2 = 3, CORN3 = 4, ZUCCHINI = 5 }
 
 public class PlantHealth : MonoBehaviour
 {
@@ -37,7 +37,8 @@ public class PlantHealth : MonoBehaviour
 
     protected virtual void OnDeath()
     {
-        gameObject.SetActive(false);
+        HarvestState.instance.IncrementScore(baseHealth);
+        Destroy(gameObject);
     }
 
 }
