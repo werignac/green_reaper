@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 102914135}
   - component: {fileID: 102914134}
   m_Layer: 0
-  m_Name: Booster Plants
+  m_Name: Peppers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,12 +1043,6 @@ Transform:
   m_Children:
   - {fileID: 375674994}
   - {fileID: 146709156}
-  - {fileID: 1163830238}
-  - {fileID: 1679882289}
-  - {fileID: 1950469281}
-  - {fileID: 171633176}
-  - {fileID: 26424712}
-  - {fileID: 580169772}
   m_Father: {fileID: 973631235}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
