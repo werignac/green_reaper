@@ -153,7 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a262f710aadd2784d90ce3f463aa25b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultWeapon: {fileID: 2854163750829114273, guid: 98f8781a018760849b1a35411b25d01a, type: 3}
+  weapons:
+  - {fileID: 2854163750829114273, guid: 98f8781a018760849b1a35411b25d01a, type: 3}
+  - {fileID: 2854163750829114273, guid: 98f8781a018760849b1a35411b25d01a, type: 3}
+  - {fileID: 2854163750829114273, guid: 98f8781a018760849b1a35411b25d01a, type: 3}
+  - {fileID: 5074401002468919237, guid: 344a91566060414448629c5a6bb36f8c, type: 3}
 --- !u!114 &230248829
 MonoBehaviour:
   m_ObjectHideFlags: 0
