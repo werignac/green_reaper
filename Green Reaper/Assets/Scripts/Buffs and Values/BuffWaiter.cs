@@ -25,6 +25,11 @@ namespace Buffs
             lifeTime = time;
         }
 
+        public void ResetAge()
+        {
+            age = 0;
+        }
+
         /// <summary>
         /// Updates the age of the waiter and
         /// gets whether the waiter has finished waiting yet.

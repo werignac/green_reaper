@@ -32,6 +32,8 @@ namespace Buffs
         /// </summary>
         private readonly string name;
 
+        private BuffWaiter timer;
+
 
         public FuncBuff(Func<T, T> _affecter, Func<bool> _active, BuffType type, string _name) : this(_affecter, _active, type, null, _name)
         { }
@@ -39,8 +41,11 @@ namespace Buffs
         public FuncBuff(Func<T, T> _affecter, float lifeTime, BuffType type, string _name) : this(_affecter, lifeTime, type, null, _name)
         { }
 
-        public FuncBuff(Func<T, T> _affecter, float lifeTime, BuffType type, Action _wipe, string _name) : this(_affecter, new BuffWaiter(lifeTime).IsActive, type, _wipe, _name)
-        { }
+        public FuncBuff(Func<T, T> _affecter, float lifeTime, BuffType type, Action _wipe, string _name) : this(_affecter, ()=>false, type, _wipe, _name)
+        {
+            timer = new BuffWaiter(lifeTime);
+            active = () => timer.IsActive();
+        }
 
         public FuncBuff(Func<T, T> _affecter, Func<bool> _active, BuffType type, Action _wipe, string _name)
         {
@@ -68,6 +73,9 @@ namespace Buffs
         {
             if (other.Name != Name)
                 throw new ArgumentException("Buffs must be of the same type to combine. Received buff of " + other.Name + " while is buff of type " + Name + ".");
+
+            if (timer != null)
+                timer.ResetAge();
         }
 
         public BuffType GetBuffType()
