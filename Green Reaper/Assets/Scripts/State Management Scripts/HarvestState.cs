@@ -44,6 +44,14 @@ public class HarvestState : MonoBehaviour
     [SerializeField]
     private GameObject pumpkinPrefab;
 
+    private int corn1Killed;
+    private int corn2Killed;
+    private int corn3Killed;
+
+    public int corn1ThatHasToBeKilled;
+    public int corn2ThatHasToBeKilled;
+    public int corn3ThatHasToBeKilled;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -224,5 +232,31 @@ public class HarvestState : MonoBehaviour
         }
 
         return totalWeight;
+    }
+
+    public void IncrementCornDeaths(PlantType type)
+    {
+        if(type == PlantType.CORN)
+        {
+            corn1Killed++;
+        }
+
+        if (type == PlantType.CORN2)
+        {
+            corn2Killed++;
+        }
+
+        if (type == PlantType.CORN3)
+        {
+            corn3Killed++;
+        }
+
+        CheckWinState();
+    }
+
+    private void CheckWinState()
+    {
+        if(corn1Killed == corn1ThatHasToBeKilled && corn2Killed == corn2ThatHasToBeKilled && corn3Killed == corn3ThatHasToBeKilled)
+            EndGame();
     }
 }
