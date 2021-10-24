@@ -52,6 +52,10 @@ public class HarvestState : MonoBehaviour
     public int corn2ThatHasToBeKilled;
     public int corn3ThatHasToBeKilled;
 
+    public UnityEvent<int> corn1Died;
+    public UnityEvent<int> corn2Died;
+    public UnityEvent<int> corn3Died;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -239,16 +243,19 @@ public class HarvestState : MonoBehaviour
         if(type == PlantType.CORN)
         {
             corn1Killed++;
+            corn1Died?.Invoke(Mathf.Min(corn1ThatHasToBeKilled - corn1Killed, 0));
         }
 
         if (type == PlantType.CORN2)
         {
             corn2Killed++;
+            corn2Died?.Invoke(Mathf.Min(corn2ThatHasToBeKilled - corn2Killed, 0));
         }
 
         if (type == PlantType.CORN3)
         {
             corn3Killed++;
+            corn3Died?.Invoke(Mathf.Min(corn3ThatHasToBeKilled - corn3Killed, 0));
         }
 
         CheckWinState();

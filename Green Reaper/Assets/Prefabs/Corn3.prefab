@@ -20,16 +20,20 @@ PrefabInstance:
       value: Corn3
       objectReference: {fileID: 0}
     - target: {fileID: 2795396761242676470, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d7ca2079d6a4e074ab9b997a446a2b71, type: 3}
+    - target: {fileID: 2795396761242676470, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
       propertyPath: m_Color.b
-      value: 0.9433962
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2795396761242676470, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
       propertyPath: m_Color.g
-      value: 0.2036871
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2795396761242676470, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
       propertyPath: m_Color.r
-      value: 0.13794944
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2795396761242676471, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
       propertyPath: m_RootOrder
