@@ -23,11 +23,24 @@ public class HarvestState : MonoBehaviour
     [SerializeField]
     public UnityEvent<float> timePercentUpdate = new UnityEvent<float>();
 
-    public PlayerController currentPlayer;
-    public WeaponController currentWeapon;
+    public PlayerController currentPlayer { get; private set; }
+    public WeaponController currentWeapon { get; private set; }
 
     public UnityEvent<int> roundEnd = new UnityEvent<int>();
     public UnityEvent<int> scoreIncrement = new UnityEvent<int>();
+
+    [SerializeField]
+    public int maxNumberOfPowerUps;
+    [SerializeField]
+    public Vector2 PowerUpRangeX;
+    [SerializeField]
+    public Vector2 PowerUpRangeY;
+    [SerializeField]
+    private GameObject pepperPrefab;
+    [SerializeField]
+    private GameObject zucchiniPrefab;
+    [SerializeField]
+    private GameObject pumpkinPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -43,13 +56,14 @@ public class HarvestState : MonoBehaviour
 
         score = new ValueHolder<int>(0);
         score.valueChanged.AddListener((int x) => scoreIncrement?.Invoke(x));
+        GeneratePowerups();
     }
 
     private void Update()
     {
         if (decreaseTime)
-        {   
-            if(timeRemaining > 0)
+        {
+            if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
                 timePercentUpdate.Invoke(1 - (timeRemaining / startTime));
@@ -59,7 +73,7 @@ public class HarvestState : MonoBehaviour
                 EndRound();
             }
         }
-        
+
     }
 
     public void StartHarvesting()
@@ -124,5 +138,81 @@ public class HarvestState : MonoBehaviour
     public void IncrementScore(int amount)
     {
         score.SetValue(score.GetValue() + amount);
+    }
+
+    private void GeneratePowerups()
+    {
+        Dictionary<UpgradeHolder.UpgradeType, float> powerUps = new Dictionary<UpgradeHolder.UpgradeType, float>();
+        
+        float totalWeight = SumWeightsAndPopulateDictionary(powerUps);
+        float randomWeight;
+        
+        for (int i = 0; i < maxNumberOfPowerUps; i++)
+        {
+            randomWeight = Random.Range(0, totalWeight);
+            foreach (UpgradeHolder.UpgradeType upType in powerUps.Keys)
+            {
+                if (randomWeight <= powerUps[upType] && powerUps[upType] != 0)
+                {
+                    DeterminePowerupToSpawn(upType);
+                    break;
+                }
+
+                randomWeight -= powerUps[upType];
+            }
+        }
+        
+    }
+
+    private void DeterminePowerupToSpawn(UpgradeHolder.UpgradeType type)
+    {
+        switch (type)
+        {
+            case UpgradeHolder.UpgradeType.PEPPERFREQUENCY:
+                SpawnPowerup(pepperPrefab);
+                break;
+            
+            case UpgradeHolder.UpgradeType.ZUCCINNIFREQUENCY:
+                SpawnPowerup(zucchiniPrefab);
+                break;
+            
+            case UpgradeHolder.UpgradeType.PUMPKINFREQUENCY:
+                SpawnPowerup(pumpkinPrefab);
+                break;
+            
+            default:
+                break;
+        }
+    }
+
+    private void SpawnPowerup(GameObject powerup)
+    {
+        float xPos;
+        float yPos;
+
+        xPos = Random.Range(PowerUpRangeX.x, PowerUpRangeX.y);
+        yPos = Random.Range(PowerUpRangeY.x, PowerUpRangeY.y);
+
+        // Creates the object at the random position.
+        GameObject pw = Instantiate(powerup, new Vector3(xPos, yPos, 0), transform.rotation);
+    }
+
+    private float SumWeightsAndPopulateDictionary(Dictionary<UpgradeHolder.UpgradeType, float> powerUps)
+    {
+        float totalWeight = 0;
+
+        //Get the weights for all powerups. 
+        for (int i = 4; i < 7; i++)
+        {
+            // Determine type and weight, then add the weight to the total.
+            UpgradeHolder.UpgradeType upgradeType = (UpgradeHolder.UpgradeType)i;
+            float upgradeWeight = GameManager.instance.upgrades.GetMultiplier(upgradeType);
+            totalWeight += upgradeWeight;
+
+
+            powerUps.Add(upgradeType, upgradeWeight);
+        }
+
+        return totalWeight;
     }
 }

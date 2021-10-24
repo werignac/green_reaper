@@ -17,7 +17,7 @@ public class UpgradeHolder
         multipliers = new Dictionary<UpgradeType, float>();
 
         foreach(int type in Enum.GetValues(typeof(UpgradeType)))
-            multipliers.Add((UpgradeType)type, (type >= 4)? 0f : 1f);
+            multipliers.Add((UpgradeType)type, (type >= 4)? 0.1f : 1f);
     }
 
     public void SetMultiplier(UpgradeType type, float multiplier)
