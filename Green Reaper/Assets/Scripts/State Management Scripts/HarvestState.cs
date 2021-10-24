@@ -141,7 +141,7 @@ public class HarvestState : MonoBehaviour
     private void EndGame()
     {
         endRound = true;
-        GameManager.instance.LoadMainMenu(); // TODO: Switch to Endscreen
+        GameManager.instance.EndGame(); // TODO: Switch to Endscreen
     }
 
     public void ReturnToHouse()

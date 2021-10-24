@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private WeaponController[] weapons;
 
+    private GameObject winState;
+
     void Start()
     {
         upgrades = new UpgradeHolder();
@@ -23,8 +25,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
             instance = this;
+
+
     }
 
     /// <summary>
@@ -46,5 +50,14 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+        GameObject.Find("Win");
+        upgrades = new UpgradeHolder();
+        upgrades.SetWeapons(weapons);
     }
+
+    public void EndGame()
+    {
+        LoadMainMenu();
+        winState.SetActive(true);
+    }    
 }
