@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class HarvestState : MonoBehaviour
 {
-    public Text timeRemainingText;
+    public static HarvestState instance;
+
     public Button beginHarvesting;
     public Button returnToHouse;
     public float startTime;
@@ -18,11 +20,20 @@ public class HarvestState : MonoBehaviour
     private PlayerController player;
     [SerializeField]
     private Vector3 startLocation;
+    [SerializeField]
+    public UnityEvent<float> timePercentUpdate = new UnityEvent<float>();
+
+    public PlayerController currentPlayer;
+    public WeaponController currentWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
-        ChangeTimerText(startTime);
+        if (instance != null)
+            Destroy(gameObject);
+        else
+            instance = this;
+
         beginHarvesting.gameObject.SetActive(true);
         returnToHouse.gameObject.SetActive(false);
         timeRemaining = startTime;
@@ -35,7 +46,7 @@ public class HarvestState : MonoBehaviour
             if(timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                ChangeTimerText(timeRemaining);
+                timePercentUpdate.Invoke(1 - (timeRemaining / startTime));
             }
             else
             {
@@ -45,11 +56,6 @@ public class HarvestState : MonoBehaviour
             
         }
         
-    }
-
-    private void ChangeTimerText(float time)
-    {
-        timeRemainingText.text = "Time Remaining: " + (int)time;
     }
 
     public void StartHarvesting()
@@ -72,6 +78,9 @@ public class HarvestState : MonoBehaviour
         PlayerController pCont = playerInstance.GetComponent<PlayerController>();
         WeaponController wCont = weaponInstance.GetComponent<WeaponController>();
 
+        currentPlayer = pCont;
+        currentWeapon = wCont;
+
         pCont.BuffMaxSpeed(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.SPEED));
         pCont.SetWeapon(wCont);
         wCont.AddDamageBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.DAMAGE));
@@ -80,12 +89,19 @@ public class HarvestState : MonoBehaviour
 
     private void EndGame()
     {
-        timeRemainingText.text = "Score: " + score;
+        //timeRemainingText.text = "Score: " + score;
         returnToHouse.gameObject.SetActive(true);
+        currentPlayer.SetReceivingInput(false);
     }
 
     public void ReturnToHouse()
     {
         GameManager.instance.LoadHouse();
+    }
+
+    private void OnDestroy()
+    {
+        if (this == instance)
+            instance = null;
     }
 }

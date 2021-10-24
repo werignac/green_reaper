@@ -12,6 +12,10 @@ public class PlayerController : Moveable
 
     [SerializeField]
     private ParticleSystem pepperEffect;
+    [SerializeField]
+    private ParticleSystem zuccinniEffect;
+
+    private bool receivingInput = true;
 
     protected override void Start()
     {
@@ -24,25 +28,35 @@ public class PlayerController : Moveable
 
     private void FixedUpdate()
     {
-        Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (receivingInput)
+        {
+            Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        //Flip the player sprite in the direction it wants to be moving in.
-        if ((lookRightByDefault && movementInput.x > 0 && spriteRenderer.flipX) ||
-            (!lookRightByDefault && movementInput.x < 0 && spriteRenderer.flipX))
-            spriteRenderer.flipX = false;
-        else if ((!lookRightByDefault && movementInput.x > 0 && !spriteRenderer.flipX) ||
-            (lookRightByDefault && movementInput.x < 0 && !spriteRenderer.flipX))
-            spriteRenderer.flipX = true;
+            //Flip the player sprite in the direction it wants to be moving in.
+            if ((lookRightByDefault && movementInput.x > 0 && spriteRenderer.flipX) ||
+                (!lookRightByDefault && movementInput.x < 0 && spriteRenderer.flipX))
+                spriteRenderer.flipX = false;
+            else if ((!lookRightByDefault && movementInput.x > 0 && !spriteRenderer.flipX) ||
+                (lookRightByDefault && movementInput.x < 0 && !spriteRenderer.flipX))
+                spriteRenderer.flipX = true;
 
-        MoveInDirection(movementInput);
+            MoveInDirection(movementInput);
+        }
+        else
+        {
+            MoveInDirection(Vector2.zero);
+        }
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
-            weapon.Attack(CalculateWeaponAngle());
+        if (receivingInput)
+        {
+            if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
+                weapon.Attack(CalculateWeaponAngle());
+        }
     }
 
     private float CalculateWeaponAngle()
@@ -65,5 +79,20 @@ public class PlayerController : Moveable
     public void TurnOffPepperEffect()
     {
         pepperEffect.Stop();
+    }
+
+    public void TurnOnZuccinniEffect()
+    {
+        zuccinniEffect.Play();
+    }
+
+    public void TurnOffZuccinniEffect()
+    {
+        zuccinniEffect.Stop();
+    }
+
+    public void SetReceivingInput(bool setReceive)
+    {
+        receivingInput = setReceive;
     }
 }

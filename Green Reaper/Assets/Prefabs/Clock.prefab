@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circle: {fileID: 1496508873393217331}
-  startAngle: -180
-  endAngle: 180
+  startAngle: -120
+  endAngle: 120
 --- !u!1 &1496508874225476810
 GameObject:
   m_ObjectHideFlags: 0
