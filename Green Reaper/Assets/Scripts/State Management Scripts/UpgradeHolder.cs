@@ -8,31 +8,53 @@ public class UpgradeHolder
 {
     public enum UpgradeType { SPEED = 0, DAMAGE = 1, ATTACKSPEED = 2, SCYTHESIZE = 3, PEPPERFREQUENCY = 4, PUMPKINFREQUENCY = 5, ZUCCINNIFREQUENCY = 6}
 
-    private Dictionary<UpgradeType, float> multipliers;
+    private Dictionary<UpgradeType, int> upgradeLevels;
+
+
+    private Dictionary<UpgradeType, float[]> upgradeValues = new Dictionary<UpgradeType, float[]>()
+    {
+        {UpgradeType.SPEED, new float[]{1f, 1.25f, 1.5f, 2f}},
+        {UpgradeType.DAMAGE, new float[]{1f, 2f, 3f, 4f}},
+        {UpgradeType.ATTACKSPEED, new float[]{1f, 1.4f, 1.8f, 2.2f}},
+        {UpgradeType.SCYTHESIZE, new float[] {1f, 2f, 3f, int.MaxValue}},
+        {UpgradeType.PEPPERFREQUENCY, new float[] {0f, 0.1f, 0.2f, 0.3f}},
+        {UpgradeType.PUMPKINFREQUENCY, new float[] {0f, 0.1f, 0.2f, 0.3f}},
+        {UpgradeType.ZUCCINNIFREQUENCY, new float[] {0f, 0.1f, 0.2f, 0.3f}}
+    };
 
     private WeaponController weapon;
 
     public UpgradeHolder()
     {
-        multipliers = new Dictionary<UpgradeType, float>();
+        upgradeLevels = new Dictionary<UpgradeType, int>();
 
         foreach(int type in Enum.GetValues(typeof(UpgradeType)))
-            multipliers.Add((UpgradeType)type, (type >= 4)? 0f : 1f);
+            upgradeLevels.Add((UpgradeType)type, 0);
     }
 
-    public void SetMultiplier(UpgradeType type, float multiplier)
+    public void IncrementUpgradeLevel(UpgradeType type)
     {
-        multipliers[type] = multiplier;
+        upgradeLevels[type] = Mathf.Min(upgradeLevels[type] + 1, upgradeValues[type].Length);
+    }
+
+    public int GetUpgradeLevel(UpgradeType type)
+    {
+        return upgradeLevels[type];
+    }
+
+    public bool IsLastLevel(UpgradeType type)
+    {
+        return upgradeLevels[type] == upgradeValues[type].Length - 1;
     }
 
     public Buff<float> GetMultiplierBuff(UpgradeType type)
     {
-        return new UpgradeBuff<float>((float baseVal) => baseVal * multipliers[type], (left, right) => { }, BuffType.BUFF, () => { }, "Upgrade: " + type.ToString());
+        return new UpgradeBuff<float>((float baseVal) => baseVal * upgradeValues[type][upgradeLevels[type]], (left, right) => { }, BuffType.BUFF, () => { }, "Upgrade: " + type.ToString());
     }
 
     public float GetMultiplier(UpgradeType type)
     {
-        return multipliers[type];
+        return upgradeValues[type][upgradeLevels[type]];
     }
 
     public void SetWeapon(WeaponController newWeapon)
