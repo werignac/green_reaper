@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private WeaponController defaultWeapon;
 
+    public ValueHolder<int> globalScore = new ValueHolder<int>(0);
+
     void Start()
     {
         upgrades = new UpgradeHolder();

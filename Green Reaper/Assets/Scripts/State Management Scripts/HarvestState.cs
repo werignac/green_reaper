@@ -101,12 +101,13 @@ public class HarvestState : MonoBehaviour
     {
         returnToHouse.gameObject.SetActive(true);
         currentPlayer.SetReceivingInput(false);
+        GameManager.instance.globalScore.SetValue(GameManager.instance.globalScore.GetValue() + score.GetValue());
         roundEnd?.Invoke(score.GetValue());
     }
 
     private void EndGame()
     {
-        GameManager.instance.LoadMainMenu();
+        GameManager.instance.LoadMainMenu(); // TODO: Switch to Endscreen
     }
 
     public void ReturnToHouse()
