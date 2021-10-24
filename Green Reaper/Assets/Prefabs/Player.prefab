@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6259593118671449605}
   - component: {fileID: 6259593118671449604}
   - component: {fileID: 6902740206275428175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb79a1202616f7f439dc81f66f22cc3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxSpeed: 2.5
+  baseMaxSpeed: 1.5
   baseMaxVelocityChange: 0.5
   weapon: {fileID: 7234902084912112720}
   pepperEffect: {fileID: 6317389692717915367}
