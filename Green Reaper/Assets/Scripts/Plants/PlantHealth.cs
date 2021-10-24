@@ -37,7 +37,8 @@ public class PlantHealth : MonoBehaviour
 
     protected virtual void OnDeath()
     {
-        gameObject.SetActive(false);
+        HarvestState.instance.IncrementScore(baseHealth);
+        Destroy(gameObject);
     }
 
 }
