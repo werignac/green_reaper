@@ -233,7 +233,6 @@ MonoBehaviour:
   - {fileID: 4122818651805258254, guid: e01025643bb2c2449b7ca4c1fe8d9820, type: 3}
   - {fileID: 4122818651805258254, guid: e01025643bb2c2449b7ca4c1fe8d9820, type: 3}
   - {fileID: 1689945841432825064, guid: 2c8d3bf4fc0d5254989b8f696d20f0f7, type: 3}
-  winState: {fileID: 418334549}
 --- !u!114 &230248829
 MonoBehaviour:
   m_ObjectHideFlags: 0
