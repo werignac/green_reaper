@@ -89,7 +89,7 @@ public class WeaponController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void FixedUpdate()
+    public void UpdateStats()
     {
         damage.CheckActiveBuffs();
         attackSpeed.CheckActiveBuffs();

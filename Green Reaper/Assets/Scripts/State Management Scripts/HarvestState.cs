@@ -14,7 +14,7 @@ public class HarvestState : MonoBehaviour
 
     private float timeRemaining;
     private bool decreaseTime = false;
-    private int score;
+    private ValueHolder<int> score;
 
     [SerializeField]
     private PlayerController player;
@@ -25,6 +25,9 @@ public class HarvestState : MonoBehaviour
 
     public PlayerController currentPlayer;
     public WeaponController currentWeapon;
+
+    public UnityEvent<int> roundEnd = new UnityEvent<int>();
+    public UnityEvent<int> scoreIncrement = new UnityEvent<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +40,9 @@ public class HarvestState : MonoBehaviour
         beginHarvesting.gameObject.SetActive(true);
         returnToHouse.gameObject.SetActive(false);
         timeRemaining = startTime;
+
+        score = new ValueHolder<int>(0);
+        score.valueChanged.AddListener((int x) => scoreIncrement?.Invoke(x));
     }
 
     private void Update()
@@ -50,10 +56,8 @@ public class HarvestState : MonoBehaviour
             }
             else
             {
-                EndGame();
+                EndRound();
             }
-
-            
         }
         
     }
@@ -71,6 +75,10 @@ public class HarvestState : MonoBehaviour
         GameObject playerInstance = Instantiate(player.gameObject);
         GameObject weaponInstance = Instantiate(GameManager.instance.upgrades.GetWeapon().gameObject, playerInstance.transform);
 
+        Camera.main.transform.parent = playerInstance.transform;
+
+        Camera.main.transform.localPosition = new Vector3(0, 0, Camera.main.transform.localPosition.z);
+
         weaponInstance.SetActive(false);
 
         playerInstance.transform.position = startLocation;
@@ -85,13 +93,21 @@ public class HarvestState : MonoBehaviour
         pCont.SetWeapon(wCont);
         wCont.AddDamageBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.DAMAGE));
         wCont.AddSpeedBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.ATTACKSPEED));
+
+        wCont.damageEvent.AddListener(IncrementScore);
+    }
+
+    private void EndRound()
+    {
+        returnToHouse.gameObject.SetActive(true);
+        currentPlayer.SetReceivingInput(false);
+        GameManager.instance.globalScore.SetValue(GameManager.instance.globalScore.GetValue() + score.GetValue());
+        roundEnd?.Invoke(score.GetValue());
     }
 
     private void EndGame()
     {
-        //timeRemainingText.text = "Score: " + score;
-        returnToHouse.gameObject.SetActive(true);
-        currentPlayer.SetReceivingInput(false);
+        GameManager.instance.LoadMainMenu(); // TODO: Switch to Endscreen
     }
 
     public void ReturnToHouse()
@@ -103,5 +119,10 @@ public class HarvestState : MonoBehaviour
     {
         if (this == instance)
             instance = null;
+    }
+
+    public void IncrementScore(int amount)
+    {
+        score.SetValue(score.GetValue() + amount);
     }
 }

@@ -52,6 +52,8 @@ public class PlayerController : Moveable
     {
         base.Update();
 
+        weapon.UpdateStats();
+
         if (receivingInput)
         {
             if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))

@@ -6,7 +6,7 @@ using System;
 
 public class UpgradeHolder
 {
-    public enum UpgradeType { SPEED = 0, DAMAGE = 1, ATTACKSPEED = 2}
+    public enum UpgradeType { SPEED = 0, DAMAGE = 1, ATTACKSPEED = 2, SCYTHESIZE = 3, PEPPERFREQUENCY = 4, PUMPKINFREQUENCY = 5, ZUCCINNIFREQUENCY = 6}
 
     private Dictionary<UpgradeType, float> multipliers;
 
@@ -17,7 +17,7 @@ public class UpgradeHolder
         multipliers = new Dictionary<UpgradeType, float>();
 
         foreach(int type in Enum.GetValues(typeof(UpgradeType)))
-            multipliers.Add((UpgradeType)type, 1f);
+            multipliers.Add((UpgradeType)type, (type >= 4)? 0f : 1f);
     }
 
     public void SetMultiplier(UpgradeType type, float multiplier)
@@ -28,6 +28,11 @@ public class UpgradeHolder
     public Buff<float> GetMultiplierBuff(UpgradeType type)
     {
         return new UpgradeBuff<float>((float baseVal) => baseVal * multipliers[type], (left, right) => { }, BuffType.BUFF, () => { }, "Upgrade: " + type.ToString());
+    }
+
+    public float GetMultiplier(UpgradeType type)
+    {
+        return multipliers[type];
     }
 
     public void SetWeapon(WeaponController newWeapon)
