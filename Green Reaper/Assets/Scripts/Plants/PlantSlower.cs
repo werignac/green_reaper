@@ -40,11 +40,6 @@ public class PlantSlower : MonoBehaviour
         return contacts.Contains(g);
     }
 
-    private void OnDestroy()
-    {
-        contacts.Clear();
-    }
-
     private class PlantSpeedDecrease : Buff<float>
     {
         public string Name => "Plant Speed Decrease";
