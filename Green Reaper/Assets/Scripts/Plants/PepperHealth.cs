@@ -7,14 +7,12 @@ public class PepperHealth : PlantHealth
 {
     protected override void OnDeath()
     {
-        Debug.Log("Death");
-
-        PlayerController player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        PlayerController player = HarvestState.instance.currentPlayer;
 
         player.TurnOnPepperEffect();
 
-        FuncBuff<float> pepperSpeedBuff = new FuncBuff<float>((float speed) => speed * 1.5f, 5f, BuffType.BUFF, () => GameObject.FindWithTag("Player").GetComponent<PlayerController>().TurnOffPepperEffect(), "Pepper Speed Buff");
-        FuncBuff<float> pepperMaxVelChangeBuff = new FuncBuff<float>((float velChange) => velChange * 1.5f, 5f, BuffType.BUFF, "Pepper Vel Change Buff");
+        FuncBuff<float> pepperSpeedBuff = new FuncBuff<float>((float speed) => speed * 1.5f, 4f, BuffType.BUFF, () => player.TurnOffPepperEffect(), "Pepper Speed Buff");
+        FuncBuff<float> pepperMaxVelChangeBuff = new FuncBuff<float>((float velChange) => velChange * 1.5f, 4f, BuffType.BUFF, "Pepper Vel Change Buff");
 
         player.BuffMaxSpeed(pepperSpeedBuff);
         player.BuffMaxVelocityChange(pepperMaxVelChangeBuff);
