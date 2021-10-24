@@ -16,6 +16,8 @@ public class HarvestState : MonoBehaviour
     private bool decreaseTime = false;
     private ValueHolder<int> score;
 
+    private bool endRound = false;
+
     [SerializeField]
     private PlayerController player;
     [SerializeField]
@@ -68,7 +70,7 @@ public class HarvestState : MonoBehaviour
                 timeRemaining -= Time.deltaTime;
                 timePercentUpdate.Invoke(1 - (timeRemaining / startTime));
             }
-            else
+            else if (!endRound)
             {
                 EndRound();
             }
@@ -107,7 +109,7 @@ public class HarvestState : MonoBehaviour
         pCont.SetWeapon(wCont);
         wCont.AddDamageBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.DAMAGE));
         wCont.AddSpeedBuff(GameManager.instance.upgrades.GetMultiplierBuff(UpgradeHolder.UpgradeType.ATTACKSPEED));
-
+        wCont.SetAOE((int)GameManager.instance.upgrades.GetMultiplier(UpgradeHolder.UpgradeType.SCYTHESIZE));
         wCont.damageEvent.AddListener(IncrementScore);
     }
 
@@ -117,10 +119,13 @@ public class HarvestState : MonoBehaviour
         currentPlayer.SetReceivingInput(false);
         GameManager.instance.globalScore.SetValue(GameManager.instance.globalScore.GetValue() + score.GetValue());
         roundEnd?.Invoke(score.GetValue());
+
+        endRound = true;
     }
 
     private void EndGame()
     {
+        endRound = true;
         GameManager.instance.LoadMainMenu(); // TODO: Switch to Endscreen
     }
 
@@ -168,15 +173,15 @@ public class HarvestState : MonoBehaviour
     {
         switch (type)
         {
-            case UpgradeHolder.UpgradeType.PEPPERFREQUENCY:
+            case UpgradeHolder.UpgradeType.PEPPERPROBABILITY:
                 SpawnPowerup(pepperPrefab);
                 break;
             
-            case UpgradeHolder.UpgradeType.ZUCCINNIFREQUENCY:
+            case UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY:
                 SpawnPowerup(zucchiniPrefab);
                 break;
             
-            case UpgradeHolder.UpgradeType.PUMPKINFREQUENCY:
+            case UpgradeHolder.UpgradeType.PUMPKINPROBABILITY:
                 SpawnPowerup(pumpkinPrefab);
                 break;
             

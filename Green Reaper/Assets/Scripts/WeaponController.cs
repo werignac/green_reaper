@@ -16,7 +16,7 @@ public class WeaponController : MonoBehaviour
     public UnityEvent<int> damageEvent;
 
     [SerializeField]
-    private bool areaOfEffect;
+    private int areaOfEffect = 1;
 
     [SerializeField]
     private float rotOffset = 90f;
@@ -49,7 +49,7 @@ public class WeaponController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isDamaging && (areaOfEffect || hitPlants.Count == 0))
+        if (isDamaging && (hitPlants.Count < areaOfEffect || areaOfEffect < 0))
         {
             PlantHealth health = collision.gameObject.GetComponent<PlantHealth>();
             if (health != null && !hitPlants.Contains(health))
@@ -78,6 +78,7 @@ public class WeaponController : MonoBehaviour
                 anim = GetComponent<Animator>();
 
             anim.SetTrigger(attackAnimationName);
+            anim.speed = attackSpeed.GetValue();
             isDamaging = false;
 
             transform.rotation = Quaternion.Euler(0, 0, rotation + rotOffset);
@@ -107,5 +108,10 @@ public class WeaponController : MonoBehaviour
         if (attackSpeed == null)
             attackSpeed = new BuffedValueHolder<float>(1f);
         attackSpeed.AddBuff(speedBuff);
+    }
+
+    public void SetAOE(int newAOE)
+    {
+        areaOfEffect = newAOE;
     }
 }
