@@ -263,7 +263,7 @@ public class HarvestState : MonoBehaviour
 
     private void CheckWinState()
     {
-        if(corn1Killed == corn1ThatHasToBeKilled && corn2Killed == corn2ThatHasToBeKilled && corn3Killed == corn3ThatHasToBeKilled)
+        if(corn1Killed >= corn1ThatHasToBeKilled && corn2Killed >= corn2ThatHasToBeKilled && corn3Killed >= corn3ThatHasToBeKilled)
             EndGame();
     }
 }
