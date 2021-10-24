@@ -10,15 +10,15 @@ public class GameManager : MonoBehaviour
 
     public UpgradeHolder upgrades;
 
-    [SerializeField]
-    private WeaponController defaultWeapon;
-
     public ValueHolder<int> globalScore = new ValueHolder<int>(0);
+
+    [SerializeField]
+    private WeaponController[] weapons;
 
     void Start()
     {
         upgrades = new UpgradeHolder();
-        upgrades.SetWeapon(defaultWeapon);
+        upgrades.SetWeapons(weapons);
     }
 
     private void Awake()

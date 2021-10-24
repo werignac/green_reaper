@@ -28,9 +28,9 @@ public class UpgradeManager : MonoBehaviour
         {UpgradeHolder.UpgradeType.DAMAGE, new int[] {150, 300, 400}},
         {UpgradeHolder.UpgradeType.ATTACKSPEED, new int[] {100, 200, 300} },
         {UpgradeHolder.UpgradeType.SCYTHESIZE, new int[]{60, 160, 400} },
-        {UpgradeHolder.UpgradeType.PEPPERFREQUENCY, new int[]{30, 60, 90} },
-        {UpgradeHolder.UpgradeType.PUMPKINFREQUENCY, new int[]{30, 60, 90} },
-        {UpgradeHolder.UpgradeType.ZUCCINNIFREQUENCY, new int[]{30, 60, 90} },
+        {UpgradeHolder.UpgradeType.PEPPERPROBABILITY, new int[]{30, 60, 90} },
+        {UpgradeHolder.UpgradeType.PUMPKINPROBABILITY, new int[]{30, 60, 90} },
+        {UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY, new int[]{30, 60, 90} },
     };
 
 
@@ -88,9 +88,9 @@ public class UpgradeManager : MonoBehaviour
         damageUpdate?.Invoke(manager.upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.DAMAGE));
         attackSpeedUpdate?.Invoke(manager.upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.ATTACKSPEED));
         aoeUpdate?.Invoke(manager.upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.SCYTHESIZE));
-        pepperUpdate?.Invoke(manager.upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PEPPERFREQUENCY));
-        pumpkinUpdate?.Invoke(manager.upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PUMPKINFREQUENCY));
-        zuccinniUpdate?.Invoke(manager.upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.ZUCCINNIFREQUENCY));
+        pepperUpdate?.Invoke(manager.upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PEPPERPROBABILITY));
+        pumpkinUpdate?.Invoke(manager.upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PUMPKINPROBABILITY));
+        zuccinniUpdate?.Invoke(manager.upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY));
     }
 
     private void OnDestroy()

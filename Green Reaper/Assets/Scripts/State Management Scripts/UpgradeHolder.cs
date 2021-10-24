@@ -6,10 +6,11 @@ using System;
 
 public class UpgradeHolder
 {
-    public enum UpgradeType { SPEED = 0, DAMAGE = 1, ATTACKSPEED = 2, SCYTHESIZE = 3, PEPPERFREQUENCY = 4, PUMPKINFREQUENCY = 5, ZUCCINNIFREQUENCY = 6}
+    public enum UpgradeType { SPEED = 0, DAMAGE = 1, ATTACKSPEED = 2, SCYTHESIZE = 3, PEPPERPROBABILITY = 4, PUMPKINPROBABILITY = 5, ZUCCINNIPROBABILITY = 6}
 
     private Dictionary<UpgradeType, int> upgradeLevels;
 
+    private WeaponController[] weapons;
 
     private Dictionary<UpgradeType, float[]> upgradeValues = new Dictionary<UpgradeType, float[]>()
     {
@@ -17,12 +18,10 @@ public class UpgradeHolder
         {UpgradeType.DAMAGE, new float[]{1f, 2f, 3f, 4f}},
         {UpgradeType.ATTACKSPEED, new float[]{1f, 1.4f, 1.8f, 2.2f}},
         {UpgradeType.SCYTHESIZE, new float[] {1f, 2f, 3f, int.MaxValue}},
-        {UpgradeType.PEPPERFREQUENCY, new float[] {0f, 0.1f, 0.2f, 0.3f}},
-        {UpgradeType.PUMPKINFREQUENCY, new float[] {0f, 0.1f, 0.2f, 0.3f}},
-        {UpgradeType.ZUCCINNIFREQUENCY, new float[] {0f, 0.1f, 0.2f, 0.3f}}
+        {UpgradeType.PEPPERPROBABILITY, new float[] {0f, 0.1f, 0.2f, 0.3f}},
+        {UpgradeType.PUMPKINPROBABILITY, new float[] {0f, 0.1f, 0.2f, 0.3f}},
+        {UpgradeType.ZUCCINNIPROBABILITY, new float[] {0f, 0.1f, 0.2f, 0.3f}}
     };
-
-    private WeaponController weapon;
 
     public UpgradeHolder()
     {
@@ -57,13 +56,13 @@ public class UpgradeHolder
         return upgradeValues[type][upgradeLevels[type]];
     }
 
-    public void SetWeapon(WeaponController newWeapon)
-    {
-        weapon = newWeapon;
-    }
-
     public WeaponController GetWeapon()
     {
-        return weapon;
+        return weapons[GetUpgradeLevel(UpgradeType.SCYTHESIZE)];
+    }
+
+    public void SetWeapons(WeaponController[] _weapons)
+    {
+        weapons = _weapons;
     }
 }
