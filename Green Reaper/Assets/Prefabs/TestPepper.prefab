@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5943190593167004070}
   - component: {fileID: 5943190593167004065}
   - component: {fileID: 8408584236995295005}
+  - component: {fileID: 6685867743977453851}
   m_Layer: 7
   m_Name: TestPepper
   m_TagString: Untagged
@@ -127,3 +128,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   type: 1
+  slowsPlayer: 0
+--- !u!114 &6685867743977453851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943190593167004067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6aeb6c4c0011c4f9379435c8395781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDynamic: 0
+  useSpriteRenderer: 1
+  spriteRenderer: {fileID: 0}
+  offset: 0

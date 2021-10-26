@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1663862972957456026}
   - component: {fileID: 1663862972957456029}
   - component: {fileID: 5536819465078224388}
+  - component: {fileID: 2798199398926598091}
   m_Layer: 7
   m_Name: TestZuccinni
   m_TagString: Untagged
@@ -127,3 +128,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   type: 0
+  slowsPlayer: 0
+--- !u!114 &2798199398926598091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663862972957456031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6aeb6c4c0011c4f9379435c8395781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDynamic: 0
+  useSpriteRenderer: 1
+  spriteRenderer: {fileID: 0}
+  offset: 0
