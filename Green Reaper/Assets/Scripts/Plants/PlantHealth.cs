@@ -13,6 +13,8 @@ public class PlantHealth : MonoBehaviour
 
     private ValueHolder<int> health;
 
+    public UnityEvent damageTaken = new UnityEvent();
+
     public UnityEvent<PlantType> deathEvent = new UnityEvent<PlantType>();
 
     [SerializeField]
@@ -31,6 +33,8 @@ public class PlantHealth : MonoBehaviour
                 deathEvent?.Invoke(type);
                 OnDeath();
             }
+            else
+                damageTaken?.Invoke();
         });
     }
 

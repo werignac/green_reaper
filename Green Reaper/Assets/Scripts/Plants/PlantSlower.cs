@@ -8,21 +8,47 @@ public class PlantSlower : MonoBehaviour
 {
     private HashSet<GameObject> contacts;
 
+    //[SerializeField]
+    private static float distInFront = 0.1f;
+    //[SerializeField]
+    private static float distInBack = 0.25f;
+
+    private DepthOrganizer organizer;
+
+    [SerializeField]
+    private Dimmer dimmer;
+
     private void Start()
     {
         contacts = new HashSet<GameObject>();
+        organizer = transform.parent.GetComponent<DepthOrganizer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController controller = other.gameObject.GetComponent<PlayerController>();
+        DepthOrganizer playerOrganizer = other.gameObject.GetComponent<DepthOrganizer>();
+
 
         if (controller != null)
         {
-            contacts.Add(controller.gameObject);
-            controller.BuffMaxSpeed(new PlantSpeedDecrease(controller.gameObject, this));
-            controller.BuffMaxVelocityChange(new PlantSpeedDecrease(controller.gameObject, this));
+            float playerHeight = playerOrganizer.GetOrigin().y;
+            float heightDiff =  playerHeight - organizer.GetOrigin().y;
+
+            dimmer?.SetDim(heightDiff > 0);            
+
+            if (heightDiff < distInBack && heightDiff > -distInFront)
+                EnterPlant(controller);
+            else
+                ExitPlant(controller.gameObject);
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Collider2D collider = collision.gameObject.GetComponent<Collider2D>();
+        if (collider != null)
+            OnTriggerEnter2D(collider);    
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -31,7 +57,32 @@ public class PlantSlower : MonoBehaviour
 
         if (controller != null)
         {
-            contacts.Remove(controller.gameObject);
+            ExitPlant(controller.gameObject);
+        }
+    }
+
+    private void EnterPlant(PlayerController toEnter)
+    {
+        if (!contacts.Contains(toEnter.gameObject))
+        {
+            EnterPlant(toEnter.gameObject);
+            toEnter.BuffMaxSpeed(new PlantSpeedDecrease(toEnter.gameObject, this));
+            toEnter.BuffMaxVelocityChange(new PlantSpeedDecrease(toEnter.gameObject, this));
+        }
+    }
+
+    private void EnterPlant(GameObject toEnter)
+    {
+        if (!contacts.Contains(toEnter))
+            contacts.Add(toEnter);
+    }
+
+    private void ExitPlant(GameObject toExit)
+    {
+        if (contacts.Contains(toExit))
+        {
+            contacts.Remove(toExit.gameObject);
+            dimmer?.SetDim(false);
         }
     }
 

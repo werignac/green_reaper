@@ -38,7 +38,7 @@ public class DepthOrganizer : MonoBehaviour
         finalOffset = offset;
 
         if (useSpriteRenderer)
-            finalOffset += -ApproxHeightFromRenderer(spriteRenderer, transform);
+            finalOffset += -ApproxHeightFromRenderer(spriteRenderer);
 
         transform.position = new Vector3(transform.position.x, transform.position.y, DepthFunction(transform.position.y + offset));
     }
@@ -49,8 +49,18 @@ public class DepthOrganizer : MonoBehaviour
     }
 
 
-    private static float ApproxHeightFromRenderer(SpriteRenderer renderer, Transform transform)
+    private static float ApproxHeightFromRenderer(SpriteRenderer renderer)
     {
-        return renderer.bounds.size.y * transform.lossyScale.y / 2;
+        return renderer.bounds.size.y * renderer.transform.lossyScale.y / 2;
+    }
+
+    public Vector3 GetOrigin()
+    {
+        finalOffset = offset;
+
+        if (useSpriteRenderer)
+            finalOffset += -ApproxHeightFromRenderer(spriteRenderer);
+
+        return new Vector3(transform.position.x, transform.position.y + finalOffset, transform.position.z);
     }
 }
