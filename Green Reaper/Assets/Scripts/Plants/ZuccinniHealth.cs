@@ -12,9 +12,15 @@ public class ZuccinniHealth : PlantHealth
 
         player.TurnOnZuccinniEffect();
 
-        FuncBuff<float> swingBuff = new FuncBuff<float>((float speed) => speed * 2f, 4f, BuffType.BUFF, () => player.TurnOffZuccinniEffect(), "Zuccinni Attack Speed Buff");
+        FuncBuff<float> swingBuff = new ZucchiniBuff(player, HarvestState.instance.buffProgresses);
 
-        weapon.AddSpeedBuff(swingBuff);        
+        weapon.AddSpeedBuff(swingBuff);
         base.OnDeath();
+    }
+
+    private class ZucchiniBuff : PlantBuff
+    {
+        public ZucchiniBuff(PlayerController player, BuffVisualizersManager _manager) : base(2f, () => { player.TurnOffZuccinniEffect(); }, PlantBuffType.FRANKENZINI, _manager, "Zucchini Attack Speed Buff")
+        { }
     }
 }

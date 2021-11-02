@@ -11,11 +11,17 @@ public class PepperHealth : PlantHealth
 
         player.TurnOnPepperEffect();
 
-        FuncBuff<float> pepperSpeedBuff = new FuncBuff<float>((float speed) => speed * 1.5f, 4f, BuffType.BUFF, () => player.TurnOffPepperEffect(), "Pepper Speed Buff");
-        FuncBuff<float> pepperMaxVelChangeBuff = new FuncBuff<float>((float velChange) => velChange * 1.5f, 4f, BuffType.BUFF, "Pepper Vel Change Buff");
+        FuncBuff<float> pepperSpeedBuff = new PepperSpeedBuff(player, HarvestState.instance.buffProgresses);
+        FuncBuff<float> pepperMaxVelChangeBuff = new PepperSpeedBuff(player, HarvestState.instance.buffProgresses);
 
         player.BuffMaxSpeed(pepperSpeedBuff);
         player.BuffMaxVelocityChange(pepperMaxVelChangeBuff);
         base.OnDeath();
+    }
+
+    private class PepperSpeedBuff : PlantBuff
+    {
+        public PepperSpeedBuff(PlayerController player, BuffVisualizersManager _manager) : base(1.5f, () => { player.TurnOffPepperEffect(); }, PlantBuffType.GHOSTPEPPER, _manager, "Ghost Pepper Speed Buff")
+        { }
     }
 }

@@ -32,7 +32,7 @@ namespace Buffs
         /// </summary>
         private readonly string name;
 
-        private BuffWaiter timer;
+        protected BuffWaiter timer;
 
 
         public FuncBuff(Func<T, T> _affecter, Func<bool> _active, BuffType type, string _name) : this(_affecter, _active, type, null, _name)
@@ -87,7 +87,7 @@ namespace Buffs
         /// Wrapper for the active function.
         /// </summary>
         /// <returns></returns>
-        public bool IsActive()
+        public virtual bool IsActive()
         {
             return active();
         }

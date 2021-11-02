@@ -56,6 +56,8 @@ public class HarvestState : MonoBehaviour
     public UnityEvent<int> corn2Died;
     public UnityEvent<int> corn3Died;
 
+    public BuffVisualizersManager buffProgresses;
+
     // Start is called before the first frame update
     void Start()
     {
