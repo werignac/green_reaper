@@ -65,9 +65,11 @@ public class PlantSlower : MonoBehaviour
     {
         if (!contacts.Contains(toEnter.gameObject))
         {
-            EnterPlant(toEnter.gameObject);
-            toEnter.BuffMaxSpeed(new PlantSpeedDecrease(toEnter.gameObject, this));
-            toEnter.BuffMaxVelocityChange(new PlantSpeedDecrease(toEnter.gameObject, this));
+            bool added = toEnter.BuffMaxSpeed(new PlantSpeedDecrease(toEnter.gameObject, this));
+            added = added && toEnter.BuffMaxVelocityChange(new PlantSpeedDecrease(toEnter.gameObject, this));
+
+            if (added)
+                EnterPlant(toEnter.gameObject);
         }
     }
 
@@ -123,7 +125,7 @@ public class PlantSlower : MonoBehaviour
 
         public BuffType GetBuffType()
         {
-            return BuffType.NATURAL;
+            return BuffType.DEBUFF;
         }
 
         public bool IsActive()

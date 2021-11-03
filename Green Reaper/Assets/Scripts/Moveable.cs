@@ -40,17 +40,29 @@ public class Moveable : MonoBehaviour
         maxVelocityChange.CheckActiveBuffs();
     }
 
-    public void BuffMaxSpeed(Buff<float> buff)
+    public bool BuffMaxSpeed(Buff<float> buff)
     {
         if (maxSpeed == null)
             maxSpeed = new BuffedValueHolder<float>(baseMaxSpeed);
-        maxSpeed.AddBuff(buff);
+        return maxSpeed.AddBuff(buff);
     }
 
-    public void BuffMaxVelocityChange(Buff<float> buff)
+    public bool BuffMaxVelocityChange(Buff<float> buff)
     {
         if (maxVelocityChange == null)
             maxVelocityChange = new BuffedValueHolder<float>(baseMaxVelocityChange);
-        maxVelocityChange.AddBuff(buff);
+        return maxVelocityChange.AddBuff(buff);
+    }
+
+    public void MoveableBlackList(BuffType type)
+    {
+        maxSpeed.BlackList(type);
+        maxVelocityChange.BlackList(type);
+    }
+
+    public void MoveableUnblackList(BuffType type)
+    {
+        maxSpeed.UnblackList(type);
+        maxVelocityChange.UnblackList(type);
     }
 }
