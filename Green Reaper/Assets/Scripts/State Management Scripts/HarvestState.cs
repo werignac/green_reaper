@@ -14,7 +14,6 @@ public class HarvestState : MonoBehaviour
 
     private float timeRemaining;
     private bool decreaseTime = false;
-    private ValueHolder<int> score;
 
     private bool endRound = false;
 
@@ -70,8 +69,7 @@ public class HarvestState : MonoBehaviour
         returnToHouse.gameObject.SetActive(false);
         timeRemaining = startTime;
 
-        score = new ValueHolder<int>(0);
-        score.valueChanged.AddListener((int x) => scoreIncrement?.Invoke(x));
+        scoreIncrement?.Invoke(GameManager.instance.globalScore.GetValue());
         GeneratePowerups();
 
         corn1Died?.Invoke(Mathf.Max(corn1ThatHasToBeKilled - corn1Killed, 0));
@@ -134,8 +132,7 @@ public class HarvestState : MonoBehaviour
     {
         returnToHouse.gameObject.SetActive(true);
         currentPlayer.SetReceivingInput(false);
-        GameManager.instance.globalScore.SetValue(GameManager.instance.globalScore.GetValue() + score.GetValue());
-        roundEnd?.Invoke(score.GetValue());
+        roundEnd?.Invoke(GameManager.instance.globalScore.GetValue());
 
         endRound = true;
     }
@@ -159,7 +156,8 @@ public class HarvestState : MonoBehaviour
 
     public void IncrementScore(int amount)
     {
-        score.SetValue(score.GetValue() + amount);
+        GameManager.instance.globalScore.SetValue(GameManager.instance.globalScore.GetValue() + amount);
+        scoreIncrement?.Invoke(GameManager.instance.globalScore.GetValue());
     }
 
     private void GeneratePowerups()
