@@ -51,6 +51,11 @@ public class PlantHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public PlantType GetPlantType()
+    {
+        return type;
+    }
+
     protected class PlantBuff : FuncBuff<float>
     {
         private BuffVisualizersManager manager;
