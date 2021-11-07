@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d558aa9828a630d478eb45ed6546aa80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialChance: 40
+  initialChance: 15
   birthLimit: 4
   deathLimit: 2
   numberOfRepititons: 3
