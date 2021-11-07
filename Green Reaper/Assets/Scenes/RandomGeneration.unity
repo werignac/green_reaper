@@ -237,7 +237,8 @@ MonoBehaviour:
   Corn1: {fileID: 2795396761242676467, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
   Corn2: {fileID: 4994565295658247302, guid: dcb20cbb38930ec47be7965da426aeae, type: 3}
   Corn3: {fileID: 6294569157566338346, guid: bbd2c0cc77011c942bdbf07fc916948d, type: 3}
-  TileMapScaleFactor: 5.12
+  TileMapXScaleFactor: 5.25
+  TileMapYScaleFactor: 5.34
   cornTileMap: {fileID: 1274630235}
 --- !u!1 &820099900
 GameObject:

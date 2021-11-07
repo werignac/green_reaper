@@ -23,6 +23,10 @@ public class CornCoordinator : MonoBehaviour
         PlaceCorn();
     }
 
+    /// <summary>
+    /// Places corn based on the cornMap.
+    /// Corn is placed into the cornTileMap.
+    /// </summary>
     void PlaceCorn()
     {
         for (int x = 0; x < TA.tmWidth; x++)
@@ -35,26 +39,30 @@ public class CornCoordinator : MonoBehaviour
                 // Used to index the tilemap to find the world position of the cell.
                 Vector3 worldCoordinate = cornTileMap.GetCellCenterWorld(new Vector3Int(x, y, 0));
 
-                // Cast to ints because tilemap expects a Vector3Int.
-                //int xPos = (int)(-worldCoordinate.x + TA.tmWidth / 2);
-                //int yPos = (int)(-worldCoordinate.y + TA.tmHeight / 2);
-
-                //float xPos = (-worldCoordinate.x  + TA.tmWidth / 8);
-                //float yPos = (-worldCoordinate.y  + TA.tmHeight / 8);
-
+                // Not sure why I need these, but the position is off without them.
+                // Has something to do with the x and y values of the tilemap.
                 float xOffset = TA.tmWidth / 2 * TileMapXScaleFactor;
                 float yOffset = TA.tmHeight / 2 * TileMapYScaleFactor;
                 
                 float xPos = -worldCoordinate.x + xOffset;
                 float yPos = -worldCoordinate.y + yOffset;
 
-                //float xPos = -worldCoordinate.x;
-                //float yPos = -worldCoordinate.y;
-
                 // The x and y positions need to be centered to the middle of the tileMap.
                 Vector3 centeredPosition = new Vector3(xPos, yPos, 0);
                 if (cornMap[x,y] == 1)
-                    Instantiate(Corn1, centeredPosition, Quaternion.identity);
+                {
+                    if(neighbors > 7)
+                    {
+                        Instantiate(Corn1, centeredPosition, Quaternion.identity);
+                    }
+
+                    else if (neighbors > 4)
+                    {
+                        Instantiate(Corn2, centeredPosition, Quaternion.identity);
+                    }
+                    else 
+                        Instantiate(Corn3, centeredPosition, Quaternion.identity);
+                }  
             }
         }
     }
