@@ -4,10 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 
-/// <summary>
-/// Tilemap generator based on Conway's Game Of Life.
-/// </summary>
-public class TileAutomation : MonoBehaviour
+public class BinaryGoLTilemapGenerator : MonoBehaviour
 {
     [Range(0, 100)]
     public int initialChance;
@@ -25,9 +22,7 @@ public class TileAutomation : MonoBehaviour
     public Vector3Int tileMapSize;
     public Tilemap foreground;
     public Tilemap background;
-    public Tile foregroundTile;
-    public Tile backgroundTile;
-    
+
     public int tmHeight { get; private set; }
     public int tmWidth { get; private set; }
 
@@ -50,39 +45,14 @@ public class TileAutomation : MonoBehaviour
         for (int i = 0; i < numberOfRepititons; ++i)
             terrainMap = GenerateTilePositions(ref terrainMap);
 
-        PopulateTileMaps(ref terrainMap);
-
         return terrainMap;
-    }
-
-    /// <summary>
-    /// Populates the tilemap depending on the data stored in the terrain map.
-    /// </summary>
-    /// <param name="terrainMap">Map to reference for the tile data.</param>
-    private void PopulateTileMaps(ref int[,] terrainMap)
-    {
-        for (int x = 0; x < tmWidth; ++x)
-        {
-            for (int y = 0; y < tmHeight; ++y)
-            {
-                // The x and y positions need to be centered to the middle of the tileMap.
-                Vector3Int centeredPosition = new Vector3Int(-x + tmWidth / 2, -y + tmHeight / 2, 0);
-
-                // If the tile is alive, place foreground tile.
-                if (terrainMap[x, y] == 1)
-                    foreground.SetTile(centeredPosition, foregroundTile);
-
-                // Fill the background with the background tile.
-                background.SetTile(centeredPosition, backgroundTile);
-            }
-        }
     }
 
     /// <summary>
     /// Use the public data on the script to configure the intial settings for the map.
     /// </summary>
     /// <param name="terrainMap">Tilemap to intialize.</param>
-    private void initialPosition(ref int [,] terrainMap)
+    private void initialPosition(ref int[,] terrainMap)
     {
         for (int x = 0; x < tmWidth; ++x)
         {
@@ -162,7 +132,7 @@ public class TileAutomation : MonoBehaviour
     /// <param name="neighborCount">Number of neighbors surrounding the tile.</param>
     /// <param name="newMap">Reference to the next iteration of the map.</param>
     /// <param name="oldMap">Copy of the old map.</param>
-    private void SetAliveStatusInMap(int x, int y, int neighborCount, ref int[,] newMap,ref int[,] oldMap)
+    private void SetAliveStatusInMap(int x, int y, int neighborCount, ref int[,] newMap, ref int[,] oldMap)
     {
         if (oldMap[x, y] == 1)
         {
@@ -174,7 +144,7 @@ public class TileAutomation : MonoBehaviour
 
         if (oldMap[x, y] == 0)
         {
-            if (neighborCount >= deathLimit)
+            if (neighborCount > birthLimit)
                 newMap[x, y] = 1;
             else
                 newMap[x, y] = 0;
@@ -190,3 +160,4 @@ public class TileAutomation : MonoBehaviour
         background.ClearAllTiles();
     }
 }
+
