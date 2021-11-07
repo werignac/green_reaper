@@ -28,13 +28,15 @@ public class TileAutomation : MonoBehaviour
     public Tile foregroundTile;
     public Tile backgroundTile;
     
-    private int tmHeight;
-    private int tmWidth;
+    public int tmHeight { get; private set; }
+    public int tmWidth { get; private set; }
+
 
     /// <summary>
     /// Runs the simulation using the public variables to populate the given tilemaps.
     /// </summary>
-    public void RunSimulation()
+    /// <returns>The tilemap generated in the process.</returns>
+    public int[,] RunSimulation()
     {
         ClearMap();
 
@@ -49,6 +51,8 @@ public class TileAutomation : MonoBehaviour
             terrainMap = GenerateTilePositions(ref terrainMap);
 
         PopulateTileMaps(ref terrainMap);
+
+        return terrainMap;
     }
 
     /// <summary>
@@ -128,7 +132,7 @@ public class TileAutomation : MonoBehaviour
     /// <param name="y">Y index of the tile.</param>
     /// <param name="oldMap">Copy of the old map.</param>
     /// <returns>Number of neighbors around the tile.</returns>
-    private int CountNeighbors(int x, int y, ref int[,] oldMap)
+    public int CountNeighbors(int x, int y, ref int[,] oldMap)
     {
         BoundsInt myBounds = new BoundsInt(-1, -1, 0, 3, 3, 1);
         int neighbors = 0;
