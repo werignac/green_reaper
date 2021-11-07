@@ -10,7 +10,8 @@ public class CornCoordinator : MonoBehaviour
     public GameObject Corn1;
     public GameObject Corn2;
     public GameObject Corn3;
-    public float TileMapScaleFactor;
+    public float TileMapXScaleFactor;
+    public float TileMapYScaleFactor;
     public Tilemap cornTileMap;
 
     private int[,] cornMap;
@@ -38,13 +39,22 @@ public class CornCoordinator : MonoBehaviour
                 //int xPos = (int)(-worldCoordinate.x + TA.tmWidth / 2);
                 //int yPos = (int)(-worldCoordinate.y + TA.tmHeight / 2);
 
-                int xPos = (int)(-(worldCoordinate.x / TileMapScaleFactor) + TA.tmWidth / 2);
-                int yPos = (int)(-(worldCoordinate.y / TileMapScaleFactor) + TA.tmHeight / 2);
+                //float xPos = (-worldCoordinate.x  + TA.tmWidth / 8);
+                //float yPos = (-worldCoordinate.y  + TA.tmHeight / 8);
+
+                float xOffset = TA.tmWidth / 2 * TileMapXScaleFactor;
+                float yOffset = TA.tmHeight / 2 * TileMapYScaleFactor;
+                
+                float xPos = -worldCoordinate.x + xOffset;
+                float yPos = -worldCoordinate.y + yOffset;
+
+                //float xPos = -worldCoordinate.x;
+                //float yPos = -worldCoordinate.y;
 
                 // The x and y positions need to be centered to the middle of the tileMap.
-                Vector3Int centeredPosition = new Vector3Int(xPos, yPos, 0);
+                Vector3 centeredPosition = new Vector3(xPos, yPos, 0);
                 if (cornMap[x,y] == 1)
-                    Instantiate(Corn1, cornTileMap.GetCellCenterWorld(centeredPosition), Quaternion.identity);
+                    Instantiate(Corn1, centeredPosition, Quaternion.identity);
             }
         }
     }
