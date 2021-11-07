@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 
+/// <summary>
+/// Tilemap generator based on Conway's Game Of Life.
+/// </summary>
 public class TileAutomation : MonoBehaviour
 {
     [Range(0, 100)]
