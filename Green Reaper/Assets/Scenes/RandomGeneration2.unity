@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialChance: 15
   birthLimit: 1
-  deathLimit: 5
+  deathLimit: 6
   numberOfRepititons: 3
   tileMapSize: {x: 75, y: 50, z: 0}
   foreground: {fileID: 277363597}
@@ -501,7 +501,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1441182644}
-  - component: {fileID: 1441182643}
   - component: {fileID: 1441182642}
   m_Layer: 0
   m_Name: Corn Coordinator
@@ -533,28 +532,10 @@ MonoBehaviour:
   corn1: {fileID: 2795396761242676467, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
   corn2: {fileID: 4994565295658247302, guid: dcb20cbb38930ec47be7965da426aeae, type: 3}
   corn3: {fileID: 6294569157566338346, guid: bbd2c0cc77011c942bdbf07fc916948d, type: 3}
-  sewThreshold: 0.2
-  corn1Threshold: 0.4
-  corn2Threshold: 0.6
-  corn3Threshold: 0.8
---- !u!114 &1441182643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441182641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9bba4536f7e8034fa86bf4c9c8443e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weightGenerator: {fileID: 760800743}
-  visualizer: {fileID: 5311725665307544256, guid: ae1df345c5dd6d243bdc1916e4187a4d, type: 3}
-  TileMapXScaleFactor: 5
-  TileMapYScaleFactor: 5
-  cornTileMap: {fileID: 277363597}
-  blurIterations: 1
+  sewThreshold: 0.422
+  corn1Threshold: 0.438
+  corn2Threshold: 0.537
+  corn3Threshold: 0.584
 --- !u!4 &1441182644
 Transform:
   m_ObjectHideFlags: 0
