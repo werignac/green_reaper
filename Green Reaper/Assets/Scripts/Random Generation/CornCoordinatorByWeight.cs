@@ -100,7 +100,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
                         Instantiate(corn3, centeredPosition, Quaternion.identity);
                     else if (weightMap[x, y] > corn2Threshold)
                         Instantiate(corn2, centeredPosition, Quaternion.identity);
-                    if (weightMap[x, y] > corn1Threshold)
+                    else if (weightMap[x, y] > corn1Threshold)
                         Instantiate(corn1, centeredPosition, Quaternion.identity);
                 }
             }
