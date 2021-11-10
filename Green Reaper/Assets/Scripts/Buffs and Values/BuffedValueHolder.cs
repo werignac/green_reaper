@@ -13,6 +13,10 @@ public class BuffedValueHolder<T> : IValueHolder<T>, BuffHolder<T> where T : ICo
 
     private Dictionary<string, Buff<T>> buffs;
 
+    private HashSet<string> blackListByName;
+
+    private HashSet<BuffType> blackListByType;
+
     public override T GetValue()
     {
         return value;
@@ -23,6 +27,8 @@ public class BuffedValueHolder<T> : IValueHolder<T>, BuffHolder<T> where T : ICo
         baseValue = _baseValue;
         buffs = new Dictionary<string, Buff<T>>();
         value = _baseValue;
+        blackListByName = new HashSet<string>();
+        blackListByType = new HashSet<BuffType>();
     }
 
     /// <summary>
@@ -30,12 +36,18 @@ public class BuffedValueHolder<T> : IValueHolder<T>, BuffHolder<T> where T : ICo
     /// Combines attributes that have the same name.
     /// </summary>
     /// <param name="b">The buff to add</param>
-    public void AddBuff(Buff<T> b)
+    public bool AddBuff(Buff<T> b)
     {
-        if (!buffs.ContainsKey(b.Name))
-            buffs.Add(b.Name, b);
-        else
-            buffs[b.Name].Combine(b);
+        if (!blackListByName.Contains(b.Name) && !blackListByType.Contains(b.GetBuffType()))
+        {
+            if (!buffs.ContainsKey(b.Name))
+                buffs.Add(b.Name, b);
+            else
+                buffs[b.Name].Combine(b);
+
+            return true;
+        }
+        return false;
     }
 
     /// <summary>
@@ -84,5 +96,50 @@ public class BuffedValueHolder<T> : IValueHolder<T>, BuffHolder<T> where T : ICo
         if (buffs.TryGetValue(name, out Buff<T> buff))
             return buff;
         return null;
+    }
+
+    public void BlackList(string name)
+    {
+        Remove(name);
+        blackListByName.Add(name);
+    }
+
+    public void UnblackList(string name)
+    {
+        blackListByName.Remove(name);
+    }
+
+    public void BlackList(BuffType type)
+    {
+        HashSet<Buff<T>> toRemove = new HashSet<Buff<T>>();
+
+        foreach(Buff<T> buff in buffs.Values)
+            if (buff.GetBuffType() == type)
+                toRemove.Add(buff);
+
+        foreach (Buff<T> buff in toRemove)
+        {
+            buff.Wipe();
+            buffs.Remove(buff.Name);
+        }
+
+        blackListByType.Add(type);
+    }
+
+    public void UnblackList(BuffType type)
+    {
+        blackListByType.Remove(type);
+    }
+
+    public bool Remove(string name)
+    {
+        if (buffs.TryGetValue(name, out Buff<T> buff))
+        {
+            buff.Wipe();
+            buffs.Remove(name);
+            return true;
+        }
+
+        return false;
     }
 }

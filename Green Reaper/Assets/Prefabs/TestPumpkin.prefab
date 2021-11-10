@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4250840628604653311}
   - component: {fileID: 398718179826732260}
   - component: {fileID: 8812100319254625884}
+  - component: {fileID: 276140914780641667}
   m_Layer: 7
   m_Name: TestPumpkin
   m_TagString: Untagged
@@ -124,6 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseHealth: 1
+  damageTaken:
+    m_PersistentCalls:
+      m_Calls: []
   deathEvent:
     m_PersistentCalls:
       m_Calls:
@@ -139,7 +143,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  type: 0
+  type: 2
   slowsPlayer: 0
 --- !u!114 &8812100319254625884
 MonoBehaviour:
@@ -154,3 +158,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSpawn: {fileID: 5277532375118715905, guid: c576ee0edf033aa408545de5686a9d2d, type: 3}
+--- !u!114 &276140914780641667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4250840628604653309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6aeb6c4c0011c4f9379435c8395781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDynamic: 0
+  useSpriteRenderer: 1
+  spriteRenderer: {fileID: 0}
+  offset: 0
+  finalOffset: 0

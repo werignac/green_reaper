@@ -17,7 +17,7 @@ namespace Buffs
         /// Adds a buff of the target type to this object.
         /// </summary>
         /// <param name="b">The buff to add.</param>
-        void AddBuff(Buff<T> b);
+        bool AddBuff(Buff<T> b);
 
         /// <summary>
         /// Returns whether this object has any active buffs.

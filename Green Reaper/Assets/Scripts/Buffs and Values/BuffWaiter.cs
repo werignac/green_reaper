@@ -40,5 +40,10 @@ namespace Buffs
             age += Time.deltaTime;
             return age < lifeTime;
         }
+
+        public float GetPercentProgress()
+        {
+            return age / lifeTime;
+        }
     }
 }
