@@ -87,8 +87,8 @@ public class WeaponController : MonoBehaviour
     {
         if (!isActiveAndEnabled)
         {
-            onSwing?.Invoke();
             gameObject.SetActive(true);
+            onSwing?.Invoke();
             if (anim == null)
                 anim = GetComponent<Animator>();
 
