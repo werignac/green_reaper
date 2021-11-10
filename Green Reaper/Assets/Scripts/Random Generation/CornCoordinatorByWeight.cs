@@ -19,7 +19,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField]
     private Tilemap background;
     [SerializeField]
-    private RuleTile foregroundTile;
+    private Tile foregroundTile;
     [SerializeField]
     private RuleTile backgroundTile;
 
