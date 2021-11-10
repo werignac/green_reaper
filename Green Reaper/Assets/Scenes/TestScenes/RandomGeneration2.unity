@@ -2282,8 +2282,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   maxNumberOfPowerUps: 30
-  PowerUpRangeX: {x: -7.5, y: 7.5}
-  PowerUpRangeY: {x: 2.5, y: -3}
+  PowerUpRangeX: {x: -185, y: 185}
+  PowerUpRangeY: {x: 125, y: -115}
   pepperPrefab: {fileID: 5943190593167004067, guid: b681a502e6e51f140b5cf79a204028b9, type: 3}
   zucchiniPrefab: {fileID: 1663862972957456031, guid: bc30f6313fedf244c9094ed8794f87d8, type: 3}
   pumpkinPrefab: {fileID: 4250840628604653309, guid: 22fac01f7a02d9743835bf0e777a29cc, type: 3}
