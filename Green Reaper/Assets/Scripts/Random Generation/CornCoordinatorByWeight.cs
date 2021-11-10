@@ -19,9 +19,9 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField]
     private Tilemap background;
     [SerializeField]
-    private Tile foregroundTile;
+    private RuleTile foregroundTile;
     [SerializeField]
-    private Tile backgroundTile;
+    private RuleTile backgroundTile;
 
     [SerializeField]
     private GameObject corn1;
