@@ -1999,10 +1999,10 @@ MonoBehaviour:
   corn1: {fileID: 2795396761242676467, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
   corn2: {fileID: 4994565295658247302, guid: dcb20cbb38930ec47be7965da426aeae, type: 3}
   corn3: {fileID: 6294569157566338346, guid: bbd2c0cc77011c942bdbf07fc916948d, type: 3}
-  sewThreshold: 0.422
-  corn1Threshold: 0.438
-  corn2Threshold: 0.537
-  corn3Threshold: 0.584
+  sewThreshold: 0.435
+  corn1Threshold: 0.435
+  corn2Threshold: 0.527
+  corn3Threshold: 0.621
 --- !u!4 &1441182644
 Transform:
   m_ObjectHideFlags: 0
