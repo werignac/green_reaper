@@ -1,97 +1,70 @@
 fileFormatVersion: 2
-guid: 581a99d68f4ea4d12b468b461a27b4ed
+guid: d2ff27842d9e14207acc30f7c433c05e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7294117663316013734
-    second: Dirt_Grass_TileSet_0
+      213: -2097251577859443325
+    second: Dirt_Grass_TileSet_Test_0
   - first:
-      213: 8174096749479418598
-    second: Dirt_Grass_TileSet_1
+      213: -2122782381573993895
+    second: Dirt_Grass_TileSet_Test_1
   - first:
-      213: 8544572912068413435
-    second: Dirt_Grass_TileSet_2
+      213: 5309256120932147642
+    second: Dirt_Grass_TileSet_Test_2
   - first:
-      213: -8040279941440402574
-    second: Dirt_Grass_TileSet_3
+      213: 6712164469900324784
+    second: Dirt_Grass_TileSet_Test_3
   - first:
-      213: 4304616515135897095
-    second: Dirt_Grass_TileSet_4
+      213: 1851055846863388189
+    second: Dirt_Grass_TileSet_Test_4
   - first:
-      213: 3300865317122673483
-    second: Dirt_Grass_TileSet_5
+      213: 6862336668124008251
+    second: Dirt_Grass_TileSet_Test_5
   - first:
-      213: 2098359282596565130
-    second: Dirt_Grass_TileSet_6
+      213: -7539191299235207812
+    second: Dirt_Grass_TileSet_Test_6
   - first:
-      213: 7842378210720652222
-    second: Dirt_Grass_TileSet_7
+      213: 1026002967112288952
+    second: Dirt_Grass_TileSet_Test_7
   - first:
-      213: 3281756283175813945
-    second: Dirt_Grass_TileSet_8
+      213: -547606271912924538
+    second: Dirt_Grass_TileSet_Test_8
   - first:
-      213: -1432165125563698599
-    second: Dirt_Grass_TileSet_9
+      213: -6646637433544434087
+    second: Dirt_Grass_TileSet_Test_9
   - first:
-      213: -1740316259975125031
-    second: Dirt_Grass_TileSet_10
+      213: 3508730301223063297
+    second: Dirt_Grass_TileSet_Test_10
   - first:
-      213: 8384922693290743251
-    second: Dirt_Grass_TileSet_11
+      213: -8420215623117154854
+    second: Dirt_Grass_TileSet_Test_11
   - first:
-      213: 903561680842659144
-    second: Dirt_Grass_TileSet_12
+      213: -7000936716538708818
+    second: Dirt_Grass_TileSet_Test_12
   - first:
-      213: -2621905254352632846
-    second: Dirt_Grass_TileSet_13
+      213: -7520789306881701064
+    second: Dirt_Grass_TileSet_Test_13
   - first:
-      213: 5259958871635191268
-    second: Dirt_Grass_TileSet_14
+      213: 6722885064059949248
+    second: Dirt_Grass_TileSet_Test_14
   - first:
-      213: -7023870498017793364
-    second: Dirt_Grass_TileSet_15
+      213: 4060470544276365364
+    second: Dirt_Grass_TileSet_Test_15
   - first:
-      213: -9205612397204166712
-    second: Dirt_Grass_TileSet_16
+      213: 6769787116848837425
+    second: Dirt_Grass_TileSet_Test_16
   - first:
-      213: -7342300408822523510
-    second: Dirt_Grass_TileSet_17
+      213: 7908289746793727749
+    second: Dirt_Grass_TileSet_Test_17
   - first:
-      213: 2470996032541937346
-    second: Dirt_Grass_TileSet_18
+      213: -2733279952190030683
+    second: Dirt_Grass_TileSet_Test_18
   - first:
-      213: -5181476257118888881
-    second: Dirt_Grass_TileSet_19
+      213: -3146327350928365723
+    second: Dirt_Grass_TileSet_Test_19
   - first:
-      213: 2399535727866685757
-    second: Dirt_Grass_TileSet_20
-  - first:
-      213: 9004849705617422340
-    second: Dirt_Grass_TileSet_21
-  - first:
-      213: -5520542116902798202
-    second: Dirt_Grass_TileSet_22
-  - first:
-      213: -7622779844975255741
-    second: Dirt_Grass_TileSet_23
-  - first:
-      213: 5200678624292458354
-    second: Dirt_Grass_TileSet_24
-  - first:
-      213: 133100735713206160
-    second: Dirt_Grass_TileSet_25
-  - first:
-      213: -5734587007931548243
-    second: Dirt_Grass_TileSet_26
-  - first:
-      213: 724464878280802523
-    second: Dirt_Grass_TileSet_27
-  - first:
-      213: -8687812453573219735
-    second: Dirt_Grass_TileSet_28
-  - first:
-      213: -1372766623701678655
-    second: Dirt_Grass_TileSet_29
+      213: -7965671423287387469
+    second: Dirt_Grass_TileSet_Test_20
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,7 +95,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -177,191 +150,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 4096
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1536
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5d852091a616ca90800000000000000
-      internalID: -7294117663316013734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dirt_Grass_TileSet_1
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1536
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ea55687fa9307170800000000000000
-      internalID: 8174096749479418598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dirt_Grass_TileSet_2
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 1536
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf7434ddacb649670800000000000000
-      internalID: 8544572912068413435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dirt_Grass_TileSet_3
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 1536
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27b0fb31eff2b6090800000000000000
-      internalID: -8040279941440402574
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dirt_Grass_TileSet_4
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 1536
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70e74f6e9e11dbb30800000000000000
-      internalID: 4304616515135897095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dirt_Grass_TileSet_5
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 1536
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4b018664870fcd20800000000000000
-      internalID: 3300865317122673483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dirt_Grass_TileSet_6
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 1536
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a80df4266aede1d10800000000000000
-      internalID: 2098359282596565130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dirt_Grass_TileSet_7
-      rect:
-        serializedVersion: 2
-        x: 3584
-        y: 1536
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebb94449e69b5dc60800000000000000
-      internalID: 7842378210720652222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dirt_Grass_TileSet_8
+      name: Dirt_Grass_TileSet_Test_0
       rect:
         serializedVersion: 2
         x: 0
@@ -369,20 +162,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 933c91ab3f32b8d20800000000000000
-      internalID: 3281756283175813945
+      spriteID: 3857f093dc015e2e0800000000000000
+      internalID: -2097251577859443325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_9
+      name: Dirt_Grass_TileSet_Test_1
       rect:
         serializedVersion: 2
         x: 512
@@ -390,20 +183,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 952b21ff76def1ce0800000000000000
-      internalID: -1432165125563698599
+      spriteID: 95a03d2cbac5a82e0800000000000000
+      internalID: -2122782381573993895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_10
+      name: Dirt_Grass_TileSet_Test_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -411,20 +204,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d7a857059729d7e0800000000000000
-      internalID: -1740316259975125031
+      spriteID: ab1aab5ff444ea940800000000000000
+      internalID: 5309256120932147642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_11
+      name: Dirt_Grass_TileSet_Test_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -432,20 +225,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d5d4baa3ca3d5470800000000000000
-      internalID: 8384922693290743251
+      spriteID: 0bf2866d506662d50800000000000000
+      internalID: 6712164469900324784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_12
+      name: Dirt_Grass_TileSet_Test_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -453,20 +246,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 845184bbf881a8c00800000000000000
-      internalID: 903561680842659144
+      spriteID: d1eb3b34c7540b910800000000000000
+      internalID: 1851055846863388189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_13
+      name: Dirt_Grass_TileSet_Test_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -474,20 +267,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3c497001f1d9bd0800000000000000
-      internalID: -2621905254352632846
+      spriteID: b3f4ba867daeb3f50800000000000000
+      internalID: 6862336668124008251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_14
+      name: Dirt_Grass_TileSet_Test_6
       rect:
         serializedVersion: 2
         x: 3072
@@ -495,20 +288,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e5eafca9b02ff840800000000000000
-      internalID: 5259958871635191268
+      spriteID: c75ae5b25796f5790800000000000000
+      internalID: -7539191299235207812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_15
+      name: Dirt_Grass_TileSet_Test_7
       rect:
         serializedVersion: 2
         x: 3584
@@ -516,20 +309,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caaad410ff2368e90800000000000000
-      internalID: -7023870498017793364
+      spriteID: 8ba893933481d3e00800000000000000
+      internalID: 1026002967112288952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_16
+      name: Dirt_Grass_TileSet_Test_8
       rect:
         serializedVersion: 2
         x: 0
@@ -537,20 +330,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c7a6b45c481f3080800000000000000
-      internalID: -9205612397204166712
+      spriteID: 68aaadd3ff28668f0800000000000000
+      internalID: -547606271912924538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_17
+      name: Dirt_Grass_TileSet_Test_9
       rect:
         serializedVersion: 2
         x: 512
@@ -558,20 +351,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a899de9eda8ea1a90800000000000000
-      internalID: -7342300408822523510
+      spriteID: 95e15c6387662c3a0800000000000000
+      internalID: -6646637433544434087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_18
+      name: Dirt_Grass_TileSet_Test_10
       rect:
         serializedVersion: 2
         x: 1024
@@ -579,20 +372,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cecf09bccdba4220800000000000000
-      internalID: 2470996032541937346
+      spriteID: 10fcc017e9381b030800000000000000
+      internalID: 3508730301223063297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_19
+      name: Dirt_Grass_TileSet_Test_11
       rect:
         serializedVersion: 2
         x: 1536
@@ -600,20 +393,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4cde4afbc2b718b0800000000000000
-      internalID: -5181476257118888881
+      spriteID: ad558e3c082652b80800000000000000
+      internalID: -8420215623117154854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dirt_Grass_TileSet_20
+      name: Dirt_Grass_TileSet_Test_12
       rect:
         serializedVersion: 2
         x: 2048
@@ -621,14 +414,182 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d392a5df70ddc4120800000000000000
-      internalID: 2399535727866685757
+      spriteID: eac78bb162da7de90800000000000000
+      internalID: -7000936716538708818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_Grass_TileSet_Test_13
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b82c4e8f9c0a790800000000000000
+      internalID: -7520789306881701064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_Grass_TileSet_Test_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0921da85c7c4d50800000000000000
+      internalID: 6722885064059949248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_Grass_TileSet_Test_15
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430a78c5270b95830800000000000000
+      internalID: 4060470544276365364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_Grass_TileSet_Test_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1337ac0d38d13fd50800000000000000
+      internalID: 6769787116848837425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_Grass_TileSet_Test_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5070182ff93efbd60800000000000000
+      internalID: 7908289746793727749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_Grass_TileSet_Test_18
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac34027d50711ad0800000000000000
+      internalID: -2733279952190030683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_Grass_TileSet_Test_19
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567a1dcb1fff554d0800000000000000
+      internalID: -3146327350928365723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt_Grass_TileSet_Test_20
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba99716b00447190800000000000000
+      internalID: -7965671423287387469
       vertices: []
       indices: 
       edges: []
