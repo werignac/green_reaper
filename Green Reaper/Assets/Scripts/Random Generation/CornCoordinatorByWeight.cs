@@ -56,39 +56,58 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
         if (drawPaths)
         {
-            Circle center = new Circle(new Vector2(weightMap.GetLength(0), weightMap.GetLength(1)) / 2f, 4.5f);
-            List<Circle> circles = new List<Circle>();
-
-            int orbits = UnityEngine.Random.Range(1, 4);
-
-            for (int i = 0; i < orbits; i++)
-            {
-                circles.Add(new Circle(new Vector2(weightMap.GetLength(0) * UnityEngine.Random.value, weightMap.GetLength(1) * UnityEngine.Random.value), UnityEngine.Random.Range(2f, 6f)));
-            }
-            //Center must come after orbits to not mess with path generation.
-            circles.Add(center);
-
-            List<Path> paths = new List<Path>();
-
-            for (int i = 0; i < orbits; i++)
-            {
-                Circle orbit = circles[i];
-                Vector2 startDir = center.center;
-                Vector2 endDir = orbit.center;
-
-                Vector2 pathDirection = (endDir - startDir).normalized;
-                Vector2 startPos = Path.RotateVector2(pathDirection, UnityEngine.Random.Range(-15f, 15f))*center.radius;
-                Vector2 endPos = Path.RotateVector2(-pathDirection, UnityEngine.Random.Range(-15f, 15f))*orbit.radius;
-
-                paths.Add(new Path(startPos, startDir, endPos, endDir, UnityEngine.Random.Range(1f, Mathf.Min(orbit.radius, center.radius))));
-            }
-
-            RemoveByCircles(circles, weightMap);
-            RemoveByPaths(paths, weightMap);
+            GeneratePaths();
         }
 
         PaintTiles();
         PaintCorn();
+    }
+
+    private void GeneratePaths()
+    {
+        // Center circle always around player start.
+        Circle center = new Circle(new Vector2(weightMap.GetLength(0), weightMap.GetLength(1)) / 2f, 4.5f);
+        List<Circle> circles = new List<Circle>();
+
+        int orbits = UnityEngine.Random.Range(1, 4);
+
+        for (int i = 0; i < orbits; i++)
+        {
+            circles.Add(new Circle(new Vector2(weightMap.GetLength(0) * UnityEngine.Random.value, weightMap.GetLength(1) * UnityEngine.Random.value), UnityEngine.Random.Range(2f, 6f)));
+        }
+        
+        //Center must come after orbits to not mess with path generation.
+        circles.Add(center);
+
+        List<Path> paths = new List<Path>();
+
+        // For each of the orbits, create and store a path. 
+        for (int i = 0; i < orbits; i++)
+        {
+            Circle orbit = circles[i];
+            
+            // Center of each circle to connect the path to. Used to direct path when connecting to either circle's perimeter.
+            Vector2 startDir = center.center;
+            Vector2 endDir = orbit.center;
+
+            // Direction from start to end.
+            Vector2 pathDirection = (endDir - startDir).normalized;
+
+            // Random angle to offset the end point on the permiter of each circle. Generally prevents paths from becoming straight. 
+            float randomAngle = UnityEngine.Random.Range(-15f, 15f);
+            // Random position on the perimeter of each circle to end the path.
+            Vector2 startPos = Path.RotateVector2(pathDirection, randomAngle) * center.radius;
+            
+            randomAngle = UnityEngine.Random.Range(-15f, 15f);
+            Vector2 endPos = Path.RotateVector2(-pathDirection, randomAngle) * orbit.radius;
+
+            // Radius of the path or half the width of the path. Used to mark tiles for clearing.
+            float boundCheckRadius = UnityEngine.Random.Range(1f, Mathf.Min(orbit.radius, center.radius));
+            paths.Add(new Path(startPos, startDir, endPos, endDir, boundCheckRadius));
+        }
+
+        RemoveByCircles(circles, weightMap);
+        RemoveByPaths(paths, weightMap);
     }
 
     private void PaintTiles()
@@ -148,6 +167,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
     {
         for (int x = 0; x < weightMap.GetLength(0); x++)
             for (int y = 0; y < weightMap.GetLength(1); y++)
+                // weightMap[x, y] != 0, does not change the behavior, but does increase performance.
                 if (weightMap[x, y] != 0 && canRemove(new Vector2(x, y)))
                     weightMap[x, y] = 0;
     }
