@@ -208,6 +208,9 @@ MonoBehaviour:
   TileMapYScaleFactor: 5
   cornTileMap: {fileID: 1802548027}
   blurIterations: 1
+  drawPaths: 1
+  minPathWidth: 1
+  maxPathWidth: 2
 --- !u!4 &1109767997
 Transform:
   m_ObjectHideFlags: 0

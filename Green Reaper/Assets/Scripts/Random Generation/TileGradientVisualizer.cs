@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
 public class TileGradientVisualizer : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class TileGradientVisualizer : MonoBehaviour
 
     private float[,] weightMap;
 
+    [SerializeField]
+    private bool drawPaths = true;
+    [SerializeField]
+    private float minPathWidth;
+
+    [SerializeField]
+    private float maxPathWidth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +34,59 @@ public class TileGradientVisualizer : MonoBehaviour
         for (int i = 0; i < blurIterations; i++)
             weightMap = GaussianBlur.BlurMap(ref weightMap);
 
+        if (drawPaths)
+        {
+            GeneratePaths();
+        }
+
         PlaceVisualizers();
+    }
+
+    private void GeneratePaths()
+    {
+        // Center circle always around player start.
+        Circle center = new Circle(new Vector2(weightMap.GetLength(0), weightMap.GetLength(1)) / 2f, 4.5f);
+        List<Circle> circles = new List<Circle>();
+
+        int orbits = UnityEngine.Random.Range(3, 10);
+
+        for (int i = 0; i < orbits; i++)
+        {
+            circles.Add(new Circle(new Vector2(weightMap.GetLength(0) * UnityEngine.Random.value, weightMap.GetLength(1) * UnityEngine.Random.value), UnityEngine.Random.Range(2f, 6f)));
+        }
+
+        //Center must come after orbits to not mess with path generation.
+        circles.Add(center);
+
+        List<Path> paths = new List<Path>();
+
+        // For each of the orbits, create and store a path. 
+        for (int i = 0; i < orbits; i++)
+        {
+            Circle orbit = circles[i];
+
+            // Center of each circle to connect the path to. Used to direct path when connecting to either circle's perimeter.
+            Vector2 startDir = center.center;
+            Vector2 endDir = orbit.center;
+
+            // Direction from start to end.
+            Vector2 pathDirection = (endDir - startDir).normalized;
+
+            // Random angle to offset the end point on the permiter of each circle. Generally prevents paths from becoming straight. 
+            float randomAngle = UnityEngine.Random.Range(-15f, 15f);
+            // Random position on the perimeter of each circle to end the path.
+            Vector2 startPos = Path.RotateVector2(pathDirection, randomAngle) * center.radius + startDir;
+
+            randomAngle = UnityEngine.Random.Range(-5f, 5f);
+            Vector2 endPos = Path.RotateVector2(-pathDirection, randomAngle) * orbit.radius + endDir;
+
+            // Radius of the path or half the width of the path. Used to mark tiles for clearing.
+            float boundCheckRadius = UnityEngine.Random.Range(minPathWidth, maxPathWidth);
+            paths.Add(new Path(startPos, startDir, endPos, endDir, boundCheckRadius));
+        }
+
+        RemoveByCircles(circles, weightMap);
+        RemoveByPaths(paths, weightMap);
     }
 
     /// <summary>
@@ -58,5 +119,45 @@ public class TileGradientVisualizer : MonoBehaviour
                 visual.Visualize(weight);
             }
         }
+    }
+
+    private static void RemoveByCondition(Func<Vector2, bool> canRemove, float[,] weightMap)
+    {
+        for (int x = 0; x < weightMap.GetLength(0); x++)
+            for (int y = 0; y < weightMap.GetLength(1); y++)
+                // weightMap[x, y] != 0, does not change the behavior, but does increase performance.
+                if (weightMap[x, y] != 0 && canRemove(new Vector2(x, y)))
+                    weightMap[x, y] = 0;
+    }
+
+    private static void RemoveByCircles(IEnumerable<Circle> circles, float[,] weightMap)
+    {
+        Func<Vector2, bool> canRemove = (Vector2 pos) => {
+            foreach (Circle c in circles)
+                if (c.InRange(pos))
+                    return true;
+            return false;
+        };
+
+        RemoveByCondition(canRemove, weightMap);
+    }
+
+    private static void RemoveByPaths(IEnumerable<Path> paths, float[,] weightMap)
+    {
+        Func<Vector2, bool> canRemove = (Vector2 pos) => {
+            foreach (Path p in paths)
+            {
+                IEnumerator<Vector2> enumerator = p.Iterate(0.95f);
+                while (enumerator.MoveNext())
+                {
+                    Vector2 point = enumerator.Current;
+                    if (new Circle(point, p.radius).InRange(pos))
+                        return true;
+                }
+            }
+            return false;
+        };
+
+        RemoveByCondition(canRemove, weightMap);
     }
 }

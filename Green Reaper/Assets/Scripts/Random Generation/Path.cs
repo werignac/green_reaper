@@ -34,7 +34,7 @@ public class Path
     {
         float intervals = (end - start) * (1 - resolution);
 
-        for (float i = start; (start < end && i < end) || (start > end && i > end); i += intervals)
+        for (float i = start; (start <= end && i < end) || (start >= end && i > end); i += intervals)
         {
             yield return RotateVector2(new Vector2(i, (float)polynomial.Evaluate(i)), -angle);
         }

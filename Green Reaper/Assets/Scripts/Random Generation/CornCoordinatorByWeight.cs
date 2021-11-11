@@ -44,6 +44,12 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField]
     private bool drawPaths = false;
 
+    [SerializeField]
+    private float minPathWidth;
+
+    [SerializeField]
+    private float maxPathWidth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +75,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         Circle center = new Circle(new Vector2(weightMap.GetLength(0), weightMap.GetLength(1)) / 2f, 4.5f);
         List<Circle> circles = new List<Circle>();
 
-        int orbits = UnityEngine.Random.Range(1, 4);
+        int orbits = UnityEngine.Random.Range(3, 10);
 
         for (int i = 0; i < orbits; i++)
         {
@@ -98,11 +104,11 @@ public class CornCoordinatorByWeight : MonoBehaviour
             // Random position on the perimeter of each circle to end the path.
             Vector2 startPos = Path.RotateVector2(pathDirection, randomAngle) * center.radius + startDir;
             
-            randomAngle = UnityEngine.Random.Range(-15f, 15f);
+            randomAngle = UnityEngine.Random.Range(-5f, 5f);
             Vector2 endPos = Path.RotateVector2(-pathDirection, randomAngle) * orbit.radius + endDir;
 
             // Radius of the path or half the width of the path. Used to mark tiles for clearing.
-            float boundCheckRadius = UnityEngine.Random.Range(1f, Mathf.Min(orbit.radius, center.radius));
+            float boundCheckRadius = UnityEngine.Random.Range(minPathWidth, maxPathWidth);
             paths.Add(new Path(startPos, startDir, endPos, endDir, boundCheckRadius));
         }
 
@@ -189,7 +195,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         Func<Vector2, bool> canRemove = (Vector2 pos) => {
             foreach (Path p in paths)
             {
-                IEnumerator<Vector2> enumerator = p.Iterate(0.9f);
+                IEnumerator<Vector2> enumerator = p.Iterate(0.95f);
                 while(enumerator.MoveNext())
                 {
                     Vector2 point = enumerator.Current;

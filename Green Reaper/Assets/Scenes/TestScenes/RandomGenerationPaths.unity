@@ -711,6 +711,8 @@ MonoBehaviour:
   corn2Threshold: 0.527
   corn3Threshold: 0.621
   drawPaths: 1
+  minPathWidth: 1
+  maxPathWidth: 2
 --- !u!4 &487789221
 Transform:
   m_ObjectHideFlags: 0
