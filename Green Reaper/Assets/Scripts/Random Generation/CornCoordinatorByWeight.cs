@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
 public class CornCoordinatorByWeight : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField, Range(0, 1)]
     private float corn3Threshold = 0.8f;
 
+    [SerializeField]
+    private bool drawPaths = false;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +52,40 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
         for (int i = 0; i < blurIterations; i++)
             weightMap = GaussianBlur.BlurMap(ref weightMap);
+
+
+        if (drawPaths)
+        {
+            Circle center = new Circle(new Vector2(weightMap.GetLength(0), weightMap.GetLength(1)) / 2f, 4.5f);
+            List<Circle> circles = new List<Circle>();
+
+            int orbits = UnityEngine.Random.Range(1, 4);
+
+            for (int i = 0; i < orbits; i++)
+            {
+                circles.Add(new Circle(new Vector2(weightMap.GetLength(0) * UnityEngine.Random.value, weightMap.GetLength(1) * UnityEngine.Random.value), UnityEngine.Random.Range(2f, 6f)));
+            }
+            //Center must come after orbits to not mess with path generation.
+            circles.Add(center);
+
+            List<Path> paths = new List<Path>();
+
+            for (int i = 0; i < orbits; i++)
+            {
+                Circle orbit = circles[i];
+                Vector2 startDir = center.center;
+                Vector2 endDir = orbit.center;
+
+                Vector2 pathDirection = (endDir - startDir).normalized;
+                Vector2 startPos = Path.RotateVector2(pathDirection, UnityEngine.Random.Range(-15f, 15f))*center.radius;
+                Vector2 endPos = Path.RotateVector2(-pathDirection, UnityEngine.Random.Range(-15f, 15f))*orbit.radius;
+
+                paths.Add(new Path(startPos, startDir, endPos, endDir, UnityEngine.Random.Range(1f, Mathf.Min(orbit.radius, center.radius))));
+            }
+
+            RemoveByCircles(circles, weightMap);
+            RemoveByPaths(paths, weightMap);
+        }
 
         PaintTiles();
         PaintCorn();
@@ -105,5 +142,44 @@ public class CornCoordinatorByWeight : MonoBehaviour
                 }
             }
         }
+    }
+
+    private static void RemoveByCondition(Func<Vector2, bool> canRemove, float[,] weightMap)
+    {
+        for (int x = 0; x < weightMap.GetLength(0); x++)
+            for (int y = 0; y < weightMap.GetLength(1); y++)
+                if (weightMap[x, y] != 0 && canRemove(new Vector2(x, y)))
+                    weightMap[x, y] = 0;
+    }
+
+    private static void RemoveByCircles(IEnumerable<Circle> circles, float[,] weightMap)
+    {
+        Func<Vector2, bool> canRemove = (Vector2 pos) =>{
+            foreach (Circle c in circles)
+                if (c.InRange(pos))
+                    return true;
+            return false;
+        };
+
+        RemoveByCondition(canRemove, weightMap);
+    }
+
+    private static void RemoveByPaths(IEnumerable<Path> paths, float[,] weightMap)
+    {
+        Func<Vector2, bool> canRemove = (Vector2 pos) => {
+            foreach (Path p in paths)
+            {
+                IEnumerator<Vector2> enumerator = p.Iterate(0.9f);
+                while(enumerator.MoveNext())
+                {
+                    Vector2 point = enumerator.Current;
+                    if (new Circle(point, p.radius).InRange(pos))
+                        return true;
+                }
+            }
+            return false;
+        };
+
+        RemoveByCondition(canRemove, weightMap);
     }
 }
