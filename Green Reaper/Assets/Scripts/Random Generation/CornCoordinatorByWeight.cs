@@ -96,10 +96,10 @@ public class CornCoordinatorByWeight : MonoBehaviour
             // Random angle to offset the end point on the permiter of each circle. Generally prevents paths from becoming straight. 
             float randomAngle = UnityEngine.Random.Range(-15f, 15f);
             // Random position on the perimeter of each circle to end the path.
-            Vector2 startPos = Path.RotateVector2(pathDirection, randomAngle) * center.radius;
+            Vector2 startPos = Path.RotateVector2(pathDirection, randomAngle) * center.radius + startDir;
             
             randomAngle = UnityEngine.Random.Range(-15f, 15f);
-            Vector2 endPos = Path.RotateVector2(-pathDirection, randomAngle) * orbit.radius;
+            Vector2 endPos = Path.RotateVector2(-pathDirection, randomAngle) * orbit.radius + endDir;
 
             // Radius of the path or half the width of the path. Used to mark tiles for clearing.
             float boundCheckRadius = UnityEngine.Random.Range(1f, Mathf.Min(orbit.radius, center.radius));
