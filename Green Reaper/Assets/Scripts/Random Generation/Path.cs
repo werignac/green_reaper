@@ -87,4 +87,36 @@ public class Path
     {
         return (v2.y - v1.y) / (v2.x - v1.x);
     }
+
+    public bool InRange(Vector2 point, int numberOfRecurses)
+    {
+        Vector2 rotatedPoint = RotateVector2(point, angle);
+
+        float min = rotatedPoint.x - radius;
+        float max = rotatedPoint.x + radius;
+
+        float distanceAtMin = Vector2.Distance(rotatedPoint, new Vector2(min, (float)polynomial.Evaluate(min)));
+        float distanceAtMax = Vector2.Distance(rotatedPoint, new Vector2(max, (float)polynomial.Evaluate(max)));
+
+        float minDistance = ApproximateMinDistanceRec(rotatedPoint, numberOfRecurses, min, max);
+        minDistance = Mathf.Min(minDistance, distanceAtMin);
+        minDistance = Mathf.Min(minDistance, distanceAtMax);
+
+        return minDistance < radius;
+    }
+
+    private float ApproximateMinDistanceRec(Vector2 rotatedPoint, int numberOfRecurses, float min, float max)
+    {
+        float xValue = (max + min) / 2;
+
+        float distance = Vector2.Distance(rotatedPoint, new Vector2(xValue, (float) polynomial.Evaluate(xValue)));
+
+        if (numberOfRecurses > 1)
+        {
+            distance = Mathf.Min(distance, ApproximateMinDistanceRec(rotatedPoint, numberOfRecurses - 1, min, xValue));
+            distance = Mathf.Min(distance, ApproximateMinDistanceRec(rotatedPoint, numberOfRecurses - 1, xValue, max));
+        }
+
+        return distance;
+    }
 }

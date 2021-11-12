@@ -73,11 +73,11 @@ public class TileGradientVisualizer : MonoBehaviour
             Vector2 pathDirection = (endDir - startDir).normalized;
 
             // Random angle to offset the end point on the permiter of each circle. Generally prevents paths from becoming straight. 
-            float randomAngle = UnityEngine.Random.Range(-15f, 15f);
+            float randomAngle = UnityEngine.Random.Range(-15f, 15f) * Mathf.Deg2Rad;
             // Random position on the perimeter of each circle to end the path.
             Vector2 startPos = Path.RotateVector2(pathDirection, randomAngle) * center.radius + startDir;
 
-            randomAngle = UnityEngine.Random.Range(-5f, 5f);
+            randomAngle = UnityEngine.Random.Range(-15f, 15f) * Mathf.Deg2Rad;
             Vector2 endPos = Path.RotateVector2(-pathDirection, randomAngle) * orbit.radius + endDir;
 
             // Radius of the path or half the width of the path. Used to mark tiles for clearing.
@@ -147,13 +147,8 @@ public class TileGradientVisualizer : MonoBehaviour
         Func<Vector2, bool> canRemove = (Vector2 pos) => {
             foreach (Path p in paths)
             {
-                IEnumerator<Vector2> enumerator = p.Iterate(0.95f);
-                while (enumerator.MoveNext())
-                {
-                    Vector2 point = enumerator.Current;
-                    if (new Circle(point, p.radius).InRange(pos))
-                        return true;
-                }
+                if (p.InRange(pos, 4))
+                    return true;
             }
             return false;
         };
