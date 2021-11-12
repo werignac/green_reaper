@@ -76,4 +76,9 @@ public class GameManager : MonoBehaviour
     {
         procedural = newProcedural;
     }
+
+    public bool GetProcedural()
+    {
+        return procedural;
+    }
 }
