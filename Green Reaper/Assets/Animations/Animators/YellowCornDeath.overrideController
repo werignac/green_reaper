@@ -9,5 +9,5 @@ AnimatorOverrideController:
   m_Name: YellowCornDeath
   m_Controller: {fileID: 9100000, guid: d8982b1da4fc9bc4a97c89313c824fe5, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: f52189b675f8fb74380854eec57e3153, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: eaebc40bc73238945808edcef01251c4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 12a1e85f1f4d34525b57984c16b127f4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ad55dbc9659344a308394582b887efeb, type: 2}

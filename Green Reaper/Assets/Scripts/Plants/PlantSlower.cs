@@ -29,15 +29,14 @@ public class PlantSlower : MonoBehaviour
         PlayerController controller = other.gameObject.GetComponent<PlayerController>();
         DepthOrganizer playerOrganizer = other.gameObject.GetComponent<DepthOrganizer>();
 
-
         if (controller != null)
         {
             float playerHeight = playerOrganizer.GetOrigin().y;
             float heightDiff =  playerHeight - organizer.GetOrigin().y;
 
-            dimmer?.SetDim(heightDiff > 0);            
+            dimmer?.SetDim(heightDiff > 0);
 
-            if (heightDiff < distInBack && heightDiff > -distInFront)
+            if (heightDiff < distInBack * organizer.GetHeight() && heightDiff > -distInFront * organizer.GetHeight())
                 EnterPlant(controller);
             else
                 ExitPlant(controller.gameObject);
@@ -76,7 +75,9 @@ public class PlantSlower : MonoBehaviour
     private void EnterPlant(GameObject toEnter)
     {
         if (!contacts.Contains(toEnter))
+        {
             contacts.Add(toEnter);
+        }
     }
 
     private void ExitPlant(GameObject toExit)
@@ -84,8 +85,10 @@ public class PlantSlower : MonoBehaviour
         if (contacts.Contains(toExit))
         {
             contacts.Remove(toExit.gameObject);
-            dimmer?.SetDim(false);
         }
+
+        if (contacts.Count == 0)
+            dimmer?.SetDim(false);
     }
 
     public bool InContact(GameObject g)
