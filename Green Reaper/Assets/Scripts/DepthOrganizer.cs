@@ -51,7 +51,12 @@ public class DepthOrganizer : MonoBehaviour
 
     private static float ApproxHeightFromRenderer(SpriteRenderer renderer)
     {
-        return renderer.bounds.size.y * renderer.transform.lossyScale.y / 2;
+        return renderer.bounds.size.y;
+    }
+
+    public float GetHeight()
+    {
+        return 2 * (transform.position.y - GetOrigin().y);
     }
 
     public Vector3 GetOrigin()
