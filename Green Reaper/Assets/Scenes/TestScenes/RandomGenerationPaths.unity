@@ -708,8 +708,8 @@ MonoBehaviour:
   corn3: {fileID: 6294569157566338346, guid: bbd2c0cc77011c942bdbf07fc916948d, type: 3}
   sewThreshold: 0.435
   corn1Threshold: 0.435
-  corn2Threshold: 0.527
-  corn3Threshold: 0.621
+  corn2Threshold: 0.517
+  corn3Threshold: 0.552
   drawPaths: 1
   minPathWidth: 1
   maxPathWidth: 2
