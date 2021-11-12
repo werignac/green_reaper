@@ -711,8 +711,14 @@ MonoBehaviour:
   corn2Threshold: 0.517
   corn3Threshold: 0.552
   drawPaths: 1
-  minPathWidth: 1
-  maxPathWidth: 2
+  minPathWidth: 1.5
+  maxPathWidth: 3.76
+  minOrbits: 5
+  maxOrbits: 8
+  minOrbitRadius: 2
+  maxOrbitRadius: 4
+  minOrbitDistance: 20
+  maxOrbitDistance: 30
 --- !u!4 &487789221
 Transform:
   m_ObjectHideFlags: 0

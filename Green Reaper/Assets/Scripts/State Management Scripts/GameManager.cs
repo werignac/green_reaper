@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     private GameObject winState;
 
+    private bool procedural = false;
+
     void Start()
     {
         upgrades = new UpgradeHolder();
@@ -35,12 +37,15 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadFarm()
     {
-        SceneManager.LoadScene(1);
+        if (procedural)
+            SceneManager.LoadScene(2);
+        else
+            SceneManager.LoadScene(1);
     }
 
     public void LoadHouse()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     /// <summary>
@@ -65,5 +70,10 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         LoadMainMenu();
-    }    
+    }
+
+    public void SetProcedural(bool newProcedural)
+    {
+        procedural = newProcedural;
+    }
 }

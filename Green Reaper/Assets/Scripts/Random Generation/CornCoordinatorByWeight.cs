@@ -44,11 +44,26 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField]
     private bool drawPaths = false;
 
-    [SerializeField]
+    [SerializeField, Range(0, 5)]
     private float minPathWidth;
-
-    [SerializeField]
+    [SerializeField, Range(0, 5)]
     private float maxPathWidth;
+
+    [SerializeField, Range(3, 10)]
+    private int minOrbits;
+    [SerializeField, Range(3, 10)]
+    private int maxOrbits;
+
+    [SerializeField, Range(0,10)]
+    private float minOrbitRadius = 4;
+    [SerializeField, Range(0, 10)]
+    private float maxOrbitRadius = 10;
+
+    [SerializeField, Range(0, 1000)]
+    private float minOrbitDistance = 50f;
+    [SerializeField, Range(0, 1000)]
+    private float maxOrbitDistance = 100f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +73,6 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
         for (int i = 0; i < blurIterations; i++)
             weightMap = GaussianBlur.BlurMap(ref weightMap);
-
 
         if (drawPaths)
         {
@@ -72,14 +86,26 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private void GeneratePaths()
     {
         // Center circle always around player start.
-        Circle center = new Circle(new Vector2(weightMap.GetLength(0), weightMap.GetLength(1)) / 2f, 4.5f);
+        Circle center = new Circle(new Vector2(weightMap.GetLength(0), weightMap.GetLength(1)) / 2f, 5);
         List<Circle> circles = new List<Circle>();
 
-        int orbits = UnityEngine.Random.Range(3, 10);
+        int orbits = UnityEngine.Random.Range(minOrbits, maxOrbits);
+
+        float randomAngleFromCenter = UnityEngine.Random.Range(0, 2f * Mathf.PI);
+        float meanAngleAdd = 2 * Mathf.PI / orbits;
 
         for (int i = 0; i < orbits; i++)
         {
-            circles.Add(new Circle(new Vector2(weightMap.GetLength(0) * UnityEngine.Random.value, weightMap.GetLength(1) * UnityEngine.Random.value), UnityEngine.Random.Range(2f, 6f)));
+            randomAngleFromCenter += UnityEngine.Random.Range(meanAngleAdd * 0.5f, meanAngleAdd * 1.5f);
+            
+            Vector2 orbitCenter = Vector2.up * UnityEngine.Random.Range(minOrbitDistance, maxOrbitDistance);
+            orbitCenter = Path.RotateVector2(orbitCenter, randomAngleFromCenter);
+
+            //Making the spawn region into an ellipse.
+            float ratio = weightMap.GetLength(1) / (float) weightMap.GetLength(0);
+            orbitCenter = new Vector2(orbitCenter.x, orbitCenter.y * ratio);
+
+            circles.Add(new Circle(orbitCenter + center.center, UnityEngine.Random.Range(minOrbitRadius, maxOrbitRadius)));
         }
         
         //Center must come after orbits to not mess with path generation.
@@ -100,15 +126,15 @@ public class CornCoordinatorByWeight : MonoBehaviour
             Vector2 pathDirection = (endDir - startDir).normalized;
 
             // Random angle to offset the end point on the permiter of each circle. Generally prevents paths from becoming straight. 
-            float randomAngle = UnityEngine.Random.Range(-15f, 15f);
+            float randomAngle = UnityEngine.Random.Range(-15f, 15f) * Mathf.Deg2Rad;
             // Random position on the perimeter of each circle to end the path.
             Vector2 startPos = Path.RotateVector2(pathDirection, randomAngle) * center.radius + startDir;
             
-            randomAngle = UnityEngine.Random.Range(-5f, 5f);
+            randomAngle = UnityEngine.Random.Range(-15f, 15f) * Mathf.Deg2Rad;
             Vector2 endPos = Path.RotateVector2(-pathDirection, randomAngle) * orbit.radius + endDir;
 
             // Radius of the path or half the width of the path. Used to mark tiles for clearing.
-            float boundCheckRadius = UnityEngine.Random.Range(minPathWidth, maxPathWidth);
+            float boundCheckRadius = UnityEngine.Random.Range(minPathWidth, Math.Min(maxPathWidth, orbit.radius/2));
             paths.Add(new Path(startPos, startDir, endPos, endDir, boundCheckRadius));
         }
 
@@ -195,13 +221,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
         Func<Vector2, bool> canRemove = (Vector2 pos) => {
             foreach (Path p in paths)
             {
-                IEnumerator<Vector2> enumerator = p.Iterate(0.95f);
-                while(enumerator.MoveNext())
-                {
-                    Vector2 point = enumerator.Current;
-                    if (new Circle(point, p.radius).InRange(pos))
-                        return true;
-                }
+                if (p.InRange(pos, 4))
+                    return true;
             }
             return false;
         };

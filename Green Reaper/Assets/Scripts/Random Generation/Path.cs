@@ -95,6 +95,9 @@ public class Path
         float min = rotatedPoint.x - radius;
         float max = rotatedPoint.x + radius;
 
+        max = Mathf.Min(max, end);
+        min = Mathf.Max(min, start);
+
         float distanceAtMin = Vector2.Distance(rotatedPoint, new Vector2(min, (float)polynomial.Evaluate(min)));
         float distanceAtMax = Vector2.Distance(rotatedPoint, new Vector2(max, (float)polynomial.Evaluate(max)));
 
