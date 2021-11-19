@@ -9,20 +9,25 @@ public class CornCoordinatorByWeight : MonoBehaviour
     public BinaryGoLTilemapGenerator weightGenerator;
     public float TileMapXScaleFactor;
     public float TileMapYScaleFactor;
-    public Tilemap cornTileMap;
+    public int mapBorderSize;
+
 
     [SerializeField]
     private uint blurIterations = 1;
-
     private float[,] weightMap;
 
-
+    [SerializeField]
+    private Tilemap cornTileMap;
     [SerializeField]
     private Tilemap background;
+    [SerializeField]
+    private Tilemap fenceTileMap;
     [SerializeField]
     private Tile foregroundTile;
     [SerializeField]
     private RuleTile backgroundTile;
+    [SerializeField]
+    private RuleTile fenceTile;
 
     [SerializeField]
     private GameObject corn1;
@@ -54,7 +59,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField, Range(3, 10)]
     private int maxOrbits;
 
-    [SerializeField, Range(0,10)]
+    [SerializeField, Range(0, 10)]
     private float minOrbitRadius = 4;
     [SerializeField, Range(0, 10)]
     private float maxOrbitRadius = 10;
@@ -80,6 +85,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         }
 
         PaintTiles();
+        PaintFences();
         PaintCorn();
     }
 
@@ -97,17 +103,17 @@ public class CornCoordinatorByWeight : MonoBehaviour
         for (int i = 0; i < orbits; i++)
         {
             randomAngleFromCenter += UnityEngine.Random.Range(meanAngleAdd * 0.5f, meanAngleAdd * 1.5f);
-            
+
             Vector2 orbitCenter = Vector2.up * UnityEngine.Random.Range(minOrbitDistance, maxOrbitDistance);
             orbitCenter = Path.RotateVector2(orbitCenter, randomAngleFromCenter);
 
             //Making the spawn region into an ellipse.
-            float ratio = weightMap.GetLength(1) / (float) weightMap.GetLength(0);
+            float ratio = weightMap.GetLength(1) / (float)weightMap.GetLength(0);
             orbitCenter = new Vector2(orbitCenter.x, orbitCenter.y * ratio);
 
             circles.Add(new Circle(orbitCenter + center.center, UnityEngine.Random.Range(minOrbitRadius, maxOrbitRadius)));
         }
-        
+
         //Center must come after orbits to not mess with path generation.
         circles.Add(center);
 
@@ -117,7 +123,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         for (int i = 0; i < orbits; i++)
         {
             Circle orbit = circles[i];
-            
+
             // Center of each circle to connect the path to. Used to direct path when connecting to either circle's perimeter.
             Vector2 startDir = center.center;
             Vector2 endDir = orbit.center;
@@ -129,12 +135,12 @@ public class CornCoordinatorByWeight : MonoBehaviour
             float randomAngle = UnityEngine.Random.Range(-15f, 15f) * Mathf.Deg2Rad;
             // Random position on the perimeter of each circle to end the path.
             Vector2 startPos = Path.RotateVector2(pathDirection, randomAngle) * center.radius + startDir;
-            
+
             randomAngle = UnityEngine.Random.Range(-15f, 15f) * Mathf.Deg2Rad;
             Vector2 endPos = Path.RotateVector2(-pathDirection, randomAngle) * orbit.radius + endDir;
 
             // Radius of the path or half the width of the path. Used to mark tiles for clearing.
-            float boundCheckRadius = UnityEngine.Random.Range(minPathWidth, Math.Min(maxPathWidth, orbit.radius/2));
+            float boundCheckRadius = UnityEngine.Random.Range(minPathWidth, Math.Min(maxPathWidth, orbit.radius / 2));
             paths.Add(new Path(startPos, startDir, endPos, endDir, boundCheckRadius));
         }
 
@@ -147,11 +153,19 @@ public class CornCoordinatorByWeight : MonoBehaviour
         // The x and y positions need to be centered to the middle of the tileMap.
         Vector3Int centerOffset = new Vector3Int(weightGenerator.tmWidth / 2, weightGenerator.tmHeight / 2, 0);
 
-        for (int x = 0; x < weightMap.GetLength(0); ++x)
+        // Paints the entire background including the border tiles.
+        for (int x = -mapBorderSize; x < weightMap.GetLength(0) + mapBorderSize; ++x)
         {
-            for (int y = 0; y < weightMap.GetLength(1); ++y)
+            for (int y = -mapBorderSize; y < weightMap.GetLength(1) + mapBorderSize; ++y)
             {
                 Vector3Int centeredPosition = new Vector3Int(-x, -y, 0) + centerOffset;
+
+                // Checks for and paints border tiles. Prevents index out of bounds on the weightMap.
+                if (x < 0 || x >= weightMap.GetLength(0) || y < 0 || y >= weightMap.GetLength(1))
+                {
+                    background.SetTile(centeredPosition, backgroundTile);
+                    continue;
+                }
 
                 // If the tile is alive, place foreground tile.
                 if (weightMap[x, y] > sewThreshold)
@@ -160,6 +174,52 @@ public class CornCoordinatorByWeight : MonoBehaviour
                     background.SetTile(centeredPosition, backgroundTile);
             }
         }
+    }
+
+    /// <summary>
+    /// The coordinates of the tiles are flipped in both the x and y values.
+    /// This is required for proper centering, but means that (0,0) is the top right of the tilemap.
+    /// Comments describe which side they paint after the flipping has occured.
+    /// </summary>
+    private void PaintFences()
+    {
+        // The x and y positions need to be centered to the middle of the tileMap.
+        Vector3Int centerOffset = new Vector3Int(weightGenerator.tmWidth / 2, weightGenerator.tmHeight / 2, 0);
+
+        int x, y;
+
+        // Paints the right side of the fence vertically.  
+        for (y = -1, x = -1; y < weightMap.GetLength(1) + 1; ++y)
+        {
+            Vector3Int centeredPosition = new Vector3Int(-x, -y, 0) + centerOffset;
+
+            fenceTileMap.SetTile(centeredPosition, fenceTile);
+        }
+
+        // Paints the left side of the fence vertically.  
+        for (y = -1, x = weightMap.GetLength(0); y < weightMap.GetLength(1) + 1; ++y)
+        {
+            Vector3Int centeredPosition = new Vector3Int(-x, -y, 0) + centerOffset;
+
+            fenceTileMap.SetTile(centeredPosition, fenceTile);
+        }
+
+        // Paints the top side of the fence Horizontally.  
+        for (y = -1, x = -1; x < weightMap.GetLength(0) + 1; ++x)
+        {
+            Vector3Int centeredPosition = new Vector3Int(-x, -y, 0) + centerOffset;
+
+            fenceTileMap.SetTile(centeredPosition, fenceTile);
+        }
+
+        // Paints the top side of the fence Horizontally.  
+        for (y = weightMap.GetLength(1), x = -1; x < weightMap.GetLength(0) + 1; ++x)
+        {
+            Vector3Int centeredPosition = new Vector3Int(-x, -y, 0) + centerOffset;
+
+            fenceTileMap.SetTile(centeredPosition, fenceTile);
+        }
+
     }
 
     private void PaintCorn()
@@ -206,7 +266,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
     private static void RemoveByCircles(IEnumerable<Circle> circles, float[,] weightMap)
     {
-        Func<Vector2, bool> canRemove = (Vector2 pos) =>{
+        Func<Vector2, bool> canRemove = (Vector2 pos) =>
+        {
             foreach (Circle c in circles)
                 if (c.InRange(pos))
                     return true;
@@ -218,7 +279,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
     private static void RemoveByPaths(IEnumerable<Path> paths, float[,] weightMap)
     {
-        Func<Vector2, bool> canRemove = (Vector2 pos) => {
+        Func<Vector2, bool> canRemove = (Vector2 pos) =>
+        {
             foreach (Path p in paths)
             {
                 if (p.InRange(pos, 4))
