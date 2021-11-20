@@ -91,6 +91,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         PaintTiles();
         PaintFences();
         PaintCorn();
+        
         // Paint house.
         Instantiate(house, housePosition, Quaternion.identity);
     }
