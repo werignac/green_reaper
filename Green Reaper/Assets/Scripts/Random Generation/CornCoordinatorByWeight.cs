@@ -28,6 +28,10 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private RuleTile backgroundTile;
     [SerializeField]
     private RuleTile fenceTile;
+    [SerializeField]
+    private GameObject house;
+    [SerializeField]
+    private Vector3 housePosition;
 
     [SerializeField]
     private GameObject corn1;
@@ -87,6 +91,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
         PaintTiles();
         PaintFences();
         PaintCorn();
+        // Paint house.
+        Instantiate(house, housePosition, Quaternion.identity);
     }
 
     private void GeneratePaths()
@@ -219,7 +225,6 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
             fenceTileMap.SetTile(centeredPosition, fenceTile);
         }
-
     }
 
     private void PaintCorn()
