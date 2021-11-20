@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject winState;
 
+    [SerializeField]
     private bool procedural = false;
 
     void Start()
