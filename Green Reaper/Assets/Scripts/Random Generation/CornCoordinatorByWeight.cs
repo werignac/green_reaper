@@ -45,6 +45,11 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private GameObject pumpkin;
     [SerializeField]
     private int maxNumberOfPowerUps;
+    
+    [SerializeField]
+    private int numberOfRootMonsters;
+    [SerializeField]
+    private GameObject rootMonster;
 
 
     [SerializeField, Range(0, 1)]
@@ -94,9 +99,12 @@ public class CornCoordinatorByWeight : MonoBehaviour
             GeneratePaths();
         }
 
+        // Powerups and Root Monsters must be generated before corn is painted to function properly.
+        GeneratePowerups();
+        GenerateRootMonsters();
+
         PaintTiles();
         PaintFences();
-        GeneratePowerups(); // Powerups must be generated before corn is painted to function properly.
         PaintCorn();
     }
 
@@ -391,15 +399,15 @@ public class CornCoordinatorByWeight : MonoBehaviour
         switch (type)
         {
             case UpgradeHolder.UpgradeType.PEPPERPROBABILITY:
-                SpawnPowerup(ghostPepper);
+                SpawnPrefab(ghostPepper);
                 break;
 
             case UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY:
-                SpawnPowerup(zucchini);
+                SpawnPrefab(zucchini);
                 break;
 
             case UpgradeHolder.UpgradeType.PUMPKINPROBABILITY:
-                SpawnPowerup(pumpkin);
+                SpawnPrefab(pumpkin);
                 break;
 
             default:
@@ -412,8 +420,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
     /// Alters the Weight map so that corn does not spawn on the same tile as a powerup.
     /// Only spawns powerups where corn would have spawned so that powerups are not found in the middle of nowhere.
     /// </summary>
-    /// <param name="powerup">Powerup to be spawned.</param>
-    private void SpawnPowerup(GameObject powerup)
+    /// <param name="prefab">Powerup to be spawned.</param>
+    private void SpawnPrefab(GameObject prefab)
     {
         int xPos = 0;
         int yPos = 0;
@@ -429,6 +437,16 @@ public class CornCoordinatorByWeight : MonoBehaviour
         weightMap[xPos, yPos] = 0f;
 
         // Creates the object at the random position.
-        PlaceGameObjectOnTile(powerup, xPos, yPos);
+        PlaceGameObjectOnTile(prefab, xPos, yPos);
+    }
+
+    /// <summary>
+    /// Replaces corn with root monsters.
+    /// Must be performed before corn is placed becausee the weight map is altered.
+    /// </summary>
+    private void GenerateRootMonsters()
+    {
+        for (int i = 0; i < numberOfRootMonsters; i++)
+            SpawnPrefab(rootMonster);
     }
 }
