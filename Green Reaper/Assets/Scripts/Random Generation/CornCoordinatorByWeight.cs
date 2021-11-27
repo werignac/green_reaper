@@ -8,14 +8,14 @@ using System;
 public class CornCoordinatorByWeight : MonoBehaviour
 {
     public BinaryGoLTilemapGenerator weightGenerator;
-    public float TileMapXScaleFactor;
-    public float TileMapYScaleFactor;
-    public int mapBorderSize;
+    
 
 
     [SerializeField]
     private uint blurIterations = 1;
     private float[,] weightMap;
+    [SerializeField]
+    private int mapBorderSize;
 
     [SerializeField]
     private Tilemap cornTileMap;
@@ -96,9 +96,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
         PaintTiles();
         PaintFences();
-
-        // Powerups must be generated before corn is painted to function properly.
-        GeneratePowerups();
+        GeneratePowerups(); // Powerups must be generated before corn is painted to function properly.
         PaintCorn();
     }
 
@@ -161,6 +159,10 @@ public class CornCoordinatorByWeight : MonoBehaviour
         RemoveByPaths(paths, weightMap);
     }
 
+    /// <summary>
+    /// Paints a border around play area.
+    /// Paints foreground tiles where corn will be spawned and a background tile everywhere else.
+    /// </summary>
     private void PaintTiles()
     {
         // The x and y positions need to be centered to the middle of the tileMap.
@@ -234,6 +236,9 @@ public class CornCoordinatorByWeight : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Using the weight map the corn is painted.
+    /// </summary>
     private void PaintCorn()
     {
         for (int x = 0; x < weightMap.GetLength(0); x++)
@@ -253,22 +258,25 @@ public class CornCoordinatorByWeight : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Places the object at the location of the given tile coordinates.
+    /// </summary>
+    /// <param name="prefab">Object to place.</param>
+    /// <param name="x">X index in the tilemap.</param>
+    /// <param name="y">Y index in the tilemap.</param>
     private void PlaceGameObjectOnTile(GameObject prefab, int x, int y)
-    {
-        // Not sure why I need these, but the position is off without them.
-        // Has something to do with the x and y values of the tilemap.
-        float xOffset = weightMap.GetLength(0) / 2 * TileMapXScaleFactor;
-        float yOffset = weightMap.GetLength(1) / 2 * TileMapYScaleFactor;
+    { 
+        // This works for square weightMaps. I have no clue why I need to add or subtract depending on the apsect ratio of the weight map.
+        int lastXIndex = weightMap.GetLength(0) + 1;
+        int lastYIndex = weightMap.GetLength(1) + 1;
+        
+        // Get the position of the last tile in the map. Divide it's position by 2 to get the center index.
+        Vector3 centerOffset = cornTileMap.CellToWorld(new Vector3Int(lastXIndex, lastYIndex, 0)) * 0.5f;
 
         // Used to index the tilemap to find the world position of the cell.
-        Vector3 worldCoordinate = cornTileMap.GetCellCenterWorld(new Vector3Int(x, y, 0));
+        Vector3 worldCoordinate = cornTileMap.CellToWorld(new Vector3Int(x, y, 0)) * -1;
 
-        float xPos = -worldCoordinate.x + xOffset;
-        float yPos = -worldCoordinate.y + yOffset;
-
-        // The x and y positions need to be centered to the middle of the tileMap.
-        Vector3 centeredPosition = new Vector3(xPos, yPos, 0);
+        Vector3 centeredPosition = worldCoordinate + centerOffset;
 
         Instantiate(prefab, centeredPosition, Quaternion.identity);
     }
@@ -310,6 +318,9 @@ public class CornCoordinatorByWeight : MonoBehaviour
         RemoveByCondition(canRemove, weightMap);
     }
 
+    /// <summary>
+    /// Generates powerups and their locations. Alters the weight map so this must be called before corn generation.
+    /// </summary>
     private void GeneratePowerups()
     {
         Dictionary<UpgradeHolder.UpgradeType, float> powerUps = new Dictionary<UpgradeHolder.UpgradeType, float>();
@@ -332,12 +343,12 @@ public class CornCoordinatorByWeight : MonoBehaviour
         {
             randomWeight = UnityEngine.Random.Range(0, totalWeight);
 
-            // For each powerup type that needs to be spawned.
+            // This is the weighted value calculation.
             foreach (UpgradeHolder.UpgradeType upType in powerUps.Keys)
             {
                 if (randomWeight <= powerUps[upType] && powerUps[upType] != 0)
                 {
-                    DeterminePowerupToSpawn(upType);
+                    DeterminePowerupAndSpawn(upType);
                     break;
                 }
 
@@ -347,6 +358,12 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Sums the weights of all the spawnable powerups.
+    /// Populates the dictionary with the powerup type as the key and weight as the value.
+    /// </summary>
+    /// <param name="powerUps">Dictionary to populate.</param>
+    /// <returns>The total weight of all the spawnable powerup types.</returns>
     private float SumWeightsAndPopulateDictionary(Dictionary<UpgradeHolder.UpgradeType, float> powerUps)
     {
         float totalWeight = 0;
@@ -359,14 +376,17 @@ public class CornCoordinatorByWeight : MonoBehaviour
             float upgradeWeight = GameManager.instance.upgrades.GetMultiplier(upgradeType);
             totalWeight += upgradeWeight;
 
-
             powerUps.Add(upgradeType, upgradeWeight);
         }
 
         return totalWeight;
     }
 
-    private void DeterminePowerupToSpawn(UpgradeHolder.UpgradeType type)
+    /// <summary>
+    /// Determines the type of upgrade passed and spawns the cooresponding powerup.
+    /// </summary>
+    /// <param name="type">The type of upgrade to be spawned.</param>
+    private void DeterminePowerupAndSpawn(UpgradeHolder.UpgradeType type)
     {
         switch (type)
         {
@@ -387,6 +407,12 @@ public class CornCoordinatorByWeight : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Spawns the given powerup.
+    /// Alters the Weight map so that corn does not spawn on the same tile as a powerup.
+    /// Only spawns powerups where corn would have spawned so that powerups are not found in the middle of nowhere.
+    /// </summary>
+    /// <param name="powerup">Powerup to be spawned.</param>
     private void SpawnPowerup(GameObject powerup)
     {
         int xPos = 0;

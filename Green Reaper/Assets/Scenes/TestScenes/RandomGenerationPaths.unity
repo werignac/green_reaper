@@ -908,10 +908,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weightGenerator: {fileID: 1208429301}
-  TileMapXScaleFactor: 5.25
-  TileMapYScaleFactor: 5.34
-  mapBorderSize: 10
   blurIterations: 1
+  mapBorderSize: 10
   cornTileMap: {fileID: 772696887}
   background: {fileID: 1050145745}
   fenceTileMap: {fileID: 50254984}
@@ -2332,7 +2330,7 @@ MonoBehaviour:
   birthLimit: 1
   deathLimit: 6
   numberOfRepititons: 3
-  tileMapSize: {x: 75, y: 50, z: 0}
+  tileMapSize: {x: 50, y: 50, z: 0}
   foreground: {fileID: 772696887}
   background: {fileID: 1050145745}
 --- !u!4 &1208429302
