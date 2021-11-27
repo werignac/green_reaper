@@ -2330,7 +2330,7 @@ MonoBehaviour:
   birthLimit: 1
   deathLimit: 6
   numberOfRepititons: 3
-  tileMapSize: {x: 50, y: 50, z: 0}
+  tileMapSize: {x: 70, y: 50, z: 0}
   foreground: {fileID: 772696887}
   background: {fileID: 1050145745}
 --- !u!4 &1208429302
