@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System;
 
+
 public class CornCoordinatorByWeight : MonoBehaviour
 {
     public BinaryGoLTilemapGenerator weightGenerator;
@@ -35,6 +36,15 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private GameObject corn2;
     [SerializeField]
     private GameObject corn3;
+
+    [SerializeField]
+    private GameObject ghostPepper;
+    [SerializeField]
+    private GameObject zucchini;
+    [SerializeField]
+    private GameObject pumpkin;
+    [SerializeField]
+    private int maxNumberOfPowerUps;
 
 
     [SerializeField, Range(0, 1)]
@@ -86,6 +96,9 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
         PaintTiles();
         PaintFences();
+
+        // Powerups must be generated before corn is painted to function properly.
+        GeneratePowerups();
         PaintCorn();
     }
 
@@ -170,7 +183,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
                 // If the tile is alive, place foreground tile.
                 if (weightMap[x, y] > sewThreshold)
                     background.SetTile(centeredPosition, foregroundTile);
-                else// Fill the background with the background tile.
+                else // Fill the background with the background tile.
                     background.SetTile(centeredPosition, backgroundTile);
             }
         }
@@ -223,35 +236,41 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
     private void PaintCorn()
     {
+        for (int x = 0; x < weightMap.GetLength(0); x++)
+        {
+            for (int y = 0; y < weightMap.GetLength(1); y++)
+            {
+                if (weightMap[x, y] > sewThreshold)
+                {
+                    if (weightMap[x, y] > corn3Threshold)
+                        PlaceGameObjectOnTile(corn3, x, y);
+                    else if (weightMap[x, y] > corn2Threshold)
+                        PlaceGameObjectOnTile(corn2, x, y);
+                    else if (weightMap[x, y] > corn1Threshold)
+                        PlaceGameObjectOnTile(corn1, x, y);
+                }
+            }
+        }
+    }
+
+
+    private void PlaceGameObjectOnTile(GameObject prefab, int x, int y)
+    {
         // Not sure why I need these, but the position is off without them.
         // Has something to do with the x and y values of the tilemap.
         float xOffset = weightMap.GetLength(0) / 2 * TileMapXScaleFactor;
         float yOffset = weightMap.GetLength(1) / 2 * TileMapYScaleFactor;
 
-        for (int x = 0; x < weightMap.GetLength(0); x++)
-        {
-            for (int y = 0; y < weightMap.GetLength(1); y++)
-            {
-                // Used to index the tilemap to find the world position of the cell.
-                Vector3 worldCoordinate = cornTileMap.GetCellCenterWorld(new Vector3Int(x, y, 0));
+        // Used to index the tilemap to find the world position of the cell.
+        Vector3 worldCoordinate = cornTileMap.GetCellCenterWorld(new Vector3Int(x, y, 0));
 
-                float xPos = -worldCoordinate.x + xOffset;
-                float yPos = -worldCoordinate.y + yOffset;
+        float xPos = -worldCoordinate.x + xOffset;
+        float yPos = -worldCoordinate.y + yOffset;
 
-                // The x and y positions need to be centered to the middle of the tileMap.
-                Vector3 centeredPosition = new Vector3(xPos, yPos, 0);
+        // The x and y positions need to be centered to the middle of the tileMap.
+        Vector3 centeredPosition = new Vector3(xPos, yPos, 0);
 
-                if (weightMap[x, y] > sewThreshold)
-                {
-                    if (weightMap[x, y] > corn3Threshold)
-                        Instantiate(corn3, centeredPosition, Quaternion.identity);
-                    else if (weightMap[x, y] > corn2Threshold)
-                        Instantiate(corn2, centeredPosition, Quaternion.identity);
-                    else if (weightMap[x, y] > corn1Threshold)
-                        Instantiate(corn1, centeredPosition, Quaternion.identity);
-                }
-            }
-        }
+        Instantiate(prefab, centeredPosition, Quaternion.identity);
     }
 
     private static void RemoveByCondition(Func<Vector2, bool> canRemove, float[,] weightMap)
@@ -289,5 +308,101 @@ public class CornCoordinatorByWeight : MonoBehaviour
         };
 
         RemoveByCondition(canRemove, weightMap);
+    }
+
+    private void GeneratePowerups()
+    {
+        Dictionary<UpgradeHolder.UpgradeType, float> powerUps = new Dictionary<UpgradeHolder.UpgradeType, float>();
+
+        float totalWeight = SumWeightsAndPopulateDictionary(powerUps);
+        float randomWeight;
+
+        UpgradeHolder upgrades = GameManager.instance.upgrades;
+
+        // Number of powerups increases with upgrade levels.
+        float sumOfLevels = upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PEPPERPROBABILITY) +
+            upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PUMPKINPROBABILITY) +
+            upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY);
+
+        // 9 total levels for the 3 types of plants. So when all powerups are the highest level the sumOfLevels = 9.
+        // This means that all the plants need to have the maximum number of upgrades to reach the maxNumberOfPowerups.
+        double scaledNumberOfPowerups = (maxNumberOfPowerUps * sumOfLevels / 9f);
+
+        for (int i = 0; i < scaledNumberOfPowerups; i++)
+        {
+            randomWeight = UnityEngine.Random.Range(0, totalWeight);
+
+            // For each powerup type that needs to be spawned.
+            foreach (UpgradeHolder.UpgradeType upType in powerUps.Keys)
+            {
+                if (randomWeight <= powerUps[upType] && powerUps[upType] != 0)
+                {
+                    DeterminePowerupToSpawn(upType);
+                    break;
+                }
+
+                randomWeight -= powerUps[upType];
+            }
+        }
+
+    }
+
+    private float SumWeightsAndPopulateDictionary(Dictionary<UpgradeHolder.UpgradeType, float> powerUps)
+    {
+        float totalWeight = 0;
+
+        //Get the weights for all powerups. 
+        for (int i = 4; i < 7; i++)
+        {
+            // Determine type and weight, then add the weight to the total.
+            UpgradeHolder.UpgradeType upgradeType = (UpgradeHolder.UpgradeType)i;
+            float upgradeWeight = GameManager.instance.upgrades.GetMultiplier(upgradeType);
+            totalWeight += upgradeWeight;
+
+
+            powerUps.Add(upgradeType, upgradeWeight);
+        }
+
+        return totalWeight;
+    }
+
+    private void DeterminePowerupToSpawn(UpgradeHolder.UpgradeType type)
+    {
+        switch (type)
+        {
+            case UpgradeHolder.UpgradeType.PEPPERPROBABILITY:
+                SpawnPowerup(ghostPepper);
+                break;
+
+            case UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY:
+                SpawnPowerup(zucchini);
+                break;
+
+            case UpgradeHolder.UpgradeType.PUMPKINPROBABILITY:
+                SpawnPowerup(pumpkin);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void SpawnPowerup(GameObject powerup)
+    {
+        int xPos = 0;
+        int yPos = 0;
+
+        // Randomize position until powerup replaces a corn. Prevents powerups from spawning in the middle of nowhere.
+        while(weightMap[xPos, yPos] < sewThreshold)
+        {
+            xPos = UnityEngine.Random.Range(0, weightMap.GetLength(0));
+            yPos = UnityEngine.Random.Range(0, weightMap.GetLength(1));
+        }
+
+        // Prevent corn from spawning on tile.
+        weightMap[xPos, yPos] = 0f;
+
+        // Creates the object at the random position.
+        PlaceGameObjectOnTile(powerup, xPos, yPos);
     }
 }

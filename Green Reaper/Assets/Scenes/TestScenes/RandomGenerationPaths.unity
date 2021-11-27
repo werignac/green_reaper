@@ -921,6 +921,10 @@ MonoBehaviour:
   corn1: {fileID: 2795396761242676467, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
   corn2: {fileID: 4994565295658247302, guid: dcb20cbb38930ec47be7965da426aeae, type: 3}
   corn3: {fileID: 6294569157566338346, guid: bbd2c0cc77011c942bdbf07fc916948d, type: 3}
+  ghostPepper: {fileID: 5943190593167004067, guid: b681a502e6e51f140b5cf79a204028b9, type: 3}
+  zucchini: {fileID: 1663862972957456031, guid: bc30f6313fedf244c9094ed8794f87d8, type: 3}
+  pumpkin: {fileID: 4250840628604653309, guid: 22fac01f7a02d9743835bf0e777a29cc, type: 3}
+  maxNumberOfPowerUps: 30
   sewThreshold: 0.435
   corn1Threshold: 0.435
   corn2Threshold: 0.517
@@ -2124,7 +2128,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxNumberOfPowerUps: 30
+  maxNumberOfPowerUps: 0
   PowerUpRangeX: {x: -185, y: 185}
   PowerUpRangeY: {x: 125, y: -115}
   pepperPrefab: {fileID: 5943190593167004067, guid: b681a502e6e51f140b5cf79a204028b9, type: 3}

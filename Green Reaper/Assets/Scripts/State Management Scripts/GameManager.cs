@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject winState;
 
-    [SerializeField]
+    
     private bool procedural = false;
 
     void Start()
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+        procedural = false;
     }
 
     private void OnLoadScene(Scene scene, LoadSceneMode mode)
