@@ -25,7 +25,9 @@ public class HarvestState : MonoBehaviour
     public UnityEvent<float> timePercentUpdate = new UnityEvent<float>();
 
     public PlayerController currentPlayer { get; private set; }
+    public GameObject playerInstance { get; private set; }
     public WeaponController currentWeapon { get; private set; }
+
 
     public UnityEvent<int> roundEnd = new UnityEvent<int>();
     public UnityEvent<int> scoreIncrement = new UnityEvent<int>();
@@ -104,7 +106,7 @@ public class HarvestState : MonoBehaviour
 
     private void InstatiatePlayer()
     {
-        GameObject playerInstance = Instantiate(player.gameObject);
+        playerInstance = Instantiate(player.gameObject);
         GameObject weaponInstance = Instantiate(GameManager.instance.upgrades.GetWeapon().gameObject, new Vector3(0,0,0.01f), Quaternion.Euler(Vector3.zero), playerInstance.transform);
 
         Camera.main.transform.parent = playerInstance.transform;

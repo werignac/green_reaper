@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using Buffs;
 using System;
 
-public enum PlantType {CORN = 0, PEPPER = 1, PUMPKIN = 2, CORN2 = 3, CORN3 = 4, ZUCCHINI = 5 }
+public enum PlantType {CORN = 0, PEPPER = 1, PUMPKIN = 2, CORN2 = 3, CORN3 = 4, ZUCCHINI = 5, ROOTMONSTER = 6}
 
 public class PlantHealth : MonoBehaviour
 {

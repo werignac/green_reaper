@@ -192,7 +192,7 @@ public class WeaponController : MonoBehaviour
             }
         }
 
-        private static readonly Dictionary<PlantType, int> plantTypePriority = new Dictionary<PlantType, int>() {{PlantType.PUMPKIN,3}, { PlantType.ZUCCHINI, 2}, { PlantType.PEPPER, 1 } };
+        private static readonly Dictionary<PlantType, int> plantTypePriority = new Dictionary<PlantType, int>() {{PlantType.PUMPKIN, 4}, { PlantType.ZUCCHINI, 3}, { PlantType.PEPPER, 2 }, { PlantType.ROOTMONSTER, 1 }};
 
         public PlantHitEntry(PlantHealth _plant, WeaponController thisWeapon)
         {
