@@ -28,7 +28,8 @@ public class RootMonster : PlantHealth
     {
         Initialize();
         player = HarvestState.instance.playerInstance.transform;
-        rb = this.GetComponent<Rigidbody2D>();
+        HarvestState.instance.roundEnd.AddListener(RoundEnd);
+       rb = this.GetComponent<Rigidbody2D>();
         coinsStolen = false;
     }
 
@@ -101,5 +102,11 @@ public class RootMonster : PlantHealth
     {
         if(coinsStolen)
             health.SetValue(Mathf.Clamp(health.GetValue() + amountChanged, 0, baseHealth));
+    }
+
+    // When the round ends delete this object.
+    private void RoundEnd(int a)
+    {
+        Destroy(gameObject);
     }
 }
