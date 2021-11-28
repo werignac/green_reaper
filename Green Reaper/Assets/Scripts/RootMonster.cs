@@ -14,6 +14,8 @@ public class RootMonster : PlantHealth
     private float escapeMovementSpeed;
     [SerializeField]
     private int coinsToSteal;
+    [SerializeField]
+    private float timeToEscape;
 
     private int coinsActuallyStolen;
 
@@ -46,6 +48,15 @@ public class RootMonster : PlantHealth
     private void FixedUpdate()
     {
         MoveCharacter(movement);
+        
+        // If the coins have already been stolen the monster will try to escape in the given amount of time. 
+        if(coinsStolen)
+        {
+            timeToEscape -= Time.deltaTime;
+            // Just disable it because onDeath will return the coins.
+            if(timeToEscape <= 0)
+                gameObject.SetActive(false);
+        }
     }
 
     /// <summary>

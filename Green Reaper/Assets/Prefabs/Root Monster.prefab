@@ -135,6 +135,7 @@ MonoBehaviour:
   chaseMovementSpeed: 5
   escapeMovementSpeed: 5
   coinsToSteal: 10
+  timeToEscape: 5
 --- !u!50 &967053517276161162
 Rigidbody2D:
   serializedVersion: 4
