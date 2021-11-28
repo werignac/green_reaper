@@ -10,9 +10,9 @@ public enum PlantType {CORN = 0, PEPPER = 1, PUMPKIN = 2, CORN2 = 3, CORN3 = 4, 
 public class PlantHealth : MonoBehaviour
 {
     [SerializeField]
-    private int baseHealth;
+    protected int baseHealth;
 
-    private ValueHolder<int> health;
+    protected ValueHolder<int> health;
 
     public UnityEvent damageTaken = new UnityEvent();
 
@@ -25,6 +25,11 @@ public class PlantHealth : MonoBehaviour
     private bool slowsPlayer;
 
     private void Start()
+    {
+        Initialize();
+    }
+
+    protected void Initialize()
     {
         if (!GameManager.instance.GetProcedural())
             transform.localScale = transform.localScale * 0.056844f;
@@ -42,7 +47,7 @@ public class PlantHealth : MonoBehaviour
         });
     }
 
-    public void ChangeHealth(int amountChanged)
+    public virtual void ChangeHealth(int amountChanged)
     {
         health.SetValue(Mathf.Clamp(health.GetValue() + amountChanged,0,baseHealth));
     }

@@ -162,6 +162,24 @@ public class HarvestState : MonoBehaviour
         scoreIncrement?.Invoke(GameManager.instance.globalScore.GetValue());
     }
 
+    public int DecrementScore(int amount)
+    {
+        // Store initial value of the score.
+        int differenceBetweenValues = GameManager.instance.globalScore.GetValue();
+
+        // Subtract from score.
+        int subtractedTotal = GameManager.instance.globalScore.GetValue() - amount;
+        // Minimum value is 0. 
+        if (subtractedTotal < 0)
+            subtractedTotal = 0;
+        GameManager.instance.globalScore.SetValue(subtractedTotal);
+        scoreIncrement?.Invoke(GameManager.instance.globalScore.GetValue());
+
+        // Find the difference
+        differenceBetweenValues -= GameManager.instance.globalScore.GetValue();
+        return differenceBetweenValues;
+    }
+
     private void GeneratePowerups()
     {
         Dictionary<UpgradeHolder.UpgradeType, float> powerUps = new Dictionary<UpgradeHolder.UpgradeType, float>();
