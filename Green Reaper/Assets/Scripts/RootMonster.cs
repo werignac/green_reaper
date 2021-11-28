@@ -55,7 +55,7 @@ public class RootMonster : PlantHealth
             timeToEscape -= Time.deltaTime;
             // Just disable it because onDeath will return the coins.
             if(timeToEscape <= 0)
-                gameObject.SetActive(false);
+                Destroy(gameObject);
         }
     }
 
@@ -94,7 +94,7 @@ public class RootMonster : PlantHealth
     protected override void OnDeath()
     {
         HarvestState.instance.IncrementScore(coinsActuallyStolen);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public override void ChangeHealth(int amountChanged)
