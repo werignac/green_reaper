@@ -274,7 +274,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
     /// <param name="y">Y index in the tilemap.</param>
     private void PlaceGameObjectOnTile(GameObject prefab, int x, int y)
     { 
-        // This works for square weightMaps. I have no clue why I need to add or subtract depending on the apsect ratio of the weight map.
+        // This works for weight maps where both lengths are multiples of 10.
+        // I have no clue why I need to add or subtract depending on the apsect ratio of the weight map.
         int lastXIndex = weightMap.GetLength(0) + 1;
         int lastYIndex = weightMap.GetLength(1) + 1;
         
