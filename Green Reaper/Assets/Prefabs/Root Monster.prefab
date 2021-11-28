@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5647987022eeea43bf55f81a53de683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseHealth: 1
+  baseHealth: 4
   damageTaken:
     m_PersistentCalls:
       m_Calls: []
