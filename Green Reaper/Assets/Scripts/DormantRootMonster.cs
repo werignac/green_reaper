@@ -12,6 +12,16 @@ public class DormantRootMonster : PlantHealth
 
     protected override void OnDeath()
     {
+        deathEvent?.Invoke(PlantType.ROOTMONSTER);
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            OnDeath();
+        }
     }
 }
