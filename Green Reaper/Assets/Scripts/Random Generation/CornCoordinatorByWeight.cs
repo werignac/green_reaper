@@ -29,6 +29,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private RuleTile backgroundTile;
     [SerializeField]
     private RuleTile fenceTile;
+    [SerializeField]
+    private Tile pathTile;
 
     [SerializeField]
     private GameObject corn1;
@@ -189,6 +191,14 @@ public class CornCoordinatorByWeight : MonoBehaviour
                     continue;
                 }
 
+                // Checks for the path tiles.
+                if(weightMap[x, y] < 0)
+                {
+                    background.SetTile(centeredPosition, pathTile);
+                    continue;
+                }
+                    
+
                 // If the tile is alive, place foreground tile.
                 if (weightMap[x, y] > sewThreshold)
                     background.SetTile(centeredPosition, foregroundTile);
@@ -295,7 +305,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
             for (int y = 0; y < weightMap.GetLength(1); y++)
                 // weightMap[x, y] != 0, does not change the behavior, but does increase performance.
                 if (weightMap[x, y] != 0 && canRemove(new Vector2(x, y)))
-                    weightMap[x, y] = 0;
+                    weightMap[x, y] = -1;
     }
 
     private static void RemoveByCircles(IEnumerable<Circle> circles, float[,] weightMap)
