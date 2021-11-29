@@ -926,6 +926,7 @@ MonoBehaviour:
   maxNumberOfPowerUps: 30
   numberOfRootMonsters: 15
   rootMonster: {fileID: 7490363111551181605, guid: b5df51d00a0eeb241a42b4c900a13422, type: 3}
+  scareCrow: {fileID: 7793095671466310848, guid: 88c3b42d4a3c04d47a5e9076e4601c8b, type: 3}
   sewThreshold: 0.435
   corn1Threshold: 0.435
   corn2Threshold: 0.517

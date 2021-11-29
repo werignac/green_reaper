@@ -8,7 +8,7 @@ using System;
 public class CornCoordinatorByWeight : MonoBehaviour
 {
     public BinaryGoLTilemapGenerator weightGenerator;
-    
+
 
 
     [SerializeField]
@@ -47,12 +47,14 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private GameObject pumpkin;
     [SerializeField]
     private int maxNumberOfPowerUps;
-    
+
     [SerializeField]
     private int numberOfRootMonsters;
     [SerializeField]
     private GameObject rootMonster;
 
+    [SerializeField]
+    private GameObject scareCrow;
 
     [SerializeField, Range(0, 1)]
     private float sewThreshold = 0.2f;
@@ -86,7 +88,6 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField, Range(0, 1000)]
     private float maxOrbitDistance = 100f;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -104,7 +105,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         // Powerups and Root Monsters must be generated before corn is painted to function properly.
         PaintTiles();
         PaintFences();
-        GeneratePowerups(); 
+        GeneratePowerups();
         GenerateRootMonsters();
         PaintCorn();
     }
@@ -132,6 +133,9 @@ public class CornCoordinatorByWeight : MonoBehaviour
             orbitCenter = new Vector2(orbitCenter.x, orbitCenter.y * ratio);
 
             circles.Add(new Circle(orbitCenter + center.center, UnityEngine.Random.Range(minOrbitRadius, maxOrbitRadius)));
+
+            // Probably put this somewhere better.
+            PlaceScarecrow(orbitCenter + center.center);
         }
 
         //Center must come after orbits to not mess with path generation.
@@ -282,12 +286,12 @@ public class CornCoordinatorByWeight : MonoBehaviour
     /// <param name="x">X index in the tilemap.</param>
     /// <param name="y">Y index in the tilemap.</param>
     private void PlaceGameObjectOnTile(GameObject prefab, int x, int y)
-    { 
+    {
         // This works for weight maps where both lengths are multiples of 10.
         // I have no clue why I need to add or subtract depending on the apsect ratio of the weight map.
         int lastXIndex = weightMap.GetLength(0) + 1;
         int lastYIndex = weightMap.GetLength(1) + 1;
-        
+
         // Get the position of the last tile in the map. Divide it's position by 2 to get the center index.
         Vector3 centerOffset = cornTileMap.CellToWorld(new Vector3Int(lastXIndex, lastYIndex, 0)) * 0.5f;
 
@@ -299,7 +303,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         Instantiate(prefab, centeredPosition, Quaternion.identity);
     }
 
-    private static void RemoveByCondition(Func<Vector2, bool> canRemove, float[,] weightMap)
+    private void RemoveByCondition(Func<Vector2, bool> canRemove, float[,] weightMap)
     {
         for (int x = 0; x < weightMap.GetLength(0); x++)
             for (int y = 0; y < weightMap.GetLength(1); y++)
@@ -308,7 +312,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
                     weightMap[x, y] = -1;
     }
 
-    private static void RemoveByCircles(IEnumerable<Circle> circles, float[,] weightMap)
+    private void RemoveByCircles(IEnumerable<Circle> circles, float[,] weightMap)
     {
         Func<Vector2, bool> canRemove = (Vector2 pos) =>
         {
@@ -321,7 +325,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         RemoveByCondition(canRemove, weightMap);
     }
 
-    private static void RemoveByPaths(IEnumerable<Path> paths, float[,] weightMap)
+    private void RemoveByPaths(IEnumerable<Path> paths, float[,] weightMap)
     {
         Func<Vector2, bool> canRemove = (Vector2 pos) =>
         {
@@ -437,7 +441,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         int yPos = 0;
 
         // Randomize position until powerup replaces a corn. Prevents powerups from spawning in the middle of nowhere.
-        while(weightMap[xPos, yPos] < sewThreshold)
+        while (weightMap[xPos, yPos] < sewThreshold)
         {
             xPos = UnityEngine.Random.Range(0, weightMap.GetLength(0));
             yPos = UnityEngine.Random.Range(0, weightMap.GetLength(1));
@@ -458,5 +462,10 @@ public class CornCoordinatorByWeight : MonoBehaviour
     {
         for (int i = 0; i < numberOfRootMonsters; i++)
             SpawnPrefab(rootMonster);
+    }
+
+    private void PlaceScarecrow(Vector2 position)
+    { 
+        PlaceGameObjectOnTile(scareCrow, (int)position.x, (int)position.y);
     }
 }
