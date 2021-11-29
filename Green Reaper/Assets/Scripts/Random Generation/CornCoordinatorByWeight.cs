@@ -100,11 +100,10 @@ public class CornCoordinatorByWeight : MonoBehaviour
         }
 
         // Powerups and Root Monsters must be generated before corn is painted to function properly.
-        GeneratePowerups();
-        GenerateRootMonsters();
-
         PaintTiles();
         PaintFences();
+        GeneratePowerups(); 
+        GenerateRootMonsters();
         PaintCorn();
     }
 
