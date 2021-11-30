@@ -180,11 +180,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
       propertyPath: numBoids
-      value: 2
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: roamRadius
+      value: 31.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: speedlimit
+      value: 1.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: avoidFactor
+      value: 2.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: minDistance
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
       propertyPath: visualRange
-      value: 75
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: matchingFactor
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: turnSpeedBoost
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: centeringFactor
+      value: 0.0085
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: outOfRangeAngle
+      value: 0.952
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: turnSpeedDegrees
+      value: 1.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: minimumSpeedLimit
+      value: 0.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: centerOnPlayerBias
+      value: 0.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: startingSpeedRange.x
+      value: 0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: startingSpeedRange.y
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: startingPositionRange.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
+      propertyPath: startingPositionRange.y
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f983fa9258af649aca451b7d83924c, type: 3}

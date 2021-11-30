@@ -28,7 +28,7 @@ public class Boids : MonoBehaviour
             // random starting position.
             float x = UnityEngine.Random.Range(initialPositionRange.x * -1, initialPositionRange.x);
             float y = UnityEngine.Random.Range(initialPositionRange.y * -1, initialPositionRange.y);
-            SetPosition(new Vector2(x,y));
+            SetPosition(new Vector2(x, y));
 
             // Velocities for both the X and Y directions are randomized.
             velocity = new Vector2();
@@ -51,9 +51,9 @@ public class Boids : MonoBehaviour
         {
             velocity = newVelocity;
         }
-        
+
         /// <returns>Position of the boid.</returns>
-        public Vector2 GetPosition ()
+        public Vector2 GetPosition()
         {
             return (Vector2)obj.transform.position;
         }
@@ -73,17 +73,21 @@ public class Boids : MonoBehaviour
     public float avoidFactor = 0.05f;
     public float matchingFactor = 0.05f;
     public float speedlimit = 15;
+    public float minimumSpeedLimit = 15;
+    public float roamRadius = 200;
+    public float turnSpeedDegrees = 1;
+    public float turnSpeedBoost = 0.1f;
+    public float centerOnPlayerBias;
+    [SerializeField, Range(0,1)]
+    public float outOfRangeAngle;
+
+    private bool simulating = false;
 
     /// <summary>
     /// The x range will be defined as, xRange = [-x, x], and similarly for Y.
     /// Creates a box with the two boundaries that the boid can spawn in.
     /// </summary>
     public Vector2 startingPositionRange;
-
-    /// <summary>
-    /// Range of speeds will be defined as, speed = [x, y].
-    /// </summary>
-    public Vector2 startingSpeedRange;
 
     private List<IndividualBoid> boids;
 
@@ -93,13 +97,14 @@ public class Boids : MonoBehaviour
         boids = new List<IndividualBoid>();
 
         for (int i = 0; i < numBoids; ++i)
-            boids.Add(new IndividualBoid(startingPositionRange, startingSpeedRange, bird));
+            boids.Add(new IndividualBoid(startingPositionRange, new Vector2(minimumSpeedLimit, speedlimit), bird));
 
         StartSimulation();
     }
 
     public void StartSimulation()
     {
+        simulating = true;
         foreach (IndividualBoid boid in boids)
         {
             boid.obj.SetActive(true);
@@ -108,6 +113,7 @@ public class Boids : MonoBehaviour
 
     public void StopSimulation()
     {
+        simulating = false;
         foreach (IndividualBoid boid in boids)
         {
             boid.obj.SetActive(false);
@@ -123,15 +129,19 @@ public class Boids : MonoBehaviour
     // Main simulation loop.
     private void FixedUpdate()
     {
-        foreach (IndividualBoid boid in boids)
+        if (simulating)
         {
-            // Update the velocities according to each rule
-            FlyTowardsCenter(boid);
-            AvoidOthers(boid);
-            MatchVelocity(boid);
-            LimitSpeed(boid);
-            //keepWithinBounds(boid);
-            MoveBoid(boid);
+            foreach (IndividualBoid boid in boids)
+            {
+                // Update the velocities according to each rule
+                FlyTowardsCenter(boid);
+                AvoidOthers(boid);
+                MatchVelocity(boid);
+                KeepWithinBounds(boid);
+                clampSpeed(boid);
+                //keepWithinBounds(boid);
+                MoveBoid(boid);
+            }
         }
     }
 
@@ -169,6 +179,40 @@ public class Boids : MonoBehaviour
         }
     }
 
+    // Constrain a boid to within the window. If it gets too close to an edge,
+    // nudge it back in and reverse its direction.
+    private void KeepWithinBounds(IndividualBoid boid)
+    {
+        // Distance from this.
+        if (boid.GetPosition().magnitude > roamRadius)
+        {
+            Vector2 newBoidDir = boid.GetVelocity();
+            newBoidDir.x = newBoidDir.x * Mathf.Cos(Mathf.Deg2Rad * turnSpeedDegrees) - newBoidDir.y * Mathf.Sin(Mathf.Deg2Rad * turnSpeedDegrees);
+            newBoidDir.y = newBoidDir.x * Mathf.Sin(Mathf.Deg2Rad * turnSpeedDegrees) + newBoidDir.y * Mathf.Cos(Mathf.Deg2Rad * turnSpeedDegrees);
+
+            // Prevent them from not moving.
+            if (newBoidDir.x == 0 && newBoidDir.y == 0)
+            {
+                float x = UnityEngine.Random.Range(startingPositionRange.x * -1, startingPositionRange.x);
+                float y = UnityEngine.Random.Range(startingPositionRange.y * -1, startingPositionRange.y);
+                newBoidDir = new Vector2(x, y);
+            }
+
+            // Apply boost.
+            newBoidDir *= turnSpeedBoost;
+
+            boid.SetVelocity(newBoidDir);
+
+            // drag boid to the player/origin.
+            if (Vector2.Dot(boid.GetVelocity(), boid.GetPosition()) > 0)
+            {
+                Vector2 antiVelocity = boid.GetVelocity();
+                antiVelocity -= boid.GetPosition() * centerOnPlayerBias;
+                boid.SetVelocity(antiVelocity);
+            }
+        }
+    }
+
     // Move away from other boids that are too close to avoid colliding
     private void AvoidOthers(IndividualBoid boid)
     {
@@ -189,7 +233,7 @@ public class Boids : MonoBehaviour
             }
         }
 
-        boid.SetVelocity(new Vector2(moveX, moveY) * avoidFactor);
+        boid.SetVelocity(boid.GetVelocity() + (new Vector2(moveX, moveY) * avoidFactor));
     }
 
     // Find the average velocity (speed and direction) of the other boids and
@@ -216,13 +260,13 @@ public class Boids : MonoBehaviour
             averageVelocity /= numNeighbors;
             Vector2 velocityDifference = averageVelocity - boid.GetVelocity();
 
-            boid.SetVelocity(velocityDifference * matchingFactor);
+            boid.SetVelocity(boid.GetVelocity() + velocityDifference * matchingFactor);
         }
     }
 
     // speed will naturally vary in flocking behavior, but real animals can't go
     // arbitrarily fast.
-    private void LimitSpeed(IndividualBoid boid)
+    private void clampSpeed(IndividualBoid boid)
     {
         float speed = boid.GetVelocity().magnitude;
         // Prevent the boids from travelling faster than the speed limit. 
@@ -230,12 +274,17 @@ public class Boids : MonoBehaviour
         {
             boid.SetVelocity(boid.GetVelocity() / speed * speedlimit);
         }
+        if (speed < minimumSpeedLimit)
+        {
+            boid.SetVelocity(boid.GetVelocity() / speed * minimumSpeedLimit);
+        }
     }
 
     // Update the position based on the current velocity
     private void MoveBoid(IndividualBoid boid)
     {
-        Vector2 newPosition = boid.GetPosition() + boid.GetVelocity();
+        boid.SetPosition(boid.GetPosition() + boid.GetVelocity());
+
     }
 }
 
