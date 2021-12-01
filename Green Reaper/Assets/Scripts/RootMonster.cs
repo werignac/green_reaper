@@ -16,12 +16,15 @@ public class RootMonster : PlantHealth
     private int coinsToSteal;
     [SerializeField]
     private float timeToEscape;
+    [SerializeField]
+    private bool lookRightByDefault;
 
     private int coinsActuallyStolen;
 
     private Rigidbody2D rb;
     private Vector2 movement;
     private bool coinsStolen;
+    private SpriteRenderer spRender;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +32,9 @@ public class RootMonster : PlantHealth
         Initialize();
         player = HarvestState.instance.playerInstance.transform;
         HarvestState.instance.roundEnd.AddListener(RoundEnd);
-       rb = this.GetComponent<Rigidbody2D>();
+        rb = this.GetComponent<Rigidbody2D>();
         coinsStolen = false;
+        spRender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -38,24 +42,26 @@ public class RootMonster : PlantHealth
     {
         // Difference between this object and the player.
         Vector3 direction = player.position - this.transform.position;
-        // Rotate this object to face player.
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90;
-        rb.rotation = angle;
-
         direction.Normalize();
         movement = direction;
+
+        // Flip sprite to movement direction.
+        if (direction.x > 0)
+            spRender.flipX = false;
+        else
+            spRender.flipX = true;
     }
 
     private void FixedUpdate()
     {
         MoveCharacter(movement);
-        
+
         // If the coins have already been stolen the monster will try to escape in the given amount of time. 
-        if(coinsStolen)
+        if (coinsStolen)
         {
             timeToEscape -= Time.deltaTime;
             // Just disable it because onDeath will return the coins.
-            if(timeToEscape <= 0)
+            if (timeToEscape <= 0)
                 Destroy(gameObject);
         }
     }
@@ -66,7 +72,7 @@ public class RootMonster : PlantHealth
     /// <param name="direction"></param>
     private void MoveCharacter(Vector2 direction)
     {
-        if(coinsStolen)
+        if (coinsStolen)
         {
             rb.MovePosition((Vector2)transform.position + (-1 * direction * escapeMovementSpeed * Time.deltaTime));
         }
@@ -84,7 +90,7 @@ public class RootMonster : PlantHealth
             StealCoins();
             coinsStolen = true;
         }
-            
+
     }
 
     private void StealCoins()
@@ -100,7 +106,7 @@ public class RootMonster : PlantHealth
 
     public override void ChangeHealth(int amountChanged)
     {
-        if(coinsStolen)
+        if (coinsStolen)
             health.SetValue(Mathf.Clamp(health.GetValue() + amountChanged, 0, baseHealth));
     }
 
