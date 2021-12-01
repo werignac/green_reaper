@@ -17,6 +17,7 @@ public class Boids : MonoBehaviour
     {
         private Vector2 velocity;
         public GameObject obj;
+        public bool turnsRight;
 
 
         public IndividualBoid(Vector2 initialPositionRange, Vector2 initialSpeedRange, GameObject prefab)
@@ -29,6 +30,14 @@ public class Boids : MonoBehaviour
             float x = UnityEngine.Random.Range(initialPositionRange.x * -1, initialPositionRange.x);
             float y = UnityEngine.Random.Range(initialPositionRange.y * -1, initialPositionRange.y);
             SetPosition(new Vector2(x, y));
+
+            // Range between 0 and 1 when cast to an int.
+            int yesOrNo = UnityEngine.Random.Range(0, 2);
+
+            if (yesOrNo == 0)
+                turnsRight = false;
+            else
+                turnsRight = true;
 
             // Velocities for both the X and Y directions are randomized.
             velocity = new Vector2();
@@ -186,9 +195,14 @@ public class Boids : MonoBehaviour
         // Distance from this.
         if (boid.GetPosition().magnitude > roamRadius)
         {
+            // Depnding on whether or not the boid turns right this will either be positive or negative turnSpeedDegrees.
+            float turnDirectionDegrees = turnSpeedDegrees;
+            if (boid.turnsRight)
+                turnDirectionDegrees *= -1;
+
             Vector2 newBoidDir = boid.GetVelocity();
-            newBoidDir.x = newBoidDir.x * Mathf.Cos(Mathf.Deg2Rad * turnSpeedDegrees) - newBoidDir.y * Mathf.Sin(Mathf.Deg2Rad * turnSpeedDegrees);
-            newBoidDir.y = newBoidDir.x * Mathf.Sin(Mathf.Deg2Rad * turnSpeedDegrees) + newBoidDir.y * Mathf.Cos(Mathf.Deg2Rad * turnSpeedDegrees);
+            newBoidDir.x = newBoidDir.x * Mathf.Cos(Mathf.Deg2Rad * turnDirectionDegrees) - newBoidDir.y * Mathf.Sin(Mathf.Deg2Rad * turnDirectionDegrees);
+            newBoidDir.y = newBoidDir.x * Mathf.Sin(Mathf.Deg2Rad * turnDirectionDegrees) + newBoidDir.y * Mathf.Cos(Mathf.Deg2Rad * turnDirectionDegrees);
 
             // Prevent them from not moving.
             if (newBoidDir.x == 0 && newBoidDir.y == 0)

@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
       propertyPath: outOfRangeAngle
-      value: 0.952
+      value: 0.984
       objectReference: {fileID: 0}
     - target: {fileID: 8868373709794557322, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
       propertyPath: turnSpeedDegrees
