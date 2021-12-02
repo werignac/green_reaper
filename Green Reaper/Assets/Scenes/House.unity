@@ -7593,7 +7593,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Incresed Attack \nRange"
+  m_Text: "Hits more corn \nwith each swing."
 --- !u!222 &763526586
 CanvasRenderer:
   m_ObjectHideFlags: 0
