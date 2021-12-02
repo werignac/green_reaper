@@ -91,7 +91,6 @@ public class Boids : MonoBehaviour
     public float centerOnPlayerBias;
     [SerializeField, Range(0, 1)]
     public float outOfRangeAngle;
-    public bool lookRightByDefault;
 
     private bool simulating = false;
 
@@ -133,12 +132,6 @@ public class Boids : MonoBehaviour
         {
             boid.obj.SetActive(false);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     // Main simulation loop.

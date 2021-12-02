@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6108078986271448741}
   - component: {fileID: 1850453239827768549}
   - component: {fileID: 3853776881273467698}
+  - component: {fileID: 2945977044096987611}
   - component: {fileID: 967053517276161162}
   m_Layer: 0
   m_Name: Root Monster
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 56071189b7aaf414bb3e3059a65ffadf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,6 +138,23 @@ MonoBehaviour:
   coinsToSteal: 10
   timeToEscape: 5
   lookRightByDefault: 0
+--- !u!114 &2945977044096987611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692537086567873969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6aeb6c4c0011c4f9379435c8395781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDynamic: 1
+  useSpriteRenderer: 1
+  spriteRenderer: {fileID: 0}
+  offset: 0
+  finalOffset: 0
 --- !u!50 &967053517276161162
 Rigidbody2D:
   serializedVersion: 4
