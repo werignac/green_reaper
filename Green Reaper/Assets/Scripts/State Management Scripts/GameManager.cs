@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnLoadScene;
     }
-
+    
     private void Awake()
     {
         instance = this;
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         if (scene.buildIndex == 0)
         {
-            GameObject.Find("Canvas").transform.GetChild(6).gameObject.SetActive(true);
+            GameObject.Find("Canvas").transform.Find("Win").gameObject.SetActive(true);
             upgrades = new UpgradeHolder();
             upgrades.SetWeapons(weapons);
             Destroy(gameObject);
