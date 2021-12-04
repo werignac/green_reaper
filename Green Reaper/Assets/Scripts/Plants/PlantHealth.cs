@@ -73,18 +73,21 @@ public class PlantHealth : MonoBehaviour
             base((float value) => value * effect, 4f, BuffType.BUFF,
             () => {
                 wipe();
-                _manager.DeactiveVisualizer(_plantBuffType);
+                if(_manager.isActiveAndEnabled)
+                    _manager.DeactiveVisualizer(_plantBuffType);
             }
             , name)
         {
             manager = _manager;
             plantBuffType = _plantBuffType;
-            manager.ActivateVisualizer(plantBuffType);
+            if(manager.isActiveAndEnabled)
+                manager.ActivateVisualizer(plantBuffType);
         }
 
         public override bool IsActive()
         {
-            manager.SetVisualizer(plantBuffType, 1 - timer.GetPercentProgress());
+            if(manager.isActiveAndEnabled)
+                manager.SetVisualizer(plantBuffType, 1 - timer.GetPercentProgress());
             return base.IsActive();
         }
     }

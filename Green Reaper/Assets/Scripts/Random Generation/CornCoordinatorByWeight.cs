@@ -103,7 +103,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         PaintTiles();
         PaintFences();
         GeneratePowerups(); 
-        GenerateRootMonsters();
+        //GenerateRootMonsters();
         PaintCorn();
     }
 
