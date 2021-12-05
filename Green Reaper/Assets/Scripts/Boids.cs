@@ -76,6 +76,7 @@ public class Boids : MonoBehaviour
         }
     }
 
+    public PlayerController player;
     public GameObject bird;
     public int numBoids = 100;
     public int visualRange = 75;
