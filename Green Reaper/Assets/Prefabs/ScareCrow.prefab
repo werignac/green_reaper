@@ -96,17 +96,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bird: {fileID: 6498635244923019841, guid: 37159c61dff26dc47945e0f6463648cf, type: 3}
-  numBoids: 100
-  visualRange: 75
-  centeringFactor: 0.005
-  minDistance: 20
-  avoidFactor: 0.05
-  matchingFactor: 0.05
-  speedlimit: 15
-  minimumSpeedLimit: 15
-  roamRadius: 200
-  turnSpeedDegrees: 1
+  numBoids: 30
+  visualRange: 6
+  centeringFactor: 0.0085
+  minDistance: 0.53
+  avoidFactor: 2.06
+  matchingFactor: 0.7
+  speedlimit: 1.63
+  minimumSpeedLimit: 0.91
+  roamRadius: 31.61
+  turnSpeedDegrees: 1.83
   turnSpeedBoost: 0.1
-  centerOnPlayerBias: 0
-  outOfRangeAngle: 0
-  startingPositionRange: {x: 30, y: 30}
+  centerOnPlayerBias: 0.00002
+  outOfRangeAngle: 0.984
+  startingPositionRange: {x: 10, y: 10}
