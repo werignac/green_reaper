@@ -19,12 +19,14 @@ public class Boids : MonoBehaviour
         public GameObject obj;
         public bool turnsRight;
         public SpriteRenderer spriteRenderer;
+        public bool leadBoid = false;
 
 
-        public IndividualBoid(Vector2 initialPositionRange, Vector2 initialSpeedRange, GameObject prefab)
+        public IndividualBoid(Vector2 initialPositionRange, Vector2 initialSpeedRange, GameObject prefab, GameObject parent)
         {
             // Object is defaulted to be off.
             obj = Instantiate(prefab);
+            obj.transform.parent = parent.transform;
             obj.SetActive(false);
             spriteRenderer = obj.GetComponent<SpriteRenderer>();
 
@@ -48,14 +50,14 @@ public class Boids : MonoBehaviour
         }
 
         /// <summary>
-        /// Changes the position of the boid to the given x, y values.
+        /// Changes the local position of the boid to the given x, y values.
         /// Z is set to 0.
         /// </summary>
         /// <param name="x">X position.</param>
         /// <param name="y">Y position.</param>
         public void SetPosition(Vector2 newPosition)
         {
-            obj.transform.position = newPosition;
+            obj.transform.localPosition = newPosition;
         }
 
         public void SetVelocity(Vector2 newVelocity)
@@ -63,10 +65,10 @@ public class Boids : MonoBehaviour
             velocity = newVelocity;
         }
 
-        /// <returns>Position of the boid.</returns>
+        /// <returns>Local position of the boid.</returns>
         public Vector2 GetPosition()
         {
-            return (Vector2)obj.transform.position;
+            return (Vector2)obj.transform.localPosition;
         }
 
         /// <returns>Velocity of the boid.</returns>
@@ -74,26 +76,52 @@ public class Boids : MonoBehaviour
         {
             return velocity;
         }
+
+        /// <summary>
+        /// Changes the world position of the boid to the given x, y values.
+        /// Z is set to 0.
+        /// </summary>
+        /// <param name="x">X position.</param>
+        /// <param name="y">Y position.</param>
+        public void SetPositionWorld(Vector2 newPosition)
+        {
+            obj.transform.position = newPosition;  
+        }
     }
 
-    public PlayerController player;
+    public GameObject player;
     public GameObject bird;
-    public int numBoids = 100;
-    public int visualRange = 75;
-    public float centeringFactor = 0.005f;
-    public float minDistance = 20;
-    public float avoidFactor = 0.05f;
-    public float matchingFactor = 0.05f;
-    public float speedlimit = 15;
-    public float minimumSpeedLimit = 15;
-    public float roamRadius = 200;
-    public float turnSpeedDegrees = 1;
-    public float turnSpeedBoost = 0.1f;
+    public int numBoids;
+    public int visualRange;
+    public float centeringFactor;
+    public float minDistance;
+    public float avoidFactor;
+    public float matchingFactor;
+    public float speedlimit;
+    public float minimumSpeedLimit;
+    public float escapeSpeed;
+    public float roamRadius;
+    public float turnSpeedDegrees;
+    public float turnSpeedBoost;
     public float centerOnPlayerBias;
     [SerializeField, Range(0, 1)]
     public float outOfRangeAngle;
+    public float debuffTime;
+    public float closeEnoughToSteal;
 
     private bool simulating = false;
+    
+    
+    /// <summary>
+    /// GET RID OF THIS WHEN IMPLEMENTING WITH PLAYER.
+    /// </summary>
+    public GameObject playerWeapon;
+    
+    
+    private GameObject playerWeaponInstance;
+    private float debuffTimeRemaining;
+    private bool leadBoidChosen = false;
+    private bool scattering = false;
 
 
     /// <summary>
@@ -107,18 +135,23 @@ public class Boids : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Copy the current weapon of the player. 
+        //playerWeapon = GameManager.instance.upgrades.GetWeapon().gameObject;
+        //playerWeapon.SetActive(false);
+        playerWeaponInstance = Instantiate(playerWeapon);
+        playerWeaponInstance.SetActive(false);
+
         boids = new List<IndividualBoid>();
 
         for (int i = 0; i < numBoids; ++i)
-            boids.Add(new IndividualBoid(startingPositionRange, new Vector2(minimumSpeedLimit, speedlimit), bird));
-
-
+            boids.Add(new IndividualBoid(startingPositionRange, new Vector2(minimumSpeedLimit, speedlimit), bird, player));
 
         StartSimulation();
     }
 
     public void StartSimulation()
     {
+        debuffTimeRemaining = debuffTime;
         simulating = true;
         foreach (IndividualBoid boid in boids)
         {
@@ -140,19 +173,50 @@ public class Boids : MonoBehaviour
     {
         if (simulating)
         {
+            debuffTimeRemaining -= Time.deltaTime;
+
+            if (debuffTimeRemaining <= 0)
+            {
+                if (!leadBoidChosen)
+                    ChooseLeadBoid();
+            }
+                
             foreach (IndividualBoid boid in boids)
             {
-                // Update the velocities according to each rule
-                FlyTowardsCenter(boid);
-                AvoidOthers(boid);
-                MatchVelocity(boid);
-                KeepWithinBounds(boid);
-                clampSpeed(boid);
+                // A lead boid is taken control of during stealing phase.
+                if (boid.leadBoid)
+                {
+                    // Point the lead boid directly at the player.
+                    boid.SetVelocity(-1 * boid.GetPosition());
+                    clampSpeed(boid);
+                    MoveBoid(boid);
+                    continue;
+                }
+
+                // Update the boids according to each rule when not scattering.
+                if (!scattering)
+                {
+                    FlyTowardsCenter(boid);
+                    AvoidOthers(boid);
+                    MatchVelocity(boid);
+                    KeepWithinBounds(boid);
+                    clampSpeed(boid);
+                }
+                
                 MoveBoid(boid);
             }
+
         }
     }
 
+
+
+    private void ChooseLeadBoid()
+    {
+        int chosenBoid = UnityEngine.Random.Range(0, numBoids);
+        boids[chosenBoid].leadBoid = true;
+        leadBoidChosen = true;
+    }
 
     //Find the center of mass of the other boids and adjust velocity slightly to
     //point towards the center of mass.
@@ -301,5 +365,34 @@ public class Boids : MonoBehaviour
             boid.spriteRenderer.flipX = false;
         else
             boid.spriteRenderer.flipX = true;
+
+        // If the lead boid gets close enough to steal scythe.
+        if(boid.leadBoid)
+        {
+            if (boid.GetPosition().magnitude < closeEnoughToSteal)
+                StealAndScatter(boid);
+        }
+    }
+
+    private void StealAndScatter(IndividualBoid leadBoid)
+    {
+        scattering = true;
+
+        // Parent the weapon to the lead boid.
+        playerWeaponInstance.transform.parent = leadBoid.obj.transform;
+        playerWeaponInstance.transform.localPosition = Vector2.zero;
+        playerWeaponInstance.SetActive(true);
+
+        // Point the lead boid towards a random tile and set the speed to the escape speed.
+        Vector3 randWorldPosition = CornCoordinatorByWeight.instance.RandomTileToWorldCoordinates();
+        Vector3 direction = randWorldPosition - leadBoid.obj.transform.position;
+        leadBoid.SetVelocity(direction.normalized * escapeSpeed);
+
+        // Scatter every other boid.
+        foreach (IndividualBoid boid in boids)
+        {
+            float speed = boid.GetVelocity().magnitude;
+            boid.SetVelocity(boid.GetVelocity() / speed * escapeSpeed);
+        }
     }
 }
