@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4365313362722217956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4365313362722217957}
+  - component: {fileID: 4365313362722217958}
+  m_Layer: 0
+  m_Name: Crow Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4365313362722217957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4365313362722217956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 198.24452, y: 137.93124, z: -755.4314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4365313362722217958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4365313362722217956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113ce0e452b91a24e91edf28a4e6a930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  bird: {fileID: 6498635244923019841, guid: 37159c61dff26dc47945e0f6463648cf, type: 3}
+  numBoids: 30
+  visualRange: 6
+  centeringFactor: 0.0085
+  minDistance: 0.53
+  avoidFactor: 2.06
+  matchingFactor: 0.7
+  speedlimit: 0.23
+  minimumSpeedLimit: 0.13
+  escapeSpeed: 0
+  roamRadius: 6
+  turnSpeedDegrees: 1.83
+  turnSpeedBoost: 0.1
+  centerOnPlayerBias: 0.0001
+  outOfRangeAngle: 0.984
+  debuffTime: 5
+  closeEnoughToSteal: 0.5
+  playerWeapon: {fileID: 0}
+  startingPositionRange: {x: 3, y: 3}

@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3546092969423755131}
   - component: {fileID: 4639580732210111604}
-  - component: {fileID: 8868373709794557322}
+  - component: {fileID: 5767002235199609554}
+  - component: {fileID: 7032784624258126994}
+  - component: {fileID: 7917332015816960823}
   m_Layer: 0
   m_Name: ScareCrow
   m_TagString: Untagged
@@ -71,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c650eafefd16a40d6bdcb2f9a5100dbf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -83,7 +85,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8868373709794557322
+--- !u!61 &5767002235199609554
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364566788737707582}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.01, y: 0.01}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &7032784624258126994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,21 +120,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 7364566788737707582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 113ce0e452b91a24e91edf28a4e6a930, type: 3}
+  m_Script: {fileID: 11500000, guid: e1d30468919031e4ab5c1fd9dbb2c7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bird: {fileID: 6498635244923019841, guid: 37159c61dff26dc47945e0f6463648cf, type: 3}
-  numBoids: 30
-  visualRange: 6
-  centeringFactor: 0.0085
-  minDistance: 0.53
-  avoidFactor: 2.06
-  matchingFactor: 0.7
-  speedlimit: 1.63
-  minimumSpeedLimit: 0.91
-  roamRadius: 31.61
-  turnSpeedDegrees: 1.83
-  turnSpeedBoost: 0.1
-  centerOnPlayerBias: 0.00002
-  outOfRangeAngle: 0.984
-  startingPositionRange: {x: 10, y: 10}
+  baseHealth: 1
+  damageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  type: 7
+  slowsPlayer: 0
+--- !u!114 &7917332015816960823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364566788737707582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6aeb6c4c0011c4f9379435c8395781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDynamic: 0
+  useSpriteRenderer: 1
+  spriteRenderer: {fileID: 4639580732210111604}
+  offset: 0
+  finalOffset: 0

@@ -55,12 +55,12 @@ public class PlayerController : Moveable
     {
         base.Update();
 
-        weapon.UpdateStats();
+        weapon?.UpdateStats();
 
         if (receivingInput)
         {
             if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
-                weapon.Attack(CalculateWeaponAngle());
+                weapon?.Attack(CalculateWeaponAngle());
         }
     }
 

@@ -19,12 +19,17 @@ public class Boids : MonoBehaviour
         public GameObject obj;
         public bool turnsRight;
         public SpriteRenderer spriteRenderer;
+        public bool leadBoid = false;
+        private GameObject parent;
 
 
-        public IndividualBoid(Vector2 initialPositionRange, Vector2 initialSpeedRange, GameObject prefab)
+        public IndividualBoid(Vector2 initialPositionRange, Vector2 initialSpeedRange, GameObject prefab, GameObject parentObject)
         {
+            parent = parentObject;
+
             // Object is defaulted to be off.
             obj = Instantiate(prefab);
+            ParentBoid();
             obj.SetActive(false);
             spriteRenderer = obj.GetComponent<SpriteRenderer>();
 
@@ -48,14 +53,14 @@ public class Boids : MonoBehaviour
         }
 
         /// <summary>
-        /// Changes the position of the boid to the given x, y values.
+        /// Changes the local position of the boid to the given x, y values.
         /// Z is set to 0.
         /// </summary>
         /// <param name="x">X position.</param>
         /// <param name="y">Y position.</param>
         public void SetPosition(Vector2 newPosition)
         {
-            obj.transform.position = newPosition;
+            obj.transform.localPosition = newPosition;
         }
 
         public void SetVelocity(Vector2 newVelocity)
@@ -63,10 +68,16 @@ public class Boids : MonoBehaviour
             velocity = newVelocity;
         }
 
-        /// <returns>Position of the boid.</returns>
-        public Vector2 GetPosition()
+        /// <returns>Local position of the boid.</returns>
+        public Vector2 GetLocalPosition()
         {
-            return (Vector2)obj.transform.position;
+            return (Vector2)obj.transform.localPosition;
+        }
+
+        /// <returns>World position of the boid.</returns>
+        public Vector2 GetWorldPosition()
+        {
+            return obj.transform.position;
         }
 
         /// <returns>Velocity of the boid.</returns>
@@ -74,25 +85,65 @@ public class Boids : MonoBehaviour
         {
             return velocity;
         }
+
+        /// <summary>
+        /// Changes the world position of the boid to the given x, y values.
+        /// Z is set to 0.
+        /// </summary>
+        /// <param name="x">X position.</param>
+        /// <param name="y">Y position.</param>
+        public void SetPositionWorld(Vector2 newPosition)
+        {
+            obj.transform.position = newPosition;
+        }
+
+        public void UnparentBoid()
+        {
+            obj.transform.parent = null;
+        }
+
+        public void ParentBoid()
+        {
+            obj.transform.parent = parent.transform;
+        }
     }
 
+
     public GameObject bird;
-    public int numBoids = 100;
-    public int visualRange = 75;
-    public float centeringFactor = 0.005f;
-    public float minDistance = 20;
-    public float avoidFactor = 0.05f;
-    public float matchingFactor = 0.05f;
-    public float speedlimit = 15;
-    public float minimumSpeedLimit = 15;
-    public float roamRadius = 200;
-    public float turnSpeedDegrees = 1;
-    public float turnSpeedBoost = 0.1f;
+    public int numBoids;
+    public int visualRange;
+    public float centeringFactor;
+    public float minDistance;
+    public float avoidFactor;
+    public float matchingFactor;
+    public float speedlimit;
+    public float minimumSpeedLimit;
+    public float escapeSpeed;
+    public float roamRadius;
+    public float turnSpeedDegrees;
+    public float turnSpeedBoost;
     public float centerOnPlayerBias;
     [SerializeField, Range(0, 1)]
     public float outOfRangeAngle;
+    public float debuffTime;
+    public float closeEnoughToSteal;
+    // Instance of the boids to allow other objects to interact with it.
+    public static Boids instance;
 
     private bool simulating = false;
+
+    /// <summary>
+    /// GET RID OF THIS WHEN IMPLEMENTING WITH PLAYER.
+    /// </summary>
+    //public GameObject playerWeapon;
+
+    private GameObject playerWeaponInstance;
+    private float debuffTimeRemaining;
+    private bool leadBoidChosen = false;
+    private bool scattering = false;
+    private GameObject player;
+    private bool initialized = false;
+    private Vector3 positionForWeapon;
 
 
     /// <summary>
@@ -103,24 +154,42 @@ public class Boids : MonoBehaviour
 
     private List<IndividualBoid> boids;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Initialize()
     {
+        // Boids should only be initialized once.
+        if (initialized)
+        {
+            return;
+        }
+
+        initialized = true;
+
+        // Copy the current weapon of the player. 
+        GameObject playerWeapon = GameManager.instance.upgrades.GetWeapon().gameObject;
+        playerWeapon.SetActive(false);
+        playerWeaponInstance = Instantiate(playerWeapon);
+        playerWeaponInstance.SetActive(false);
+
+        player = HarvestState.instance.playerInstance;
+
         boids = new List<IndividualBoid>();
-
         for (int i = 0; i < numBoids; ++i)
-            boids.Add(new IndividualBoid(startingPositionRange, new Vector2(minimumSpeedLimit, speedlimit), bird));
+            boids.Add(new IndividualBoid(startingPositionRange, new Vector2(minimumSpeedLimit, speedlimit), bird, player));
+    }
 
-
-
-        StartSimulation();
+    private void Awake()
+    {
+        instance = this;
     }
 
     public void StartSimulation()
     {
+        Initialize();
+        debuffTimeRemaining = debuffTime;
         simulating = true;
         foreach (IndividualBoid boid in boids)
         {
+            boid.ParentBoid();
             boid.obj.SetActive(true);
         }
     }
@@ -139,19 +208,54 @@ public class Boids : MonoBehaviour
     {
         if (simulating)
         {
+            debuffTimeRemaining -= Time.deltaTime;
+
+            if (debuffTimeRemaining <= 0)
+            {
+                if (!leadBoidChosen)
+                    ChooseLeadBoid();
+            }
+
             foreach (IndividualBoid boid in boids)
             {
-                // Update the velocities according to each rule
-                FlyTowardsCenter(boid);
-                AvoidOthers(boid);
-                MatchVelocity(boid);
-                KeepWithinBounds(boid);
-                clampSpeed(boid);
+                // A lead boid is taken control of to initiate scattering.
+                if (boid.leadBoid && !scattering)
+                {
+                    // Point the lead boid directly at the player.
+                    boid.SetVelocity(-1 * boid.GetLocalPosition());
+                    clampSpeed(boid);
+                    MoveBoid(boid);
+                    continue;
+                }
+
+                // Update all boids according to each rule when not scattering.
+                if (!scattering)
+                {
+                    FlyTowardsCenter(boid);
+                    AvoidOthers(boid);
+                    MatchVelocity(boid);
+                    KeepWithinBounds(boid);
+                    clampSpeed(boid);
+                }
+
                 MoveBoid(boid);
+
+                // If the lead boid is close enough to drop the player's weapon.
+                if (boid.leadBoid)
+                    CheckForDropOffAndEnd(boid);
             }
+
         }
     }
 
+
+
+    private void ChooseLeadBoid()
+    {
+        int chosenBoid = UnityEngine.Random.Range(0, numBoids);
+        boids[chosenBoid].leadBoid = true;
+        leadBoidChosen = true;
+    }
 
     //Find the center of mass of the other boids and adjust velocity slightly to
     //point towards the center of mass.
@@ -163,12 +267,12 @@ public class Boids : MonoBehaviour
 
         foreach (IndividualBoid otherBoid in boids)
         {
-            float distBetween = Vector2.Distance(boid.GetPosition(), otherBoid.GetPosition());
+            float distBetween = Vector2.Distance(boid.GetLocalPosition(), otherBoid.GetLocalPosition());
 
             if (distBetween < visualRange)
             {
-                centerX += otherBoid.GetPosition().x;
-                centerY += otherBoid.GetPosition().y;
+                centerX += otherBoid.GetLocalPosition().x;
+                centerY += otherBoid.GetLocalPosition().y;
                 numNeighbors += 1;
             }
         }
@@ -180,7 +284,7 @@ public class Boids : MonoBehaviour
             Vector2 centerPosition = new Vector2(centerX, centerY);
 
             // How much the velocity of the boid should change.
-            Vector2 centeringVelocity = (centerPosition - boid.GetPosition()) * centeringFactor;
+            Vector2 centeringVelocity = (centerPosition - boid.GetLocalPosition()) * centeringFactor;
             // Change boid's velocity.
             boid.SetVelocity(boid.GetVelocity() + centeringVelocity);
         }
@@ -191,7 +295,7 @@ public class Boids : MonoBehaviour
     private void KeepWithinBounds(IndividualBoid boid)
     {
         // Distance from this.
-        if (boid.GetPosition().magnitude > roamRadius)
+        if (boid.GetLocalPosition().magnitude > roamRadius)
         {
             // Depnding on whether or not the boid turns right this will either be positive or negative turnSpeedDegrees.
             float turnDirectionDegrees = turnSpeedDegrees;
@@ -216,10 +320,10 @@ public class Boids : MonoBehaviour
             boid.SetVelocity(newBoidDir);
 
             // drag boid to the player/origin.
-            if (Vector2.Dot(boid.GetVelocity(), boid.GetPosition()) > 0)
+            if (Vector2.Dot(boid.GetVelocity(), boid.GetLocalPosition()) > 0)
             {
                 Vector2 antiVelocity = boid.GetVelocity();
-                antiVelocity -= boid.GetPosition() * centerOnPlayerBias;
+                antiVelocity -= boid.GetLocalPosition() * centerOnPlayerBias;
                 boid.SetVelocity(antiVelocity);
             }
         }
@@ -235,12 +339,12 @@ public class Boids : MonoBehaviour
         {
             if (otherBoid != boid)
             {
-                float distBetween = Vector2.Distance(boid.GetPosition(), otherBoid.GetPosition());
+                float distBetween = Vector2.Distance(boid.GetLocalPosition(), otherBoid.GetLocalPosition());
 
                 if (distBetween < minDistance)
                 {
-                    moveX += boid.GetPosition().x - otherBoid.GetPosition().x;
-                    moveY += boid.GetPosition().y - otherBoid.GetPosition().y;
+                    moveX += boid.GetLocalPosition().x - otherBoid.GetLocalPosition().x;
+                    moveY += boid.GetLocalPosition().y - otherBoid.GetLocalPosition().y;
                 }
             }
         }
@@ -257,7 +361,7 @@ public class Boids : MonoBehaviour
 
         foreach (IndividualBoid otherBoid in boids)
         {
-            float distBetween = Vector2.Distance(boid.GetPosition(), otherBoid.GetPosition());
+            float distBetween = Vector2.Distance(boid.GetLocalPosition(), otherBoid.GetLocalPosition());
 
             if (distBetween < visualRange)
             {
@@ -292,13 +396,70 @@ public class Boids : MonoBehaviour
         }
     }
 
-    // Update the position based on the current velocity
+    /// <summary>
+    /// Update the position based on the current velocity.
+    /// </summary>
+    /// <param name="boid">Boid to move.</param>
     private void MoveBoid(IndividualBoid boid)
     {
-        boid.SetPosition(boid.GetPosition() + boid.GetVelocity());
+        // If the lead boid gets close enough to steal scythe.
+        if (boid.leadBoid && !scattering)
+        {
+            if (boid.GetLocalPosition().magnitude < closeEnoughToSteal)
+                StealAndScatter(boid);
+        }
+
         if (boid.GetVelocity().x > 0)
             boid.spriteRenderer.flipX = false;
         else
             boid.spriteRenderer.flipX = true;
+
+        // If the boids are scattering, the position needs to be moved relative to the world. 
+        if (scattering)
+            boid.SetPositionWorld(boid.GetWorldPosition() + boid.GetVelocity());
+        // If they are not they need to move relative to the player.
+        else
+            boid.SetPosition(boid.GetLocalPosition() + boid.GetVelocity());
+    }
+
+    /// <summary>
+    /// Expects the lead boid to be passed.
+    /// Checks if the lead boid is close enough to the dropoff point and then ends the simulation after the weapon is dropped.
+    /// </summary>
+    /// <param name="boid">The lead boid.</param>
+    private void CheckForDropOffAndEnd(IndividualBoid boid)
+    {
+        float distanceToEndPoint = (boid.GetWorldPosition() - (Vector2)positionForWeapon).magnitude;
+        
+        if (distanceToEndPoint < closeEnoughToSteal)
+        {
+            playerWeaponInstance.transform.parent = null;
+            playerWeaponInstance.transform.position = positionForWeapon;
+            StopSimulation();
+        }
+    }
+
+    private void StealAndScatter(IndividualBoid leadBoid)
+    {
+        leadBoid.UnparentBoid();
+        scattering = true;
+
+        // Parent the weapon to the lead boid.
+        playerWeaponInstance.transform.parent = leadBoid.obj.transform;
+        playerWeaponInstance.transform.localPosition = Vector2.zero;
+        playerWeaponInstance.SetActive(true);
+
+        // Point the lead boid towards a random tile and set the speed to the escape speed.
+        positionForWeapon = CornCoordinatorByWeight.instance.RandomTileToWorldCoordinates();
+        Vector3 direction = positionForWeapon - leadBoid.obj.transform.position;
+        leadBoid.SetVelocity(direction.normalized * escapeSpeed);
+
+        // Scatter every other boid.
+        foreach (IndividualBoid boid in boids)
+        {
+            float speed = boid.GetVelocity().magnitude;
+            boid.SetVelocity(boid.GetVelocity() / speed * escapeSpeed);
+            boid.UnparentBoid();
+        }
     }
 }

@@ -8,7 +8,8 @@ using System;
 public class CornCoordinatorByWeight : MonoBehaviour
 {
     public BinaryGoLTilemapGenerator weightGenerator;
-    
+    //Instance of the menu manager that remains alive the entire life of the application.
+    public static CornCoordinatorByWeight instance;
 
 
     [SerializeField]
@@ -45,7 +46,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private GameObject pumpkin;
     [SerializeField]
     private int maxNumberOfPowerUps;
-    
+
     [SerializeField]
     private int numberOfRootMonsters;
     [SerializeField]
@@ -85,6 +86,11 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private float maxOrbitDistance = 100f;
 
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,12 +105,11 @@ public class CornCoordinatorByWeight : MonoBehaviour
             GeneratePaths();
         }
 
-        // Powerups and Root Monsters must be generated before corn is painted to function properly.
         PaintTiles();
         PaintFences();
-        GeneratePowerups(); 
-        //GenerateRootMonsters();
-        PaintCorn();
+        GeneratePowerups();
+        GenerateRootMonsters();
+        PaintCorn(); // Always paint corn last.
     }
 
     private void GeneratePaths()
@@ -272,12 +277,19 @@ public class CornCoordinatorByWeight : MonoBehaviour
     /// <param name="x">X index in the tilemap.</param>
     /// <param name="y">Y index in the tilemap.</param>
     private void PlaceGameObjectOnTile(GameObject prefab, int x, int y)
-    { 
+    {
+        Vector3 centeredPosition = TileToWorldCoordinates(x, y);
+
+        Instantiate(prefab, centeredPosition, Quaternion.identity);
+    }
+
+    private Vector3 TileToWorldCoordinates(int x, int y)
+    {
         // This works for weight maps where both lengths are multiples of 10.
         // I have no clue why I need to add or subtract depending on the apsect ratio of the weight map.
         int lastXIndex = weightMap.GetLength(0) + 1;
         int lastYIndex = weightMap.GetLength(1) + 1;
-        
+
         // Get the position of the last tile in the map. Divide it's position by 2 to get the center index.
         Vector3 centerOffset = cornTileMap.CellToWorld(new Vector3Int(lastXIndex, lastYIndex, 0)) * 0.5f;
 
@@ -285,8 +297,19 @@ public class CornCoordinatorByWeight : MonoBehaviour
         Vector3 worldCoordinate = cornTileMap.CellToWorld(new Vector3Int(x, y, 0)) * -1;
 
         Vector3 centeredPosition = worldCoordinate + centerOffset;
+        return centeredPosition;
+    }
 
-        Instantiate(prefab, centeredPosition, Quaternion.identity);
+    /// <summary>
+    /// Chooses a random tile in the play area of the map.
+    /// </summary>
+    /// <returns>World coordinates of the random tile.</returns>
+    public Vector3 RandomTileToWorldCoordinates()
+    {
+        int xPos = UnityEngine.Random.Range(1, weightMap.GetLength(0) - 1);
+        int yPos = UnityEngine.Random.Range(1, weightMap.GetLength(1) - 1);
+
+        return TileToWorldCoordinates(xPos, yPos);
     }
 
     private static void RemoveByCondition(Func<Vector2, bool> canRemove, float[,] weightMap)
@@ -427,7 +450,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         int yPos = 0;
 
         // Randomize position until powerup replaces a corn. Prevents powerups from spawning in the middle of nowhere.
-        while(weightMap[xPos, yPos] < sewThreshold)
+        while (weightMap[xPos, yPos] < sewThreshold)
         {
             xPos = UnityEngine.Random.Range(0, weightMap.GetLength(0));
             yPos = UnityEngine.Random.Range(0, weightMap.GetLength(1));
