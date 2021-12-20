@@ -1,112 +1,112 @@
 fileFormatVersion: 2
-guid: da844be8b64fd4703ace1ea5ea79dbbd
+guid: ee6b0939c406f47bbbb16e75431b8a60
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6099980370716811917
-    second: Corn_Red_SpriteSheet_0
+      213: -6188105910155822415
+    second: Corn_Emissive_SpriteSheet_0
   - first:
-      213: 3009118977829932751
-    second: Corn_Red_SpriteSheet_1
+      213: 2763248768406457430
+    second: Corn_Emissive_SpriteSheet_1
   - first:
-      213: -4335677644119315014
-    second: Corn_Red_SpriteSheet_2
+      213: 7412244521713277901
+    second: Corn_Emissive_SpriteSheet_2
   - first:
-      213: 6063751440152857303
-    second: Corn_Red_SpriteSheet_3
+      213: 6857148022136000708
+    second: Corn_Emissive_SpriteSheet_3
   - first:
-      213: -723674086974702767
-    second: Corn_Red_SpriteSheet_4
+      213: 1681212533827657005
+    second: Corn_Emissive_SpriteSheet_4
   - first:
-      213: 1416409921688721054
-    second: Corn_Red_SpriteSheet_5
+      213: 4251274402194695021
+    second: Corn_Emissive_SpriteSheet_5
   - first:
-      213: 6663763781289376743
-    second: Corn_Red_SpriteSheet_6
+      213: -8531373946380414022
+    second: Corn_Emissive_SpriteSheet_6
   - first:
-      213: 8624302078694620214
-    second: Corn_Red_SpriteSheet_7
+      213: 3426249803781265697
+    second: Corn_Emissive_SpriteSheet_7
   - first:
-      213: 8526046038895805518
-    second: Corn_Red_SpriteSheet_8
+      213: -5708220297654434787
+    second: Corn_Emissive_SpriteSheet_8
   - first:
-      213: -9062221069833996281
-    second: Corn_Red_SpriteSheet_9
+      213: -377341003498009649
+    second: Corn_Emissive_SpriteSheet_9
   - first:
-      213: -1386013317849783464
-    second: Corn_Red_SpriteSheet_10
+      213: -1169711883820637233
+    second: Corn_Emissive_SpriteSheet_10
   - first:
-      213: -6389172774621093239
-    second: Corn_Red_SpriteSheet_11
+      213: 1192098794047319656
+    second: Corn_Emissive_SpriteSheet_11
   - first:
-      213: -7031371107437051524
-    second: Corn_Red_SpriteSheet_12
+      213: 8775713819728296441
+    second: Corn_Emissive_SpriteSheet_12
   - first:
-      213: -8279700995776832646
-    second: Corn_Red_SpriteSheet_13
+      213: 3058467916488847518
+    second: Corn_Emissive_SpriteSheet_13
   - first:
-      213: -668038610570293042
-    second: Corn_Red_SpriteSheet_14
+      213: 2596997994409114629
+    second: Corn_Emissive_SpriteSheet_14
   - first:
-      213: 7443098040849008920
-    second: Corn_Red_SpriteSheet_15
+      213: 9100260513634470809
+    second: Corn_Emissive_SpriteSheet_15
   - first:
-      213: 7879682252904294860
-    second: Corn_Red_SpriteSheet_16
+      213: -556400879377778625
+    second: Corn_Emissive_SpriteSheet_16
   - first:
-      213: -5386274031928509249
-    second: Corn_Red_SpriteSheet_17
+      213: -4712375941592813374
+    second: Corn_Emissive_SpriteSheet_17
   - first:
-      213: -6131894230530710729
-    second: Corn_Red_SpriteSheet_18
+      213: 7966003116393373542
+    second: Corn_Emissive_SpriteSheet_18
   - first:
-      213: 515788174304478609
-    second: Corn_Red_SpriteSheet_19
+      213: 8954575127242695920
+    second: Corn_Emissive_SpriteSheet_19
   - first:
-      213: -4828538695904703130
-    second: Corn_Red_SpriteSheet_20
+      213: 4023866077602904181
+    second: Corn_Emissive_SpriteSheet_20
   - first:
-      213: -3189032772477819523
-    second: Corn_Red_SpriteSheet_21
+      213: -7541785658559158592
+    second: Corn_Emissive_SpriteSheet_21
   - first:
-      213: -8553694940318353458
-    second: Corn_Red_SpriteSheet_22
+      213: -1884567840287494069
+    second: Corn_Emissive_SpriteSheet_22
   - first:
-      213: 2450723572616307651
-    second: Corn_Red_SpriteSheet_23
+      213: -1324544794638771333
+    second: Corn_Emissive_SpriteSheet_23
   - first:
-      213: 853773265152796926
-    second: Corn_Red_SpriteSheet_24
+      213: -5620973733300670027
+    second: Corn_Emissive_SpriteSheet_24
   - first:
-      213: -6245339004299179612
-    second: Corn_Red_SpriteSheet_25
+      213: 3665989918754942593
+    second: Corn_Emissive_SpriteSheet_25
   - first:
-      213: -609727212297929256
-    second: Corn_Red_SpriteSheet_26
+      213: 8461808172312599879
+    second: Corn_Emissive_SpriteSheet_26
   - first:
-      213: 4278417221775992356
-    second: Corn_Red_SpriteSheet_27
+      213: -8008286042142793929
+    second: Corn_Emissive_SpriteSheet_27
   - first:
-      213: -7321814546208815130
-    second: Corn_Red_SpriteSheet_28
+      213: -5808077373225878990
+    second: Corn_Emissive_SpriteSheet_28
   - first:
-      213: -5446856404253781069
-    second: Corn_Red_SpriteSheet_29
+      213: -6323123325412799895
+    second: Corn_Emissive_SpriteSheet_29
   - first:
-      213: -1645207255210723191
-    second: Corn_Red_SpriteSheet_30
+      213: -387161372379570448
+    second: Corn_Emissive_SpriteSheet_30
   - first:
-      213: -8435088842665595598
-    second: Corn_Red_SpriteSheet_31
+      213: -8726584254922036881
+    second: Corn_Emissive_SpriteSheet_31
   - first:
-      213: -3795802508383566705
-    second: Corn_Red_SpriteSheet_32
+      213: -8131683956474702659
+    second: Corn_Emissive_SpriteSheet_32
   - first:
-      213: 6737395656401288938
-    second: Corn_Red_SpriteSheet_33
+      213: 6997616575292311203
+    second: Corn_Emissive_SpriteSheet_33
   - first:
-      213: -6607467672251241415
-    second: Corn_Red_SpriteSheet_34
+      213: 871651163726637139
+    second: Corn_Emissive_SpriteSheet_34
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -170,7 +170,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -182,7 +182,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -196,7 +196,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_0
+      name: Corn_Emissive_SpriteSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -204,20 +204,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37d91920c24885ba0800000000000000
-      internalID: -6099980370716811917
+      spriteID: 1babaa0f57e6f1aa0800000000000000
+      internalID: -6188105910155822415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_1
+      name: Corn_Emissive_SpriteSheet_1
       rect:
         serializedVersion: 2
         x: 512
@@ -225,20 +225,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fce807074c982c920800000000000000
-      internalID: 3009118977829932751
+      spriteID: 65c07e25d18095620800000000000000
+      internalID: 2763248768406457430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_2
+      name: Corn_Emissive_SpriteSheet_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -246,20 +246,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abd6aa1772494d3c0800000000000000
-      internalID: -4335677644119315014
+      spriteID: dcb1e09ee159dd660800000000000000
+      internalID: 7412244521713277901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_3
+      name: Corn_Emissive_SpriteSheet_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -267,20 +267,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7da0394cec5c62450800000000000000
-      internalID: 6063751440152857303
+      spriteID: 4c050bf9bcb792f50800000000000000
+      internalID: 6857148022136000708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_4
+      name: Corn_Emissive_SpriteSheet_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -288,20 +288,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15bb7b8804ef4f5f0800000000000000
-      internalID: -723674086974702767
+      spriteID: d2d5bbe54edd45710800000000000000
+      internalID: 1681212533827657005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_5
+      name: Corn_Emissive_SpriteSheet_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -309,20 +309,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e96589eb15918a310800000000000000
-      internalID: 1416409921688721054
+      spriteID: d63a6896b8f8ffa30800000000000000
+      internalID: 4251274402194695021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_6
+      name: Corn_Emissive_SpriteSheet_6
       rect:
         serializedVersion: 2
         x: 3072
@@ -330,20 +330,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ebfdda5ad17a7c50800000000000000
-      internalID: 6663763781289376743
+      spriteID: ab319ffc8987a9980800000000000000
+      internalID: -8531373946380414022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_7
+      name: Corn_Emissive_SpriteSheet_7
       rect:
         serializedVersion: 2
         x: 3584
@@ -351,20 +351,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63c714c0c0dafa770800000000000000
-      internalID: 8624302078694620214
+      spriteID: 12952222b0c7c8f20800000000000000
+      internalID: 3426249803781265697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_8
+      name: Corn_Emissive_SpriteSheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -372,20 +372,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e44c20f03b9925670800000000000000
-      internalID: 8526046038895805518
+      spriteID: d1402aaf1e358c0b0800000000000000
+      internalID: -5708220297654434787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_9
+      name: Corn_Emissive_SpriteSheet_9
       rect:
         serializedVersion: 2
         x: 512
@@ -393,20 +393,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 708fb7063f58c3280800000000000000
-      internalID: -9062221069833996281
+      spriteID: fcbcf474b5a63caf0800000000000000
+      internalID: -377341003498009649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_10
+      name: Corn_Emissive_SpriteSheet_10
       rect:
         serializedVersion: 2
         x: 1024
@@ -414,20 +414,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8536a971b34e3cce0800000000000000
-      internalID: -1386013317849783464
+      spriteID: fc361533d3954cfe0800000000000000
+      internalID: -1169711883820637233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_11
+      name: Corn_Emissive_SpriteSheet_11
       rect:
         serializedVersion: 2
         x: 1536
@@ -435,20 +435,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 982ec1876391557a0800000000000000
-      internalID: -6389172774621093239
+      spriteID: 86eac54898f2b8010800000000000000
+      internalID: 1192098794047319656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_12
+      name: Corn_Emissive_SpriteSheet_12
       rect:
         serializedVersion: 2
         x: 2048
@@ -456,20 +456,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7105494b3d8b6e90800000000000000
-      internalID: -7031371107437051524
+      spriteID: 9f9346b293999c970800000000000000
+      internalID: 8775713819728296441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_13
+      name: Corn_Emissive_SpriteSheet_13
       rect:
         serializedVersion: 2
         x: 2560
@@ -477,20 +477,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7b1644efc7981d80800000000000000
-      internalID: -8279700995776832646
+      spriteID: e903f379d5cd17a20800000000000000
+      internalID: 3058467916488847518
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_14
+      name: Corn_Emissive_SpriteSheet_14
       rect:
         serializedVersion: 2
         x: 3072
@@ -498,20 +498,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec056b05c66aab6f0800000000000000
-      internalID: -668038610570293042
+      spriteID: 50c382b9ae36a0420800000000000000
+      internalID: 2596997994409114629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_15
+      name: Corn_Emissive_SpriteSheet_15
       rect:
         serializedVersion: 2
         x: 3584
@@ -519,20 +519,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8190631ab323b4760800000000000000
-      internalID: 7443098040849008920
+      spriteID: 99b42bec8be9a4e70800000000000000
+      internalID: 9100260513634470809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_16
+      name: Corn_Emissive_SpriteSheet_16
       rect:
         serializedVersion: 2
         x: 0
@@ -540,20 +540,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc96f4bb2414a5d60800000000000000
-      internalID: 7879682252904294860
+      spriteID: f38f8ff19544748f0800000000000000
+      internalID: -556400879377778625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_17
+      name: Corn_Emissive_SpriteSheet_17
       rect:
         serializedVersion: 2
         x: 512
@@ -561,20 +561,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbc7dff3e4c1045b0800000000000000
-      internalID: -5386274031928509249
+      spriteID: 2c073416c074a9eb0800000000000000
+      internalID: -4712375941592813374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_18
+      name: Corn_Emissive_SpriteSheet_18
       rect:
         serializedVersion: 2
         x: 1024
@@ -582,20 +582,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73323fc7fa227eaa0800000000000000
-      internalID: -6131894230530710729
+      spriteID: 66f1840f0adec8e60800000000000000
+      internalID: 7966003116393373542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_19
+      name: Corn_Emissive_SpriteSheet_19
       rect:
         serializedVersion: 2
         x: 1536
@@ -603,20 +603,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19504cc9c92782700800000000000000
-      internalID: 515788174304478609
+      spriteID: 0f469d582aa054c70800000000000000
+      internalID: 8954575127242695920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_20
+      name: Corn_Emissive_SpriteSheet_20
       rect:
         serializedVersion: 2
         x: 2048
@@ -624,20 +624,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66d4f5683a59dfcb0800000000000000
-      internalID: -4828538695904703130
+      spriteID: 578f343d0e4a7d730800000000000000
+      internalID: 4023866077602904181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_21
+      name: Corn_Emissive_SpriteSheet_21
       rect:
         serializedVersion: 2
         x: 2560
@@ -645,20 +645,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d756163f6974eb3d0800000000000000
-      internalID: -3189032772477819523
+      spriteID: 0c62271d6e1365790800000000000000
+      internalID: -7541785658559158592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_22
+      name: Corn_Emissive_SpriteSheet_22
       rect:
         serializedVersion: 2
         x: 3072
@@ -666,20 +666,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec7b44d65cb2b4980800000000000000
-      internalID: -8553694940318353458
+      spriteID: b40f98cb88ba8d5e0800000000000000
+      internalID: -1884567840287494069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_23
+      name: Corn_Emissive_SpriteSheet_23
       rect:
         serializedVersion: 2
         x: 3584
@@ -687,20 +687,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c3a874da18b20220800000000000000
-      internalID: 2450723572616307651
+      spriteID: b7b967ae6854e9de0800000000000000
+      internalID: -1324544794638771333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_24
+      name: Corn_Emissive_SpriteSheet_24
       rect:
         serializedVersion: 2
         x: 0
@@ -708,20 +708,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef8682cd24639db00800000000000000
-      internalID: 853773265152796926
+      spriteID: 5b1ffc6bb2a4ef1b0800000000000000
+      internalID: -5620973733300670027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_25
+      name: Corn_Emissive_SpriteSheet_25
       rect:
         serializedVersion: 2
         x: 512
@@ -729,20 +729,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a90bdac3491459a0800000000000000
-      internalID: -6245339004299179612
+      spriteID: 18e2d89686630e230800000000000000
+      internalID: 3665989918754942593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_26
+      name: Corn_Emissive_SpriteSheet_26
       rect:
         serializedVersion: 2
         x: 1024
@@ -750,20 +750,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ddb715b450d987f0800000000000000
-      internalID: -609727212297929256
+      spriteID: 74d903c33b16e6570800000000000000
+      internalID: 8461808172312599879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_27
+      name: Corn_Emissive_SpriteSheet_27
       rect:
         serializedVersion: 2
         x: 1536
@@ -771,20 +771,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4262fd09bcdff5b30800000000000000
-      internalID: 4278417221775992356
+      spriteID: 73f1c5e364adcd090800000000000000
+      internalID: -8008286042142793929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_28
+      name: Corn_Emissive_SpriteSheet_28
       rect:
         serializedVersion: 2
         x: 2048
@@ -792,20 +792,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e78fed7670b36a90800000000000000
-      internalID: -7321814546208815130
+      spriteID: 23a33ecc660956fa0800000000000000
+      internalID: -5808077373225878990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_29
+      name: Corn_Emissive_SpriteSheet_29
       rect:
         serializedVersion: 2
         x: 2560
@@ -813,20 +813,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b354e185f0e864b0800000000000000
-      internalID: -5446856404253781069
+      spriteID: 96a88cd36d0cf38a0800000000000000
+      internalID: -6323123325412799895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_30
+      name: Corn_Emissive_SpriteSheet_30
       rect:
         serializedVersion: 2
         x: 3072
@@ -834,20 +834,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 988f443d7bc0b29e0800000000000000
-      internalID: -1645207255210723191
+      spriteID: 0fe109878c680aaf0800000000000000
+      internalID: -387161372379570448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_31
+      name: Corn_Emissive_SpriteSheet_31
       rect:
         serializedVersion: 2
         x: 3584
@@ -855,20 +855,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23d6e0c736b80fa80800000000000000
-      internalID: -8435088842665595598
+      spriteID: f69ead60bd1f4e680800000000000000
+      internalID: -8726584254922036881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_32
+      name: Corn_Emissive_SpriteSheet_32
       rect:
         serializedVersion: 2
         x: 0
@@ -876,20 +876,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f84c24acab9925bc0800000000000000
-      internalID: -3795802508383566705
+      spriteID: db4159c6684762f80800000000000000
+      internalID: -8131683956474702659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_33
+      name: Corn_Emissive_SpriteSheet_33
       rect:
         serializedVersion: 2
         x: 512
@@ -897,20 +897,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeefe0b37a9008d50800000000000000
-      internalID: 6737395656401288938
+      spriteID: 3a60fa443378c1160800000000000000
+      internalID: 6997616575292311203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Corn_Red_SpriteSheet_34
+      name: Corn_Emissive_SpriteSheet_34
       rect:
         serializedVersion: 2
         x: 1024
@@ -918,14 +918,14 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93c6692f82f8d44a0800000000000000
-      internalID: -6607467672251241415
+      spriteID: 3586bfd7d1ab81c00800000000000000
+      internalID: 871651163726637139
       vertices: []
       indices: 
       edges: []
@@ -939,9 +939,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: ee6b0939c406f47bbbb16e75431b8a60, type: 3}
-      name: _Emission
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
