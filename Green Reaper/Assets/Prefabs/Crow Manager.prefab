@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113ce0e452b91a24e91edf28a4e6a930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   bird: {fileID: 6498635244923019841, guid: 37159c61dff26dc47945e0f6463648cf, type: 3}
   numBoids: 30
   visualRange: 6
@@ -51,15 +50,14 @@ MonoBehaviour:
   minDistance: 0.53
   avoidFactor: 2.06
   matchingFactor: 0.7
-  speedlimit: 0.23
-  minimumSpeedLimit: 0.13
-  escapeSpeed: 0
-  roamRadius: 6
+  speedlimit: 1
+  minimumSpeedLimit: 0.5
+  escapeSpeed: 0.75
+  roamRadius: 8
   turnSpeedDegrees: 1.83
   turnSpeedBoost: 0.1
-  centerOnPlayerBias: 0.0001
+  centerOnPlayerBias: 0.00001
   outOfRangeAngle: 0.984
   debuffTime: 5
   closeEnoughToSteal: 0.5
-  playerWeapon: {fileID: 0}
   startingPositionRange: {x: 3, y: 3}

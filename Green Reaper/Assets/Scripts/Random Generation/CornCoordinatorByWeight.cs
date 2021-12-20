@@ -51,7 +51,10 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private int numberOfRootMonsters;
     [SerializeField]
     private GameObject rootMonster;
-
+    [SerializeField]
+    private int numberOfScareCrows;
+    [SerializeField]
+    private GameObject scareCrow;
 
     [SerializeField, Range(0, 1)]
     private float sewThreshold = 0.2f;
@@ -105,10 +108,12 @@ public class CornCoordinatorByWeight : MonoBehaviour
             GeneratePaths();
         }
 
-        PaintTiles();
         PaintFences();
+
+        PaintTiles(); // Paint tiles must be called before the special plants.
         GeneratePowerups();
         GenerateRootMonsters();
+        GenerateScareCrows();
         PaintCorn(); // Always paint corn last.
     }
 
@@ -471,5 +476,15 @@ public class CornCoordinatorByWeight : MonoBehaviour
     {
         for (int i = 0; i < numberOfRootMonsters; i++)
             SpawnPrefab(rootMonster);
+    }
+
+    /// <summary>
+    /// Replaces corn with scare crows.
+    /// Must be performed before corn is placed becausee the weight map is altered.
+    /// </summary>
+    private void GenerateScareCrows()
+    {
+        for (int i = 0; i < numberOfScareCrows; i++)
+            SpawnPrefab(scareCrow);
     }
 }
