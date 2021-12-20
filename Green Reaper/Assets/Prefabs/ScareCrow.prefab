@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4639580732210111604}
   - component: {fileID: 5767002235199609554}
   - component: {fileID: 7032784624258126994}
+  - component: {fileID: 7917332015816960823}
   m_Layer: 0
   m_Name: ScareCrow
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c650eafefd16a40d6bdcb2f9a5100dbf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,3 +132,20 @@ MonoBehaviour:
       m_Calls: []
   type: 7
   slowsPlayer: 0
+--- !u!114 &7917332015816960823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364566788737707582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6aeb6c4c0011c4f9379435c8395781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDynamic: 0
+  useSpriteRenderer: 1
+  spriteRenderer: {fileID: 4639580732210111604}
+  offset: 0
+  finalOffset: 0
