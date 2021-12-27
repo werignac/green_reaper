@@ -33,10 +33,7 @@ public class Boids : MonoBehaviour
             obj.SetActive(false);
             spriteRenderer = obj.GetComponent<SpriteRenderer>();
 
-            // random starting position.
-            float x = UnityEngine.Random.Range(initialPositionRange.x * -1, initialPositionRange.x);
-            float y = UnityEngine.Random.Range(initialPositionRange.y * -1, initialPositionRange.y);
-            SetPosition(new Vector2(x, y));
+            GenerateRandomStartPosition(initialPositionRange);
 
             // Range between 0 and 1 when cast to an int.
             int yesOrNo = UnityEngine.Random.Range(0, 2);
@@ -50,6 +47,17 @@ public class Boids : MonoBehaviour
             velocity = new Vector2();
             velocity.x = UnityEngine.Random.Range(initialSpeedRange.x, initialSpeedRange.y);
             velocity.y = UnityEngine.Random.Range(initialSpeedRange.x, initialSpeedRange.y);
+        }
+
+        /// <summary>
+        /// Random starting position.
+        /// </summary>
+        /// <param name="initialPositionRange">Range to create a starting position.</param>
+        public void GenerateRandomStartPosition(Vector2 initialPositionRange)
+        {
+            float x = UnityEngine.Random.Range(initialPositionRange.x * -1, initialPositionRange.x);
+            float y = UnityEngine.Random.Range(initialPositionRange.y * -1, initialPositionRange.y);
+            SetPosition(new Vector2(x, y));
         }
 
         /// <summary>
@@ -184,22 +192,31 @@ public class Boids : MonoBehaviour
 
     public void StartSimulation()
     {
+        // If the simulation is currently running, we do not want to restart it.
+        if (simulating)
+            return; 
+
         Initialize();
         debuffTimeRemaining = debuffTime;
         simulating = true;
+        leadBoidChosen = false;
+        scattering = false;
         foreach (IndividualBoid boid in boids)
         {
             boid.ParentBoid();
             boid.obj.SetActive(true);
+            boid.GenerateRandomStartPosition(startingPositionRange);
         }
     }
 
     public void StopSimulation()
     {
         simulating = false;
+        scattering = false;
         foreach (IndividualBoid boid in boids)
         {
             boid.obj.SetActive(false);
+            boid.leadBoid = false;
         }
     }
 
