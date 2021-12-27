@@ -23,7 +23,7 @@ public class Boids : MonoBehaviour
         private GameObject parent;
 
 
-        public IndividualBoid(Vector2 initialPositionRange, Vector2 initialSpeedRange, GameObject prefab, GameObject parentObject)
+        public IndividualBoid(float initailPositionRadius, float initialSpeed, GameObject prefab, GameObject parentObject)
         {
             parent = parentObject;
 
@@ -33,31 +33,53 @@ public class Boids : MonoBehaviour
             obj.SetActive(false);
             spriteRenderer = obj.GetComponent<SpriteRenderer>();
 
-            GenerateRandomStartPosition(initialPositionRange);
+            InitialzeBoid(initailPositionRadius, initialSpeed);
+        }
+
+        public void InitialzeBoid(float initailPositionRadius, float initialSpeed)
+        {
+            GenerateStartPosition(initailPositionRadius);
+            GenerateStartVelocity(initialSpeed);
 
             // Range between 0 and 1 when cast to an int.
             int yesOrNo = UnityEngine.Random.Range(0, 2);
 
+            // Determine if the boid turns left or right.
             if (yesOrNo == 0)
                 turnsRight = false;
             else
                 turnsRight = true;
+        }
 
-            // Velocities for both the X and Y directions are randomized.
-            velocity = new Vector2();
-            velocity.x = UnityEngine.Random.Range(initialSpeedRange.x, initialSpeedRange.y);
-            velocity.y = UnityEngine.Random.Range(initialSpeedRange.x, initialSpeedRange.y);
+        /// <summary>
+        /// Point the boid at the player, and travel at starting speed.
+        /// </summary>
+        /// <param name="initialSpeed">Speed the boid should start at.</param>
+        private void GenerateStartVelocity(float initialSpeed)
+        {
+            velocity = obj.transform.localPosition * -1;
+            velocity = velocity.normalized * initialSpeed;
         }
 
         /// <summary>
         /// Random starting position.
         /// </summary>
         /// <param name="initialPositionRange">Range to create a starting position.</param>
-        public void GenerateRandomStartPosition(Vector2 initialPositionRange)
+        private void GenerateStartPosition(float initailPositionRadius)
         {
-            float x = UnityEngine.Random.Range(initialPositionRange.x * -1, initialPositionRange.x);
-            float y = UnityEngine.Random.Range(initialPositionRange.y * -1, initialPositionRange.y);
-            SetPosition(new Vector2(x, y));
+            Vector2 randomPosition = UnityEngine.Random.insideUnitCircle;
+            
+            // A default case to avoid the bird spawning on top of the player.
+            if(randomPosition == Vector2.zero)
+            {
+                randomPosition = Vector2.left;
+            }
+            
+            // Normalize, and then move down that direction to the radius of where the boid should start.
+            randomPosition = randomPosition.normalized;
+            randomPosition *= initailPositionRadius;
+
+            SetPosition(randomPosition);
         }
 
         /// <summary>
@@ -127,7 +149,9 @@ public class Boids : MonoBehaviour
     public float speedlimit;
     public float minimumSpeedLimit;
     public float escapeSpeed;
+    public float startPositionRadius;
     public float roamRadius;
+    public float timeToFlyToPlayer;
     public float turnSpeedDegrees;
     public float turnSpeedBoost;
     public float centerOnPlayerBias;
@@ -138,29 +162,24 @@ public class Boids : MonoBehaviour
     // Instance of the boids to allow other objects to interact with it.
     public static Boids instance;
 
-    private bool simulating = false;
+
 
     /// <summary>
     /// GET RID OF THIS WHEN IMPLEMENTING WITH PLAYER.
     /// </summary>
     //public GameObject playerWeapon;
 
-    private GameObject playerWeaponInstance;
+    private float birdFlightGracePeriod;
     private float debuffTimeRemaining;
     private bool leadBoidChosen = false;
     private bool scattering = false;
-    private GameObject player;
+    private bool simulating = false;
     private bool initialized = false;
+    private GameObject player;
     private Vector3 positionForWeapon;
-
-
-    /// <summary>
-    /// The x range will be defined as, xRange = [-x, x], and similarly for Y.
-    /// Creates a box with the two boundaries that the boid can spawn in.
-    /// </summary>
-    public Vector2 startingPositionRange;
-
     private List<IndividualBoid> boids;
+    private GameObject playerWeaponInstance;
+
 
     private void Initialize()
     {
@@ -182,7 +201,7 @@ public class Boids : MonoBehaviour
 
         boids = new List<IndividualBoid>();
         for (int i = 0; i < numBoids; ++i)
-            boids.Add(new IndividualBoid(startingPositionRange, new Vector2(minimumSpeedLimit, speedlimit), bird, player));
+            boids.Add(new IndividualBoid(startPositionRadius, speedlimit, bird, player));
     }
 
     private void Awake()
@@ -198,6 +217,7 @@ public class Boids : MonoBehaviour
 
         Initialize();
         debuffTimeRemaining = debuffTime;
+        birdFlightGracePeriod = timeToFlyToPlayer;
         simulating = true;
         leadBoidChosen = false;
         scattering = false;
@@ -205,7 +225,7 @@ public class Boids : MonoBehaviour
         {
             boid.ParentBoid();
             boid.obj.SetActive(true);
-            boid.GenerateRandomStartPosition(startingPositionRange);
+            boid.InitialzeBoid(startPositionRadius, speedlimit);
         }
     }
 
@@ -226,6 +246,7 @@ public class Boids : MonoBehaviour
         if (simulating)
         {
             debuffTimeRemaining -= Time.deltaTime;
+            birdFlightGracePeriod -= Time.deltaTime;
 
             if (debuffTimeRemaining <= 0)
             {
@@ -246,7 +267,8 @@ public class Boids : MonoBehaviour
                 }
 
                 // Update all boids according to each rule when not scattering.
-                if (!scattering)
+                // Bird flight grace period allows the birds to fly towards the player at the start without to center them more on the player.
+                if (!scattering && birdFlightGracePeriod <= 0)
                 {
                     FlyTowardsCenter(boid);
                     AvoidOthers(boid);
@@ -319,16 +341,16 @@ public class Boids : MonoBehaviour
             if (boid.turnsRight)
                 turnDirectionDegrees *= -1;
 
+            // Turn the boid.
             Vector2 newBoidDir = boid.GetVelocity();
             newBoidDir.x = newBoidDir.x * Mathf.Cos(Mathf.Deg2Rad * turnDirectionDegrees) - newBoidDir.y * Mathf.Sin(Mathf.Deg2Rad * turnDirectionDegrees);
             newBoidDir.y = newBoidDir.x * Mathf.Sin(Mathf.Deg2Rad * turnDirectionDegrees) + newBoidDir.y * Mathf.Cos(Mathf.Deg2Rad * turnDirectionDegrees);
 
-            // Prevent them from not moving.
+            // Prevent them from not moving. If they stop moving point them at the player.
             if (newBoidDir.x == 0 && newBoidDir.y == 0)
             {
-                float x = UnityEngine.Random.Range(startingPositionRange.x * -1, startingPositionRange.x);
-                float y = UnityEngine.Random.Range(startingPositionRange.y * -1, startingPositionRange.y);
-                newBoidDir = new Vector2(x, y);
+                newBoidDir = boid.GetLocalPosition() * -1;
+                newBoidDir = newBoidDir.normalized * minimumSpeedLimit;
             }
 
             // Apply boost.

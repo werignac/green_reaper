@@ -53,11 +53,12 @@ MonoBehaviour:
   speedlimit: 1
   minimumSpeedLimit: 0.5
   escapeSpeed: 0.75
-  roamRadius: 8
+  startPositionRadius: 35
+  roamRadius: 15
+  timeToFlyToPlayer: 0.3
   turnSpeedDegrees: 1.83
   turnSpeedBoost: 0.1
   centerOnPlayerBias: 0.00001
   outOfRangeAngle: 0.984
   debuffTime: 5
   closeEnoughToSteal: 0.5
-  startingPositionRange: {x: 3, y: 3}
