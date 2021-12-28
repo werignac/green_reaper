@@ -136,6 +136,13 @@ public class HarvestState : MonoBehaviour
         currentPlayer.SetReceivingInput(false);
         roundEnd?.Invoke(GameManager.instance.globalScore.GetValue());
 
+        if (QuestManager.instance.QuestComplete())
+        {
+            IncrementScore(QuestManager.instance.GetQuestRewards());
+            print("Quest Was Successfully Completed.");
+        }
+            
+
         endRound = true;
     }
 

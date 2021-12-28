@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using Buffs;
 using System;
 
-public enum PlantType {CORN = 0, PEPPER = 1, PUMPKIN = 2, CORN2 = 3, CORN3 = 4, ZUCCHINI = 5, ROOTMONSTER = 6, SCARECROW = 7}
+public enum PlantType {CORN = 0, PEPPER = 1, PUMPKIN = 2, CORN2 = 3, CORN3 = 4, ZUCCHINI = 5, DORMANTROOTMONSTER = 6, ACTIVEROOTMONSTER = 7, SCARECROW = 8}
 
 public class PlantHealth : MonoBehaviour
 {
@@ -56,6 +56,7 @@ public class PlantHealth : MonoBehaviour
     {
         HarvestState.instance.IncrementScore(baseHealth);
         HarvestState.instance.IncrementCornDeaths(type);
+        QuestManager.instance.PlantDied(GetPlantType());
         Destroy(gameObject);
     }
 

@@ -131,7 +131,7 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
-  type: 6
+  type: 7
   slowsPlayer: 0
   chaseMovementSpeed: 5
   escapeMovementSpeed: 5

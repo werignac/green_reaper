@@ -13,6 +13,7 @@ public class ScareCrow : PlantHealth
     protected override void OnDeath()
     {
         deathEvent?.Invoke(PlantType.SCARECROW);
+        QuestManager.instance.PlantDied(GetPlantType());
         Boids.instance.StartSimulation();
     }
 

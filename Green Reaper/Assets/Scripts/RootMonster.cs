@@ -101,6 +101,8 @@ public class RootMonster : PlantHealth
     protected override void OnDeath()
     {
         HarvestState.instance.IncrementScore(coinsActuallyStolen);
+        deathEvent?.Invoke(GetPlantType());
+        QuestManager.instance.PlantDied(GetPlantType());
         Destroy(gameObject);
     }
 

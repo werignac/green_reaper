@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject winState;
 
-    
+
     private bool procedural = false;
 
     void Start()
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnLoadScene;
     }
-    
+
     private void Awake()
     {
         instance = this;

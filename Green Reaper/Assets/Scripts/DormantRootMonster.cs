@@ -12,7 +12,8 @@ public class DormantRootMonster : PlantHealth
 
     protected override void OnDeath()
     {
-        deathEvent?.Invoke(PlantType.ROOTMONSTER);
+        deathEvent?.Invoke(PlantType.DORMANTROOTMONSTER);
+        QuestManager.instance.PlantDied(GetPlantType());
         Destroy(gameObject);
     }
 
