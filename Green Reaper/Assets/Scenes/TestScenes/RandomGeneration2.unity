@@ -1131,6 +1131,7 @@ GameObject:
   - component: {fileID: 635664681}
   - component: {fileID: 635664680}
   - component: {fileID: 635664679}
+  - component: {fileID: 635664682}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1203,6 +1204,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &635664682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635664678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &753303272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1307,7 @@ MonoBehaviour:
   birthLimit: 1
   deathLimit: 6
   numberOfRepititons: 3
-  tileMapSize: {x: 75, y: 50, z: 0}
+  tileMapSize: {x: 60, y: 50, z: 0}
   foreground: {fileID: 277363597}
   background: {fileID: 1046629726}
 --- !u!4 &760800744
@@ -1989,20 +2022,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weightGenerator: {fileID: 760800743}
-  TileMapXScaleFactor: 5.25
-  TileMapYScaleFactor: 5.34
-  cornTileMap: {fileID: 277363597}
   blurIterations: 1
+  mapBorderSize: 0
+  cornTileMap: {fileID: 277363597}
   background: {fileID: 1046629726}
+  fenceTileMap: {fileID: 277363597}
   foregroundTile: {fileID: 11400000, guid: 444304eceb399ba45adc8f04f9f3fc52, type: 2}
   backgroundTile: {fileID: 11400000, guid: c089dad1a5f13439bb1849d8a18f196a, type: 2}
+  fenceTile: {fileID: 11400000, guid: abf3db810ba674fee966328076a6ea55, type: 2}
   corn1: {fileID: 2795396761242676467, guid: 06785fbd58cef1841a37a723f05fb4cc, type: 3}
   corn2: {fileID: 4994565295658247302, guid: dcb20cbb38930ec47be7965da426aeae, type: 3}
   corn3: {fileID: 6294569157566338346, guid: bbd2c0cc77011c942bdbf07fc916948d, type: 3}
+  ghostPepper: {fileID: 0}
+  zucchini: {fileID: 0}
+  pumpkin: {fileID: 0}
+  maxNumberOfPowerUps: 0
+  lightPost: {fileID: 4297840910456311119, guid: 3c06b69cbe68a4227be8641ed9221b79, type: 3}
+  numberOfRootMonsters: 0
+  rootMonster: {fileID: 7490363111551181605, guid: b5df51d00a0eeb241a42b4c900a13422, type: 3}
+  numberOfScareCrows: 0
+  scareCrow: {fileID: 7364566788737707582, guid: 43f983fa9258af649aca451b7d83924c, type: 3}
   sewThreshold: 0.435
   corn1Threshold: 0.435
   corn2Threshold: 0.527
   corn3Threshold: 0.621
+  drawPaths: 1
+  minPathWidth: 0
+  maxPathWidth: 0
+  minOrbits: 0
+  maxOrbits: 0
+  minOrbitRadius: 4
+  maxOrbitRadius: 10
+  minOrbitDistance: 50
+  maxOrbitDistance: 100
 --- !u!4 &1441182644
 Transform:
   m_ObjectHideFlags: 0

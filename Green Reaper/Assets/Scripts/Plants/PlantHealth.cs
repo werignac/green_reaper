@@ -31,9 +31,6 @@ public class PlantHealth : MonoBehaviour
 
     protected void Initialize()
     {
-        if (!GameManager.instance.GetProcedural())
-            transform.localScale = transform.localScale * 0.056844f;
-
         health = new ValueHolder<int>(baseHealth);
         health.valueDecreased.AddListener((int x) =>
         {

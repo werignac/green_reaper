@@ -1014,6 +1014,9 @@ MonoBehaviour:
   zucchini: {fileID: 1663862972957456031, guid: bc30f6313fedf244c9094ed8794f87d8, type: 3}
   pumpkin: {fileID: 4250840628604653309, guid: 22fac01f7a02d9743835bf0e777a29cc, type: 3}
   maxNumberOfPowerUps: 30
+  lightPost: {fileID: 4297840910456311119, guid: 3c06b69cbe68a4227be8641ed9221b79, type: 3}
+  maxLightPostDistance: 5.8
+  minLightPostDistance: 3.52
   numberOfRootMonsters: 15
   rootMonster: {fileID: 7490363111551181605, guid: b5df51d00a0eeb241a42b4c900a13422, type: 3}
   numberOfScareCrows: 10

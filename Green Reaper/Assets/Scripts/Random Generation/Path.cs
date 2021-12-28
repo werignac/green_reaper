@@ -45,6 +45,32 @@ public class Path
         return (float)(polynomial.Integrate().Evaluate(end) - polynomial.Integrate().Evaluate(start));
     }
 
+    public float XLength()
+    {
+        return Mathf.Abs(end - start);
+    }
+
+    public Vector2 GetPositionAtX(float x)
+    {
+        return RotateVector2(new Vector2(start + x, (float)polynomial.Evaluate(start + x)), -angle);
+    }
+
+    public void GetBorderPositionsAtX(float x, out Vector2 position1, out Vector2 position2)
+    {
+        Vector2 centerPoint = GetPositionAtX(x);
+        Polynomial derivative = polynomial.Differentiate();
+
+        float slope = (float) derivative.Evaluate(start + x);
+        float slopeAngle = Mathf.Atan(slope) + Mathf.PI/2 - angle;
+
+        Vector2 distance = new Vector2(radius, 0);
+        Vector2 displacement = RotateVector2(distance, slopeAngle);
+
+        position1 = centerPoint + displacement;
+        position2 = centerPoint - displacement;
+    }
+
+
     private static List<Vector2> GetConstraints(Vector2[] points, Matrix<float> rotationMatrix)
     {
         List<Vector2> constraints = new List<Vector2>();

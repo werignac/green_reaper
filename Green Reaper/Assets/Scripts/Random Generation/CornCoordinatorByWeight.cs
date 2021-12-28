@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System;
 
-
 public class CornCoordinatorByWeight : MonoBehaviour
 {
     public BinaryGoLTilemapGenerator weightGenerator;
@@ -46,6 +45,13 @@ public class CornCoordinatorByWeight : MonoBehaviour
     private GameObject pumpkin;
     [SerializeField]
     private int maxNumberOfPowerUps;
+
+    [SerializeField]
+    private GameObject lightPost;
+    [SerializeField, Range(1, 10)]
+    private float maxLightPostDistance = 3;
+    [SerializeField, Range(1, 10)]
+    private float minLightPostDistance = 1;
 
     [SerializeField]
     private int numberOfRootMonsters;
@@ -105,19 +111,23 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
         if (drawPaths)
         {
-            GeneratePaths();
+            GeneratePaths(out List<Circle> circles, out List<Path> paths);
+            PaintLightPosts(paths);
         }
 
         PaintFences();
 
         PaintTiles(); // Paint tiles must be called before the special plants.
-        GeneratePowerups();
+        if (GameManager.instance != null)
+            GeneratePowerups();
+        else
+            Debug.Log("No GameManager found, not generating powerups.");
         GenerateRootMonsters();
         GenerateScareCrows();
         PaintCorn(); // Always paint corn last.
     }
 
-    private void GeneratePaths()
+    private void GeneratePaths(out List<Circle> cutOutCircles, out List<Path> cutOutPaths)
     {
         // Center circle always around player start.
         Circle center = new Circle(new Vector2(weightMap.GetLength(0), weightMap.GetLength(1)) / 2f, 5);
@@ -174,6 +184,9 @@ public class CornCoordinatorByWeight : MonoBehaviour
 
         RemoveByCircles(circles, weightMap);
         RemoveByPaths(paths, weightMap);
+
+        cutOutCircles = circles;
+        cutOutPaths = paths;
     }
 
     /// <summary>
@@ -250,6 +263,53 @@ public class CornCoordinatorByWeight : MonoBehaviour
             Vector3Int centeredPosition = new Vector3Int(-x, -y, 0) + centerOffset;
 
             fenceTileMap.SetTile(centeredPosition, fenceTile);
+        }
+    }
+
+    /// <summary>
+    /// Paints the Light  Posts onto the map.
+    /// </summary>
+    private void PaintLightPosts(List<Path> paths)
+    {
+        HashSet<Vector2Int> lightPositions = new HashSet<Vector2Int>();
+
+        foreach (Path path in paths)
+        {
+            int lightPlacementType = UnityEngine.Random.Range((int)0, (int)2);
+
+            if (path.radius <= 1.5)
+                lightPlacementType = 1;
+
+
+            float lightPostDistance = UnityEngine.Random.Range(minLightPostDistance, maxLightPostDistance);
+
+            for (float currentPosition = 0 + UnityEngine.Random.Range(0.0f, lightPostDistance);
+                currentPosition < path.XLength();
+                currentPosition += lightPostDistance)
+            {
+                if (lightPlacementType % 2 == 0)
+                {
+                    Vector2 centerPosition = path.GetPositionAtX(currentPosition);
+
+                    path.GetBorderPositionsAtX(currentPosition, out Vector2 position1, out Vector2 position2);
+
+                    position1 = Vector2.Lerp(centerPosition, position1, 0.5f);
+                    position2 = Vector2.Lerp(centerPosition, position2, 0.5f);
+
+                    lightPositions.Add(new Vector2Int(Mathf.RoundToInt(position1.x), Mathf.RoundToInt(position1.y)));
+                    lightPositions.Add(new Vector2Int(Mathf.RoundToInt(position2.x), Mathf.RoundToInt(position2.y)));
+                }
+                else
+                {
+                    Vector2 position = path.GetPositionAtX(currentPosition);
+                    lightPositions.Add(new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y)));
+                }
+            }
+        }
+
+        foreach (Vector2Int gridPosition in lightPositions)
+        {
+            PlaceGameObjectOnTile(lightPost, gridPosition.x, gridPosition.y);
         }
     }
 
