@@ -55,7 +55,7 @@ MonoBehaviour:
   escapeSpeed: 0.75
   startPositionRadius: 35
   roamRadius: 15
-  timeToFlyToPlayer: 0.3
+  timeToFlyToPlayer: 0.6
   turnSpeedDegrees: 1.83
   turnSpeedBoost: 0.1
   centerOnPlayerBias: 0.00001
