@@ -26,6 +26,10 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField]
     private Tile foregroundTile;
     [SerializeField]
+    private Tile pathTile;
+    [SerializeField]
+    private RuleTile circleTile;
+    [SerializeField]
     private RuleTile backgroundTile;
     [SerializeField]
     private RuleTile fenceTile;
@@ -182,8 +186,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
             paths.Add(new Path(startPos, startDir, endPos, endDir, boundCheckRadius));
         }
 
-        RemoveByCircles(circles, weightMap);
         RemoveByPaths(paths, weightMap);
+        RemoveByCircles(circles, weightMap);
 
         cutOutCircles = circles;
         cutOutPaths = paths;
@@ -212,8 +216,13 @@ public class CornCoordinatorByWeight : MonoBehaviour
                     continue;
                 }
 
+                //Place path background.
+                if (weightMap[x, y] == -1)
+                    background.SetTile(centeredPosition, pathTile);
+                else if (weightMap[x, y] == -2)
+                    background.SetTile(centeredPosition, circleTile);
                 // If the tile is alive, place foreground tile.
-                if (weightMap[x, y] > sewThreshold)
+                else if (weightMap[x, y] > sewThreshold)
                     background.SetTile(centeredPosition, foregroundTile);
                 else // Fill the background with the background tile.
                     background.SetTile(centeredPosition, backgroundTile);
@@ -377,13 +386,12 @@ public class CornCoordinatorByWeight : MonoBehaviour
         return TileToWorldCoordinates(xPos, yPos);
     }
 
-    private static void RemoveByCondition(Func<Vector2, bool> canRemove, float[,] weightMap)
+    private static void SetByCondition(Func<Vector2, bool> canRemove, float[,] weightMap, float toSet = 0)
     {
         for (int x = 0; x < weightMap.GetLength(0); x++)
             for (int y = 0; y < weightMap.GetLength(1); y++)
-                // weightMap[x, y] != 0, does not change the behavior, but does increase performance.
                 if (weightMap[x, y] != 0 && canRemove(new Vector2(x, y)))
-                    weightMap[x, y] = 0;
+                    weightMap[x, y] = toSet;
     }
 
     private static void RemoveByCircles(IEnumerable<Circle> circles, float[,] weightMap)
@@ -396,7 +404,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
             return false;
         };
 
-        RemoveByCondition(canRemove, weightMap);
+        SetByCondition(canRemove, weightMap, -2);
     }
 
     private static void RemoveByPaths(IEnumerable<Path> paths, float[,] weightMap)
@@ -411,7 +419,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
             return false;
         };
 
-        RemoveByCondition(canRemove, weightMap);
+        SetByCondition(canRemove, weightMap,-1);
     }
 
     /// <summary>
