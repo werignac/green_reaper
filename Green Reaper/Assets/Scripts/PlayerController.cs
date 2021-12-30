@@ -16,6 +16,7 @@ public class PlayerController : Moveable
     private ParticleSystem zuccinniEffect;
 
     private bool receivingInput = true;
+    private bool canAttack = true;
 
     protected override void Start()
     {
@@ -59,7 +60,7 @@ public class PlayerController : Moveable
 
         if (receivingInput)
         {
-            if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
+            if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && canAttack)
                 weapon?.Attack(CalculateWeaponAngle());
         }
     }
@@ -99,5 +100,15 @@ public class PlayerController : Moveable
     public void SetReceivingInput(bool setReceive)
     {
         receivingInput = setReceive;
+    }
+
+    public void TurnOffPlayerAttack()
+    {
+        canAttack = false;
+    }
+
+    public void TurnOnPlayerAttack()
+    {
+        canAttack = true;
     }
 }

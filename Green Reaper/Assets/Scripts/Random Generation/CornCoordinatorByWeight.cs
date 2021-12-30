@@ -348,15 +348,35 @@ public class CornCoordinatorByWeight : MonoBehaviour
         Instantiate(prefab, centeredPosition, Quaternion.identity);
     }
 
-    private Vector3 TileToWorldCoordinates(int x, int y)
+    /// <summary>
+    /// This works for weight maps where both lengths are multiples of 10.
+    /// I have no clue why I need to add or subtract depending on the apsect ratio of the weight map.
+    /// </summary>
+    /// <returns>The Center offset of the tilemap.</returns>
+    private Vector3 CalculateCenterOffset()
     {
-        // This works for weight maps where both lengths are multiples of 10.
-        // I have no clue why I need to add or subtract depending on the apsect ratio of the weight map.
         int lastXIndex = weightMap.GetLength(0) + 1;
         int lastYIndex = weightMap.GetLength(1) + 1;
 
         // Get the position of the last tile in the map. Divide it's position by 2 to get the center index.
         Vector3 centerOffset = cornTileMap.CellToWorld(new Vector3Int(lastXIndex, lastYIndex, 0)) * 0.5f;
+        return centerOffset;
+    }
+
+    private Vector3 TileToWorldCoordinates(int x, int y)
+    {
+        Vector3 centerOffset = CalculateCenterOffset();
+
+        // Bounds checks.
+        if (x < 0)
+            x = 0;
+        if (x > weightMap.GetLength(0) - 1)
+            x = weightMap.GetLength(0) - 1;
+        
+        if (y < 0)
+            y = 0;
+        if (y > weightMap.GetLength(1) - 1)
+            y = weightMap.GetLength(1) - 1;
 
         // Used to index the tilemap to find the world position of the cell.
         Vector3 worldCoordinate = cornTileMap.CellToWorld(new Vector3Int(x, y, 0)) * -1;
@@ -365,16 +385,43 @@ public class CornCoordinatorByWeight : MonoBehaviour
         return centeredPosition;
     }
 
+    private Vector3Int WorldToTileCoordinates(Vector3 position)
+    {
+        Vector3 centerOffset = CalculateCenterOffset();
+        Vector3 offSetPosition = position*-1 + centerOffset;
+
+        return cornTileMap.WorldToCell(offSetPosition);
+    }
+
     /// <summary>
     /// Chooses a random tile in the play area of the map.
+    /// The tile will be ~distance tiles away from the player.
+    /// The range is used for both the x and the y, which means that the magnitude of the distance is not constant.
     /// </summary>
-    /// <returns>World coordinates of the random tile.</returns>
-    public Vector3 RandomTileToWorldCoordinates()
+    /// <param name="distance">Tile distance away from the player.</param>
+    /// <param name="position">position to count as the origin.</param>
+    /// <returns>Coordinates of the random tile.</returns>
+    public Vector3 RandomTileDistanceAway(int distance, Vector3 position)
     {
-        int xPos = UnityEngine.Random.Range(1, weightMap.GetLength(0) - 1);
-        int yPos = UnityEngine.Random.Range(1, weightMap.GetLength(1) - 1);
+        Vector3Int tilePositionOfPlayer = WorldToTileCoordinates(position);
 
-        return TileToWorldCoordinates(xPos, yPos);
+        // deltaX will be within the range of [0, distance].
+        int deltaX = UnityEngine.Random.Range(0, distance);
+
+        // Subtract the value of deltaX from the desired tile distance to get the remaining distance to be traveled.
+        int deltaY = distance - deltaX;
+
+        // Randomly choose to go in the negative direction. the integers are 0 or 1.
+        int xNegative = UnityEngine.Random.Range(0, 2);
+        int yNegative = UnityEngine.Random.Range(0, 2);
+
+        if (xNegative == 1)
+            deltaX *= -1;
+
+        if (yNegative == 1)
+            deltaY *= -1;
+
+        return TileToWorldCoordinates(tilePositionOfPlayer.x + deltaX, tilePositionOfPlayer.y + deltaY);
     }
 
     private static void RemoveByCondition(Func<Vector2, bool> canRemove, float[,] weightMap)

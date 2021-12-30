@@ -41,7 +41,7 @@ public class Boids : MonoBehaviour
             GenerateStartPosition(initailPositionRadius);
             GenerateStartVelocity(initialSpeed);
 
-            // Range between 0 and 1 when cast to an int.
+            // yesOrNo is 0 or 1 when cast to an int.
             int yesOrNo = UnityEngine.Random.Range(0, 2);
 
             // Determine if the boid turns left or right.
@@ -140,6 +140,7 @@ public class Boids : MonoBehaviour
 
 
     public GameObject bird;
+    public GameObject WeaponPickupPrefab;
     public int numBoids;
     public int visualRange;
     public float centeringFactor;
@@ -159,15 +160,11 @@ public class Boids : MonoBehaviour
     public float outOfRangeAngle;
     public float debuffTime;
     public float closeEnoughToSteal;
+    public int tileDistanceCrowsDropScythe;
     // Instance of the boids to allow other objects to interact with it.
     public static Boids instance;
-
-
-
-    /// <summary>
-    /// GET RID OF THIS WHEN IMPLEMENTING WITH PLAYER.
-    /// </summary>
-    //public GameObject playerWeapon;
+    
+    
 
     private float birdFlightGracePeriod;
     private float debuffTimeRemaining;
@@ -178,8 +175,14 @@ public class Boids : MonoBehaviour
     private GameObject player;
     private Vector3 positionForWeapon;
     private List<IndividualBoid> boids;
-    private GameObject playerWeaponInstance;
+    private WeaponPickup playerWeaponPickup;
+    
 
+
+    /// <summary>
+    /// Remove when scythe images are actually figured out.
+    /// </summary>
+    public Sprite scytheSprite;
 
     private void Initialize()
     {
@@ -191,11 +194,16 @@ public class Boids : MonoBehaviour
 
         initialized = true;
 
-        // Copy the current weapon of the player. 
-        GameObject playerWeapon = GameManager.instance.upgrades.GetWeapon().gameObject;
-        playerWeapon.SetActive(false);
-        playerWeaponInstance = Instantiate(playerWeapon);
-        playerWeaponInstance.SetActive(false);
+        // Initialzize the weapon pickup with the sprite of the player's weapon.
+        //GameObject playerWeapon = GameManager.instance.upgrades.GetWeapon().gameObject;
+        //playerWeaponPickup.Initialize(playerWeapon.GetComponent<SpriteRenderer>().sprite);
+        
+        // Instantiate the weapon pickup object and store a reference to it's controller.
+        WeaponPickupPrefab = Instantiate(WeaponPickupPrefab);
+        playerWeaponPickup = WeaponPickupPrefab.GetComponent<WeaponPickup>();
+
+        // Initialize the pickup with the player's scythe sprite.
+        playerWeaponPickup.Initialize(scytheSprite);
 
         player = HarvestState.instance.playerInstance;
 
@@ -472,8 +480,10 @@ public class Boids : MonoBehaviour
         
         if (distanceToEndPoint < closeEnoughToSteal)
         {
-            playerWeaponInstance.transform.parent = null;
-            playerWeaponInstance.transform.position = positionForWeapon;
+            boid.obj.transform.DetachChildren();
+            playerWeaponPickup.SetGlobalPosition(positionForWeapon);
+            playerWeaponPickup.EnablePickup();
+
             StopSimulation();
         }
     }
@@ -483,13 +493,15 @@ public class Boids : MonoBehaviour
         leadBoid.UnparentBoid();
         scattering = true;
 
-        // Parent the weapon to the lead boid.
-        playerWeaponInstance.transform.parent = leadBoid.obj.transform;
-        playerWeaponInstance.transform.localPosition = Vector2.zero;
-        playerWeaponInstance.SetActive(true);
+        // Parent the weapon pickup to the lead boid.
+        playerWeaponPickup.SetParent(leadBoid.obj.transform);
+        playerWeaponPickup.SetLocalPosition(Vector2.zero);
+        playerWeaponPickup.DisablePlayerAttack();
+        playerWeaponPickup.SetActivity(true);
+        
 
         // Point the lead boid towards a random tile and set the speed to the escape speed.
-        positionForWeapon = CornCoordinatorByWeight.instance.RandomTileToWorldCoordinates();
+        positionForWeapon = CornCoordinatorByWeight.instance.RandomTileDistanceAway(tileDistanceCrowsDropScythe, player.transform.position);
         Vector3 direction = positionForWeapon - leadBoid.obj.transform.position;
         leadBoid.SetVelocity(direction.normalized * escapeSpeed);
 

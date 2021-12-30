@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bird: {fileID: 6498635244923019841, guid: 37159c61dff26dc47945e0f6463648cf, type: 3}
+  WeaponPickupPrefab: {fileID: 817912178498430335, guid: 57aebcb3a2a1c6548be6eab5b44c5f13, type: 3}
   numBoids: 30
   visualRange: 6
   centeringFactor: 0.0085
@@ -62,3 +63,5 @@ MonoBehaviour:
   outOfRangeAngle: 0.984
   debuffTime: 5
   closeEnoughToSteal: 0.5
+  tileDistanceCrowsDropScythe: 6
+  scytheSprite: {fileID: 21300000, guid: 744b4b3daa505bd4aae7ad42a5b90dc2, type: 3}
