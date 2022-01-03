@@ -1,0 +1,71 @@
+{
+    "name": "PlayerMobileControls",
+    "maps": [
+        {
+            "name": "Player Controls",
+            "id": "feac3ec1-cdd0-47f2-a469-ced8a608f55a",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "7e8305c5-dd4b-4e90-bfca-6101df3cdc50",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "WeaponDirection",
+                    "type": "Value",
+                    "id": "6bc2762d-c0a1-4055-b20b-d76f5f97bc7f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "WeaponFire",
+                    "type": "Button",
+                    "id": "98919b76-8a52-4e3d-bcf5-d4acd007c4ba",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "df273574-273d-445a-a81c-58ab41efa2c2",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bae088b5-5bcf-4d66-aad2-dc8995f6321a",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WeaponDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43149e53-a2bc-4678-b825-1e5635e85457",
+                    "path": "<Touchscreen>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WeaponFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

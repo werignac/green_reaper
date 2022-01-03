@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Mobile Controls/Player.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Mobile Controls/PlayerMobileControls.inputactions'
 
 using System;
 using System.Collections;
@@ -12,7 +12,7 @@ public class @PlayerMobileControls : IInputActionCollection, IDisposable
     public @PlayerMobileControls()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""Player"",
+    ""name"": ""PlayerMobileControls"",
     ""maps"": [
         {
             ""name"": ""Player Controls"",
@@ -23,6 +23,22 @@ public class @PlayerMobileControls : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""7e8305c5-dd4b-4e90-bfca-6101df3cdc50"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""WeaponDirection"",
+                    ""type"": ""Value"",
+                    ""id"": ""6bc2762d-c0a1-4055-b20b-d76f5f97bc7f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""WeaponFire"",
+                    ""type"": ""Button"",
+                    ""id"": ""98919b76-8a52-4e3d-bcf5-d4acd007c4ba"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -38,6 +54,28 @@ public class @PlayerMobileControls : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bae088b5-5bcf-4d66-aad2-dc8995f6321a"",
+                    ""path"": ""<Touchscreen>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43149e53-a2bc-4678-b825-1e5635e85457"",
+                    ""path"": ""<Touchscreen>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -47,6 +85,8 @@ public class @PlayerMobileControls : IInputActionCollection, IDisposable
         // Player Controls
         m_PlayerControls = asset.FindActionMap("Player Controls", throwIfNotFound: true);
         m_PlayerControls_Move = m_PlayerControls.FindAction("Move", throwIfNotFound: true);
+        m_PlayerControls_WeaponDirection = m_PlayerControls.FindAction("WeaponDirection", throwIfNotFound: true);
+        m_PlayerControls_WeaponFire = m_PlayerControls.FindAction("WeaponFire", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -97,11 +137,15 @@ public class @PlayerMobileControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerControls;
     private IPlayerControlsActions m_PlayerControlsActionsCallbackInterface;
     private readonly InputAction m_PlayerControls_Move;
+    private readonly InputAction m_PlayerControls_WeaponDirection;
+    private readonly InputAction m_PlayerControls_WeaponFire;
     public struct PlayerControlsActions
     {
         private @PlayerMobileControls m_Wrapper;
         public PlayerControlsActions(@PlayerMobileControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerControls_Move;
+        public InputAction @WeaponDirection => m_Wrapper.m_PlayerControls_WeaponDirection;
+        public InputAction @WeaponFire => m_Wrapper.m_PlayerControls_WeaponFire;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -114,6 +158,12 @@ public class @PlayerMobileControls : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnMove;
+                @WeaponDirection.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnWeaponDirection;
+                @WeaponDirection.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnWeaponDirection;
+                @WeaponDirection.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnWeaponDirection;
+                @WeaponFire.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnWeaponFire;
+                @WeaponFire.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnWeaponFire;
+                @WeaponFire.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnWeaponFire;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -121,6 +171,12 @@ public class @PlayerMobileControls : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @WeaponDirection.started += instance.OnWeaponDirection;
+                @WeaponDirection.performed += instance.OnWeaponDirection;
+                @WeaponDirection.canceled += instance.OnWeaponDirection;
+                @WeaponFire.started += instance.OnWeaponFire;
+                @WeaponFire.performed += instance.OnWeaponFire;
+                @WeaponFire.canceled += instance.OnWeaponFire;
             }
         }
     }
@@ -128,5 +184,7 @@ public class @PlayerMobileControls : IInputActionCollection, IDisposable
     public interface IPlayerControlsActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnWeaponDirection(InputAction.CallbackContext context);
+        void OnWeaponFire(InputAction.CallbackContext context);
     }
 }

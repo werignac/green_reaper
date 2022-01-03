@@ -18,22 +18,22 @@ public class PlayerController : Moveable
     private bool receivingInput = true;
     private bool canAttack = true;
 
-    private PlayerMobileControls moblieControls;
+    private PlayerMobileControls mobileControls;
 
 
     private void Awake()
     {
-        moblieControls = new PlayerMobileControls();
+        mobileControls = new PlayerMobileControls();
     }
 
     private void OnEnable()
     {
-        moblieControls.Enable();
+        mobileControls.Enable();
     }
 
     private void OnDisable()
     {
-        moblieControls.Disable();
+        mobileControls.Disable();
     }
 
     protected override void Start()
@@ -53,7 +53,7 @@ public class PlayerController : Moveable
         if (receivingInput)
         {
             //Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            Vector2 movementInput = moblieControls.PlayerControls.Move.ReadValue<Vector2>();
+            Vector2 movementInput = mobileControls.PlayerControls.Move.ReadValue<Vector2>();
 
             //Flip the player sprite in the direction it wants to be moving in.
             if ((lookRightByDefault && movementInput.x > 0 && spriteRenderer.flipX) ||
@@ -79,17 +79,19 @@ public class PlayerController : Moveable
 
         if (receivingInput)
         {
-            //if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && canAttack)
-            //    weapon?.Attack(CalculateWeaponAngle());
+            if (mobileControls.PlayerControls.WeaponFire.ReadValue<bool>())
+            {
+                weapon?.Attack(CalculateWeaponAngle());
+            }
         }
     }
 
-    //private float CalculateWeaponAngle()
-    //{
-    //    Vector2 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //    Vector2 dir = (targetPos - (Vector2)transform.position);
-    //    return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-    //}
+    private float CalculateWeaponAngle()
+    {
+        Vector2 targetPos = Camera.main.ScreenToWorldPoint(mobileControls.PlayerControls.WeaponDirection.ReadValue<Vector2>());
+        Vector2 dir = (targetPos - (Vector2)transform.position);
+        return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+    }
 
     public void SetWeapon(WeaponController newWeapon)
     {
