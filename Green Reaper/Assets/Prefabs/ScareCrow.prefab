@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5767002235199609554}
   - component: {fileID: 7032784624258126994}
   - component: {fileID: 7917332015816960823}
+  - component: {fileID: 3827274624065469096}
   m_Layer: 0
   m_Name: ScareCrow
   m_TagString: Untagged
@@ -149,3 +150,22 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4639580732210111604}
   offset: 0
   finalOffset: 0
+--- !u!95 &3827274624065469096
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364566788737707582}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d621038ff8484a9782c6617209f0c92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
