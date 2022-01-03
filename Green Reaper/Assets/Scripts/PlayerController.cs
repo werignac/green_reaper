@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.OnScreen;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController : Moveable
@@ -20,6 +21,8 @@ public class PlayerController : Moveable
 
     private PlayerMobileControls mobileControls;
 
+    [SerializeField, Range(0, 1)]
+    private float joystickThreshold = 0.15f;
 
     private void Awake()
     {
@@ -79,18 +82,16 @@ public class PlayerController : Moveable
 
         if (receivingInput)
         {
-            if (mobileControls.PlayerControls.WeaponFire.ReadValue<bool>())
-            {
-                weapon?.Attack(CalculateWeaponAngle());
-            }
+            Vector2 weaponAttackDirection = mobileControls.PlayerControls.WeaponDirection.ReadValue<Vector2>();
+
+            if (weaponAttackDirection.magnitude > joystickThreshold)
+                weapon?.Attack(CalculateWeaponAngle(weaponAttackDirection));
         }
     }
 
-    private float CalculateWeaponAngle()
+    private float CalculateWeaponAngle(Vector2 directionToAttack)
     {
-        Vector2 targetPos = Camera.main.ScreenToWorldPoint(mobileControls.PlayerControls.WeaponDirection.ReadValue<Vector2>());
-        Vector2 dir = (targetPos - (Vector2)transform.position);
-        return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        return Mathf.Atan2(directionToAttack.y, directionToAttack.x) * Mathf.Rad2Deg;
     }
 
     public void SetWeapon(WeaponController newWeapon)
