@@ -2,7 +2,7 @@
     "name": "PlayerMobileControls",
     "maps": [
         {
-            "name": "Player Controls",
+            "name": "Mobile",
             "id": "feac3ec1-cdd0-47f2-a469-ced8a608f55a",
             "actions": [
                 {
@@ -42,6 +42,115 @@
                     "processors": "",
                     "groups": "",
                     "action": "WeaponDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "WEBGL",
+            "id": "b79da807-6025-4a1d-8cfe-000e5975970f",
+            "actions": [
+                {
+                    "name": "WeaponFire",
+                    "type": "Value",
+                    "id": "49835113-025f-4751-8bc4-f7997a0593b9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "WeaponDirection",
+                    "type": "Value",
+                    "id": "73b69df1-d508-4475-9267-5d235f507896",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "fa1909a3-2bd5-45ac-8046-38c24d76e4a0",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "WASD",
+                    "id": "dde5e115-3f09-4a58-895f-60e95cb36c89",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "acd1e406-3181-47c6-8d92-7960a62c49b0",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "9ca6e450-b4d7-4113-b580-ab63104b1172",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "b97b2367-9210-4e6d-852c-bbe2fcc1ae2c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c2fae471-76ea-4eec-844f-798c8a4c0904",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "7505945f-490e-42bb-bc3f-65aed6fb6e90",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WeaponDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a5d57b9-6b11-453b-a4ff-5a18551e6b6e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WeaponFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

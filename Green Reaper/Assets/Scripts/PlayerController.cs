@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.OnScreen;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController : Moveable
@@ -55,8 +55,15 @@ public class PlayerController : Moveable
     {
         if (receivingInput)
         {
-            //Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            Vector2 movementInput = mobileControls.PlayerControls.Move.ReadValue<Vector2>();
+            Vector2 movementInput;
+
+            #if UNITY_ANDROID || UNITY_IOS
+                movementInput = mobileControls.Mobile.Move.ReadValue<Vector2>();
+            #endif
+
+            #if UNITY_WEBGL
+                movementInput = mobileControls.WEBGL.Move.ReadValue<Vector2>(); ;
+            #endif
 
             //Flip the player sprite in the direction it wants to be moving in.
             if ((lookRightByDefault && movementInput.x > 0 && spriteRenderer.flipX) ||
@@ -80,11 +87,26 @@ public class PlayerController : Moveable
 
         weapon?.UpdateStats();
 
-        if (receivingInput)
+        if (receivingInput && canAttack)
         {
-            Vector2 weaponAttackDirection = mobileControls.PlayerControls.WeaponDirection.ReadValue<Vector2>();
+            bool isTryingToAttack = false;
+            Vector2 weaponAttackDirection;
 
-            if (weaponAttackDirection.magnitude > joystickThreshold)
+            #if UNITY_ANDROID || UNITY_IOS
+                weaponAttackDirection = mobileControls.Mobile.WeaponDirection.ReadValue<Vector2>();
+                isTryingToAttack = weaponAttackDirection.magnitude > joystickThreshold;
+            #endif
+
+            #if UNITY_WEBGL
+                isTryingToAttack = mobileControls.WEBGL.WeaponFire.ReadValue<float>() > 0;
+                Vector2 mousePosition = mobileControls.WEBGL.WeaponDirection.ReadValue<Vector2>();
+                Vector2 targetPos = Camera.main.ScreenToWorldPoint(mousePosition);
+                weaponAttackDirection = (targetPos - (Vector2)transform.position);
+             #endif
+
+
+
+            if (isTryingToAttack)
                 weapon?.Attack(CalculateWeaponAngle(weaponAttackDirection));
         }
     }
