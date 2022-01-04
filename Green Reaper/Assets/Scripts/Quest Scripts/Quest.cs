@@ -3,46 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum QuestType { GreaterThanOrEqualTo, LessThanOrEqualTo}
+public enum QuestType { GreaterThanOrEqualTo, LessThanOrEqualTo }
 
 [System.Serializable]
-public class Quest
+public class QuestMonster
 {
-    public string title;
-    public string description;
-    public int numberToKill;
-    public int goldReward;
     public PlantType plantType;
+    public int numberToKill;
     public QuestType questType;
-
-    private bool isActive;
     private int currentlyKilled;
-    private bool completed;
 
-
-    public void EnableQuest()
-    {
-        isActive = true;
-    }
-
-    public void DisableQuest()
-    {
-        isActive = false;
-    }
-
-    public bool IsActive()
-    {
-        return isActive;
-    }
-
-    public void IncreaseKillCount()
+    public void IncrementKillCount()
     {
         currentlyKilled++;
     }
 
-    private void CheckCompletion()
+    public void ResetMonster()
     {
-        if(questType == QuestType.GreaterThanOrEqualTo)
+        currentlyKilled = 0;
+    }
+
+    public int GetKillCount()
+    {
+        return currentlyKilled;
+    }
+
+    public bool CheckCompletion()
+    {
+        // Default to false, but if completion criteria is met then set to true.
+        bool completed = false;
+
+        if (questType == QuestType.GreaterThanOrEqualTo)
         {
             if (currentlyKilled >= numberToKill)
                 completed = true;
@@ -53,16 +44,60 @@ public class Quest
             if (currentlyKilled <= numberToKill)
                 completed = true;
         }
-    }
 
-    public int GetKillCount()
-    {
-        return currentlyKilled;
-    }
-
-    public bool Completed()
-    {
-        CheckCompletion();
         return completed;
     }
 }
+
+[System.Serializable]
+public class Quest
+{
+    public string title;
+    public string questText;
+    public int goldReward;
+    public List<QuestMonster> monsters;
+
+    /// <summary>
+    /// Check if the type of plant given is used in the current quest.
+    /// If the type matches one of the tracked monsters, the kill count is updated.
+    /// </summary>
+    /// <param name="type"></param>
+    public void CheckAndUpdateKillcounts(PlantType type)
+    {
+        foreach (QuestMonster monster in monsters)
+        {
+            if (monster.plantType == type)
+            {
+                monster.IncrementKillCount();
+            }
+        }
+    }
+
+
+    /// <returns>Whether or not all criteria for the quest was successfully met.</returns>
+    public bool Completed()
+    {
+        // Default to true, and if one of the quests was incomplete switch to false.
+        bool everyRequirementCompleted = true;
+
+        foreach (QuestMonster monster in monsters)
+        {
+            if (!monster.CheckCompletion())
+            {
+                everyRequirementCompleted = false;
+            }
+        }
+
+        return everyRequirementCompleted;
+    }
+
+    public void Reset()
+    {
+        foreach (QuestMonster monster in monsters)
+        {
+            monster.ResetMonster();
+        }
+    }
+}
+
+

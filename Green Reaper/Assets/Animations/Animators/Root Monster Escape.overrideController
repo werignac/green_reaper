@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Root Monster Escape
+  m_Controller: {fileID: 9100000, guid: 7e5d41e617be96141b28be3e2f6c93b7, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5dfb6ba312924c343925170f277d2bee, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 302e42001f3891040b739c28520aa32e, type: 2}

@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
 
     public UpgradeHolder upgrades;
 
-    public ValueHolder<int> globalScore = new ValueHolder<int>(0);
+    public ValueHolder<int> globalScore;
+    public int startingGold;
 
     [SerializeField]
     private WeaponController[] weapons;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        globalScore = new ValueHolder<int>(startingGold);
         upgrades = new UpgradeHolder();
         upgrades.SetWeapons(weapons);
 

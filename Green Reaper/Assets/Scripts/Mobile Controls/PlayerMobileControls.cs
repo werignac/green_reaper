@@ -1,0 +1,330 @@
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Mobile Controls/PlayerMobileControls.inputactions'
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
+
+public class @PlayerMobileControls : IInputActionCollection, IDisposable
+{
+    public InputActionAsset asset { get; }
+    public @PlayerMobileControls()
+    {
+        asset = InputActionAsset.FromJson(@"{
+    ""name"": ""PlayerMobileControls"",
+    ""maps"": [
+        {
+            ""name"": ""Mobile"",
+            ""id"": ""feac3ec1-cdd0-47f2-a469-ced8a608f55a"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""7e8305c5-dd4b-4e90-bfca-6101df3cdc50"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""WeaponDirection"",
+                    ""type"": ""Value"",
+                    ""id"": ""6bc2762d-c0a1-4055-b20b-d76f5f97bc7f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""df273574-273d-445a-a81c-58ab41efa2c2"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bae088b5-5bcf-4d66-aad2-dc8995f6321a"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""WEBGL"",
+            ""id"": ""b79da807-6025-4a1d-8cfe-000e5975970f"",
+            ""actions"": [
+                {
+                    ""name"": ""WeaponFire"",
+                    ""type"": ""Value"",
+                    ""id"": ""49835113-025f-4751-8bc4-f7997a0593b9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""WeaponDirection"",
+                    ""type"": ""Value"",
+                    ""id"": ""73b69df1-d508-4475-9267-5d235f507896"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""fa1909a3-2bd5-45ac-8046-38c24d76e4a0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""dde5e115-3f09-4a58-895f-60e95cb36c89"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""acd1e406-3181-47c6-8d92-7960a62c49b0"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""9ca6e450-b4d7-4113-b580-ab63104b1172"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""b97b2367-9210-4e6d-852c-bbe2fcc1ae2c"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c2fae471-76ea-4eec-844f-798c8a4c0904"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7505945f-490e-42bb-bc3f-65aed6fb6e90"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a5d57b9-6b11-453b-a4ff-5a18551e6b6e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        }
+    ],
+    ""controlSchemes"": []
+}");
+        // Mobile
+        m_Mobile = asset.FindActionMap("Mobile", throwIfNotFound: true);
+        m_Mobile_Move = m_Mobile.FindAction("Move", throwIfNotFound: true);
+        m_Mobile_WeaponDirection = m_Mobile.FindAction("WeaponDirection", throwIfNotFound: true);
+        // WEBGL
+        m_WEBGL = asset.FindActionMap("WEBGL", throwIfNotFound: true);
+        m_WEBGL_WeaponFire = m_WEBGL.FindAction("WeaponFire", throwIfNotFound: true);
+        m_WEBGL_WeaponDirection = m_WEBGL.FindAction("WeaponDirection", throwIfNotFound: true);
+        m_WEBGL_Move = m_WEBGL.FindAction("Move", throwIfNotFound: true);
+    }
+
+    public void Dispose()
+    {
+        UnityEngine.Object.Destroy(asset);
+    }
+
+    public InputBinding? bindingMask
+    {
+        get => asset.bindingMask;
+        set => asset.bindingMask = value;
+    }
+
+    public ReadOnlyArray<InputDevice>? devices
+    {
+        get => asset.devices;
+        set => asset.devices = value;
+    }
+
+    public ReadOnlyArray<InputControlScheme> controlSchemes => asset.controlSchemes;
+
+    public bool Contains(InputAction action)
+    {
+        return asset.Contains(action);
+    }
+
+    public IEnumerator<InputAction> GetEnumerator()
+    {
+        return asset.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+
+    public void Enable()
+    {
+        asset.Enable();
+    }
+
+    public void Disable()
+    {
+        asset.Disable();
+    }
+
+    // Mobile
+    private readonly InputActionMap m_Mobile;
+    private IMobileActions m_MobileActionsCallbackInterface;
+    private readonly InputAction m_Mobile_Move;
+    private readonly InputAction m_Mobile_WeaponDirection;
+    public struct MobileActions
+    {
+        private @PlayerMobileControls m_Wrapper;
+        public MobileActions(@PlayerMobileControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Mobile_Move;
+        public InputAction @WeaponDirection => m_Wrapper.m_Mobile_WeaponDirection;
+        public InputActionMap Get() { return m_Wrapper.m_Mobile; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MobileActions set) { return set.Get(); }
+        public void SetCallbacks(IMobileActions instance)
+        {
+            if (m_Wrapper.m_MobileActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_MobileActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_MobileActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_MobileActionsCallbackInterface.OnMove;
+                @WeaponDirection.started -= m_Wrapper.m_MobileActionsCallbackInterface.OnWeaponDirection;
+                @WeaponDirection.performed -= m_Wrapper.m_MobileActionsCallbackInterface.OnWeaponDirection;
+                @WeaponDirection.canceled -= m_Wrapper.m_MobileActionsCallbackInterface.OnWeaponDirection;
+            }
+            m_Wrapper.m_MobileActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @WeaponDirection.started += instance.OnWeaponDirection;
+                @WeaponDirection.performed += instance.OnWeaponDirection;
+                @WeaponDirection.canceled += instance.OnWeaponDirection;
+            }
+        }
+    }
+    public MobileActions @Mobile => new MobileActions(this);
+
+    // WEBGL
+    private readonly InputActionMap m_WEBGL;
+    private IWEBGLActions m_WEBGLActionsCallbackInterface;
+    private readonly InputAction m_WEBGL_WeaponFire;
+    private readonly InputAction m_WEBGL_WeaponDirection;
+    private readonly InputAction m_WEBGL_Move;
+    public struct WEBGLActions
+    {
+        private @PlayerMobileControls m_Wrapper;
+        public WEBGLActions(@PlayerMobileControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @WeaponFire => m_Wrapper.m_WEBGL_WeaponFire;
+        public InputAction @WeaponDirection => m_Wrapper.m_WEBGL_WeaponDirection;
+        public InputAction @Move => m_Wrapper.m_WEBGL_Move;
+        public InputActionMap Get() { return m_Wrapper.m_WEBGL; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WEBGLActions set) { return set.Get(); }
+        public void SetCallbacks(IWEBGLActions instance)
+        {
+            if (m_Wrapper.m_WEBGLActionsCallbackInterface != null)
+            {
+                @WeaponFire.started -= m_Wrapper.m_WEBGLActionsCallbackInterface.OnWeaponFire;
+                @WeaponFire.performed -= m_Wrapper.m_WEBGLActionsCallbackInterface.OnWeaponFire;
+                @WeaponFire.canceled -= m_Wrapper.m_WEBGLActionsCallbackInterface.OnWeaponFire;
+                @WeaponDirection.started -= m_Wrapper.m_WEBGLActionsCallbackInterface.OnWeaponDirection;
+                @WeaponDirection.performed -= m_Wrapper.m_WEBGLActionsCallbackInterface.OnWeaponDirection;
+                @WeaponDirection.canceled -= m_Wrapper.m_WEBGLActionsCallbackInterface.OnWeaponDirection;
+                @Move.started -= m_Wrapper.m_WEBGLActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_WEBGLActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_WEBGLActionsCallbackInterface.OnMove;
+            }
+            m_Wrapper.m_WEBGLActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @WeaponFire.started += instance.OnWeaponFire;
+                @WeaponFire.performed += instance.OnWeaponFire;
+                @WeaponFire.canceled += instance.OnWeaponFire;
+                @WeaponDirection.started += instance.OnWeaponDirection;
+                @WeaponDirection.performed += instance.OnWeaponDirection;
+                @WeaponDirection.canceled += instance.OnWeaponDirection;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+            }
+        }
+    }
+    public WEBGLActions @WEBGL => new WEBGLActions(this);
+    public interface IMobileActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnWeaponDirection(InputAction.CallbackContext context);
+    }
+    public interface IWEBGLActions
+    {
+        void OnWeaponFire(InputAction.CallbackContext context);
+        void OnWeaponDirection(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+    }
+}

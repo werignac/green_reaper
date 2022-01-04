@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Script for the monster that chases the player and steals their coins. 
@@ -12,8 +13,8 @@ public class RootMonster : PlantHealth
     private float chaseMovementSpeed;
     [SerializeField]
     private float escapeMovementSpeed;
-    [SerializeField]
-    private int coinsToSteal;
+    [SerializeField, Range(0,1)]
+    private float percentageCoinsToSteal;
     [SerializeField]
     private float timeToEscape;
     [SerializeField]
@@ -24,7 +25,11 @@ public class RootMonster : PlantHealth
     private Rigidbody2D rb;
     private Vector2 movement;
     private bool coinsStolen;
+    [SerializeField]
     private SpriteRenderer spRender;
+
+    public UnityEvent<int> onSteal = new UnityEvent<int>();
+    public UnityEvent onEscape = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +39,6 @@ public class RootMonster : PlantHealth
         HarvestState.instance.roundEnd.AddListener(RoundEnd);
         rb = this.GetComponent<Rigidbody2D>();
         coinsStolen = false;
-        spRender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -62,7 +66,10 @@ public class RootMonster : PlantHealth
             timeToEscape -= Time.deltaTime;
             // Just disable it because onDeath will return the coins.
             if (timeToEscape <= 0)
+            {
+                onEscape?.Invoke();
                 Destroy(gameObject);
+            }
         }
     }
 
@@ -95,7 +102,16 @@ public class RootMonster : PlantHealth
 
     private void StealCoins()
     {
+        
+        float currentCoins = GameManager.instance.globalScore.GetValue();
+        int coinsToSteal = (int)(currentCoins * percentageCoinsToSteal);
         coinsActuallyStolen = HarvestState.instance.DecrementScore(coinsToSteal);
+        onSteal?.Invoke(coinsActuallyStolen);
+    }
+
+    public bool HasStolenCoins()
+    {
+        return coinsStolen;
     }
 
     protected override void OnDeath()
