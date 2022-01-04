@@ -14,7 +14,7 @@ public class PlantHealth : MonoBehaviour
 
     protected ValueHolder<int> health;
 
-    public UnityEvent damageTaken = new UnityEvent();
+    public UnityEvent<int> damageTaken = new UnityEvent<int>();
 
     public UnityEvent<PlantType> deathEvent = new UnityEvent<PlantType>();
 
@@ -40,7 +40,7 @@ public class PlantHealth : MonoBehaviour
                 OnDeath();
             }
             else
-                damageTaken?.Invoke();
+                damageTaken?.Invoke(health.GetValue());
         });
     }
 
