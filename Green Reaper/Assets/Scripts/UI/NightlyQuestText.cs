@@ -4,18 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public enum TextState {Title, Description, RewardValue}
+
+public enum TextState {Title, Description, RewardValue, Completion, CompletionReward, CoinDifference}
 
 public class NightlyQuestText : MonoBehaviour
 {
     public TextState state;
     public Text textToChange;
+    private Quest quest;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        Quest quest = QuestManager.instance.GetCurrentQuest();
+        quest = QuestManager.instance.GetCurrentQuest();
+        QuestManager.instance.updateText.AddListener(ModifyText);
+    }
 
+    public void ModifyText()
+    {
         switch (state)
         {
             case TextState.Title:
@@ -28,6 +33,24 @@ public class NightlyQuestText : MonoBehaviour
 
             case TextState.RewardValue:
                 textToChange.text = "" + quest.goldReward;
+                break;
+
+            case TextState.Completion:
+                if (quest.Completed())
+                    textToChange.text = "Completed!";
+                else
+                    textToChange.text = "Failure!";
+                break;
+
+            case TextState.CompletionReward:
+                if (quest.Completed())
+                    textToChange.text = "" + quest.goldReward;
+                else
+                    textToChange.text = "0";
+                break;
+
+            case TextState.CoinDifference:
+                textToChange.text = "" + HarvestState.instance.DifferenceInCoinsThisRound();
                 break;
 
             default:

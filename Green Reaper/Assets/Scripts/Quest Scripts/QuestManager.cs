@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class QuestManager : MonoBehaviour
     public List<Quest> quests;
     
     private Quest currentQuest;
+    public UnityEvent updateText;
 
     void Start()
     {
