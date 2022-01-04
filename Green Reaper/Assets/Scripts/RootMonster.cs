@@ -49,11 +49,22 @@ public class RootMonster : PlantHealth
         direction.Normalize();
         movement = direction;
 
-        // Flip sprite to movement direction.
-        if (direction.x > 0)
-            spRender.flipX = false;
-        else
-            spRender.flipX = true;
+        // Flip sprite to movement direction while considering whether or not the coins have been stolen.
+        if (!coinsStolen) // Face towards player while stealing.
+        {
+            if (direction.x > 0)
+                spRender.flipX = false;
+            else
+                spRender.flipX = true;
+        }
+        else // Face away from player after stealing.
+        {
+            if (direction.x > 0)
+                spRender.flipX = true;
+            else
+                spRender.flipX = false;
+        }
+        
     }
 
     private void FixedUpdate()

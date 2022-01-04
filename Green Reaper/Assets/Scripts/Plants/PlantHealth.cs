@@ -52,7 +52,6 @@ public class PlantHealth : MonoBehaviour
     protected virtual void OnDeath()
     {
         HarvestState.instance.IncrementScore(baseHealth);
-        HarvestState.instance.IncrementCornDeaths(type);
         QuestManager.instance.PlantDied(GetPlantType());
         Destroy(gameObject);
     }

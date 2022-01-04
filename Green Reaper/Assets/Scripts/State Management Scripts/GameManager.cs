@@ -18,9 +18,6 @@ public class GameManager : MonoBehaviour
 
     private GameObject winState;
 
-
-    private bool procedural = false;
-
     void Start()
     {
         globalScore = new ValueHolder<int>(startingGold);
@@ -54,7 +51,6 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
-        procedural = false;
     }
 
     private void OnLoadScene(Scene scene, LoadSceneMode mode)
