@@ -134,9 +134,9 @@ MonoBehaviour:
       m_Calls: []
   type: 7
   slowsPlayer: 0
-  chaseMovementSpeed: 5
+  chaseMovementSpeed: 15
   escapeMovementSpeed: 5
-  coinsToSteal: 10
+  percentageCoinsToSteal: 0.25
   timeToEscape: 5
   lookRightByDefault: 0
 --- !u!114 &2945977044096987611
