@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 6416352493179534561}
   - component: {fileID: 1850453239827768549}
   - component: {fileID: 3853776881273467698}
-  - component: {fileID: 2945977044096987611}
   - component: {fileID: 967053517276161162}
   - component: {fileID: 5164282584181129267}
   - component: {fileID: 8243012978146202451}
@@ -159,6 +158,7 @@ MonoBehaviour:
   percentageCoinsToSteal: 0.25
   timeToEscape: 5
   lookRightByDefault: 0
+  spRender: {fileID: 2596960253337598894}
   onSteal:
     m_PersistentCalls:
       m_Calls:
@@ -174,23 +174,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2945977044096987611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692537086567873969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c6aeb6c4c0011c4f9379435c8395781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDynamic: 1
-  useSpriteRenderer: 1
-  spriteRenderer: {fileID: 0}
-  offset: 0
-  finalOffset: 0
 --- !u!50 &967053517276161162
 Rigidbody2D:
   serializedVersion: 4
@@ -387,6 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 412966193366357593}
   - component: {fileID: 2596960253337598894}
+  - component: {fileID: 6483178491173183476}
   m_Layer: 0
   m_Name: MainSprite
   m_TagString: Untagged
@@ -459,3 +443,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6483178491173183476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6366281743389573682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6aeb6c4c0011c4f9379435c8395781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDynamic: 1
+  useSpriteRenderer: 1
+  spriteRenderer: {fileID: 0}
+  offset: 0
+  finalOffset: 0

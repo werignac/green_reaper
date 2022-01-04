@@ -25,6 +25,7 @@ public class RootMonster : PlantHealth
     private Rigidbody2D rb;
     private Vector2 movement;
     private bool coinsStolen;
+    [SerializeField]
     private SpriteRenderer spRender;
 
     public UnityEvent<int> onSteal = new UnityEvent<int>();
@@ -37,7 +38,6 @@ public class RootMonster : PlantHealth
         HarvestState.instance.roundEnd.AddListener(RoundEnd);
         rb = this.GetComponent<Rigidbody2D>();
         coinsStolen = false;
-        spRender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
