@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4803329524889004137}
   - component: {fileID: -1003837499511996537}
   - component: {fileID: -1036693187274901002}
+  - component: {fileID: -5939720631635666548}
   m_Layer: 0
   m_Name: Dormant Root Monster
   m_TagString: Untagged
@@ -133,6 +134,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -5939720631635666548}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   type: 6
   slowsPlayer: 0
 --- !u!114 &-1003837499511996537
@@ -165,3 +178,16 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   offset: 0
   finalOffset: 0
+--- !u!114 &-5939720631635666548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7490363111551181605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a9ca6a7f7c248448a2bc2516a8120e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 4679022397266010919, guid: d67dda413672e37458a8467efbe5346f, type: 3}
