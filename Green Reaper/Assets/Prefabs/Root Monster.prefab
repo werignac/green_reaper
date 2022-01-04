@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8243012978146202451}
   - component: {fileID: 8123461903520257245}
   - component: {fileID: 8715286161188775828}
+  - component: {fileID: 5935406422812680201}
   m_Layer: 0
   m_Name: Root Monster
   m_TagString: Untagged
@@ -146,7 +147,19 @@ MonoBehaviour:
         m_CallState: 2
   deathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5935406422812680201}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   type: 7
   slowsPlayer: 0
   chaseMovementSpeed: 15
@@ -359,3 +372,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 8243012978146202451}
+--- !u!114 &5935406422812680201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692537086567873969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a9ca6a7f7c248448a2bc2516a8120e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 4272071122399685328, guid: 1b984b2d57f942c4387c3489299bfd2d, type: 3}
