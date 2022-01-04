@@ -1713,6 +1713,13 @@ MonoBehaviour:
     - plantType: 3
       numberToKill: 1
       questType: 0
+  - title: Please for the love of God work.
+    questText: Amen
+    goldReward: 7
+    monsters:
+    - plantType: 0
+      numberToKill: 1
+      questType: 0
   updateText:
     m_PersistentCalls:
       m_Calls: []
