@@ -94,6 +94,8 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField, Range(0, 1000)]
     private float maxOrbitDistance = 100f;
 
+    [SerializeField, Range(0, 180)]
+    private float maxPathAngle = 25f;
 
     private void Awake()
     {
@@ -170,11 +172,11 @@ public class CornCoordinatorByWeight : MonoBehaviour
             Vector2 pathDirection = (endDir - startDir).normalized;
 
             // Random angle to offset the end point on the permiter of each circle. Generally prevents paths from becoming straight. 
-            float randomAngle = UnityEngine.Random.Range(-15f, 15f) * Mathf.Deg2Rad;
+            float randomAngle = UnityEngine.Random.Range(-maxPathAngle, maxPathAngle) * Mathf.Deg2Rad;
             // Random position on the perimeter of each circle to end the path.
             Vector2 startPos = Path.RotateVector2(pathDirection, randomAngle) * center.radius + startDir;
 
-            randomAngle = UnityEngine.Random.Range(-15f, 15f) * Mathf.Deg2Rad;
+            randomAngle = UnityEngine.Random.Range(-maxPathAngle, maxPathAngle) * Mathf.Deg2Rad;
             Vector2 endPos = Path.RotateVector2(-pathDirection, randomAngle) * orbit.radius + endDir;
 
             // Radius of the path or half the width of the path. Used to mark tiles for clearing.
