@@ -15,10 +15,8 @@ public class WeaponPickup : MonoBehaviour
     /// Sets the sprite of the pickup to be the same as the player's weapon.
     /// Sets the activity of this object to be false.
     /// </summary>
-    /// <param name="weaponSprite">Sprite of the player's weapon.</param>
-    public void Initialize(Sprite weaponSprite)
+    public void Initialize()
     {
-        spriteRenderer.sprite = weaponSprite;
         SetActivity(false);
         pickupEanbled = false;
     }

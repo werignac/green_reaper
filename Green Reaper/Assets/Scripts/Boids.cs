@@ -176,13 +176,6 @@ public class Boids : MonoBehaviour
     private Vector3 positionForWeapon;
     private List<IndividualBoid> boids;
     private WeaponPickup playerWeaponPickup;
-    
-
-
-    /// <summary>
-    /// Remove when scythe images are actually figured out.
-    /// </summary>
-    public Sprite scytheSprite;
 
     private void Initialize()
     {
@@ -202,8 +195,8 @@ public class Boids : MonoBehaviour
         WeaponPickupPrefab = Instantiate(WeaponPickupPrefab);
         playerWeaponPickup = WeaponPickupPrefab.GetComponent<WeaponPickup>();
 
-        // Initialize the pickup with the player's scythe sprite.
-        playerWeaponPickup.Initialize(scytheSprite);
+        // Initialize the pickup so that it is ready to be placed.
+        playerWeaponPickup.Initialize();
 
         player = HarvestState.instance.playerInstance;
 
