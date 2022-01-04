@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Buffs;
+using System;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController : Moveable
@@ -17,6 +19,8 @@ public class PlayerController : Moveable
 
     private bool receivingInput = true;
     private bool canAttack = true;
+
+    private bool sprinting = false;
 
     protected override void Start()
     {
@@ -62,6 +66,19 @@ public class PlayerController : Moveable
         {
             if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && canAttack)
                 weapon?.Attack(CalculateWeaponAngle());
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Debug.Log("Spriting");
+                sprinting = true;
+                BuffMaxSpeed(new SprintBuff(() => sprinting));
+                BuffMaxVelocityChange(new SprintBuff(() => sprinting));
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                Debug.Log("Not Spriting");
+                sprinting = false;
+            }
         }
     }
 
@@ -110,5 +127,13 @@ public class PlayerController : Moveable
     public void TurnOnPlayerAttack()
     {
         canAttack = true;
+    }
+
+    private class SprintBuff : FuncBuff<float>
+    {
+        public SprintBuff(Func<bool> useWhile) : base((float x) => x * 10.0f, useWhile, BuffType.BUFF, "Sprint")
+        {
+
+        }
     }
 }
