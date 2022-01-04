@@ -16,8 +16,23 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        if(QuestIndex >= 0 && QuestIndex < quests.Count)
+        BoundsCheckQuestIndex();
+    }
+
+    private void BoundsCheckQuestIndex()
+    {
+        if (QuestIndex >= 0 && QuestIndex < quests.Count)
             currentQuest = quests[QuestIndex];
+
+        if(QuestIndex < 0)
+        {
+            currentQuest = quests[0];
+        }
+
+        if (QuestIndex >= quests.Count)
+        {
+            currentQuest = quests[quests.Count - 1];
+        }
     }
 
     private void Awake()
@@ -57,5 +72,11 @@ public class QuestManager : MonoBehaviour
     public Quest GetCurrentQuest()
     {
         return currentQuest;
+    }
+
+    public void ContinueToNextQuest()
+    {
+        QuestIndex++;
+        BoundsCheckQuestIndex();
     }
 }

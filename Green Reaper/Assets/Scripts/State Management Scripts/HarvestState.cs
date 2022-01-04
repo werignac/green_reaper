@@ -84,7 +84,7 @@ public class HarvestState : MonoBehaviour
     private void InstatiatePlayer()
     {
         playerInstance = Instantiate(player.gameObject);
-        GameObject weaponInstance = Instantiate(GameManager.instance.upgrades.GetWeapon().gameObject, new Vector3(0,0,0.01f), Quaternion.Euler(Vector3.zero), playerInstance.transform);
+        GameObject weaponInstance = Instantiate(GameManager.instance.upgrades.GetWeapon().gameObject, new Vector3(0, 0, 0.01f), Quaternion.Euler(Vector3.zero), playerInstance.transform);
 
         Camera.main.transform.parent = playerInstance.transform;
 
@@ -120,7 +120,13 @@ public class HarvestState : MonoBehaviour
         }
         roundEndMoney = GameManager.instance.globalScore.GetValue();
         QuestManager.instance.updateText.Invoke();
-        
+
+        // Tragically this check must be done again.
+        if (QuestManager.instance.QuestComplete())
+        {
+            QuestManager.instance.ContinueToNextQuest();
+        }
+
         endRound = true;
     }
 
