@@ -2618,6 +2618,7 @@ GameObject:
   - component: {fileID: 1262196234}
   - component: {fileID: 1262196233}
   - component: {fileID: 1262196232}
+  - component: {fileID: 1262196235}
   m_Layer: 5
   m_Name: Move Joystick
   m_TagString: JoystickControl
@@ -2696,6 +2697,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262196230}
   m_CullTransparentMesh: 1
+--- !u!114 &1262196235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262196230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6034e5ba8f6a6b4aa7439a0f33a4c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1314117623
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,6 +3169,7 @@ GameObject:
   - component: {fileID: 1631129603}
   - component: {fileID: 1631129602}
   - component: {fileID: 1631129601}
+  - component: {fileID: 1631129604}
   m_Layer: 5
   m_Name: Weapon Joystick
   m_TagString: JoystickControl
@@ -3234,6 +3248,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631129599}
   m_CullTransparentMesh: 1
+--- !u!114 &1631129604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631129599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6034e5ba8f6a6b4aa7439a0f33a4c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1693579323
 GameObject:
   m_ObjectHideFlags: 0
