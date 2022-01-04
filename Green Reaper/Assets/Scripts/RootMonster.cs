@@ -29,6 +29,7 @@ public class RootMonster : PlantHealth
     private SpriteRenderer spRender;
 
     public UnityEvent<int> onSteal = new UnityEvent<int>();
+    public UnityEvent onEscape = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +66,10 @@ public class RootMonster : PlantHealth
             timeToEscape -= Time.deltaTime;
             // Just disable it because onDeath will return the coins.
             if (timeToEscape <= 0)
+            {
+                onEscape?.Invoke();
                 Destroy(gameObject);
+            }
         }
     }
 
@@ -102,7 +106,7 @@ public class RootMonster : PlantHealth
         float currentCoins = GameManager.instance.globalScore.GetValue();
         int coinsToSteal = (int)(currentCoins * percentageCoinsToSteal);
         coinsActuallyStolen = HarvestState.instance.DecrementScore(coinsToSteal);
-        onSteal.Invoke(coinsActuallyStolen);
+        onSteal?.Invoke(coinsActuallyStolen);
     }
 
     public bool HasStolenCoins()

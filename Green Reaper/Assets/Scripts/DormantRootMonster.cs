@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DormantRootMonster : PlantHealth
 {
+    bool isDying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -12,9 +14,17 @@ public class DormantRootMonster : PlantHealth
 
     protected override void OnDeath()
     {
-        deathEvent?.Invoke(PlantType.DORMANTROOTMONSTER);
-        QuestManager.instance.PlantDied(GetPlantType());
-        Destroy(gameObject);
+        lock (this)
+        {
+            //Fast way to avoid double spawns of root monsters.
+            if (!isDying)
+            {
+                isDying = true;
+                deathEvent?.Invoke(PlantType.DORMANTROOTMONSTER);
+                QuestManager.instance.PlantDied(GetPlantType());
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
