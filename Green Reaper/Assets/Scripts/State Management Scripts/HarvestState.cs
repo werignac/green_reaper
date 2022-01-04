@@ -11,12 +11,14 @@ public class HarvestState : MonoBehaviour
     public Button beginHarvesting;
     public Button returnToHouse;
     public GameObject nightStart;
+    public GameObject nightEnd;
     public float startTime;
 
     private float timeRemaining;
     private bool decreaseTime = false;
-
     private bool endRound = false;
+    private int roundStartMoney;
+    private int roundEndMoney;
 
     [SerializeField]
     private PlayerController player;
@@ -44,6 +46,8 @@ public class HarvestState : MonoBehaviour
         beginHarvesting.gameObject.SetActive(true);
         returnToHouse.gameObject.SetActive(false);
         nightStart.gameObject.SetActive(true);
+        nightEnd.gameObject.SetActive(false);
+        QuestManager.instance.updateText.Invoke();
         timeRemaining = startTime;
 
         scoreIncrement?.Invoke(GameManager.instance.globalScore.GetValue());
@@ -71,6 +75,7 @@ public class HarvestState : MonoBehaviour
         beginHarvesting.gameObject.SetActive(false);
         nightStart.gameObject.SetActive(false);
         decreaseTime = true;
+        roundStartMoney = GameManager.instance.globalScore.GetValue();
 
         InstatiatePlayer();
         QuestManager.instance.ResetCurrentQuest();
@@ -107,14 +112,21 @@ public class HarvestState : MonoBehaviour
         returnToHouse.gameObject.SetActive(true);
         currentPlayer.SetReceivingInput(false);
         roundEnd?.Invoke(GameManager.instance.globalScore.GetValue());
+        nightEnd.gameObject.SetActive(true);
 
         if (QuestManager.instance.QuestComplete())
         {
             IncrementScore(QuestManager.instance.GetQuestRewards());
-            print("Quest Was Successfully Completed.");
         }
-            
+        roundEndMoney = GameManager.instance.globalScore.GetValue();
+        QuestManager.instance.updateText.Invoke();
+        
         endRound = true;
+    }
+
+    public int DifferenceInCoinsThisRound()
+    {
+        return roundEndMoney - roundStartMoney;
     }
 
     private void EndGame()
