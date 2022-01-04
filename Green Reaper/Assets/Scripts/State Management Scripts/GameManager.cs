@@ -39,16 +39,13 @@ public class GameManager : MonoBehaviour
     /// Loads the Farm level.
     /// </summary>
     public void LoadFarm()
-    {
-        if (procedural)
-            SceneManager.LoadScene(2);
-        else
-            SceneManager.LoadScene(1);
+    { 
+     SceneManager.LoadScene(1);
     }
 
     public void LoadHouse()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     /// <summary>
@@ -76,13 +73,6 @@ public class GameManager : MonoBehaviour
         LoadMainMenu();
     }
 
-    public void SetProcedural(bool newProcedural)
-    {
-        procedural = newProcedural;
-    }
-
-    public bool GetProcedural()
-    {
-        return procedural;
-    }
+    
+  
 }
