@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 8123461903520257245}
   - component: {fileID: 8715286161188775828}
   - component: {fileID: 5935406422812680201}
+  - component: {fileID: 2600276957399296221}
   m_Layer: 0
   m_Name: Root Monster
   m_TagString: Untagged
@@ -165,6 +166,21 @@ MonoBehaviour:
       - m_Target: {fileID: 8123461903520257245}
         m_TargetAssemblyTypeName: RootMonsterSoundManager, Assembly-CSharp
         m_MethodName: PlayStealSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEscape:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2600276957399296221}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -360,6 +376,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSpawn: {fileID: 4272071122399685328, guid: 1b984b2d57f942c4387c3489299bfd2d, type: 3}
+--- !u!114 &2600276957399296221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692537086567873969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a9ca6a7f7c248448a2bc2516a8120e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 793193921581004174, guid: 8dba38465b78da4418e51fbbf0f4c085, type: 3}
 --- !u!1 &6366281743389573682
 GameObject:
   m_ObjectHideFlags: 0
