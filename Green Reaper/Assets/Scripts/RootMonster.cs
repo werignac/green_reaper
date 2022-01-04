@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Script for the monster that chases the player and steals their coins. 
@@ -25,6 +26,8 @@ public class RootMonster : PlantHealth
     private Vector2 movement;
     private bool coinsStolen;
     private SpriteRenderer spRender;
+
+    public UnityEvent<int> onSteal = new UnityEvent<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +102,12 @@ public class RootMonster : PlantHealth
         float currentCoins = GameManager.instance.globalScore.GetValue();
         int coinsToSteal = (int)(currentCoins * percentageCoinsToSteal);
         coinsActuallyStolen = HarvestState.instance.DecrementScore(coinsToSteal);
+        onSteal.Invoke(coinsActuallyStolen);
+    }
+
+    public bool HasStolenCoins()
+    {
+        return coinsStolen;
     }
 
     protected override void OnDeath()
