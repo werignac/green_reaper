@@ -41,9 +41,7 @@ public class PlayerController : Moveable
 
     protected override void Start()
     {
-        if (!GameManager.instance.GetProcedural())
-            transform.localScale = transform.localScale * 0.056844f;
-
+      
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
