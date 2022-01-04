@@ -14498,7 +14498,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Incresed Attack \nDamage"
+  m_Text: 'Incresed
+
+    Slice
+
+    Damage'
 --- !u!222 &1627772484
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18891,7 +18895,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Incresed Attack \nSpeed"
+  m_Text: "Incresed \nSlice \nSpeed"
 --- !u!222 &2146410382
 CanvasRenderer:
   m_ObjectHideFlags: 0
