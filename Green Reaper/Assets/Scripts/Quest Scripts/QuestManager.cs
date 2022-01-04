@@ -51,4 +51,9 @@ public class QuestManager : MonoBehaviour
 
         return currentQuest.goldReward;
     }
+
+    public Quest GetCurrentQuest()
+    {
+        return currentQuest;
+    }
 }

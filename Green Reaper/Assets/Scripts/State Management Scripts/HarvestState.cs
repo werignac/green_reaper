@@ -10,6 +10,7 @@ public class HarvestState : MonoBehaviour
 
     public Button beginHarvesting;
     public Button returnToHouse;
+    public GameObject nightStart;
     public float startTime;
 
     private float timeRemaining;
@@ -27,37 +28,10 @@ public class HarvestState : MonoBehaviour
     public PlayerController currentPlayer { get; private set; }
     public GameObject playerInstance { get; private set; }
     public WeaponController currentWeapon { get; private set; }
-
+    public BuffVisualizersManager buffProgresses;
 
     public UnityEvent<int> roundEnd = new UnityEvent<int>();
     public UnityEvent<int> scoreIncrement = new UnityEvent<int>();
-
-    [SerializeField]
-    public int maxNumberOfPowerUps;
-    [SerializeField]
-    public Vector2 PowerUpRangeX;
-    [SerializeField]
-    public Vector2 PowerUpRangeY;
-    [SerializeField]
-    private GameObject pepperPrefab;
-    [SerializeField]
-    private GameObject zucchiniPrefab;
-    [SerializeField]
-    private GameObject pumpkinPrefab;
-
-    private int corn1Killed;
-    private int corn2Killed;
-    private int corn3Killed;
-
-    public int corn1ThatHasToBeKilled;
-    public int corn2ThatHasToBeKilled;
-    public int corn3ThatHasToBeKilled;
-
-    public UnityEvent<int> corn1Died;
-    public UnityEvent<int> corn2Died;
-    public UnityEvent<int> corn3Died;
-
-    public BuffVisualizersManager buffProgresses;
 
     // Start is called before the first frame update
     void Start()
@@ -69,14 +43,10 @@ public class HarvestState : MonoBehaviour
 
         beginHarvesting.gameObject.SetActive(true);
         returnToHouse.gameObject.SetActive(false);
+        nightStart.gameObject.SetActive(true);
         timeRemaining = startTime;
 
         scoreIncrement?.Invoke(GameManager.instance.globalScore.GetValue());
-        GeneratePowerups();
-
-        corn1Died?.Invoke(Mathf.Max(corn1ThatHasToBeKilled - corn1Killed, 0));
-        corn2Died?.Invoke(Mathf.Max(corn2ThatHasToBeKilled - corn2Killed, 0));
-        corn3Died?.Invoke(Mathf.Max(corn3ThatHasToBeKilled - corn3Killed, 0));
     }
 
     private void Update()
@@ -99,6 +69,7 @@ public class HarvestState : MonoBehaviour
     public void StartHarvesting()
     {
         beginHarvesting.gameObject.SetActive(false);
+        nightStart.gameObject.SetActive(false);
         decreaseTime = true;
 
         InstatiatePlayer();
@@ -143,14 +114,13 @@ public class HarvestState : MonoBehaviour
             print("Quest Was Successfully Completed.");
         }
             
-
         endRound = true;
     }
 
     private void EndGame()
     {
         endRound = true;
-        GameManager.instance.EndGame(); // TODO: Switch to Endscreen
+        GameManager.instance.EndGame();
     }
 
     public void ReturnToHouse()
@@ -186,116 +156,5 @@ public class HarvestState : MonoBehaviour
         // Find the difference
         differenceBetweenValues -= GameManager.instance.globalScore.GetValue();
         return differenceBetweenValues;
-    }
-
-    private void GeneratePowerups()
-    {
-        Dictionary<UpgradeHolder.UpgradeType, float> powerUps = new Dictionary<UpgradeHolder.UpgradeType, float>();
-        
-        float totalWeight = SumWeightsAndPopulateDictionary(powerUps);
-        float randomWeight;
-
-        UpgradeHolder upgrades = GameManager.instance.upgrades;
-
-        float sumOfLevels = upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PEPPERPROBABILITY) +
-            upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.PUMPKINPROBABILITY) +
-            upgrades.GetUpgradeLevel(UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY);
-
-        for (int i = 0; i < (maxNumberOfPowerUps * sumOfLevels / 9f); i++)
-        {
-            randomWeight = Random.Range(0, totalWeight);
-            foreach (UpgradeHolder.UpgradeType upType in powerUps.Keys)
-            {
-                if (randomWeight <= powerUps[upType] && powerUps[upType] != 0)
-                {
-                    DeterminePowerupToSpawn(upType);
-                    break;
-                }
-
-                randomWeight -= powerUps[upType];
-            }
-        }
-        
-    }
-
-    private void DeterminePowerupToSpawn(UpgradeHolder.UpgradeType type)
-    {
-        switch (type)
-        {
-            case UpgradeHolder.UpgradeType.PEPPERPROBABILITY:
-                SpawnPowerup(pepperPrefab);
-                break;
-            
-            case UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY:
-                SpawnPowerup(zucchiniPrefab);
-                break;
-            
-            case UpgradeHolder.UpgradeType.PUMPKINPROBABILITY:
-                SpawnPowerup(pumpkinPrefab);
-                break;
-            
-            default:
-                break;
-        }
-    }
-
-    private void SpawnPowerup(GameObject powerup)
-    {
-        float xPos;
-        float yPos;
-
-        xPos = Random.Range(PowerUpRangeX.x, PowerUpRangeX.y);
-        yPos = Random.Range(PowerUpRangeY.x, PowerUpRangeY.y);
-
-        // Creates the object at the random position.
-        GameObject pw = Instantiate(powerup, new Vector3(xPos, yPos, 0), transform.rotation);
-    }
-
-    private float SumWeightsAndPopulateDictionary(Dictionary<UpgradeHolder.UpgradeType, float> powerUps)
-    {
-        float totalWeight = 0;
-
-        //Get the weights for all powerups. 
-        for (int i = 4; i < 7; i++)
-        {
-            // Determine type and weight, then add the weight to the total.
-            UpgradeHolder.UpgradeType upgradeType = (UpgradeHolder.UpgradeType)i;
-            float upgradeWeight = GameManager.instance.upgrades.GetMultiplier(upgradeType);
-            totalWeight += upgradeWeight;
-
-
-            powerUps.Add(upgradeType, upgradeWeight);
-        }
-
-        return totalWeight;
-    }
-
-    public void IncrementCornDeaths(PlantType type)
-    {
-        if(type == PlantType.CORN)
-        {
-            corn1Killed++;
-            corn1Died?.Invoke(Mathf.Max(corn1ThatHasToBeKilled - corn1Killed, 0));
-        }
-
-        if (type == PlantType.CORN2)
-        {
-            corn2Killed++;
-            corn2Died?.Invoke(Mathf.Max(corn2ThatHasToBeKilled - corn2Killed, 0));
-        }
-
-        if (type == PlantType.CORN3)
-        {
-            corn3Killed++;
-            corn3Died?.Invoke(Mathf.Max(corn3ThatHasToBeKilled - corn3Killed, 0));
-        }
-
-        CheckWinState();
-    }
-
-    private void CheckWinState()
-    {
-        if(corn1Killed >= corn1ThatHasToBeKilled && corn2Killed >= corn2ThatHasToBeKilled && corn3Killed >= corn3ThatHasToBeKilled)
-            EndGame();
     }
 }

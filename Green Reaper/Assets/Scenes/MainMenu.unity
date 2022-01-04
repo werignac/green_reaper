@@ -1704,7 +1704,7 @@ MonoBehaviour:
   QuestIndex: 0
   quests:
   - title: 1 yellow 1 blue
-    questText: description.
+    questText: Kill 1 yellow and 1 blue.
     goldReward: 10
     monsters:
     - plantType: 0
