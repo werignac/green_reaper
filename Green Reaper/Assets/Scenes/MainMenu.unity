@@ -1883,26 +1883,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b41e67a81662094ca8fb1fac725e3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestIndex: 2
+  QuestIndex: 1
   quests:
-  - title: Corn Slayer
-    description: Kill 5 corn.
-    numberToKill: 5
+  - title: red
+    questText: description.
     goldReward: 10
-    plantType: 0
-    questType: 0
-  - title: Pepper Slayer
-    description: Kill 5 peppers.
-    numberToKill: 5
+    monsters:
+    - plantType: 4
+      numberToKill: 0
+      questType: 0
+  - title: red3
+    questText: description.
     goldReward: 10
-    plantType: 1
-    questType: 0
-  - title: Root Monster Avoider
-    description: Trigger less than 2 Root Monsters.
-    numberToKill: 2
-    goldReward: 10
-    plantType: 6
-    questType: 1
+    monsters:
+    - plantType: 4
+      numberToKill: 0
+      questType: 0
 --- !u!4 &2098035902
 Transform:
   m_ObjectHideFlags: 0
