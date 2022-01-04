@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum QuestType { GreaterThanOrEqualTo, LessThanOrEqualTo}
+public enum QuestType { GreaterThanOrEqualTo, LessThanOrEqualTo }
+
+[System.Serializable]
+public class QuestMonster
+{
+    public PlantType plantType;
+    public int numberToKill;
+    public QuestType questType;
+}
 
 [System.Serializable]
 public class Quest
 {
     public string title;
-    public string description;
-    public int numberToKill;
+    public string questText;
     public int goldReward;
-    public PlantType plantType;
-    public QuestType questType;
+    public List<QuestMonster> monsters;
 
     private bool isActive;
     private int currentlyKilled;
@@ -42,17 +48,17 @@ public class Quest
 
     private void CheckCompletion()
     {
-        if(questType == QuestType.GreaterThanOrEqualTo)
-        {
-            if (currentlyKilled >= numberToKill)
-                completed = true;
-        }
+        //if (questType == QuestType.GreaterThanOrEqualTo)
+        //{
+        //    if (currentlyKilled >= numberToKill)
+        //        completed = true;
+        //}
 
-        if (questType == QuestType.LessThanOrEqualTo)
-        {
-            if (currentlyKilled <= numberToKill)
-                completed = true;
-        }
+        //if (questType == QuestType.LessThanOrEqualTo)
+        //{
+        //    if (currentlyKilled <= numberToKill)
+        //        completed = true;
+        //}
     }
 
     public int GetKillCount()
@@ -66,3 +72,5 @@ public class Quest
         return completed;
     }
 }
+
+

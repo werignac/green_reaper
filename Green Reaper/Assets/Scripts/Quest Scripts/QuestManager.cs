@@ -28,10 +28,10 @@ public class QuestManager : MonoBehaviour
         if (currentQuest == null)
             return;
 
-        if (currentQuest.plantType == type)
-        {
-            currentQuest.IncreaseKillCount();
-        }
+        //if (currentQuest.plantType == type)
+        //{
+        //    currentQuest.IncreaseKillCount();
+        //}
     }
 
     public bool QuestComplete()

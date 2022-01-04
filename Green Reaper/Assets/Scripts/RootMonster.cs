@@ -12,8 +12,8 @@ public class RootMonster : PlantHealth
     private float chaseMovementSpeed;
     [SerializeField]
     private float escapeMovementSpeed;
-    [SerializeField]
-    private int coinsToSteal;
+    [SerializeField, Range(0,1)]
+    private float percentageCoinsToSteal;
     [SerializeField]
     private float timeToEscape;
     [SerializeField]
@@ -95,6 +95,9 @@ public class RootMonster : PlantHealth
 
     private void StealCoins()
     {
+        
+        float currentCoins = GameManager.instance.globalScore.GetValue();
+        int coinsToSteal = (int)(currentCoins * percentageCoinsToSteal);
         coinsActuallyStolen = HarvestState.instance.DecrementScore(coinsToSteal);
     }
 
