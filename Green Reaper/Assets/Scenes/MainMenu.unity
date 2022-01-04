@@ -1884,21 +1884,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b41e67a81662094ca8fb1fac725e3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestIndex: 1
+  QuestIndex: 0
   quests:
-  - title: red
+  - title: 1 yellow 1 blue
     questText: description.
     goldReward: 10
     monsters:
-    - plantType: 4
-      numberToKill: 0
+    - plantType: 0
+      numberToKill: 1
       questType: 0
-  - title: red3
-    questText: description.
-    goldReward: 10
-    monsters:
-    - plantType: 4
-      numberToKill: 0
+    - plantType: 3
+      numberToKill: 1
       questType: 0
 --- !u!4 &2098035902
 Transform:

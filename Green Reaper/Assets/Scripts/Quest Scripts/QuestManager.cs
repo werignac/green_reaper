@@ -14,7 +14,7 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        if(QuestIndex > 0 && QuestIndex < quests.Count)
+        if(QuestIndex >= 0 && QuestIndex < quests.Count)
             currentQuest = quests[QuestIndex];
     }
 
@@ -28,10 +28,7 @@ public class QuestManager : MonoBehaviour
         if (currentQuest == null)
             return;
 
-        //if (currentQuest.plantType == type)
-        //{
-        //    currentQuest.IncreaseKillCount();
-        //}
+        currentQuest.CheckAndUpdateKillcounts(type);
     }
 
     public bool QuestComplete()
@@ -40,6 +37,11 @@ public class QuestManager : MonoBehaviour
             return false;
 
         return currentQuest.Completed();
+    }
+
+    public void ResetCurrentQuest()
+    {
+        currentQuest.Reset();
     }
 
     public int GetQuestRewards()

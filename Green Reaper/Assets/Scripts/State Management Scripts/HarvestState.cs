@@ -102,6 +102,7 @@ public class HarvestState : MonoBehaviour
         decreaseTime = true;
 
         InstatiatePlayer();
+        QuestManager.instance.ResetCurrentQuest();
     }
 
     private void InstatiatePlayer()

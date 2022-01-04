@@ -11,6 +11,42 @@ public class QuestMonster
     public PlantType plantType;
     public int numberToKill;
     public QuestType questType;
+    private int currentlyKilled;
+
+    public void IncrementKillCount()
+    {
+        currentlyKilled++;
+    }
+
+    public void ResetMonster()
+    {
+        currentlyKilled = 0;
+    }
+
+    public int GetKillCount()
+    {
+        return currentlyKilled;
+    }
+
+    public bool CheckCompletion()
+    {
+        // Default to false, but if completion criteria is met then set to true.
+        bool completed = false;
+
+        if (questType == QuestType.GreaterThanOrEqualTo)
+        {
+            if (currentlyKilled >= numberToKill)
+                completed = true;
+        }
+
+        if (questType == QuestType.LessThanOrEqualTo)
+        {
+            if (currentlyKilled <= numberToKill)
+                completed = true;
+        }
+
+        return completed;
+    }
 }
 
 [System.Serializable]
@@ -21,55 +57,46 @@ public class Quest
     public int goldReward;
     public List<QuestMonster> monsters;
 
-    private bool isActive;
-    private int currentlyKilled;
-    private bool completed;
-
-
-    public void EnableQuest()
+    /// <summary>
+    /// Check if the type of plant given is used in the current quest.
+    /// If the type matches one of the tracked monsters, the kill count is updated.
+    /// </summary>
+    /// <param name="type"></param>
+    public void CheckAndUpdateKillcounts(PlantType type)
     {
-        isActive = true;
+        foreach (QuestMonster monster in monsters)
+        {
+            if (monster.plantType == type)
+            {
+                monster.IncrementKillCount();
+            }
+        }
     }
 
-    public void DisableQuest()
-    {
-        isActive = false;
-    }
 
-    public bool IsActive()
-    {
-        return isActive;
-    }
-
-    public void IncreaseKillCount()
-    {
-        currentlyKilled++;
-    }
-
-    private void CheckCompletion()
-    {
-        //if (questType == QuestType.GreaterThanOrEqualTo)
-        //{
-        //    if (currentlyKilled >= numberToKill)
-        //        completed = true;
-        //}
-
-        //if (questType == QuestType.LessThanOrEqualTo)
-        //{
-        //    if (currentlyKilled <= numberToKill)
-        //        completed = true;
-        //}
-    }
-
-    public int GetKillCount()
-    {
-        return currentlyKilled;
-    }
-
+    /// <returns>Whether or not all criteria for the quest was successfully met.</returns>
     public bool Completed()
     {
-        CheckCompletion();
-        return completed;
+        // Default to true, and if one of the quests was incomplete switch to false.
+        bool everyRequirementCompleted = true;
+
+        foreach (QuestMonster monster in monsters)
+        {
+            if (!monster.CheckCompletion())
+            {
+                everyRequirementCompleted = false;
+            }
+        }
+
+        return everyRequirementCompleted;
+    }
+
+    public void Reset()
+    {
+        foreach (QuestMonster monster in monsters)
+        {
+            monster.ResetMonster();
+        }
     }
 }
 
