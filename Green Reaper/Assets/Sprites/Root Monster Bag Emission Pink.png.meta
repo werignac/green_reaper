@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: 7ad7aeaac4a54479aae41a64fbf33a9c
+guid: b3c37e87043404e9292dcbecd12cf4da
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8319425060174427694
-    second: Root Monster Bag And Wake Sprite Sheet_0
+      213: 4129560049060848297
+    second: Root Monster Bag Emission Pink_0
   - first:
-      213: -4504816902942714506
-    second: Root Monster Bag And Wake Sprite Sheet_1
+      213: -6455972838733826327
+    second: Root Monster Bag Emission Pink_1
   - first:
-      213: 4616063623449879496
-    second: Root Monster Bag And Wake Sprite Sheet_2
+      213: 5977396230148994584
+    second: Root Monster Bag Emission Pink_2
   - first:
-      213: -1294407047536865499
-    second: Root Monster Bag And Wake Sprite Sheet_3
+      213: -6043561590272744532
+    second: Root Monster Bag Emission Pink_3
   - first:
-      213: -2927623164156599107
-    second: Root Monster Bag And Wake Sprite Sheet_4
+      213: 7594957711386536174
+    second: Root Monster Bag Emission Pink_4
   - first:
-      213: 6910804066209379575
-    second: Root Monster Bag And Wake Sprite Sheet_5
+      213: -7620074311936504536
+    second: Root Monster Bag Emission Pink_5
   - first:
-      213: -8359102863702771881
-    second: Root Monster Bag And Wake Sprite Sheet_6
+      213: 6632164852897782420
+    second: Root Monster Bag Emission Pink_6
   - first:
-      213: -4408366067538560416
-    second: Root Monster Bag And Wake Sprite Sheet_7
+      213: 6216161415179573580
+    second: Root Monster Bag Emission Pink_7
   - first:
-      213: 9166698195855462632
-    second: Root Monster Bag And Wake Sprite Sheet_8
+      213: -5369254514650463738
+    second: Root Monster Bag Emission Pink_8
   - first:
-      213: -7561783654971080440
-    second: Root Monster Bag And Wake Sprite Sheet_9
+      213: 4798000032505390175
+    second: Root Monster Bag Emission Pink_9
   - first:
-      213: 6733247222417299892
-    second: Root Monster Bag And Wake Sprite Sheet_10
+      213: 5983102468371818683
+    second: Root Monster Bag Emission Pink_10
   - first:
-      213: -5788548545039165488
-    second: Root Monster Bag And Wake Sprite Sheet_11
+      213: -8117781347179658624
+    second: Root Monster Bag Emission Pink_11
   - first:
-      213: -9192829632072710376
-    second: Root Monster Bag And Wake Sprite Sheet_12
+      213: 4333024326413964380
+    second: Root Monster Bag Emission Pink_12
   - first:
-      213: -2900191777987554644
-    second: Root Monster Bag And Wake Sprite Sheet_13
+      213: -7346279727481748412
+    second: Root Monster Bag Emission Pink_13
   - first:
-      213: -2306964592975667227
-    second: Root Monster Bag And Wake Sprite Sheet_14
+      213: -8878265257300073155
+    second: Root Monster Bag Emission Pink_14
   - first:
-      213: 9161471771841675433
-    second: Root Monster Bag And Wake Sprite Sheet_15
+      213: -5524118137718202775
+    second: Root Monster Bag Emission Pink_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -163,7 +163,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_0
+      name: Root Monster Bag Emission Pink_0
       rect:
         serializedVersion: 2
         x: 0
@@ -171,20 +171,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e26fd279309847370800000000000000
-      internalID: 8319425060174427694
+      spriteID: 9a2aaea3cf42f4930800000000000000
+      internalID: 4129560049060848297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_1
+      name: Root Monster Bag Emission Pink_1
       rect:
         serializedVersion: 2
         x: 512
@@ -192,20 +192,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6759ce1f4ecab71c0800000000000000
-      internalID: -4504816902942714506
+      spriteID: 9e633bb88e6c766a0800000000000000
+      internalID: -6455972838733826327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_2
+      name: Root Monster Bag Emission Pink_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -213,20 +213,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c32558986d8f0040800000000000000
-      internalID: 4616063623449879496
+      spriteID: 8163ac3a33af3f250800000000000000
+      internalID: 5977396230148994584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_3
+      name: Root Monster Bag Emission Pink_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -234,20 +234,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52f8dc8f5a7590ee0800000000000000
-      internalID: -1294407047536865499
+      spriteID: ca32999f0c4f02ca0800000000000000
+      internalID: -6043561590272744532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_4
+      name: Root Monster Bag Emission Pink_4
       rect:
         serializedVersion: 2
         x: 0
@@ -255,20 +255,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db4ad305e3efe57d0800000000000000
-      internalID: -2927623164156599107
+      spriteID: ee8ee477cc5b66960800000000000000
+      internalID: 7594957711386536174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_5
+      name: Root Monster Bag Emission Pink_5
       rect:
         serializedVersion: 2
         x: 512
@@ -276,20 +276,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f43cb6eeab18ef50800000000000000
-      internalID: 6910804066209379575
+      spriteID: 82d02f249ce004690800000000000000
+      internalID: -7620074311936504536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_6
+      name: Root Monster Bag Emission Pink_6
       rect:
         serializedVersion: 2
         x: 1024
@@ -297,20 +297,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 757bb00eb308efb80800000000000000
-      internalID: -8359102863702771881
+      spriteID: 49a9dc48bce2a0c50800000000000000
+      internalID: 6632164852897782420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_7
+      name: Root Monster Bag Emission Pink_7
       rect:
         serializedVersion: 2
         x: 1536
@@ -318,20 +318,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06a7a780b6652d2c0800000000000000
-      internalID: -4408366067538560416
+      spriteID: c49944a5fdd344650800000000000000
+      internalID: 6216161415179573580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_8
+      name: Root Monster Bag Emission Pink_8
       rect:
         serializedVersion: 2
         x: 0
@@ -339,20 +339,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e0dd2f1177a63f70800000000000000
-      internalID: 9166698195855462632
+      spriteID: 602c89967739c75b0800000000000000
+      internalID: -5369254514650463738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_9
+      name: Root Monster Bag Emission Pink_9
       rect:
         serializedVersion: 2
         x: 512
@@ -360,20 +360,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 801081174d52f0790800000000000000
-      internalID: -7561783654971080440
+      spriteID: f54ebc1db9be59240800000000000000
+      internalID: 4798000032505390175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_10
+      name: Root Monster Bag Emission Pink_10
       rect:
         serializedVersion: 2
         x: 1024
@@ -381,20 +381,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b9911dacac417d50800000000000000
-      internalID: 6733247222417299892
+      spriteID: bb8a012ceff380350800000000000000
+      internalID: 5983102468371818683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_11
+      name: Root Monster Bag Emission Pink_11
       rect:
         serializedVersion: 2
         x: 1536
@@ -402,20 +402,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d716df64c1faafa0800000000000000
-      internalID: -5788548545039165488
+      spriteID: 0828015efd8d75f80800000000000000
+      internalID: -8117781347179658624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_12
+      name: Root Monster Bag Emission Pink_12
       rect:
         serializedVersion: 2
         x: 0
@@ -423,20 +423,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8170f93c7228c6080800000000000000
-      internalID: -9192829632072710376
+      spriteID: c54d703eaaef12c30800000000000000
+      internalID: 4333024326413964380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_13
+      name: Root Monster Bag Emission Pink_13
       rect:
         serializedVersion: 2
         x: 512
@@ -444,20 +444,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca21b8c91f270c7d0800000000000000
-      internalID: -2900191777987554644
+      spriteID: 4440cc69285cc0a90800000000000000
+      internalID: -7346279727481748412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_14
+      name: Root Monster Bag Emission Pink_14
       rect:
         serializedVersion: 2
         x: 1024
@@ -465,20 +465,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ef184eece30cffd0800000000000000
-      internalID: -2306964592975667227
+      spriteID: d35efec99c01ac480800000000000000
+      internalID: -8878265257300073155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Root Monster Bag And Wake Sprite Sheet_15
+      name: Root Monster Bag Emission Pink_15
       rect:
         serializedVersion: 2
         x: 1536
@@ -486,14 +486,14 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a044647906142f70800000000000000
-      internalID: 9161471771841675433
+      spriteID: 96e930062d36653b0800000000000000
+      internalID: -5524118137718202775
       vertices: []
       indices: 
       edges: []
@@ -507,13 +507,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: b3c37e87043404e9292dcbecd12cf4da, type: 3}
-      name: _EmissionPink
-    - texture: {fileID: 2800000, guid: 1a2fe747517394ef0a635d9de196b535, type: 3}
-      name: _EmissionGreen
-    - texture: {fileID: 2800000, guid: 74bba1acae899415ebabf5111e4e00d8, type: 3}
-      name: _EmissionGold
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
