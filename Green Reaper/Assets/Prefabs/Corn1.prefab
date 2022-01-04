@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: -8091946956445749724}
   - component: {fileID: -2517752971139813207}
   - component: {fileID: 8312378535646013127}
+  - component: {fileID: 4164789155625653744}
   m_Layer: 7
   m_Name: Corn1
   m_TagString: Untagged
@@ -188,6 +189,18 @@ MonoBehaviour:
           m_StringArgument: Shake
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4164789155625653744}
+        m_TargetAssemblyTypeName: SetAnimatorInt, Assembly-CSharp
+        m_MethodName: SetInt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   deathEvent:
     m_PersistentCalls:
       m_Calls:
@@ -254,6 +267,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4164789155625653744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795396761242676467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a36077fafe9aa4593d61422ed12d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intName: Health
 --- !u!1 &7616175212718828982
 GameObject:
   m_ObjectHideFlags: 0
