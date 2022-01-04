@@ -59,13 +59,9 @@ public class PlayerController : Moveable
 
             #if UNITY_ANDROID
                 movementInput = mobileControls.Mobile.Move.ReadValue<Vector2>();
-            #endif
-
-            #if UNITY_IOS
+            #elif UNITY_IOS
                 movementInput = mobileControls.Mobile.Move.ReadValue<Vector2>();
-            #endif
-
-            #if UNITY_WEBGL
+            #else
                 movementInput = mobileControls.WEBGL.Move.ReadValue<Vector2>(); ;
             #endif
 
@@ -99,14 +95,10 @@ public class PlayerController : Moveable
                 #if UNITY_ANDROID
                 weaponAttackDirection = mobileControls.Mobile.WeaponDirection.ReadValue<Vector2>();
                 isTryingToAttack = weaponAttackDirection.magnitude > joystickThreshold;
-                #endif
-
-                #if UNITY_IOS
+                #elif UNITY_IOS
                 weaponAttackDirection = mobileControls.Mobile.WeaponDirection.ReadValue<Vector2>();
                 isTryingToAttack = weaponAttackDirection.magnitude > joystickThreshold;
-                #endif
-
-                #if UNITY_WEBGL
+                #else
                 isTryingToAttack = mobileControls.WEBGL.WeaponFire.ReadValue<float>() > 0;
                 Vector2 mousePosition = mobileControls.WEBGL.WeaponDirection.ReadValue<Vector2>();
                 Vector2 targetPos = Camera.main.ScreenToWorldPoint(mousePosition);
