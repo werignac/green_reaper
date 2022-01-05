@@ -8,7 +8,8 @@ using UnityEngine;
 /// </summary>
 public class WeaponPickup : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private ScytheSpriteManager sprites;
     private bool pickupEanbled;
     
     /// <summary>
@@ -87,5 +88,10 @@ public class WeaponPickup : MonoBehaviour
             SetActivity(false);
             pickupEanbled = false;
         }
+    }
+
+    private void SetSprites(ScytheSpriteManager toCopy)
+    {
+        sprites.SetFromSpriteManager(toCopy);
     }
 }
