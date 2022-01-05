@@ -39,10 +39,12 @@ public class ScytheSpriteManager : MonoBehaviour
 
     public void SetFromSpriteManager(ScytheSpriteManager other)
     {
-        if (handleSprites != other.handleSprites)
+        /*
+        if (! handleSprites.Equals(other.handleSprites))
             throw new ArgumentException("Handle sprites for this and other Scythe Sprite Manager do not match.");
-        else if (bladeSprites != other.bladeSprites)
+        else if (! bladeSprites.Equals(other.bladeSprites))
             throw new ArgumentException("Blade sprites for this and other Scythe Sprite Manager do not match.");
+         */
 
         SetSprites(other.currentHandle, currentBlade);
     }

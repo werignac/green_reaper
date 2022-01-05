@@ -130,6 +130,7 @@ MonoBehaviour:
   weapon: {fileID: 7234902084912112720}
   pepperEffect: {fileID: 6317389692717915367}
   zuccinniEffect: {fileID: 5327737910558528542}
+  joystickThreshold: 0.15
   lookRightByDefault: 1
 --- !u!61 &6902740206275428175
 BoxCollider2D:

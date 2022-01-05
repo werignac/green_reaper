@@ -141,6 +141,9 @@ public class Boids : MonoBehaviour
 
     public GameObject bird;
     public GameObject WeaponPickupPrefab;
+    [SerializeField]
+    private GameObject CrowWeapon;
+    private GameObject currentCrowWeapon;
     public int numBoids;
     public int visualRange;
     public float centeringFactor;
@@ -190,13 +193,14 @@ public class Boids : MonoBehaviour
         // Initialzize the weapon pickup with the sprite of the player's weapon.
         //GameObject playerWeapon = GameManager.instance.upgrades.GetWeapon().gameObject;
         //playerWeaponPickup.Initialize(playerWeapon.GetComponent<SpriteRenderer>().sprite);
-        
+
         // Instantiate the weapon pickup object and store a reference to it's controller.
-        WeaponPickupPrefab = Instantiate(WeaponPickupPrefab);
-        playerWeaponPickup = WeaponPickupPrefab.GetComponent<WeaponPickup>();
+        //William
+        //WeaponPickupPrefab = Instantiate(WeaponPickupPrefab);
+        //playerWeaponPickup = WeaponPickupPrefab.GetComponent<WeaponPickup>();
 
         // Initialize the pickup so that it is ready to be placed.
-        playerWeaponPickup.Initialize();
+        //playerWeaponPickup.Initialize();
 
         player = HarvestState.instance.playerInstance;
 
@@ -473,9 +477,14 @@ public class Boids : MonoBehaviour
         
         if (distanceToEndPoint < closeEnoughToSteal)
         {
-            boid.obj.transform.DetachChildren();
-            playerWeaponPickup.SetGlobalPosition(positionForWeapon);
-            playerWeaponPickup.EnablePickup();
+            //William
+            Destroy(currentCrowWeapon);
+
+            WeaponPickup weaponPickupInstance = Instantiate(WeaponPickupPrefab).GetComponent<WeaponPickup>();
+            weaponPickupInstance.SetActivity(true);
+            weaponPickupInstance.SetGlobalPosition(positionForWeapon);
+            weaponPickupInstance.EnablePickup();
+            weaponPickupInstance.SetSprites(currentCrowWeapon.GetComponentInChildren<ScytheSpriteManager>());
 
             StopSimulation();
         }
@@ -487,12 +496,15 @@ public class Boids : MonoBehaviour
         scattering = true;
 
         // Parent the weapon pickup to the lead boid.
-        playerWeaponPickup.SetParent(leadBoid.obj.transform);
-        playerWeaponPickup.SetLocalPosition(Vector2.zero);
-        playerWeaponPickup.DisablePlayerAttack();
-        playerWeaponPickup.SetActivity(true);
-        
+        // William
+        WeaponPickup.DisablePlayerAttack();
 
+        currentCrowWeapon = Instantiate(CrowWeapon, leadBoid.obj.transform.position, Quaternion.identity);
+        Rigidbody2D crowRigidbody = leadBoid.obj.GetComponent<Rigidbody2D>();
+        crowRigidbody.simulated = true;
+        currentCrowWeapon.GetComponent<HingeJoint2D>().connectedBody = crowRigidbody;
+        currentCrowWeapon.GetComponentInChildren<ScytheSpriteManager>().SetFromSpriteManager(HarvestState.instance.currentWeapon.GetComponentInChildren<ScytheSpriteManager>());
+        
         // Point the lead boid towards a random tile and set the speed to the escape speed.
         positionForWeapon = CornCoordinatorByWeight.instance.RandomTileDistanceAway(tileDistanceCrowsDropScythe, player.transform.position);
         Vector3 direction = positionForWeapon - leadBoid.obj.transform.position;

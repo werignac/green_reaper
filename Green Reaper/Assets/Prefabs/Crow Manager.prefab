@@ -45,7 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bird: {fileID: 6498635244923019841, guid: 37159c61dff26dc47945e0f6463648cf, type: 3}
   WeaponPickupPrefab: {fileID: 817912178498430335, guid: 57aebcb3a2a1c6548be6eab5b44c5f13, type: 3}
-  numBoids: 30
+  CrowWeapon: {fileID: 6033335701771185268, guid: 8272e4bfe72a1f74eae8b95eb74caf82, type: 3}
+  numBoids: 2
   visualRange: 6
   centeringFactor: 0.0085
   minDistance: 0.53
@@ -64,4 +65,3 @@ MonoBehaviour:
   debuffTime: 5
   closeEnoughToSteal: 0.5
   tileDistanceCrowsDropScythe: 6
-  scytheSprite: {fileID: 21300000, guid: 744b4b3daa505bd4aae7ad42a5b90dc2, type: 3}
