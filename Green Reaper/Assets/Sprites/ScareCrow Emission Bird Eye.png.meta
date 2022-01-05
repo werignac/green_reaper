@@ -1,61 +1,103 @@
 fileFormatVersion: 2
-guid: b6c070c4a297d4b55965f6b9b4058543
+guid: 919ca02226eed47cda4058b40391e74e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2619207310862346111
-    second: ScareCrow_Sprite_Sheet_0
+      213: 5543455510043252429
+    second: ScareCrow Emission Bird Eye_0
   - first:
-      213: 4009857385805149830
-    second: ScareCrow_Sprite_Sheet_1
+      213: 873279316448025338
+    second: ScareCrow Emission Bird Eye_1
   - first:
-      213: 411662282005389967
-    second: ScareCrow_Sprite_Sheet_2
+      213: 1385800360813691152
+    second: ScareCrow Emission Bird Eye_2
   - first:
-      213: 6592207982962324961
-    second: ScareCrow_Sprite_Sheet_3
+      213: -2660669091499901318
+    second: ScareCrow Emission Bird Eye_3
   - first:
-      213: -7830283924150234174
-    second: ScareCrow_Sprite_Sheet_4
+      213: 8976344001586769501
+    second: ScareCrow Emission Bird Eye_4
   - first:
-      213: 2091755467909726200
-    second: ScareCrow_Sprite_Sheet_5
+      213: -1738706436997821005
+    second: ScareCrow Emission Bird Eye_5
   - first:
-      213: 4054716950274216876
-    second: ScareCrow_Sprite_Sheet_6
+      213: 6249507125941352604
+    second: ScareCrow Emission Bird Eye_6
   - first:
-      213: 721279794071787591
-    second: ScareCrow_Sprite_Sheet_7
+      213: -1533694368494628714
+    second: ScareCrow Emission Bird Eye_7
   - first:
-      213: -2997305028442815610
-    second: ScareCrow_Sprite_Sheet_8
+      213: 804725124321173790
+    second: ScareCrow Emission Bird Eye_8
   - first:
-      213: 4832255777562224011
-    second: ScareCrow_Sprite_Sheet_9
+      213: 2398248499829489304
+    second: ScareCrow Emission Bird Eye_9
   - first:
-      213: 7214357089943978640
-    second: ScareCrow_Sprite_Sheet_10
+      213: -172109800611533015
+    second: ScareCrow Emission Bird Eye_10
   - first:
-      213: 4125814967305448006
-    second: ScareCrow_Sprite_Sheet_11
+      213: 688952259523382720
+    second: ScareCrow Emission Bird Eye_11
   - first:
-      213: 2952359454552958371
-    second: ScareCrow_Sprite_Sheet_12
+      213: 7074269314679683840
+    second: ScareCrow Emission Bird Eye_12
   - first:
-      213: -4477717739659798734
-    second: ScareCrow_Sprite_Sheet_13
+      213: -5199488760207482468
+    second: ScareCrow Emission Bird Eye_13
   - first:
-      213: 5143409380401291718
-    second: ScareCrow_Sprite_Sheet_14
+      213: 5622442682145209220
+    second: ScareCrow Emission Bird Eye_14
   - first:
-      213: -5135231071320943613
-    second: ScareCrow_Sprite_Sheet_15
+      213: 8148271373539164
+    second: ScareCrow Emission Bird Eye_15
   - first:
-      213: -2345383860340999158
-    second: ScareCrow_Sprite_Sheet_16
+      213: -8680700061101285911
+    second: ScareCrow Emission Bird Eye_16
   - first:
-      213: 60690050859573928
-    second: ScareCrow_Sprite_Sheet_17
+      213: 118348356515101221
+    second: ScareCrow Emission Bird Eye_17
+  - first:
+      213: -333906347247439265
+    second: ScareCrow Emission Bird Eye_18
+  - first:
+      213: -7952411291892773332
+    second: ScareCrow Emission Bird Eye_19
+  - first:
+      213: 2700435921570670469
+    second: ScareCrow Emission Bird Eye_20
+  - first:
+      213: 8733042118422948218
+    second: ScareCrow Emission Bird Eye_21
+  - first:
+      213: 7736560465098232848
+    second: ScareCrow Emission Bird Eye_22
+  - first:
+      213: -8504539707263356938
+    second: ScareCrow Emission Bird Eye_23
+  - first:
+      213: -6366582062671277821
+    second: ScareCrow Emission Bird Eye_24
+  - first:
+      213: -350257439873606082
+    second: ScareCrow Emission Bird Eye_25
+  - first:
+      213: 5984839524814140418
+    second: ScareCrow Emission Bird Eye_26
+  - first:
+      213: -3739835775734914306
+    second: ScareCrow Emission Bird Eye_27
+  - first:
+      213: -7977512522719169238
+    second: ScareCrow Emission Bird Eye_28
+  - first:
+      213: 7036527416796347299
+    second: ScareCrow Emission Bird Eye_29
+  - first:
+      213: -6886221287934852402
+    second: ScareCrow Emission Bird Eye_30
+  - first:
+      213: -8457802908964726490
+    second: ScareCrow Emission Bird Eye_31
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -141,11 +183,35 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_0
+      name: ScareCrow Emission Bird Eye_0
       rect:
         serializedVersion: 2
         x: 0
@@ -159,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f776e0d0c2b495420800000000000000
-      internalID: 2619207310862346111
+      spriteID: dc65f487a6f4eec40800000000000000
+      internalID: 5543455510043252429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_1
+      name: ScareCrow Emission Bird Eye_1
       rect:
         serializedVersion: 2
         x: 512
@@ -180,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68674e81c00e5a730800000000000000
-      internalID: 4009857385805149830
+      spriteID: afa949659e28e1c00800000000000000
+      internalID: 873279316448025338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_2
+      name: ScareCrow Emission Bird Eye_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -201,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f82ab561aa486b500800000000000000
-      internalID: 411662282005389967
+      spriteID: 01188ebf51a5b3310800000000000000
+      internalID: 1385800360813691152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_3
+      name: ScareCrow Emission Bird Eye_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -222,14 +288,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e5b6f5cb3a3c7b50800000000000000
-      internalID: 6592207982962324961
+      spriteID: a7e7940ee87631bd0800000000000000
+      internalID: -2660669091499901318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_4
+      name: ScareCrow Emission Bird Eye_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -243,14 +309,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c3d292f14e355390800000000000000
-      internalID: -7830283924150234174
+      spriteID: d5ea94c8f41629c70800000000000000
+      internalID: 8976344001586769501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_5
+      name: ScareCrow Emission Bird Eye_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -264,14 +330,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ff7db5f388670d10800000000000000
-      internalID: 2091755467909726200
+      spriteID: 3bd4f0625bfded7e0800000000000000
+      internalID: -1738706436997821005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_6
+      name: ScareCrow Emission Bird Eye_6
       rect:
         serializedVersion: 2
         x: 3072
@@ -285,14 +351,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca399dd559f354830800000000000000
-      internalID: 4054716950274216876
+      spriteID: c98b107ae95bab650800000000000000
+      internalID: 6249507125941352604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_7
+      name: ScareCrow Emission Bird Eye_7
       rect:
         serializedVersion: 2
         x: 3584
@@ -306,14 +372,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 748d055b620820a00800000000000000
-      internalID: 721279794071787591
+      spriteID: 6905cd3091937bae0800000000000000
+      internalID: -1533694368494628714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_8
+      name: ScareCrow Emission Bird Eye_8
       rect:
         serializedVersion: 2
         x: 0
@@ -327,14 +393,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6838c2005fe6766d0800000000000000
-      internalID: -2997305028442815610
+      spriteID: e11eef8ac35fa2b00800000000000000
+      internalID: 804725124321173790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_9
+      name: ScareCrow Emission Bird Eye_9
       rect:
         serializedVersion: 2
         x: 512
@@ -348,14 +414,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b85ec6df60f9f0340800000000000000
-      internalID: 4832255777562224011
+      spriteID: 89e337bdd4a484120800000000000000
+      internalID: 2398248499829489304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_10
+      name: ScareCrow Emission Bird Eye_10
       rect:
         serializedVersion: 2
         x: 1024
@@ -369,14 +435,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0928eeccc8b8e1460800000000000000
-      internalID: 7214357089943978640
+      spriteID: 92faf285c0b8c9df0800000000000000
+      internalID: -172109800611533015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_11
+      name: ScareCrow Emission Bird Eye_11
       rect:
         serializedVersion: 2
         x: 1536
@@ -390,14 +456,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64a2b3f6ad6d14930800000000000000
-      internalID: 4125814967305448006
+      spriteID: 0cd08180e66af8900800000000000000
+      internalID: 688952259523382720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_12
+      name: ScareCrow Emission Bird Eye_12
       rect:
         serializedVersion: 2
         x: 2048
@@ -411,14 +477,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a525e91843e8f820800000000000000
-      internalID: 2952359454552958371
+      spriteID: 00bbdeae57adc2260800000000000000
+      internalID: 7074269314679683840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_13
+      name: ScareCrow Emission Bird Eye_13
       rect:
         serializedVersion: 2
         x: 2560
@@ -432,14 +498,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237dc139073fbd1c0800000000000000
-      internalID: -4477717739659798734
+      spriteID: c91623a4584b7d7b0800000000000000
+      internalID: -5199488760207482468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_14
+      name: ScareCrow Emission Bird Eye_14
       rect:
         serializedVersion: 2
         x: 3072
@@ -453,14 +519,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c12b3d949f016740800000000000000
-      internalID: 5143409380401291718
+      spriteID: 48b724794dde60e40800000000000000
+      internalID: 5622442682145209220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_15
+      name: ScareCrow Emission Bird Eye_15
       rect:
         serializedVersion: 2
         x: 3584
@@ -474,14 +540,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 304dd5a5c8efbb8b0800000000000000
-      internalID: -5135231071320943613
+      spriteID: c57d0c44fc2fc1000800000000000000
+      internalID: 8148271373539164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_16
+      name: ScareCrow Emission Bird Eye_16
       rect:
         serializedVersion: 2
         x: 0
@@ -495,14 +561,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0cb07e2ec5837fd0800000000000000
-      internalID: -2345383860340999158
+      spriteID: 9ed98586945f78780800000000000000
+      internalID: -8680700061101285911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_17
+      name: ScareCrow Emission Bird Eye_17
       rect:
         serializedVersion: 2
         x: 512
@@ -516,8 +582,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a2a2ea974d97d000800000000000000
-      internalID: 60690050859573928
+      spriteID: 52a75d5043574a100800000000000000
+      internalID: 118348356515101221
       vertices: []
       indices: 
       edges: []
@@ -531,15 +597,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 02b454821775945cbbb10d8e1e8f3e89, type: 3}
-      name: _EmissionBird
-    - texture: {fileID: 2800000, guid: 919ca02226eed47cda4058b40391e74e, type: 3}
-      name: _EmissionBirdEye
-    - texture: {fileID: 2800000, guid: 58df5e1ba28f842cf8c7cdc49204db6e, type: 3}
-      name: _EmissionHands
-    - texture: {fileID: 2800000, guid: 4794c7c83eb274ca09c7a809bf2c7bc4, type: 3}
-      name: _EmissionHead
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,61 +1,61 @@
 fileFormatVersion: 2
-guid: b6c070c4a297d4b55965f6b9b4058543
+guid: 58df5e1ba28f842cf8c7cdc49204db6e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2619207310862346111
-    second: ScareCrow_Sprite_Sheet_0
+      213: -1475339809136782973
+    second: ScareCrow Emission Hands_0
   - first:
-      213: 4009857385805149830
-    second: ScareCrow_Sprite_Sheet_1
+      213: 5144884435843202375
+    second: ScareCrow Emission Hands_1
   - first:
-      213: 411662282005389967
-    second: ScareCrow_Sprite_Sheet_2
+      213: 6687103038753982292
+    second: ScareCrow Emission Hands_2
   - first:
-      213: 6592207982962324961
-    second: ScareCrow_Sprite_Sheet_3
+      213: 4578384087643951954
+    second: ScareCrow Emission Hands_3
   - first:
-      213: -7830283924150234174
-    second: ScareCrow_Sprite_Sheet_4
+      213: 4408796797364157211
+    second: ScareCrow Emission Hands_4
   - first:
-      213: 2091755467909726200
-    second: ScareCrow_Sprite_Sheet_5
+      213: 5411633312706365572
+    second: ScareCrow Emission Hands_5
   - first:
-      213: 4054716950274216876
-    second: ScareCrow_Sprite_Sheet_6
+      213: 4918456176614799920
+    second: ScareCrow Emission Hands_6
   - first:
-      213: 721279794071787591
-    second: ScareCrow_Sprite_Sheet_7
+      213: 8347451744912652618
+    second: ScareCrow Emission Hands_7
   - first:
-      213: -2997305028442815610
-    second: ScareCrow_Sprite_Sheet_8
+      213: -6499277182843008580
+    second: ScareCrow Emission Hands_8
   - first:
-      213: 4832255777562224011
-    second: ScareCrow_Sprite_Sheet_9
+      213: -6421219346067075743
+    second: ScareCrow Emission Hands_9
   - first:
-      213: 7214357089943978640
-    second: ScareCrow_Sprite_Sheet_10
+      213: 4553799313504101694
+    second: ScareCrow Emission Hands_10
   - first:
-      213: 4125814967305448006
-    second: ScareCrow_Sprite_Sheet_11
+      213: 9055933427003475079
+    second: ScareCrow Emission Hands_11
   - first:
-      213: 2952359454552958371
-    second: ScareCrow_Sprite_Sheet_12
+      213: -1059754124548030618
+    second: ScareCrow Emission Hands_12
   - first:
-      213: -4477717739659798734
-    second: ScareCrow_Sprite_Sheet_13
+      213: -6809390771533763292
+    second: ScareCrow Emission Hands_13
   - first:
-      213: 5143409380401291718
-    second: ScareCrow_Sprite_Sheet_14
+      213: 5491600230909825007
+    second: ScareCrow Emission Hands_14
   - first:
-      213: -5135231071320943613
-    second: ScareCrow_Sprite_Sheet_15
+      213: -1799549264502557576
+    second: ScareCrow Emission Hands_15
   - first:
-      213: -2345383860340999158
-    second: ScareCrow_Sprite_Sheet_16
+      213: -5935340313461767940
+    second: ScareCrow Emission Hands_16
   - first:
-      213: 60690050859573928
-    second: ScareCrow_Sprite_Sheet_17
+      213: 2938115109502711547
+    second: ScareCrow Emission Hands_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -141,11 +141,35 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_0
+      name: ScareCrow Emission Hands_0
       rect:
         serializedVersion: 2
         x: 0
@@ -159,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f776e0d0c2b495420800000000000000
-      internalID: 2619207310862346111
+      spriteID: 381d861a24a868be0800000000000000
+      internalID: -1475339809136782973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_1
+      name: ScareCrow Emission Hands_1
       rect:
         serializedVersion: 2
         x: 512
@@ -180,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68674e81c00e5a730800000000000000
-      internalID: 4009857385805149830
+      spriteID: 74dbed8b22d466740800000000000000
+      internalID: 5144884435843202375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_2
+      name: ScareCrow Emission Hands_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -201,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f82ab561aa486b500800000000000000
-      internalID: 411662282005389967
+      spriteID: 457cd51b8cc5dcc50800000000000000
+      internalID: 6687103038753982292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_3
+      name: ScareCrow Emission Hands_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -222,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e5b6f5cb3a3c7b50800000000000000
-      internalID: 6592207982962324961
+      spriteID: 25391550210b98f30800000000000000
+      internalID: 4578384087643951954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_4
+      name: ScareCrow Emission Hands_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -243,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c3d292f14e355390800000000000000
-      internalID: -7830283924150234174
+      spriteID: b1b35c114513f2d30800000000000000
+      internalID: 4408796797364157211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_5
+      name: ScareCrow Emission Hands_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -264,14 +288,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ff7db5f388670d10800000000000000
-      internalID: 2091755467909726200
+      spriteID: 488888a63dbf91b40800000000000000
+      internalID: 5411633312706365572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_6
+      name: ScareCrow Emission Hands_6
       rect:
         serializedVersion: 2
         x: 3072
@@ -285,14 +309,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca399dd559f354830800000000000000
-      internalID: 4054716950274216876
+      spriteID: 03a737265ddd14440800000000000000
+      internalID: 4918456176614799920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_7
+      name: ScareCrow Emission Hands_7
       rect:
         serializedVersion: 2
         x: 3584
@@ -306,14 +330,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 748d055b620820a00800000000000000
-      internalID: 721279794071787591
+      spriteID: a49bb33a22b18d370800000000000000
+      internalID: 8347451744912652618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_8
+      name: ScareCrow Emission Hands_8
       rect:
         serializedVersion: 2
         x: 0
@@ -327,14 +351,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6838c2005fe6766d0800000000000000
-      internalID: -2997305028442815610
+      spriteID: cb947db36ddedc5a0800000000000000
+      internalID: -6499277182843008580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_9
+      name: ScareCrow Emission Hands_9
       rect:
         serializedVersion: 2
         x: 512
@@ -348,14 +372,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b85ec6df60f9f0340800000000000000
-      internalID: 4832255777562224011
+      spriteID: 16d4ecc960f33e6a0800000000000000
+      internalID: -6421219346067075743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_10
+      name: ScareCrow Emission Hands_10
       rect:
         serializedVersion: 2
         x: 1024
@@ -369,14 +393,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0928eeccc8b8e1460800000000000000
-      internalID: 7214357089943978640
+      spriteID: e3564db3958523f30800000000000000
+      internalID: 4553799313504101694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_11
+      name: ScareCrow Emission Hands_11
       rect:
         serializedVersion: 2
         x: 1536
@@ -390,14 +414,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64a2b3f6ad6d14930800000000000000
-      internalID: 4125814967305448006
+      spriteID: 784c022b8732dad70800000000000000
+      internalID: 9055933427003475079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_12
+      name: ScareCrow Emission Hands_12
       rect:
         serializedVersion: 2
         x: 2048
@@ -411,14 +435,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a525e91843e8f820800000000000000
-      internalID: 2952359454552958371
+      spriteID: 66f3f011d3ffa41f0800000000000000
+      internalID: -1059754124548030618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_13
+      name: ScareCrow Emission Hands_13
       rect:
         serializedVersion: 2
         x: 2560
@@ -432,14 +456,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237dc139073fbd1c0800000000000000
-      internalID: -4477717739659798734
+      spriteID: 42d28e5cb2f2081a0800000000000000
+      internalID: -6809390771533763292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_14
+      name: ScareCrow Emission Hands_14
       rect:
         serializedVersion: 2
         x: 3072
@@ -453,14 +477,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c12b3d949f016740800000000000000
-      internalID: 5143409380401291718
+      spriteID: fef45d37055163c40800000000000000
+      internalID: 5491600230909825007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_15
+      name: ScareCrow Emission Hands_15
       rect:
         serializedVersion: 2
         x: 3584
@@ -474,14 +498,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 304dd5a5c8efbb8b0800000000000000
-      internalID: -5135231071320943613
+      spriteID: 87472857a77b607e0800000000000000
+      internalID: -1799549264502557576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_16
+      name: ScareCrow Emission Hands_16
       rect:
         serializedVersion: 2
         x: 0
@@ -495,14 +519,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0cb07e2ec5837fd0800000000000000
-      internalID: -2345383860340999158
+      spriteID: cf04e038e6f61ada0800000000000000
+      internalID: -5935340313461767940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScareCrow_Sprite_Sheet_17
+      name: ScareCrow Emission Hands_17
       rect:
         serializedVersion: 2
         x: 512
@@ -516,8 +540,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a2a2ea974d97d000800000000000000
-      internalID: 60690050859573928
+      spriteID: bf6fd13102846c820800000000000000
+      internalID: 2938115109502711547
       vertices: []
       indices: 
       edges: []
@@ -531,15 +555,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 02b454821775945cbbb10d8e1e8f3e89, type: 3}
-      name: _EmissionBird
-    - texture: {fileID: 2800000, guid: 919ca02226eed47cda4058b40391e74e, type: 3}
-      name: _EmissionBirdEye
-    - texture: {fileID: 2800000, guid: 58df5e1ba28f842cf8c7cdc49204db6e, type: 3}
-      name: _EmissionHands
-    - texture: {fileID: 2800000, guid: 4794c7c83eb274ca09c7a809bf2c7bc4, type: 3}
-      name: _EmissionHead
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
