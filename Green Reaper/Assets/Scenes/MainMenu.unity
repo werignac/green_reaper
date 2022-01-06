@@ -1741,8 +1741,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuestIndex: 0
   quests:
-  - title: 1 yellow 1 blue
-    questText: Kill 1 yellow and 1 blue.
+  - title: Beginnings
+    questText: Start your life off as a farmer by harvesting at least one of each
+      type of corn.
     goldReward: 10
     monsters:
     - plantType: 0
@@ -1751,16 +1752,162 @@ MonoBehaviour:
     - plantType: 3
       numberToKill: 1
       questType: 0
-  - title: Please for the love of God work.
-    questText: Amen
-    goldReward: 7
+    - plantType: 4
+      numberToKill: 1
+      questType: 0
+  - title: Yellow  Fever
+    questText: It's time to go after all the yellows. Harvest at least 15 of the
+      yellow corn.
+    goldReward: 20
     monsters:
     - plantType: 0
+      numberToKill: 15
+      questType: 0
+  - title: Pumpkin Bomb
+    questText: As a farmer you sometimes grow mare then just corn, go harvest at
+      least one pumpkin.
+    goldReward: 10
+    monsters:
+    - plantType: 2
       numberToKill: 1
+      questType: 0
+  - title: Scardy Crow
+    questText: The scarecrows are a pain sometimes, tonight avoid them at all cost.
+    goldReward: 15
+    monsters:
+    - plantType: 8
+      numberToKill: 0
+      questType: 1
+  - title: Added Spice
+    questText: Have a need for speed? Then you should harvest at least one Ghost
+      Pepper and Zucchini
+    goldReward: 20
+    monsters:
+    - plantType: 1
+      numberToKill: 1
+      questType: 0
+    - plantType: 5
+      numberToKill: 1
+      questType: 0
+  - title: Blue Be-gone
+    questText: You're the Green Reaper, not the Blue Reaper. They are actually your
+      rival. So maybe you should harvest as least 20 blue corn to show them up.
+    goldReward: 30
+    monsters:
+    - plantType: 3
+      numberToKill: 20
+      questType: 0
+  - title: No Diggin'
+    questText: Those Root Monsters are constantly stealing from you, so just avoid
+      them tonight.
+    goldReward: 50
+    monsters:
+    - plantType: 6
+      numberToKill: 0
+      questType: 1
+  - title: Red Rage
+    questText: The Red corn is the hardest to harvest, but brings the most reward.
+      Harvest at least 10 of them.
+    goldReward: 50
+    monsters:
+    - plantType: 4
+      numberToKill: 10
+      questType: 0
+  - title: I got the Ropes Down!
+    questText: You know enouph about harvesting now, go harvest at least 20 of each
+      type of corn.
+    goldReward: 100
+    monsters:
+    - plantType: 0
+      numberToKill: 20
+      questType: 0
+    - plantType: 3
+      numberToKill: 20
+      questType: 0
+    - plantType: 4
+      numberToKill: 20
+      questType: 0
+  - title: No Roots
+    questText: Those root monsters are constanly stealing. Kill two of them after
+      they steal from you.
+    goldReward: 100
+    monsters:
+    - plantType: 7
+      numberToKill: 2
+      questType: 0
+  - title: Scythe Practice
+    questText: The scarecrows aren't good for much, just target practice. Kill at
+      least two scarecrows.
+    goldReward: 100
+    monsters:
+    - plantType: 8
+      numberToKill: 2
+      questType: 0
+  - title: Pure skill
+    questText: The extra plants are nice, but it's time to test out your own skill.
+      Harvest only corn tonight.
+    goldReward: 150
+    monsters:
+    - plantType: 1
+      numberToKill: 0
+      questType: 1
+    - plantType: 2
+      numberToKill: 0
+      questType: 1
+    - plantType: 5
+      numberToKill: 0
+      questType: 1
+  - title: Go Big or Go Home
+    questText: Though the yellows are nice, they have little reward. Harvest at least
+      20 blue and 10 red, but no yellow tonight.
+    goldReward: 200
+    monsters:
+    - plantType: 0
+      numberToKill: 0
+      questType: 1
+    - plantType: 3
+      numberToKill: 20
+      questType: 0
+    - plantType: 4
+      numberToKill: 10
+      questType: 0
+  - title: Masterful Revenge
+    questText: It's finally time to teach those Root Monsters a lesson. Kill at least
+      5 of them after they steal your money.
+    goldReward: 200
+    monsters:
+    - plantType: 7
+      numberToKill: 5
+      questType: 0
+  - title: Master Harvester
+    questText: You have now mastered the art of reaping plants. Harvest at least
+      50 of each type of corn each night until you retire.
+    goldReward: 300
+    monsters:
+    - plantType: 0
+      numberToKill: 50
+      questType: 0
+    - plantType: 3
+      numberToKill: 50
+      questType: 0
+    - plantType: 4
+      numberToKill: 50
       questType: 0
   updateText:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2098035902
 Transform:
   m_ObjectHideFlags: 0
