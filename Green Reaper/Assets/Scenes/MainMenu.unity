@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a262f710aadd2784d90ce3f463aa25b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingGold: 400
+  startingGold: 0
   weapons:
   - {fileID: 4122818651805258254, guid: e01025643bb2c2449b7ca4c1fe8d9820, type: 3}
   - {fileID: 4122818651805258254, guid: e01025643bb2c2449b7ca4c1fe8d9820, type: 3}
@@ -911,7 +911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &881004844
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2912,11 +2912,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548651857000, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548651857000, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548925058653, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2956,7 +2956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 117.9304
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_SizeDelta.y
