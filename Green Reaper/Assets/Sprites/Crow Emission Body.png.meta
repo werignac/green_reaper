@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 78893da9f55634fe1b5214c39ad04568
+guid: c51f85900ba4241a2b4a450701e46866
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1252216217860091643
-    second: Crow Sprite Sheet_0
+      213: 7573268969115207262
+    second: Crow Emission Body_0
   - first:
-      213: -2953778423308558752
-    second: Crow Sprite Sheet_1
+      213: 8307057697006606434
+    second: Crow Emission Body_1
   - first:
-      213: 8733322264060407554
-    second: Crow Sprite Sheet_2
+      213: -1958686214857443560
+    second: Crow Emission Body_2
   - first:
-      213: -265757747021683837
-    second: Crow Sprite Sheet_3
+      213: -8248540625183076066
+    second: Crow Emission Body_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Crow Sprite Sheet_0
+      name: Crow Emission Body_0
       rect:
         serializedVersion: 2
         x: 0
@@ -135,20 +135,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfea88ff304c06110800000000000000
-      internalID: 1252216217860091643
+      spriteID: e56c994a008a91960800000000000000
+      internalID: 7573268969115207262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crow Sprite Sheet_1
+      name: Crow Emission Body_1
       rect:
         serializedVersion: 2
         x: 512
@@ -156,20 +156,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06eda7d7c221207d0800000000000000
-      internalID: -2953778423308558752
+      spriteID: 268d0c676f8984370800000000000000
+      internalID: 8307057697006606434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crow Sprite Sheet_2
+      name: Crow Emission Body_2
       rect:
         serializedVersion: 2
         x: 0
@@ -177,20 +177,20 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20fa45af35ef23970800000000000000
-      internalID: 8733322264060407554
+      spriteID: 817b7f0e34951d4e0800000000000000
+      internalID: -1958686214857443560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crow Sprite Sheet_3
+      name: Crow Emission Body_3
       rect:
         serializedVersion: 2
         x: 512
@@ -198,14 +198,14 @@ TextureImporter:
         width: 512
         height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 383e674bcb6df4cf0800000000000000
-      internalID: -265757747021683837
+      spriteID: e119598010c478d80800000000000000
+      internalID: -8248540625183076066
       vertices: []
       indices: 
       edges: []
@@ -219,13 +219,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 064d93b382b83496c981dd49ca155f58, type: 3}
-      name: _EmissionEye
-    - texture: {fileID: 2800000, guid: c51f85900ba4241a2b4a450701e46866, type: 3}
-      name: _EmissionBody
-    - texture: {fileID: 2800000, guid: 6a0d2e245013443ae80b35f4669af1d8, type: 3}
-      name: _EmissionBeak
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
