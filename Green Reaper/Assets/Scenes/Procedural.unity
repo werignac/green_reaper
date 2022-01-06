@@ -2838,7 +2838,7 @@ MonoBehaviour:
   returnToHouse: {fileID: 874916769}
   nightStart: {fileID: 378891081}
   nightEnd: {fileID: 1971583370}
-  startTime: 40
+  startTime: 30
   player: {fileID: 6259593118671449604, guid: a18373137a9f3c044954dbb1acf25e48, type: 3}
   startLocation: {x: -6, y: 3, z: 0}
   timePercentUpdate:
