@@ -140,6 +140,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         float randomAngleFromCenter = UnityEngine.Random.Range(0, 2f * Mathf.PI);
         float meanAngleAdd = 2 * Mathf.PI / orbits;
 
+        // Generates circles and places them.
         for (int i = 0; i < orbits; i++)
         {
             randomAngleFromCenter += UnityEngine.Random.Range(meanAngleAdd * 0.5f, meanAngleAdd * 1.5f);

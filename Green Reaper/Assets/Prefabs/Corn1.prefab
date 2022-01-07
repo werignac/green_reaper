@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 1873250885003732402}
   - component: {fileID: 2690745209598272682}
   m_Layer: 9
-  m_Name: PlayerDetector
+  m_Name: PlantSlower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,4 +381,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9448bec0860ce4a9206da1d453f5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedReductionPercentage: 0.65
   dimmer: {fileID: 356063589925197646}

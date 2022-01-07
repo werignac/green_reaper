@@ -12,6 +12,7 @@ public class PlantSlower : MonoBehaviour
     private static float distInFront = 0.1f;
     //[SerializeField]
     private static float distInBack = 0.25f;
+    public float speedReductionPercentage;
 
     private DepthOrganizer organizer;
 
@@ -64,8 +65,8 @@ public class PlantSlower : MonoBehaviour
     {
         if (!contacts.Contains(toEnter.gameObject))
         {
-            bool added = toEnter.BuffMaxSpeed(new PlantSpeedDecrease(toEnter.gameObject, this));
-            added = added && toEnter.BuffMaxVelocityChange(new PlantSpeedDecrease(toEnter.gameObject, this));
+            bool added = toEnter.BuffMaxSpeed(new PlantSpeedDecrease(toEnter.gameObject, this, speedReductionPercentage));
+            added = added && toEnter.BuffMaxVelocityChange(new PlantSpeedDecrease(toEnter.gameObject, this, speedReductionPercentage));
 
             if (added)
                 EnterPlant(toEnter.gameObject);
@@ -103,17 +104,19 @@ public class PlantSlower : MonoBehaviour
         private HashSet<PlantSlower> inContacts;
 
         private GameObject target;
+        private float affectorSpeed;
 
-        public PlantSpeedDecrease(GameObject _target, PlantSlower initalContact)
+        public PlantSpeedDecrease(GameObject _target, PlantSlower initalContact, float percentageReduction)
         {
             target = _target;
             inContacts = new HashSet<PlantSlower>();
             inContacts.Add(initalContact);
+            affectorSpeed = percentageReduction;
         }
 
         public float Affect(float value)
         {
-            return value * 0.25f;
+            return value * affectorSpeed;
         }
 
         public void Combine(Buff<float> other)
