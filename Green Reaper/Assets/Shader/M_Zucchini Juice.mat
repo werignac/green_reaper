@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Crow
-  m_Shader: {fileID: -6465566751694194690, guid: ec8ee2754e9354e88a2beece67ed7131, type: 3}
+  m_Name: M_Zucchini Juice
+  m_Shader: {fileID: -6465566751694194690, guid: 3f3f9b42981584933abb27e62adcea2a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,16 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _EmissionBeak:
-        m_Texture: {fileID: 2800000, guid: 6a0d2e245013443ae80b35f4669af1d8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionBody:
-        m_Texture: {fileID: 2800000, guid: c51f85900ba4241a2b4a450701e46866, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionEye:
-        m_Texture: {fileID: 2800000, guid: 064d93b382b83496c981dd49ca155f58, type: 3}
+    - _Emission:
+        m_Texture: {fileID: 2800000, guid: 39cfbcc607ea740248bdb982858d54bb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -49,7 +41,5 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - Color_462212ca090646679062e14df9b167d5: {r: 5.2705884, g: 0, b: 47.937256, a: 0}
-    - Color_761bac7a0eeb43c2b5942d24784ea6cc: {r: 31.999996, g: 13.57068, b: 0, a: 0}
-    - Color_b8418eb923d44688ba9adf85052c4f7c: {r: 766.9961, g: 0, b: 0, a: 0}
+    - Color_90839e6bc3c4460794c7f3ab8ebf8612: {r: 0, g: 255.99997, b: 100.52355, a: 0}
   m_BuildTextureStacks: []
