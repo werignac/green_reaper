@@ -142,6 +142,7 @@ public class RootMonster : PlantHealth
     // When the round ends delete this object.
     private void RoundEnd(int a)
     {
+        onEscape.Invoke();
         Destroy(gameObject);
     }
 }
