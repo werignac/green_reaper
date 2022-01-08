@@ -1814,18 +1814,18 @@ MonoBehaviour:
       numberToKill: 15
       questType: 0
   - title: I got the Ropes Down!
-    questText: You know enouph about harvesting now, go harvest at least 10 of each
+    questText: You know enouph about harvesting now, go harvest at least 15 of each
       type of corn.
     goldReward: 100
     monsters:
     - plantType: 0
-      numberToKill: 10
+      numberToKill: 15
       questType: 0
     - plantType: 3
-      numberToKill: 10
+      numberToKill: 15
       questType: 0
     - plantType: 4
-      numberToKill: 10
+      numberToKill: 15
       questType: 0
   - title: No Roots
     questText: Those root monsters are constanly stealing. Kill two of them after
@@ -1837,17 +1837,17 @@ MonoBehaviour:
       questType: 0
   - title: Plant power
     questText: The plants are great for helping out, now you should harvest at least
-      two of each of the extra plants.
+      5 of each of the extra plants.
     goldReward: 100
     monsters:
     - plantType: 1
-      numberToKill: 2
+      numberToKill: 5
       questType: 0
     - plantType: 2
-      numberToKill: 2
+      numberToKill: 5
       questType: 0
     - plantType: 5
-      numberToKill: 2
+      numberToKill: 5
       questType: 0
   - title: Pure skill
     questText: The extra plants are nice, but it's time to test out your own skill.
