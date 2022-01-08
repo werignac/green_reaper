@@ -18,6 +18,8 @@ public class RootMonster : PlantHealth
     [SerializeField]
     private float timeToEscape;
     [SerializeField]
+    private float timeToSteal;
+    [SerializeField]
     private bool lookRightByDefault;
 
     private int coinsActuallyStolen;
@@ -82,6 +84,15 @@ public class RootMonster : PlantHealth
                 Destroy(gameObject);
             }
         }
+        else // If they haven't stolen your stuff, the monster can time out and die without ever stealing the player's stuff.
+        {
+            timeToSteal -= Time.deltaTime;
+            if(timeToSteal <= 0)
+            {
+                deathEvent?.Invoke(GetPlantType());
+                Destroy(gameObject);
+            }
+        }
     }
 
     /// <summary>
@@ -142,6 +153,7 @@ public class RootMonster : PlantHealth
     // When the round ends delete this object.
     private void RoundEnd(int a)
     {
+        onEscape.Invoke();
         Destroy(gameObject);
     }
 }
