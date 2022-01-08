@@ -28,7 +28,7 @@ public class UpgradeManager : MonoBehaviour
         {UpgradeHolder.UpgradeType.DAMAGE, new int[] {150, 250, 350}},
         {UpgradeHolder.UpgradeType.ATTACKSPEED, new int[] {100, 150, 200} },
         {UpgradeHolder.UpgradeType.SCYTHESIZE, new int[]{60, 200, 500} },
-        {UpgradeHolder.UpgradeType.PEPPERPROBABILITY, new int[]{40, 80, 0} },
+        {UpgradeHolder.UpgradeType.PEPPERPROBABILITY, new int[]{40, 80, 120} },
         {UpgradeHolder.UpgradeType.PUMPKINPROBABILITY, new int[]{40, 80, 120} },
         {UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY, new int[]{40, 80, 120} },
     };
