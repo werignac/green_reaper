@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5943190593167004065}
   - component: {fileID: 8408584236995295005}
   - component: {fileID: 6685867743977453851}
+  - component: {fileID: 295113507716016763}
   m_Layer: 7
   m_Name: TestPepper
   m_TagString: Untagged
@@ -129,7 +130,19 @@ MonoBehaviour:
       m_Calls: []
   deathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 295113507716016763}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   type: 1
   slowsPlayer: 0
   speedBuffAmount: 100
@@ -150,3 +163,16 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   offset: 0
   finalOffset: 0
+--- !u!114 &295113507716016763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943190593167004067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a9ca6a7f7c248448a2bc2516a8120e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 439696996813964615, guid: 9fa22c21e94134019b4ec91d82de0175, type: 3}
