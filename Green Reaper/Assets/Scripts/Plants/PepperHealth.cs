@@ -7,6 +7,8 @@ public class PepperHealth : PlantHealth
 {
     [SerializeField]
     private float speedBuffAmount = 100f;
+    [SerializeField]
+    private float accelerationBuffAmount = 50f;
 
     protected override void OnDeath()
     {
@@ -15,7 +17,7 @@ public class PepperHealth : PlantHealth
         player.TurnOnPepperEffect();
 
         FuncBuff<float> pepperSpeedBuff = new PepperSpeedBuff(speedBuffAmount, player, HarvestState.instance.buffProgresses);
-        FuncBuff<float> pepperMaxVelChangeBuff = new PepperSpeedBuff(speedBuffAmount, player, HarvestState.instance.buffProgresses);
+        FuncBuff<float> pepperMaxVelChangeBuff = new PepperSpeedBuff(accelerationBuffAmount, player, HarvestState.instance.buffProgresses);
 
         player.MoveableBlackList(BuffType.DEBUFF);
 
