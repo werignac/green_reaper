@@ -159,6 +159,7 @@ MonoBehaviour:
   escapeMovementSpeed: 5
   percentageCoinsToSteal: 0.25
   timeToEscape: 5
+  timeToSteal: 5
   lookRightByDefault: 0
   spRender: {fileID: 2596960253337598894}
   onSteal:
