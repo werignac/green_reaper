@@ -14,13 +14,13 @@ public class UpgradeHolder
 
     private Dictionary<UpgradeType, float[]> upgradeValues = new Dictionary<UpgradeType, float[]>()
     {
-        {UpgradeType.SPEED, new float[]{.75f, 1f, 1.25f, 1.75f}},
+        {UpgradeType.SPEED, new float[]{.75f, 1f, 1.25f, 1.5f}},
         {UpgradeType.DAMAGE, new float[]{1f, 2f, 3f, 4f}},
         {UpgradeType.ATTACKSPEED, new float[]{1f, 1.4f, 1.8f, 2.2f}},
         {UpgradeType.SCYTHESIZE, new float[] {1f, 2f, 3f, int.MaxValue}},
-        {UpgradeType.PEPPERPROBABILITY, new float[] {0f, 40f, 80f, 120f}},
-        {UpgradeType.PUMPKINPROBABILITY, new float[] {0f, 40f, 80f, 120f}},
-        {UpgradeType.ZUCCINNIPROBABILITY, new float[] {0f, 40f, 80f, 120f}}
+        {UpgradeType.PEPPERPROBABILITY, new float[] {0f, 1f, 2f, 3f}},
+        {UpgradeType.PUMPKINPROBABILITY, new float[] {0f, 1, 2f, 3f}},
+        {UpgradeType.ZUCCINNIPROBABILITY, new float[] {0f, 1f, 2f, 3f}}
     };
 
     public UpgradeHolder()

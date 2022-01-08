@@ -54,7 +54,7 @@ public static class GaussianBlur
                 Vector2Int adjacent = new Vector2Int(filterX + 1 + curveOffset + x, filterY + 1 + curveOffset + y);
 
                 //Default for out-of-bounds.
-                float value = 0.1f;
+                float value = 1.5f;
 
                 // Exclude the values outside of the map. Only considers values within the bounds of the tile map.
                 if (adjacent.x >= 0 && adjacent.x < map.GetLength(0) && adjacent.y >= 0 && adjacent.y < map.GetLength(1))

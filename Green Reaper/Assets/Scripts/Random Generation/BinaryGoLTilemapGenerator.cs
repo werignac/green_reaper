@@ -114,11 +114,7 @@ public class BinaryGoLTilemapGenerator : MonoBehaviour
 
             // Exclude the values outside of the map. Only considers values within the bounds of the tile map.
             if (x + boundary.x >= 0 && x + boundary.x < tmWidth && y + boundary.y >= 0 && y + boundary.y < tmHeight)
-                neighbors += oldMap[x + boundary.x, y + boundary.y];
-
-            // Consider the border of the tilemap as a neighbor.
-            else
-                neighbors++;
+                neighbors += oldMap[x + boundary.x, y + boundary.y];           
         }
 
         return neighbors;
