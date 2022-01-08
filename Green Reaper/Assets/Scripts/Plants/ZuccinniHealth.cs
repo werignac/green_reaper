@@ -5,6 +5,9 @@ using Buffs;
 
 public class ZuccinniHealth : PlantHealth
 {
+    [SerializeField]
+    private float attackSpeedBuffAmount = 2f;
+
     protected override void OnDeath()
     {
         PlayerController player = HarvestState.instance.currentPlayer;
@@ -12,7 +15,7 @@ public class ZuccinniHealth : PlantHealth
 
         player.TurnOnZuccinniEffect();
 
-        FuncBuff<float> swingBuff = new ZucchiniBuff(player, HarvestState.instance.buffProgresses);
+        FuncBuff<float> swingBuff = new ZucchiniBuff(attackSpeedBuffAmount, player, HarvestState.instance.buffProgresses);
 
         weapon.AddSpeedBuff(swingBuff);
         base.OnDeath();
@@ -20,7 +23,7 @@ public class ZuccinniHealth : PlantHealth
 
     private class ZucchiniBuff : PlantBuff
     {
-        public ZucchiniBuff(PlayerController player, BuffVisualizersManager _manager) : base(2f, () => { player.TurnOffZuccinniEffect(); }, PlantBuffType.FRANKENZINI, _manager, "Zucchini Attack Speed Buff")
+        public ZucchiniBuff(float effect, PlayerController player, BuffVisualizersManager _manager) : base(effect, () => { player.TurnOffZuccinniEffect(); }, PlantBuffType.FRANKENZINI, _manager, "Zucchini Attack Speed Buff")
         { }
     }
 }

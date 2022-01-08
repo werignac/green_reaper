@@ -67,7 +67,22 @@ public class PlantHealth : MonoBehaviour
         private PlantBuffType plantBuffType;
 
         public PlantBuff(float effect, Action wipe, PlantBuffType _plantBuffType, BuffVisualizersManager _manager, string name) :
-            base((float value) => value * effect, 4f, BuffType.BUFF,
+            base((value) => value * effect, 4f, BuffType.BUFF,
+            () => {
+                wipe();
+                if (_manager.isActiveAndEnabled)
+                    _manager.DeactiveVisualizer(_plantBuffType);
+            }
+            , name)
+        {
+            manager = _manager;
+            plantBuffType = _plantBuffType;
+            if (manager.isActiveAndEnabled)
+                manager.ActivateVisualizer(plantBuffType);
+        }
+
+        public PlantBuff(Func<float, float> effect, Action wipe, PlantBuffType _plantBuffType, BuffVisualizersManager _manager, string name) :
+            base(effect, 4f, BuffType.BUFF,
             () => {
                 wipe();
                 if(_manager.isActiveAndEnabled)

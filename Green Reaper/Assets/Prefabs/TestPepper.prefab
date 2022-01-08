@@ -145,6 +145,7 @@ MonoBehaviour:
         m_CallState: 2
   type: 1
   slowsPlayer: 0
+  speedBuffAmount: 100
 --- !u!114 &6685867743977453851
 MonoBehaviour:
   m_ObjectHideFlags: 0
