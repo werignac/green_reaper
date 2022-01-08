@@ -97,6 +97,15 @@ public class CornCoordinatorByWeight : MonoBehaviour
     [SerializeField, Range(0, 180)]
     private float maxPathAngle = 25f;
 
+
+
+    /// <summary>
+    /// TESTING PURPOSES ONLY REMOVE WHEN DOING THE FINAL BUILD.
+    /// </summary>
+    private int yellowCorn = 0;
+    private int redCorn = 0;
+    private int blueCorn = 0;
+
     private void Awake()
     {
         instance = this;
@@ -127,6 +136,7 @@ public class CornCoordinatorByWeight : MonoBehaviour
         GenerateRootMonsters();
         GenerateScareCrows();
         PaintCorn(); // Always paint corn last.
+        Debug.Log( "Red Corn: " + redCorn + ". Blue Corn: " + blueCorn + ". Yellow Corn: " + yellowCorn + ".");
     }
 
     private void GeneratePaths(out List<Circle> cutOutCircles, out List<Path> cutOutPaths)
@@ -328,11 +338,20 @@ public class CornCoordinatorByWeight : MonoBehaviour
                 if (weightMap[x, y] > sewThreshold)
                 {
                     if (weightMap[x, y] > corn3Threshold)
+                    {
                         PlaceGameObjectOnTile(corn3, x, y);
+                        redCorn++;
+                    }
                     else if (weightMap[x, y] > corn2Threshold)
+                    {
                         PlaceGameObjectOnTile(corn2, x, y);
+                        blueCorn++;
+                    }
                     else if (weightMap[x, y] > corn1Threshold)
+                    {
                         PlaceGameObjectOnTile(corn1, x, y);
+                        yellowCorn++;
+                    }
                 }
             }
         }
