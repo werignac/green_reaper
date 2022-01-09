@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     private GameObject winState;
 
+    private int numberOfUpgradesPurchased = 0;
+    private int moneySpentOnUpgrades = 0;
+
     void Start()
     {
         globalScore = new ValueHolder<int>(startingGold);
@@ -69,6 +72,21 @@ public class GameManager : MonoBehaviour
         LoadMainMenu();
     }
 
+    public void SpendMoneyOnUpgrade(int amountToSpend)
+    {
+        globalScore.SetValue(globalScore.GetValue() - amountToSpend);
+        numberOfUpgradesPurchased++;
+        moneySpentOnUpgrades += amountToSpend;
+    }
     
+    public int GetNumberOfUpgradesPurchased()
+    {
+        return numberOfUpgradesPurchased;
+    }
+
+    public int GetMoneySpentOnUpgrades()
+    {
+        return moneySpentOnUpgrades;
+    }
   
 }
