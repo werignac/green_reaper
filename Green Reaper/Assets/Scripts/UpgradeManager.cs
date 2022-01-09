@@ -24,13 +24,13 @@ public class UpgradeManager : MonoBehaviour
 
     private Dictionary<UpgradeHolder.UpgradeType, int[]> costsOfUpgrades = new Dictionary<UpgradeHolder.UpgradeType, int[]>()
     {
-        {UpgradeHolder.UpgradeType.SPEED, new int[]{40, 150, 300}},
-        {UpgradeHolder.UpgradeType.DAMAGE, new int[] {150, 250, 350}},
-        {UpgradeHolder.UpgradeType.ATTACKSPEED, new int[] {100, 150, 200} },
-        {UpgradeHolder.UpgradeType.SCYTHESIZE, new int[]{60, 200, 500} },
-        {UpgradeHolder.UpgradeType.PEPPERPROBABILITY, new int[]{40, 80, 120} },
-        {UpgradeHolder.UpgradeType.PUMPKINPROBABILITY, new int[]{40, 80, 120} },
-        {UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY, new int[]{40, 80, 120} },
+        {UpgradeHolder.UpgradeType.SPEED, new int[]{60, 200, 800}},
+        {UpgradeHolder.UpgradeType.DAMAGE, new int[] {150, 350, 700}},
+        {UpgradeHolder.UpgradeType.ATTACKSPEED, new int[] {100, 300, 600} },
+        {UpgradeHolder.UpgradeType.SCYTHESIZE, new int[]{80, 400, 1000} },
+        {UpgradeHolder.UpgradeType.PEPPERPROBABILITY, new int[]{60, 150, 400} },
+        {UpgradeHolder.UpgradeType.PUMPKINPROBABILITY, new int[]{60, 200, 500} },
+        {UpgradeHolder.UpgradeType.ZUCCINNIPROBABILITY, new int[]{60, 200, 500} },
     };
 
 
