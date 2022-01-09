@@ -158,7 +158,10 @@ MonoBehaviour:
   slowsPlayer: 0
   chaseMovementSpeed: 25
   escapeMovementSpeed: 15
-  percentageCoinsToSteal: 0.15
+  useMoneySpentOnUpgradesNotNumberOfUpgrades: 0
+  amountToStealCoefficient: 10
+  minimumAmountToSteal: 10
+  maximumAmountToSteal: 200
   timeToEscape: 5
   timeToSteal: 10
   lookRightByDefault: 0
@@ -533,7 +536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6508712429121800543
 RectTransform:
   m_ObjectHideFlags: 0
