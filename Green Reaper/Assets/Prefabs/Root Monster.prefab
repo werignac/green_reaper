@@ -158,7 +158,10 @@ MonoBehaviour:
   slowsPlayer: 0
   chaseMovementSpeed: 25
   escapeMovementSpeed: 15
-  percentageCoinsToSteal: 0.15
+  useMoneySpentOnUpgradesNotNumberOfUpgrades: 0
+  amountToStealCoefficient: 1
+  minimumAmountToSteal: 10
+  maximumAmountToSteal: 100
   timeToEscape: 5
   timeToSteal: 10
   lookRightByDefault: 0
@@ -190,10 +193,10 @@ MonoBehaviour:
           m_StringArgument: Steal
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
+      - m_Target: {fileID: 5629177753801178146}
+        m_TargetAssemblyTypeName: TextMeshProVisualizer`1[[System.Int32, mscorlib
+        m_MethodName: Visualize
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -527,8 +530,9 @@ GameObject:
   - component: {fileID: 4554305294827677016}
   - component: {fileID: 6393261076765512345}
   - component: {fileID: 7419971945381152435}
+  - component: {fileID: 5629177753801178146}
   m_Layer: 0
-  m_Name: text
+  m_Name: AmountStolen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -550,7 +554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1541, y: 5.854}
+  m_AnchoredPosition: {x: 0, y: 5.854}
   m_SizeDelta: {x: 16.5028, y: 6.3353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4554305294827677016
@@ -577,7 +581,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -4973534721755882955, guid: 4d8ef18393c9621409b7f2c01c4cbd01, type: 2}
@@ -600,7 +604,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7419971945381152435
 MonoBehaviour:
@@ -622,7 +626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 999
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d8ef18393c9621409b7f2c01c4cbd01, type: 2}
   m_sharedMaterial: {fileID: -4973534721755882955, guid: 4d8ef18393c9621409b7f2c01c4cbd01, type: 2}
@@ -694,3 +698,15 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!114 &5629177753801178146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095732195114924254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc12f323cdf2d841974a065c8a937b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
