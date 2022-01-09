@@ -159,9 +159,9 @@ MonoBehaviour:
   chaseMovementSpeed: 25
   escapeMovementSpeed: 15
   useMoneySpentOnUpgradesNotNumberOfUpgrades: 0
-  amountToStealCoefficient: 1
+  amountToStealCoefficient: 10
   minimumAmountToSteal: 10
-  maximumAmountToSteal: 100
+  maximumAmountToSteal: 200
   timeToEscape: 5
   timeToSteal: 10
   lookRightByDefault: 0
