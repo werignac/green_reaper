@@ -736,7 +736,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1101259369}
         m_TargetAssemblyTypeName: HarvestState, Assembly-CSharp
-        m_MethodName: StartHarvesting
+        m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -745,6 +745,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 189168528}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &101216716
 MonoBehaviour:
@@ -837,7 +849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &189168529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1630,7 +1642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   back: {fileID: 410964798}
   stick: {fileID: 571765262}
-  m_MovementRange: 20
+  m_MovementRangeMultiplier: 1
   m_ControlPath: <Gamepad>/leftStick
 --- !u!222 &481226282
 CanvasRenderer:
@@ -3396,7 +3408,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_Value
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -3409,18 +3421,18 @@ PrefabInstance:
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1101259369}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetVolume
+      value: VolumeChanged
       objectReference: {fileID: 0}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: VolumeManager, Assembly-CSharp
+      value: HarvestState, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3548,11 +3560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548651857000, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548651857000, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548925058653, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3576,15 +3588,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMin.y
@@ -3592,7 +3604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 92.374275
+      value: 84.47043
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3750,7 +3762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   back: {fileID: 216125352}
   stick: {fileID: 1354787212}
-  m_MovementRange: 20
+  m_MovementRangeMultiplier: 1
   m_ControlPath: <Gamepad>/rightStick
 --- !u!114 &1102373744
 MonoBehaviour:
@@ -5919,10 +5931,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1101259368}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 6
+      - m_Target: {fileID: 1101259369}
+        m_TargetAssemblyTypeName: HarvestState, Assembly-CSharp
+        m_MethodName: ReturnToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6938,6 +6950,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1101259369}
+        m_TargetAssemblyTypeName: HarvestState, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

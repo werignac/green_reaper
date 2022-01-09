@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     //Instance of the menu manager that remains alive the entire life of the application.
     public static GameManager instance;
+    public GameObject instanceObject;
 
     public UpgradeHolder upgrades;
 
@@ -32,6 +33,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(instance.instanceObject);
+        }
+
         instance = this;
     }
 
@@ -39,8 +45,8 @@ public class GameManager : MonoBehaviour
     /// Loads the Farm level.
     /// </summary>
     public void LoadFarm()
-    { 
-     SceneManager.LoadScene(1);
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void LoadHouse()
@@ -60,10 +66,9 @@ public class GameManager : MonoBehaviour
     {
         if (scene.buildIndex == 0)
         {
-            GameObject.Find("Canvas").transform.Find("Win").gameObject.SetActive(true);
+            //GameObject.Find("Canvas").transform.Find("Win").gameObject.SetActive(true);
             upgrades = new UpgradeHolder();
             upgrades.SetWeapons(weapons);
-            Destroy(gameObject);
         }
     }
 
@@ -78,7 +83,7 @@ public class GameManager : MonoBehaviour
         numberOfUpgradesPurchased++;
         moneySpentOnUpgrades += amountToSpend;
     }
-    
+
     public int GetNumberOfUpgradesPurchased()
     {
         return numberOfUpgradesPurchased;
@@ -88,5 +93,5 @@ public class GameManager : MonoBehaviour
     {
         return moneySpentOnUpgrades;
     }
-  
+
 }

@@ -10,6 +10,7 @@ public class VolumeManager : MonoBehaviour
 
     //Instance of the menu manager that remains alive the entire life of the application.
     public static VolumeManager instance;
+    public GameObject instanceObject;
 
     public void SetVolume(float newVol)
     {
@@ -19,6 +20,12 @@ public class VolumeManager : MonoBehaviour
 
     private void Awake()
     {
+        if(instance != null)
+        {
+            this.volume = instance.volume;
+            Destroy(instance.instanceObject);
+        }
+
         instance = this;
     }
 }

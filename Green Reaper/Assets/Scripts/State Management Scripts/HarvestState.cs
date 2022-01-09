@@ -51,6 +51,7 @@ public class HarvestState : MonoBehaviour
         timeRemaining = startTime;
 
         scoreIncrement?.Invoke(GameManager.instance.globalScore.GetValue());
+        ResumeGame();
     }
 
     private void Update()
@@ -174,5 +175,20 @@ public class HarvestState : MonoBehaviour
         // Find the difference
         differenceBetweenValues -= GameManager.instance.globalScore.GetValue();
         return differenceBetweenValues;
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void VolumeChanged(float newVolume)
+    {
+        VolumeManager.instance.SetVolume(newVolume);
     }
 }

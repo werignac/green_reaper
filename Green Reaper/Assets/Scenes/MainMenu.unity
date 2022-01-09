@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a262f710aadd2784d90ce3f463aa25b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instanceObject: {fileID: 230248827}
   startingGold: 0
   weapons:
   - {fileID: 4122818651805258254, guid: e01025643bb2c2449b7ca4c1fe8d9820, type: 3}
@@ -1123,7 +1124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &881004844
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2015,6 +2016,7 @@ MonoBehaviour:
   VolumeChanged:
     m_PersistentCalls:
       m_Calls: []
+  instanceObject: {fileID: 1913379341}
 --- !u!114 &1913379344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2320,6 +2322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b41e67a81662094ca8fb1fac725e3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instanceObject: {fileID: 2098035900}
   QuestIndex: 0
   quests:
   - title: Beginnings
@@ -3506,7 +3509,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1913379343}
+    - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1913379343}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
@@ -3514,7 +3525,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetVolume
       objectReference: {fileID: 0}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
@@ -3522,7 +3541,15 @@ PrefabInstance:
       value: VolumeManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: VolumeManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623776547134671099, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7623776547134671100, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
@@ -3647,11 +3674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548651857000, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548651857000, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548925058653, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3691,7 +3718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 84.502106
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_SizeDelta.y

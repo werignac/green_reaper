@@ -7,6 +7,7 @@ public class QuestManager : MonoBehaviour
 {
     //Instance of the manager that remains alive the entire life of the application.
     public static QuestManager instance;
+    public GameObject instanceObject;
 
     public int QuestIndex;
     public List<Quest> quests;
@@ -37,6 +38,10 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
+        if(instance != null)
+        {
+            Destroy(instance.instanceObject);
+        }
         instance = this;
     }
 
