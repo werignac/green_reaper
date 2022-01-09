@@ -94,4 +94,16 @@ public class GameManager : MonoBehaviour
         return moneySpentOnUpgrades;
     }
 
+    public void SaveGame(string fileName)
+    {
+        SaveSystem.SaveGame(globalScore.GetValue(), QuestManager.instance.QuestIndex, fileName);
+    }
+
+    public void LoadGame(string fileName)
+    {
+        SaveData data = SaveSystem.LoadGame(fileName);
+
+        globalScore.SetValue(data.coins);
+        QuestManager.instance.QuestIndex = data.questIndex;
+    }
 }
