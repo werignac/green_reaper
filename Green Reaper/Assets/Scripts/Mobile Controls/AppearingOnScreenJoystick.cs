@@ -42,6 +42,8 @@ namespace UnityEngine.InputSystem.OnScreen
             Vector2 position = eventData.position;
             var delta = position - m_PointerDownPos;
 
+            float movementRange = ((RectTransform)back.transform).rect.width / 2 * movementRangeMultiplier;
+
             delta = Vector2.ClampMagnitude(delta, movementRange);
             stick.transform.position = m_StartPos + (Vector3)delta;
 
@@ -62,15 +64,15 @@ namespace UnityEngine.InputSystem.OnScreen
             m_StartPos = ((RectTransform)transform).anchoredPosition;
         }
 
-        public float movementRange
+        public float movementRangeMultiplier
         {
-            get => m_MovementRange;
-            set => m_MovementRange = value;
+            get => m_MovementRangeMultiplier;
+            set => m_MovementRangeMultiplier = value;
         }
 
         [FormerlySerializedAs("movementRange")]
         [SerializeField]
-        private float m_MovementRange = 50;
+        private float m_MovementRangeMultiplier = 1;
 
         [InputControl(layout = "Vector2")]
         [SerializeField]
