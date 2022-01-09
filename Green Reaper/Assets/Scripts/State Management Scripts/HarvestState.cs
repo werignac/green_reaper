@@ -135,10 +135,10 @@ public class HarvestState : MonoBehaviour
         return roundEndMoney - roundStartMoney;
     }
 
-    private void EndGame()
+    public void ReturnToMenu()
     {
         endRound = true;
-        GameManager.instance.EndGame();
+        GameManager.instance.ReturnToMainMenu();
     }
 
     public void ReturnToHouse()
