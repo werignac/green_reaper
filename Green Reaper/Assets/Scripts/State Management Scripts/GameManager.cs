@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private int numberOfUpgradesPurchased = 0;
     private int moneySpentOnUpgrades = 0;
+    private string currentSaveName;
 
     void Start()
     {
@@ -105,5 +106,11 @@ public class GameManager : MonoBehaviour
 
         globalScore.SetValue(data.coins);
         QuestManager.instance.QuestIndex = data.questIndex;
+        currentSaveName = fileName;
+    }
+
+    public string GetSaveName()
+    {
+        return currentSaveName;
     }
 }
