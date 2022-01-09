@@ -13,8 +13,14 @@ public class RootMonster : PlantHealth
     private float chaseMovementSpeed;
     [SerializeField]
     private float escapeMovementSpeed;
-    [SerializeField, Range(0,1)]
-    private float percentageCoinsToSteal;
+    [SerializeField]
+    private bool useMoneySpentOnUpgradesNotNumberOfUpgrades;
+    [SerializeField]
+    private float amountToStealCoefficient = 1;
+    [SerializeField]
+    private int minimumAmountToSteal = 10;
+    [SerializeField]
+    private int maximumAmountToSteal = 100;
     [SerializeField]
     private float timeToEscape;
     [SerializeField]
@@ -124,9 +130,14 @@ public class RootMonster : PlantHealth
 
     private void StealCoins()
     {
-        
-        float currentCoins = GameManager.instance.globalScore.GetValue();
-        int coinsToSteal = (int)(currentCoins * percentageCoinsToSteal);
+        int stealMetric;
+
+        if (useMoneySpentOnUpgradesNotNumberOfUpgrades)
+            stealMetric = GameManager.instance.GetMoneySpentOnUpgrades();
+        else
+            stealMetric = GameManager.instance.GetNumberOfUpgradesPurchased();
+
+        int coinsToSteal = Mathf.Min(Mathf.Max(minimumAmountToSteal ,(int)(stealMetric * amountToStealCoefficient)), maximumAmountToSteal);
         coinsActuallyStolen = HarvestState.instance.DecrementScore(coinsToSteal);
         onSteal?.Invoke(coinsActuallyStolen);
     }

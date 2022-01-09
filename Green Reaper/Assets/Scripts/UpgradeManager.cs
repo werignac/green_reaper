@@ -76,7 +76,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else
         {
-            manager.globalScore.SetValue(amountLeft);
+            manager.SpendMoneyOnUpgrade(amountToTry);
             successfulPurchase.Invoke();
             return true;
         }
