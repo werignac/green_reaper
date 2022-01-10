@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bird: {fileID: 6498635244923019841, guid: 37159c61dff26dc47945e0f6463648cf, type: 3}
   WeaponPickupPrefab: {fileID: 817912178498430335, guid: 57aebcb3a2a1c6548be6eab5b44c5f13, type: 3}
+  hingedScythePrefab: {fileID: 103099850405248681, guid: 666014b8caa807f4e9387b05d4070412, type: 3}
   numBoids: 15
   visualRange: 6
   centeringFactor: 0.0085

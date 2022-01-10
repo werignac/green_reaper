@@ -33,7 +33,7 @@ public class WeaponPickup : MonoBehaviour
     /// <summary>
     /// Disables the player from attacking.
     /// </summary>
-    public void DisablePlayerAttack()
+    public static void DisablePlayerAttack()
     {
         HarvestState.instance.playerInstance.GetComponent<PlayerController>().TurnOffPlayerAttack();
     }
