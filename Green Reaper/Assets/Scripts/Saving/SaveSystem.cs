@@ -4,14 +4,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    public static void SaveGame(int coins, int quest, string saveName)
+    public static void SaveGame(int coins, int quest, string saveName, int[] upgrades)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = GenerateSavePath(saveName);
 
         using (FileStream stream = new FileStream(path, FileMode.Create))
         {
-            SaveData data = new SaveData(coins, quest);
+            SaveData data = new SaveData(coins, quest, upgrades);
             formatter.Serialize(stream, data);
         }
     }

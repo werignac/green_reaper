@@ -97,14 +97,14 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame(string fileName)
     {
-        SaveSystem.SaveGame(globalScore.GetValue(), QuestManager.instance.QuestIndex, fileName);
+        SaveSystem.SaveGame(globalScore.GetValue(), QuestManager.instance.QuestIndex, fileName, upgrades.UpgradesToArray());
     }
-
+    
     /// <summary>
     /// Loads the current save file.
     /// If the save file did not exist, it is created and then loaded.
     /// </summary>
-    /// <param name="fileName"></param>
+    /// <param name="fileName">File to open.</param>
     public void LoadGame(string fileName)
     {
         SaveData data = SaveSystem.LoadGame(fileName);
@@ -114,12 +114,13 @@ public class GameManager : MonoBehaviour
         {
             SaveGame(fileName);
             data = SaveSystem.LoadGame(fileName);
-            // This is for testing purposes to give the development team starting gold.
+            // Give new saves starting gold.
             data.coins = startingGold;
         }
 
         globalScore.SetValue(data.coins);
         QuestManager.instance.SetQuestIndex(data.questIndex);
+        upgrades.ArrayToUpgrades(data.upgrades);
         currentSaveName = fileName;
 
         LoadFarm();

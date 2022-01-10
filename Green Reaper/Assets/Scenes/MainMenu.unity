@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instanceObject: {fileID: 230248827}
-  startingGold: 0
+  startingGold: 300
   weapons:
   - {fileID: 4122818651805258254, guid: e01025643bb2c2449b7ca4c1fe8d9820, type: 3}
   - {fileID: 4122818651805258254, guid: e01025643bb2c2449b7ca4c1fe8d9820, type: 3}
