@@ -26,6 +26,9 @@ public class HarvestState : MonoBehaviour
     private Vector3 startLocation;
     [SerializeField]
     public UnityEvent<float> timePercentUpdate = new UnityEvent<float>();
+    [SerializeField]
+    public UnityEvent<int> timeLeftUpdate = new UnityEvent<int>();
+    private int lastTime = -1;
 
     public PlayerController currentPlayer { get; private set; }
     public GameObject playerInstance { get; private set; }
@@ -62,6 +65,13 @@ public class HarvestState : MonoBehaviour
             {
                 timeRemaining -= Time.deltaTime;
                 timePercentUpdate.Invoke(1 - (timeRemaining / startTime));
+
+                int timeRemainingInteger = (int) timeRemaining;
+                if (timeRemainingInteger != lastTime)
+                {
+                    timeLeftUpdate?.Invoke(timeRemainingInteger);
+                    lastTime = timeRemainingInteger;
+                }
             }
             else if (!endRound)
             {
