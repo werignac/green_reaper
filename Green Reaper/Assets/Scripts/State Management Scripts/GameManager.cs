@@ -114,6 +114,8 @@ public class GameManager : MonoBehaviour
         {
             SaveGame(fileName);
             data = SaveSystem.LoadGame(fileName);
+            // This is for testing purposes to give the development team starting gold.
+            data.coins = startingGold;
         }
 
         globalScore.SetValue(data.coins);
