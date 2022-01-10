@@ -65,4 +65,24 @@ public class UpgradeHolder
     {
         weapons = _weapons;
     }
+
+    public int[] UpgradesToArray()
+    {
+        int[] returnArray = new int[7];
+
+        for (int i = 0; i < 7; i++)
+        {
+            returnArray[i] = upgradeLevels[(UpgradeType)i];
+        }
+
+        return returnArray;
+    }
+
+    public void ArrayToUpgrades(int[] upgradeArray)
+    {
+        for (int i = 0; i < upgradeArray.Length; i++)
+        {
+            upgradeLevels[(UpgradeType)i] = upgradeArray[i]; 
+        }
+    }
 }
