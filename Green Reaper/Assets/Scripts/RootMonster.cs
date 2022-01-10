@@ -25,8 +25,6 @@ public class RootMonster : PlantHealth
     private float timeToEscape;
     [SerializeField]
     private float timeToSteal;
-    [SerializeField]
-    private bool lookRightByDefault;
 
     private int coinsActuallyStolen;
 
@@ -39,6 +37,12 @@ public class RootMonster : PlantHealth
     public UnityEvent<int> onSteal = new UnityEvent<int>();
     public UnityEvent onEscape = new UnityEvent();
 
+    [SerializeField]
+    private int bonusMoney = 5;
+
+    [SerializeField]
+    private UnityEvent<int> startingMoney;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +51,8 @@ public class RootMonster : PlantHealth
         HarvestState.instance.roundEnd.AddListener(RoundEnd);
         rb = this.GetComponent<Rigidbody2D>();
         coinsStolen = false;
+
+        startingMoney?.Invoke(bonusMoney);
     }
 
     // Update is called once per frame
@@ -139,7 +145,7 @@ public class RootMonster : PlantHealth
 
         int coinsToSteal = Mathf.Min(Mathf.Max(minimumAmountToSteal ,(int)(stealMetric * amountToStealCoefficient)), maximumAmountToSteal);
         coinsActuallyStolen = HarvestState.instance.DecrementScore(coinsToSteal);
-        onSteal?.Invoke(coinsActuallyStolen);
+        onSteal?.Invoke(coinsActuallyStolen + bonusMoney);
     }
 
     public bool HasStolenCoins()
@@ -149,7 +155,7 @@ public class RootMonster : PlantHealth
 
     protected override void OnDeath()
     {
-        HarvestState.instance.IncrementScore(coinsActuallyStolen);
+        HarvestState.instance.IncrementScore(coinsActuallyStolen + bonusMoney);
         deathEvent?.Invoke(GetPlantType());
         QuestManager.instance.PlantDied(GetPlantType());
         Destroy(gameObject);
@@ -157,8 +163,7 @@ public class RootMonster : PlantHealth
 
     public override void ChangeHealth(int amountChanged)
     {
-        if (coinsStolen)
-            health.SetValue(Mathf.Clamp(health.GetValue() + amountChanged, 0, baseHealth));
+        health.SetValue(Mathf.Clamp(health.GetValue() + amountChanged, 0, baseHealth));
     }
 
     // When the round ends delete this object.

@@ -222,7 +222,6 @@ MonoBehaviour:
   maximumAmountToSteal: 200
   timeToEscape: 5
   timeToSteal: 10
-  lookRightByDefault: 0
   spRender: {fileID: 2596960253337598894}
   onSteal:
     m_PersistentCalls:
@@ -270,6 +269,22 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
         m_MethodName: Spawn
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  bonusMoney: 5
+  startingMoney:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5629177753801178146}
+        m_TargetAssemblyTypeName: TextMeshProVisualizer`1[[System.Int32, mscorlib
+        m_MethodName: Visualize
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
