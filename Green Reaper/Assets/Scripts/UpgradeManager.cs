@@ -48,6 +48,7 @@ public class UpgradeManager : MonoBehaviour
         scoreChange.Invoke(manager.globalScore.GetValue());
 
         saveSystem = new UpgradeScreenAutoSave();
+        saveSystem.AutoSave();
         UpdateVisuals();
     }
 
