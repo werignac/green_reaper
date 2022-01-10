@@ -66,23 +66,8 @@ public class PlantHealth : MonoBehaviour
         private BuffVisualizersManager manager;
         private PlantBuffType plantBuffType;
 
-        public PlantBuff(float effect, Action wipe, PlantBuffType _plantBuffType, BuffVisualizersManager _manager, string name) :
-            base((value) => value * effect, 60f, BuffType.BUFF,
-            () => {
-                wipe();
-                if (_manager.isActiveAndEnabled)
-                    _manager.DeactiveVisualizer(_plantBuffType);
-            }
-            , name)
-        {
-            manager = _manager;
-            plantBuffType = _plantBuffType;
-            if (manager.isActiveAndEnabled)
-                manager.ActivateVisualizer(plantBuffType);
-        }
-
         public PlantBuff(Func<float, float> effect, Action wipe, PlantBuffType _plantBuffType, BuffVisualizersManager _manager, string name) :
-            base(effect, 4f, BuffType.BUFF,
+            base(effect, 6f, BuffType.BUFF,
             () => {
                 wipe();
                 if(_manager.isActiveAndEnabled)
@@ -94,6 +79,11 @@ public class PlantHealth : MonoBehaviour
             plantBuffType = _plantBuffType;
             if(manager.isActiveAndEnabled)
                 manager.ActivateVisualizer(plantBuffType);
+        }
+
+        public PlantBuff(float effect, Action wipe, PlantBuffType _plantBuffType, BuffVisualizersManager _manager, string name) :
+            this((float value) => { return value * effect; }, wipe, _plantBuffType, _manager, name)
+        {
         }
 
         public override bool IsActive()
