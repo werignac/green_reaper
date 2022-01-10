@@ -22,6 +22,7 @@ public class UpgradeManager : MonoBehaviour
     public UnityEvent<int> pumpkinUpdate = new UnityEvent<int>();
     public UnityEvent<int> zuccinniUpdate = new UnityEvent<int>();
 
+    private UpgradeScreenAutoSave saveSystem;
     private Dictionary<UpgradeHolder.UpgradeType, int[]> costsOfUpgrades = new Dictionary<UpgradeHolder.UpgradeType, int[]>()
     {
         {UpgradeHolder.UpgradeType.SPEED, new int[]{60, 200, 800}},
@@ -46,6 +47,7 @@ public class UpgradeManager : MonoBehaviour
 
         scoreChange.Invoke(manager.globalScore.GetValue());
 
+        saveSystem = new UpgradeScreenAutoSave();
         UpdateVisuals();
     }
 
@@ -101,6 +103,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void NextRound()
     {
+        saveSystem.AutoSave();
         GameManager.instance.LoadFarm();
     }
 }

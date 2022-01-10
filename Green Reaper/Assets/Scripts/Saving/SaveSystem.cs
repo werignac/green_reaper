@@ -34,8 +34,22 @@ public static class SaveSystem
         }
         else
         {
-            Debug.LogError("Save file not found in " + GenerateSavePath(saveName));
+            //Debug.LogError("Save file not found in " + GenerateSavePath(saveName));
             return null;
+        }
+    }
+
+    /// <summary>
+    /// Deletes the file at the given save name.
+    /// </summary>
+    /// <param name="saveName">Name of the save to delete.</param>
+    public static void DeleteGame(string saveName)
+    {
+        string path = GenerateSavePath(saveName);
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
         }
     }
 

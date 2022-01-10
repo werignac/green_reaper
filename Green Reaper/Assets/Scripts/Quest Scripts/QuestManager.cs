@@ -84,4 +84,10 @@ public class QuestManager : MonoBehaviour
         QuestIndex++;
         BoundsCheckQuestIndex();
     }
+
+    public void SetQuestIndex(int index)
+    {
+        QuestIndex = index;
+        BoundsCheckQuestIndex();
+    }
 }

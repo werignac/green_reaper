@@ -100,13 +100,32 @@ public class GameManager : MonoBehaviour
         SaveSystem.SaveGame(globalScore.GetValue(), QuestManager.instance.QuestIndex, fileName);
     }
 
+    /// <summary>
+    /// Loads the current save file.
+    /// If the save file did not exist, it is created and then loaded.
+    /// </summary>
+    /// <param name="fileName"></param>
     public void LoadGame(string fileName)
     {
         SaveData data = SaveSystem.LoadGame(fileName);
+        
+        // If the data was null then we want to create a new save, and load that.
+        if(data == null)
+        {
+            SaveGame(fileName);
+            data = SaveSystem.LoadGame(fileName);
+        }
 
         globalScore.SetValue(data.coins);
-        QuestManager.instance.QuestIndex = data.questIndex;
+        QuestManager.instance.SetQuestIndex(data.questIndex);
         currentSaveName = fileName;
+
+        LoadFarm();
+    }
+
+    public void DeleteSave(string fileName)
+    {
+        SaveSystem.DeleteGame(fileName);
     }
 
     public string GetSaveName()
