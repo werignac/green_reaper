@@ -996,7 +996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &189168529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4649,11 +4649,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548651857000, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548651857000, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548925058653, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4693,7 +4693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 90.59662
       objectReference: {fileID: 0}
     - target: {fileID: 7623776548957396048, guid: 877bb16c70cb64af5804265a1e2a9748, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4834,6 +4834,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1831315704}
         m_TargetAssemblyTypeName: RadialVisualizer, Assembly-CSharp
+        m_MethodName: Visualize
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1219167466}
+        m_TargetAssemblyTypeName: LightVisualizer, Assembly-CSharp
         m_MethodName: Visualize
         m_Mode: 0
         m_Arguments:
@@ -5427,6 +5439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1219167465}
   - component: {fileID: 1219167464}
+  - component: {fileID: 1219167466}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -5489,6 +5502,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1219167466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219167463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe37f7abc60f1d846805dfeb9c6a70ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensitiesOverTime:
+  - 0.4
+  - 0.5
+  colorsOverTime:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0.9697046, a: 1}
 --- !u!1 &1227971834
 GameObject:
   m_ObjectHideFlags: 0
