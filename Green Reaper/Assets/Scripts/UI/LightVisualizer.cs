@@ -29,17 +29,27 @@ public class LightVisualizer : ValueVisualizerBehaviour<float>
         lightToAnimate.color = Color.Lerp(leftColor, rightColor, colorProgress);
     }
 
-    private float GetProgressBetween<T>(float globalProgress, List<T> toInterpolate, out T first, out T last)
+    private float GetProgressBetween<T>(float globalProgress, List<T> toInterpolate, out T start, out T end)
     {
+        globalProgress = Mathf.Clamp(globalProgress, 0, 1);
+
         int numberOfElements = toInterpolate.Count - 1;
+
+        if (globalProgress == 1)
+        {
+            start = toInterpolate[toInterpolate.Count - 2];
+            end = toInterpolate[toInterpolate.Count - 1];
+            return 1;
+        }
+
         float progressInList = numberOfElements * globalProgress;
 
-        int firstIndex = (int) progressInList;
-        int lastIndex = firstIndex + 1;
+        int startIndex = (int) progressInList;
+        int endIndex = startIndex + 1;
 
-        first = toInterpolate[firstIndex];
-        last = toInterpolate[lastIndex];
+        start = toInterpolate[startIndex];
+        end = toInterpolate[endIndex];
 
-        return progressInList - firstIndex;
+        return progressInList - startIndex;
     }
 }
