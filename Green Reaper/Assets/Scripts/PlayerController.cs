@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -23,6 +24,9 @@ public class PlayerController : Moveable
 
     [SerializeField, Range(0, 1)]
     private float joystickThreshold = 0.15f;
+
+    [SerializeField]
+    private UnityEvent<float> sendSpeed;
 
     private void Awake()
     {
@@ -72,10 +76,13 @@ public class PlayerController : Moveable
                 spriteRenderer.flipX = true;
 
             MoveInDirection(movementInput);
+
+            sendSpeed?.Invoke(movementInput.magnitude);
         }
         else
         {
             MoveInDirection(Vector2.zero);
+            sendSpeed?.Invoke(0);
         }
     }
 
