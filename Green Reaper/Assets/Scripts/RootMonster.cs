@@ -163,7 +163,7 @@ public class RootMonster : PlantHealth
 
     public override void ChangeHealth(int amountChanged)
     {
-        health.SetValue(Mathf.Clamp(health.GetValue() + amountChanged, 0, baseHealth));
+        health?.SetValue(Mathf.Clamp(health.GetValue() + amountChanged, 0, baseHealth));
     }
 
     // When the round ends delete this object.
