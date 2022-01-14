@@ -20,4 +20,9 @@ public class SendToAnimator : MonoBehaviour
     {
         animator.SetFloat(toSet, toSend);
     }
+
+    public void SendIntToAnimator(int toSend)
+    {
+        animator.SetInteger(toSet, toSend);
+    }
 }

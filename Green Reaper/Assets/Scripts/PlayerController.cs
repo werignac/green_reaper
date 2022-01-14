@@ -28,6 +28,9 @@ public class PlayerController : Moveable
     [SerializeField]
     private UnityEvent<float> sendSpeed;
 
+    [SerializeField]
+    private UnityEvent<int> questIndexOnStart;
+
     private void Awake()
     {
         mobileControls = new PlayerMobileControls();
@@ -45,9 +48,10 @@ public class PlayerController : Moveable
 
     protected override void Start()
     {
-      
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        questIndexOnStart?.Invoke(QuestManager.instance.GetCurrentQuestIndex());
     }
 
     [SerializeField]

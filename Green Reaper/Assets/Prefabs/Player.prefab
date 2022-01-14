@@ -147,6 +147,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  questIndexOnStart:
+    m_PersistentCalls:
+      m_Calls: []
   lookRightByDefault: 1
 --- !u!61 &6902740206275428175
 BoxCollider2D:

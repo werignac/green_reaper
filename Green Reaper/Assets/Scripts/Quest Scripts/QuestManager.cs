@@ -79,6 +79,11 @@ public class QuestManager : MonoBehaviour
         return currentQuest;
     }
 
+    public int GetCurrentQuestIndex()
+    {
+        return QuestIndex;
+    }
+
     public void ContinueToNextQuest()
     {
         QuestIndex++;
