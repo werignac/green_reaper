@@ -68,6 +68,12 @@ TextureImporter:
   - first:
       213: -2853557069145039877
     second: GreenReaperSpriteSheet_21
+  - first:
+      213: -604050806824072556
+    second: GreenReaperSpriteSheet_22
+  - first:
+      213: 7944267083277435463
+    second: GreenReaperSpriteSheet_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -638,6 +644,48 @@ TextureImporter:
       bones: []
       spriteID: bfb1e43e6f02668d0800000000000000
       internalID: -2853557069145039877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenReaperSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a86f8ddfafd97f0800000000000000
+      internalID: -604050806824072556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GreenReaperSpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742849b52d4bf3e60800000000000000
+      internalID: 7944267083277435463
       vertices: []
       indices: 
       edges: []
