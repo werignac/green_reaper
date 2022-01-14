@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6526752817792882144}
   - component: {fileID: 7741887344456593645}
   - component: {fileID: 6332159470159002233}
+  - component: {fileID: 5005134075153299902}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -149,7 +150,19 @@ MonoBehaviour:
         m_CallState: 2
   questIndexOnStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5005134075153299902}
+        m_TargetAssemblyTypeName: SendToAnimator, Assembly-CSharp
+        m_MethodName: SendIntToAnimator
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lookRightByDefault: 1
 --- !u!61 &6902740206275428175
 BoxCollider2D:
@@ -226,6 +239,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSet: Speed
+--- !u!114 &5005134075153299902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259593118671449607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e8d9c4a5d077149af20594a4001422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSet: Quest
 --- !u!1 &6453425019374537750
 GameObject:
   m_ObjectHideFlags: 0
