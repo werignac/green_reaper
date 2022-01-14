@@ -4623,7 +4623,7 @@ MonoBehaviour:
       numberToKill: 15
       questType: 0
   - title: Pumpkin Bomb
-    questText: As a farmer you sometimes grow mare then just corn, go harvest at
+    questText: As a farmer you sometimes grow more then just corn, go harvest at
       least one pumpkin.
     goldReward: 10
     monsters:
@@ -4632,7 +4632,7 @@ MonoBehaviour:
       questType: 0
   - title: Added Spice
     questText: Have a need for speed? Then you should harvest at least one Ghost
-      Pepper and Zucchini
+      Pepper and Zucchini.
     goldReward: 40
     monsters:
     - plantType: 1
