@@ -3391,7 +3391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1642158297
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4665,13 +4665,6 @@ MonoBehaviour:
     - plantType: 4
       numberToKill: 1
       questType: 0
-  - title: Scardy Crow
-    questText: The scarecrows are a pain sometimes, tonight avoid them at all cost.
-    goldReward: 15
-    monsters:
-    - plantType: 8
-      numberToKill: 0
-      questType: 1
   - title: Yellow  Fever
     questText: It's time to go after all the yellows. Harvest at least 15 of the
       yellow corn.
@@ -4688,6 +4681,13 @@ MonoBehaviour:
     - plantType: 2
       numberToKill: 1
       questType: 0
+  - title: Scardy Crow
+    questText: The scarecrows are a pain sometimes, tonight avoid them at all cost.
+    goldReward: 15
+    monsters:
+    - plantType: 8
+      numberToKill: 0
+      questType: 1
   - title: Added Spice
     questText: Have a need for speed? Then you should harvest at least one Ghost
       Pepper and Zucchini.
