@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public ValueHolder<int> globalScore;
     public int startingGold;
+    public bool completionScreenShown { get; private set; }
 
     [SerializeField]
     private WeaponController[] weapons;
@@ -22,9 +23,11 @@ public class GameManager : MonoBehaviour
     private int numberOfUpgradesPurchased = 0;
     private int moneySpentOnUpgrades = 0;
     private string currentSaveName;
+    
 
     void Start()
     {
+        completionScreenShown = false;
         globalScore = new ValueHolder<int>(startingGold);
         upgrades = new UpgradeHolder();
         upgrades.SetWeapons(weapons);
@@ -97,7 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame(string fileName)
     {
-        SaveSystem.SaveGame(globalScore.GetValue(), QuestManager.instance.QuestIndex, fileName, upgrades.UpgradesToArray());
+        SaveSystem.SaveGame(globalScore.GetValue(), QuestManager.instance.QuestIndex, fileName, upgrades.UpgradesToArray(), completionScreenShown);
     }
     
     /// <summary>
@@ -121,6 +124,7 @@ public class GameManager : MonoBehaviour
         globalScore.SetValue(data.coins);
         QuestManager.instance.SetQuestIndex(data.questIndex);
         upgrades.ArrayToUpgrades(data.upgrades);
+        completionScreenShown = data.questsCompleted;
         currentSaveName = fileName;
 
         LoadFarm();
@@ -134,5 +138,10 @@ public class GameManager : MonoBehaviour
     public string GetSaveName()
     {
         return currentSaveName;
+    }
+
+    public void StopShowingCompletion()
+    {
+        completionScreenShown = true;
     }
 }
