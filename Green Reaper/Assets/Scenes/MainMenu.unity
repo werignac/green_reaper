@@ -4723,7 +4723,7 @@ MonoBehaviour:
     - plantType: 4
       numberToKill: 15
       questType: 0
-  - title: I got the Ropes Down!
+  - title: I Got The Ropes Down!
     questText: You know enouph about harvesting now, go harvest at least 15 of each
       type of corn.
     goldReward: 100
@@ -4745,7 +4745,7 @@ MonoBehaviour:
     - plantType: 7
       numberToKill: 2
       questType: 0
-  - title: Plant power
+  - title: Plant Power
     questText: The plants are great for helping out, now you should harvest at least
       5 of each of the extra plants.
     goldReward: 100
@@ -4759,7 +4759,7 @@ MonoBehaviour:
     - plantType: 5
       numberToKill: 5
       questType: 0
-  - title: Pure skill
+  - title: Pure Skill
     questText: The extra plants are nice, but it's time to test out your own skill.
       Harvest only corn tonight.
     goldReward: 150
