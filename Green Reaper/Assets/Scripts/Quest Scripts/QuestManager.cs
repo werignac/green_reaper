@@ -95,4 +95,9 @@ public class QuestManager : MonoBehaviour
         QuestIndex = index;
         BoundsCheckQuestIndex();
     }
+
+    public bool AreQuestsCompleted()
+    {
+        return QuestIndex >= quests.Count;
+    }
 }

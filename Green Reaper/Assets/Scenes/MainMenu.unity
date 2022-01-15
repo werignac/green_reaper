@@ -3391,7 +3391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1642158297
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4665,13 +4665,6 @@ MonoBehaviour:
     - plantType: 4
       numberToKill: 1
       questType: 0
-  - title: Scardy Crow
-    questText: The scarecrows are a pain sometimes, tonight avoid them at all cost.
-    goldReward: 15
-    monsters:
-    - plantType: 8
-      numberToKill: 0
-      questType: 1
   - title: Yellow  Fever
     questText: It's time to go after all the yellows. Harvest at least 15 of the
       yellow corn.
@@ -4688,6 +4681,13 @@ MonoBehaviour:
     - plantType: 2
       numberToKill: 1
       questType: 0
+  - title: Scardy Crow
+    questText: The scarecrows are a pain sometimes, tonight avoid them at all cost.
+    goldReward: 15
+    monsters:
+    - plantType: 8
+      numberToKill: 0
+      questType: 1
   - title: Added Spice
     questText: Have a need for speed? Then you should harvest at least one Ghost
       Pepper and Zucchini.
@@ -4723,7 +4723,7 @@ MonoBehaviour:
     - plantType: 4
       numberToKill: 15
       questType: 0
-  - title: I got the Ropes Down!
+  - title: I Got The Ropes Down!
     questText: You know enouph about harvesting now, go harvest at least 15 of each
       type of corn.
     goldReward: 100
@@ -4745,7 +4745,7 @@ MonoBehaviour:
     - plantType: 7
       numberToKill: 2
       questType: 0
-  - title: Plant power
+  - title: Plant Power
     questText: The plants are great for helping out, now you should harvest at least
       5 of each of the extra plants.
     goldReward: 100
@@ -4759,7 +4759,7 @@ MonoBehaviour:
     - plantType: 5
       numberToKill: 5
       questType: 0
-  - title: Pure skill
+  - title: Pure Skill
     questText: The extra plants are nice, but it's time to test out your own skill.
       Harvest only corn tonight.
     goldReward: 150

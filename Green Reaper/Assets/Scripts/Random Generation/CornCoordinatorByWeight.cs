@@ -136,7 +136,6 @@ public class CornCoordinatorByWeight : MonoBehaviour
         GenerateRootMonsters();
         GenerateScareCrows();
         PaintCorn(); // Always paint corn last.
-        Debug.Log( "Red Corn: " + redCorn + ". Blue Corn: " + blueCorn + ". Yellow Corn: " + yellowCorn + ".");
     }
 
     private void GeneratePaths(out List<Circle> cutOutCircles, out List<Path> cutOutPaths)

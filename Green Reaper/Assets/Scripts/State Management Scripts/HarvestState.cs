@@ -12,6 +12,7 @@ public class HarvestState : MonoBehaviour
     public Button returnToHouse;
     public GameObject nightStart;
     public GameObject nightEnd;
+    public GameObject completionScreen;
     public float startTime;
 
     private float timeRemaining;
@@ -50,10 +51,13 @@ public class HarvestState : MonoBehaviour
         returnToHouse.gameObject.SetActive(false);
         nightStart.gameObject.SetActive(true);
         nightEnd.gameObject.SetActive(false);
+        completionScreen.gameObject.SetActive(false);
+
         QuestManager.instance.updateText.Invoke();
+        scoreIncrement?.Invoke(GameManager.instance.globalScore.GetValue());
+
         timeRemaining = startTime;
 
-        scoreIncrement?.Invoke(GameManager.instance.globalScore.GetValue());
         ResumeGame();
     }
 
@@ -66,7 +70,7 @@ public class HarvestState : MonoBehaviour
                 timeRemaining -= Time.deltaTime;
                 timePercentUpdate.Invoke(1 - (timeRemaining / startTime));
 
-                int timeRemainingInteger = (int) timeRemaining;
+                int timeRemainingInteger = (int)timeRemaining;
                 if (timeRemainingInteger != lastTime)
                 {
                     timeLeftUpdate?.Invoke(timeRemainingInteger);
@@ -123,7 +127,7 @@ public class HarvestState : MonoBehaviour
         returnToHouse.gameObject.SetActive(true);
         currentPlayer.SetReceivingInput(false);
         roundEnd?.Invoke(GameManager.instance.globalScore.GetValue());
-        nightEnd.gameObject.SetActive(true);
+
 
         if (QuestManager.instance.QuestComplete())
         {
@@ -136,6 +140,16 @@ public class HarvestState : MonoBehaviour
         if (QuestManager.instance.QuestComplete())
         {
             QuestManager.instance.ContinueToNextQuest();
+        }
+
+        if (QuestManager.instance.AreQuestsCompleted() && !GameManager.instance.completionScreenShown)
+        { 
+            completionScreen.gameObject.SetActive(true);
+            GameManager.instance.StopShowingCompletion();
+        }
+        else
+        {
+            nightEnd.gameObject.SetActive(true);
         }
 
         endRound = true;
