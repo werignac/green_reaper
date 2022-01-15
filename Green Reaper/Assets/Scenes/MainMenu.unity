@@ -4609,7 +4609,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.3
   m_Text: "Julian Liechty-Designer\nPatrick McHenry-Designer\nGrayson Spencer-Engineer\nWilliam
-    Erignac-Engineer\nPeter Sweeney-Artist\nNoah Schwalger-Composer \nHewett Tsoi-Font\n"
+    Erignac-Engineer\nPeter Sweeney-Artist\nNoah Schwalger-Composer \nHewett Tsoi-Font\nSpecial
+    thanks to our game jam team!"
 --- !u!222 &2073591329
 CanvasRenderer:
   m_ObjectHideFlags: 0
