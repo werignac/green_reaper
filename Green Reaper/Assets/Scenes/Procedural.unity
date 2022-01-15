@@ -666,19 +666,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2066439494155898438, guid: b414a403a30427b4382979277c24d5fa, type: 3}
       propertyPath: m_Size.x
-      value: 4.804104
+      value: 4.3003893
       objectReference: {fileID: 0}
     - target: {fileID: -2066439494155898438, guid: b414a403a30427b4382979277c24d5fa, type: 3}
       propertyPath: m_Size.y
-      value: 2.3141038
+      value: 2.9895391
       objectReference: {fileID: 0}
     - target: {fileID: -2066439494155898438, guid: b414a403a30427b4382979277c24d5fa, type: 3}
       propertyPath: m_Offset.x
-      value: -0.02787304
+      value: 0.006471157
       objectReference: {fileID: 0}
     - target: {fileID: -2066439494155898438, guid: b414a403a30427b4382979277c24d5fa, type: 3}
       propertyPath: m_Offset.y
-      value: -1.402948
+      value: -1.7406657
       objectReference: {fileID: 0}
     - target: {fileID: 422994606790138848, guid: b414a403a30427b4382979277c24d5fa, type: 3}
       propertyPath: m_SortingLayer
@@ -2220,7 +2220,7 @@ MonoBehaviour:
   m_ShapePath:
   - {x: -9.776974, y: -3.327571, z: 0}
   - {x: 4.5030775, y: -3.3593416, z: 0}
-  - {x: 4.439537, y: 1.2307205, z: 0}
+  - {x: 4.394491, y: 1.3208141, z: 0}
   - {x: -9.776973, y: 1.3578024, z: 0}
 --- !u!4 &480023706
 Transform:
