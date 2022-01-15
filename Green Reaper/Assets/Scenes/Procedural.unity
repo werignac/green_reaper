@@ -1651,7 +1651,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Congradulations
+  m_Text: Congratulations
 --- !u!222 &288268924
 CanvasRenderer:
   m_ObjectHideFlags: 0
