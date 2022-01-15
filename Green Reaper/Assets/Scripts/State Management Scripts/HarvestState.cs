@@ -152,6 +152,9 @@ public class HarvestState : MonoBehaviour
             nightEnd.gameObject.SetActive(true);
         }
 
+        UpgradeScreenAutoSave save = new UpgradeScreenAutoSave();
+        save.AutoSave();
+
         endRound = true;
     }
 
