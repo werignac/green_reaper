@@ -31,6 +31,9 @@ public class PlayerController : Moveable
     [SerializeField]
     private UnityEvent<int> questIndexOnStart;
 
+    [SerializeField]
+    private SpriteRenderer shadow;
+
     private void Awake()
     {
         mobileControls = new PlayerMobileControls();
@@ -74,10 +77,18 @@ public class PlayerController : Moveable
             //Flip the player sprite in the direction it wants to be moving in.
             if ((lookRightByDefault && movementInput.x > 0 && spriteRenderer.flipX) ||
                 (!lookRightByDefault && movementInput.x < 0 && spriteRenderer.flipX))
+            {
                 spriteRenderer.flipX = false;
+                shadow.flipX = false;
+            }
+                
             else if ((!lookRightByDefault && movementInput.x > 0 && !spriteRenderer.flipX) ||
                 (lookRightByDefault && movementInput.x < 0 && !spriteRenderer.flipX))
+            {
                 spriteRenderer.flipX = true;
+                shadow.flipX = true;
+            }
+                
 
             MoveInDirection(movementInput);
 

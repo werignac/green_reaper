@@ -246,6 +246,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  shadow: {fileID: 5953598671535553966}
   lookRightByDefault: 1
 --- !u!61 &6902740206275428175
 BoxCollider2D:
