@@ -31,6 +31,7 @@ public class RootMonster : PlantHealth
     private Rigidbody2D rb;
     private Vector2 movement;
     private bool coinsStolen;
+    private static bool roundEnded;
     [SerializeField]
     private SpriteRenderer spRender;
 
@@ -46,6 +47,12 @@ public class RootMonster : PlantHealth
     // Start is called before the first frame update
     void Start()
     {
+        if (roundEnded)
+        {
+            DieWithoutGivingCoins();
+            return;
+        }
+            
         Initialize();
         player = HarvestState.instance.playerInstance.transform;
         HarvestState.instance.roundEnd.AddListener(RoundEnd);
@@ -101,10 +108,15 @@ public class RootMonster : PlantHealth
             timeToSteal -= Time.deltaTime;
             if(timeToSteal <= 0)
             {
-                deathEvent?.Invoke(GetPlantType());
-                Destroy(gameObject);
+                DieWithoutGivingCoins();
             }
         }
+    }
+
+    private void DieWithoutGivingCoins()
+    {
+        deathEvent?.Invoke(GetPlantType());
+        Destroy(gameObject);
     }
 
     /// <summary>
@@ -169,7 +181,13 @@ public class RootMonster : PlantHealth
     // When the round ends delete this object.
     private void RoundEnd(int a)
     {
+        roundEnded = true;
         onEscape.Invoke();
         Destroy(gameObject);
+    }
+
+    public static void EnableRootMonsters()
+    {
+        roundEnded = false;
     }
 }

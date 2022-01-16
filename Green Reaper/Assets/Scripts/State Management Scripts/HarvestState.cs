@@ -91,6 +91,7 @@ public class HarvestState : MonoBehaviour
         nightStart.gameObject.SetActive(false);
         decreaseTime = true;
         roundStartMoney = GameManager.instance.globalScore.GetValue();
+        RootMonster.EnableRootMonsters();
 
         InstatiatePlayer();
         QuestManager.instance.ResetCurrentQuest();
