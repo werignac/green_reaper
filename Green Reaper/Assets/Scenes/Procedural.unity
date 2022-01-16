@@ -6127,10 +6127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intensitiesOverTime:
-  - 1
+  - 0.8
   - 0.4
   - 0.4
-  - 1
+  - 0.8
   colorsOverTime:
   - {r: 1, g: 0.93059564, b: 0.6839622, a: 1}
   - {r: 0.99215686, g: 0.3411765, b: 0.894475, a: 1}
