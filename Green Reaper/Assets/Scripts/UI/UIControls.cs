@@ -11,5 +11,7 @@ public class UIControls : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(showControlsName, 1) == 0)
             gameObject.SetActive(false);
+        else
+            gameObject.SetActive(true);
     }
 }
