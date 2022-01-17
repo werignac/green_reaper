@@ -64,4 +64,4 @@ MonoBehaviour:
   outOfRangeAngle: 0.984
   debuffTime: 7
   closeEnoughToSteal: 0.5
-  tileDistanceCrowsDropScythe: 6
+  tileDistanceCrowsDropScythe: 8

@@ -9718,7 +9718,7 @@ ParticleSystemForceField:
   m_Parameters:
     m_Shape: 2
     m_StartRange: 0
-    m_EndRange: 18.213379
+    m_EndRange: 24.841228
     m_Length: 100
     m_GravityFocus: 0
     m_RotationRandomness: {x: 0, y: 0}
@@ -9892,20 +9892,20 @@ ParticleSystemForceField:
         - serializedVersion: 3
           time: 0.25357056
           value: -1.0035591
-          inSlope: -0.00033355
-          outSlope: -0.00033355
+          inSlope: 0.0009860183
+          outSlope: 0.0009860183
           tangentMode: 0
-          weightedMode: 0
+          weightedMode: 2
           inWeight: 0
           outWeight: 1
         - serializedVersion: 3
-          time: 0.8498535
-          value: -0.356323
-          inSlope: -0.001334854
-          outSlope: -0.001334854
+          time: 0.9144508
+          value: 0.002066493
+          inSlope: 0.004950261
+          outSlope: 0.004950261
           tangentMode: 0
-          weightedMode: 0
-          inWeight: 1
+          weightedMode: 1
+          inWeight: 0.5166667
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
