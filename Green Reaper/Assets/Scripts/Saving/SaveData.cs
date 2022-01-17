@@ -5,16 +5,21 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    public int coins;
-    public int questIndex;
-    public int[] upgrades;
-    public bool questsCompleted;
+    public int Coins { get; private set; }
+    public int QuestIndex { get; private set; }
+    public int[] Upgrades { get; private set; }
+    public bool QuestsCompleted { get; private set; }
+    public int NumberOfUpgradesPurchased { get; private set; }
+    public int MoneySpentOnUpgrades { get; private set; }
 
-    public SaveData(int coinsToStore, int currentQuest, int[] upgradesToStore, bool questsCompletion)
+    public SaveData(int coinsToStore, int currentQuest, int[] upgradesToStore, bool questsCompletion,
+        int numberOfUpgradesPurchased, int moneySpentOnUpgrades)
     {
-        coins = coinsToStore;
-        questIndex = currentQuest;
-        upgrades = upgradesToStore;
-        questsCompleted = questsCompletion;
+        Coins = coinsToStore;
+        QuestIndex = currentQuest;
+        Upgrades = upgradesToStore;
+        QuestsCompleted = questsCompletion;
+        NumberOfUpgradesPurchased = numberOfUpgradesPurchased;
+        MoneySpentOnUpgrades = moneySpentOnUpgrades;
     }
 }

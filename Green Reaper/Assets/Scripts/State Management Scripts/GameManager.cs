@@ -100,7 +100,8 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame(string fileName)
     {
-        SaveSystem.SaveGame(globalScore.GetValue(), QuestManager.instance.QuestIndex, fileName, upgrades.UpgradesToArray(), completionScreenShown);
+        SaveSystem.SaveGame(globalScore.GetValue(), QuestManager.instance.QuestIndex, fileName, 
+            upgrades.UpgradesToArray(), completionScreenShown, numberOfUpgradesPurchased, moneySpentOnUpgrades);
     }
     
     /// <summary>
@@ -117,14 +118,14 @@ public class GameManager : MonoBehaviour
         {
             SaveGame(fileName);
             data = SaveSystem.LoadGame(fileName);
-            // Give new saves starting gold.
-            data.coins = startingGold;
         }
 
-        globalScore.SetValue(data.coins);
-        QuestManager.instance.SetQuestIndex(data.questIndex);
-        upgrades.ArrayToUpgrades(data.upgrades);
-        completionScreenShown = data.questsCompleted;
+        globalScore.SetValue(data.Coins);
+        QuestManager.instance.SetQuestIndex(data.QuestIndex);
+        upgrades.ArrayToUpgrades(data.Upgrades);
+        completionScreenShown = data.QuestsCompleted;
+        numberOfUpgradesPurchased = data.NumberOfUpgradesPurchased;
+        moneySpentOnUpgrades = data.MoneySpentOnUpgrades;
         currentSaveName = fileName;
 
         LoadFarm();
