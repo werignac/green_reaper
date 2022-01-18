@@ -4095,7 +4095,7 @@ MonoBehaviour:
       questType: 0
   - title: Pumpkin Bomb
     questText: As a farmer you sometimes grow more then just corn, go harvest at
-      least one pumpkin.
+      least one pumpkin (Exploding Pumpkin upgrade is required).
     goldReward: 10
     monsters:
     - plantType: 2
