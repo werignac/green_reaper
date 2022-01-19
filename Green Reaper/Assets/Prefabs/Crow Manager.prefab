@@ -54,7 +54,7 @@ MonoBehaviour:
   matchingFactor: 0.7
   speedlimit: 1
   minimumSpeedLimit: 0.5
-  escapeSpeed: 0.75
+  escapeSpeed: 0.5
   startPositionRadius: 35
   roamRadius: 15
   timeToFlyToPlayer: 0.3
