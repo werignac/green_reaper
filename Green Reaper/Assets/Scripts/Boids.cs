@@ -189,19 +189,6 @@ public class Boids : MonoBehaviour
         }
 
         initialized = true;
-
-        // Initialzize the weapon pickup with the sprite of the player's weapon.
-        //GameObject playerWeapon = GameManager.instance.upgrades.GetWeapon().gameObject;
-        //playerWeaponPickup.Initialize(playerWeapon.GetComponent<SpriteRenderer>().sprite);
-
-        // Instantiate the weapon pickup object and store a reference to it's controller.
-
-        //WeaponPickupPrefab = Instantiate(WeaponPickupPrefab);
-        //playerWeaponPickup = WeaponPickupPrefab.GetComponent<WeaponPickup>();
-
-        // Initialize the pickup so that it is ready to be placed.
-        //playerWeaponPickup.Initialize();
-
         player = HarvestState.instance.playerInstance;
 
         boids = new List<IndividualBoid>();
