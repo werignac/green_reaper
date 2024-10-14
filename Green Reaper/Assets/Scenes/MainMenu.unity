@@ -1319,6 +1319,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -3355,6 +3356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -3368,6 +3370,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 2
+  m_CursorLockBehavior: 0
 --- !u!114 &1756181064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3991,7 +3994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06, y: 0.8}
   m_AnchorMax: {x: 0.94, y: 0.94}
-  m_AnchoredPosition: {x: 0, y: -13.87}
+  m_AnchoredPosition: {x: 0, y: -13.869995}
   m_SizeDelta: {x: 0, y: 27.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2053131885
@@ -4215,7 +4218,7 @@ MonoBehaviour:
       numberToKill: 0
       questType: 1
   - title: Red Rage
-    questText: The Red corn is the hardest to harvest, but brings the most reward.
+    questText: The red corn is the hardest to harvest, but brings the most reward.
       Harvest at least 15 of them.
     goldReward: 50
     monsters:
@@ -4223,7 +4226,7 @@ MonoBehaviour:
       numberToKill: 15
       questType: 0
   - title: I Got The Ropes Down!
-    questText: You know enouph about harvesting now, go harvest at least 15 of each
+    questText: You know enough about harvesting now, go harvest at least 15 of each
       type of corn.
     goldReward: 100
     monsters:
