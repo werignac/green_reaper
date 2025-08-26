@@ -45,7 +45,7 @@ TextureImporter:
       213: 364471131731260853
     second: Corn_Blue_Damage_SpriteSheet_13
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -62,10 +62,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -104,6 +106,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -115,6 +119,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -127,6 +132,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -438,9 +470,23 @@ TextureImporter:
     secondaryTextures:
     - texture: {fileID: 2800000, guid: 2092f2a131b524e7595e2c5e657f5e4e, type: 3}
       name: _Emission
-  spritePackingTag: 
+    nameFileIdTable:
+      Corn_Blue_Damage_SpriteSheet_0: -4483515201150960688
+      Corn_Blue_Damage_SpriteSheet_1: 2535198123268350281
+      Corn_Blue_Damage_SpriteSheet_10: -1980301574223242055
+      Corn_Blue_Damage_SpriteSheet_11: -7304792322237413657
+      Corn_Blue_Damage_SpriteSheet_12: -3391243682243876444
+      Corn_Blue_Damage_SpriteSheet_13: 364471131731260853
+      Corn_Blue_Damage_SpriteSheet_2: -6632193433235687745
+      Corn_Blue_Damage_SpriteSheet_3: 7357432233626019551
+      Corn_Blue_Damage_SpriteSheet_4: 2246231044994811094
+      Corn_Blue_Damage_SpriteSheet_5: -5727589575520950548
+      Corn_Blue_Damage_SpriteSheet_6: 7718817694646543700
+      Corn_Blue_Damage_SpriteSheet_7: 8455518829382234219
+      Corn_Blue_Damage_SpriteSheet_8: 8012884425533779902
+      Corn_Blue_Damage_SpriteSheet_9: -1647390554631422080
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -93,7 +93,7 @@ TextureImporter:
       213: 93947682236902978
     second: ScareCrow Emission Bird_29
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -110,10 +110,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,6 +154,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -163,6 +167,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -175,6 +180,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -187,6 +193,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -199,6 +206,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -844,9 +865,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      ScareCrow Emission Bird_0: 1210556084167642841
+      ScareCrow Emission Bird_1: 3952852816809253220
+      ScareCrow Emission Bird_10: -2037371720691600261
+      ScareCrow Emission Bird_11: -6200299149105257279
+      ScareCrow Emission Bird_12: 7091628214853879760
+      ScareCrow Emission Bird_13: -6171920966840661173
+      ScareCrow Emission Bird_14: 1812895487268318935
+      ScareCrow Emission Bird_15: 6523656141693957942
+      ScareCrow Emission Bird_16: -7349990447181318176
+      ScareCrow Emission Bird_17: -3404638856129669897
+      ScareCrow Emission Bird_18: 3263508480257475045
+      ScareCrow Emission Bird_19: -6418470479496120306
+      ScareCrow Emission Bird_2: 3675934240774422686
+      ScareCrow Emission Bird_20: 1932766463269974831
+      ScareCrow Emission Bird_21: -3682317958511179051
+      ScareCrow Emission Bird_22: 1939443046843230846
+      ScareCrow Emission Bird_23: -3531177248010538455
+      ScareCrow Emission Bird_24: -8923687946476985090
+      ScareCrow Emission Bird_25: 5246748892190742751
+      ScareCrow Emission Bird_26: 1306665864353321806
+      ScareCrow Emission Bird_27: -8977004100235509956
+      ScareCrow Emission Bird_28: -6281338902985484675
+      ScareCrow Emission Bird_29: 93947682236902978
+      ScareCrow Emission Bird_3: -5201972042460051182
+      ScareCrow Emission Bird_4: -5649855759317808038
+      ScareCrow Emission Bird_5: -4504964333104602908
+      ScareCrow Emission Bird_6: -3719829443868232236
+      ScareCrow Emission Bird_7: 5073066962176951191
+      ScareCrow Emission Bird_8: -4493525729956950018
+      ScareCrow Emission Bird_9: 284039389804933648
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

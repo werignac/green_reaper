@@ -123,7 +123,7 @@ TextureImporter:
       213: -3142993780844388391
     second: Corn_Blue_SpriteSheet_39
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -140,10 +140,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -182,6 +184,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -193,6 +197,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -205,6 +210,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -957,9 +989,44 @@ TextureImporter:
     secondaryTextures:
     - texture: {fileID: 2800000, guid: ee6b0939c406f47bbbb16e75431b8a60, type: 3}
       name: _Emission
-  spritePackingTag: 
+    nameFileIdTable:
+      Corn_Blue_SpriteSheet_0: 1899016108759320034
+      Corn_Blue_SpriteSheet_1: -4013446579205414125
+      Corn_Blue_SpriteSheet_10: -3096612988253999059
+      Corn_Blue_SpriteSheet_11: 886931305508934707
+      Corn_Blue_SpriteSheet_12: 188857231673277020
+      Corn_Blue_SpriteSheet_13: 8042744604020176950
+      Corn_Blue_SpriteSheet_14: -4882986754740656141
+      Corn_Blue_SpriteSheet_15: -3411928662096202515
+      Corn_Blue_SpriteSheet_16: 5818278569462054588
+      Corn_Blue_SpriteSheet_17: 3274341515459327255
+      Corn_Blue_SpriteSheet_18: 9149241688402444661
+      Corn_Blue_SpriteSheet_19: -7578372350565024224
+      Corn_Blue_SpriteSheet_2: 6358771660547808934
+      Corn_Blue_SpriteSheet_20: 7958924037781820875
+      Corn_Blue_SpriteSheet_21: 2503430467579045627
+      Corn_Blue_SpriteSheet_22: -2867425064873976555
+      Corn_Blue_SpriteSheet_23: -4220410591385601638
+      Corn_Blue_SpriteSheet_24: 94114752105713839
+      Corn_Blue_SpriteSheet_25: 7615937882478969527
+      Corn_Blue_SpriteSheet_26: -6364042662232479551
+      Corn_Blue_SpriteSheet_27: -8390696476624701615
+      Corn_Blue_SpriteSheet_28: -3121745452976395108
+      Corn_Blue_SpriteSheet_29: -9210609328179880509
+      Corn_Blue_SpriteSheet_3: 2830353457060458804
+      Corn_Blue_SpriteSheet_30: 7001380989800893236
+      Corn_Blue_SpriteSheet_31: -595783747669670906
+      Corn_Blue_SpriteSheet_32: 5320895045597861941
+      Corn_Blue_SpriteSheet_33: -2157114855312656138
+      Corn_Blue_SpriteSheet_34: -4642589154179854514
+      Corn_Blue_SpriteSheet_4: -2466775366784102964
+      Corn_Blue_SpriteSheet_5: 8183861908580289628
+      Corn_Blue_SpriteSheet_6: 8389131448924816559
+      Corn_Blue_SpriteSheet_7: 7967065635312363921
+      Corn_Blue_SpriteSheet_8: -1293508084647435527
+      Corn_Blue_SpriteSheet_9: 359959474477395941
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

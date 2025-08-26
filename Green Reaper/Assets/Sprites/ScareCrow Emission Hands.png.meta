@@ -93,7 +93,7 @@ TextureImporter:
       213: 7907515326894693047
     second: ScareCrow Emission Hands_29
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -110,10 +110,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,6 +154,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -163,6 +167,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -175,6 +180,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -187,6 +193,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -199,6 +206,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -844,9 +865,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      ScareCrow Emission Hands_0: -1475339809136782973
+      ScareCrow Emission Hands_1: 5144884435843202375
+      ScareCrow Emission Hands_10: 4553799313504101694
+      ScareCrow Emission Hands_11: 9055933427003475079
+      ScareCrow Emission Hands_12: -1059754124548030618
+      ScareCrow Emission Hands_13: -6809390771533763292
+      ScareCrow Emission Hands_14: 5491600230909825007
+      ScareCrow Emission Hands_15: -1799549264502557576
+      ScareCrow Emission Hands_16: -5935340313461767940
+      ScareCrow Emission Hands_17: 2938115109502711547
+      ScareCrow Emission Hands_18: -2946656921843033017
+      ScareCrow Emission Hands_19: -3486225364709655615
+      ScareCrow Emission Hands_2: 6687103038753982292
+      ScareCrow Emission Hands_20: 3992917999573528756
+      ScareCrow Emission Hands_21: 8060810447134514165
+      ScareCrow Emission Hands_22: 7421931620794519133
+      ScareCrow Emission Hands_23: -7919981825067591193
+      ScareCrow Emission Hands_24: 7389277919781278216
+      ScareCrow Emission Hands_25: -6585475400291600117
+      ScareCrow Emission Hands_26: -6951482576650295439
+      ScareCrow Emission Hands_27: 7713768004342467076
+      ScareCrow Emission Hands_28: 2621076104710033201
+      ScareCrow Emission Hands_29: 7907515326894693047
+      ScareCrow Emission Hands_3: 4578384087643951954
+      ScareCrow Emission Hands_4: 4408796797364157211
+      ScareCrow Emission Hands_5: 5411633312706365572
+      ScareCrow Emission Hands_6: 4918456176614799920
+      ScareCrow Emission Hands_7: 8347451744912652618
+      ScareCrow Emission Hands_8: -6499277182843008580
+      ScareCrow Emission Hands_9: -6421219346067075743
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

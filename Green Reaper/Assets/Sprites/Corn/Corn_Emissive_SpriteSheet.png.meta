@@ -108,7 +108,7 @@ TextureImporter:
       213: 871651163726637139
     second: Corn_Emissive_SpriteSheet_34
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -125,10 +125,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -167,6 +169,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -178,6 +182,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -190,6 +195,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -940,9 +972,44 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Corn_Emissive_SpriteSheet_0: -6188105910155822415
+      Corn_Emissive_SpriteSheet_1: 2763248768406457430
+      Corn_Emissive_SpriteSheet_10: -1169711883820637233
+      Corn_Emissive_SpriteSheet_11: 1192098794047319656
+      Corn_Emissive_SpriteSheet_12: 8775713819728296441
+      Corn_Emissive_SpriteSheet_13: 3058467916488847518
+      Corn_Emissive_SpriteSheet_14: 2596997994409114629
+      Corn_Emissive_SpriteSheet_15: 9100260513634470809
+      Corn_Emissive_SpriteSheet_16: -556400879377778625
+      Corn_Emissive_SpriteSheet_17: -4712375941592813374
+      Corn_Emissive_SpriteSheet_18: 7966003116393373542
+      Corn_Emissive_SpriteSheet_19: 8954575127242695920
+      Corn_Emissive_SpriteSheet_2: 7412244521713277901
+      Corn_Emissive_SpriteSheet_20: 4023866077602904181
+      Corn_Emissive_SpriteSheet_21: -7541785658559158592
+      Corn_Emissive_SpriteSheet_22: -1884567840287494069
+      Corn_Emissive_SpriteSheet_23: -1324544794638771333
+      Corn_Emissive_SpriteSheet_24: -5620973733300670027
+      Corn_Emissive_SpriteSheet_25: 3665989918754942593
+      Corn_Emissive_SpriteSheet_26: 8461808172312599879
+      Corn_Emissive_SpriteSheet_27: -8008286042142793929
+      Corn_Emissive_SpriteSheet_28: -5808077373225878990
+      Corn_Emissive_SpriteSheet_29: -6323123325412799895
+      Corn_Emissive_SpriteSheet_3: 6857148022136000708
+      Corn_Emissive_SpriteSheet_30: -387161372379570448
+      Corn_Emissive_SpriteSheet_31: -8726584254922036881
+      Corn_Emissive_SpriteSheet_32: -8131683956474702659
+      Corn_Emissive_SpriteSheet_33: 6997616575292311203
+      Corn_Emissive_SpriteSheet_34: 871651163726637139
+      Corn_Emissive_SpriteSheet_4: 1681212533827657005
+      Corn_Emissive_SpriteSheet_5: 4251274402194695021
+      Corn_Emissive_SpriteSheet_6: -8531373946380414022
+      Corn_Emissive_SpriteSheet_7: 3426249803781265697
+      Corn_Emissive_SpriteSheet_8: -5708220297654434787
+      Corn_Emissive_SpriteSheet_9: -377341003498009649
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

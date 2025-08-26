@@ -108,7 +108,7 @@ TextureImporter:
       213: 300461200881994758
     second: Corn_Yellow_SpriteSheet_34
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -125,10 +125,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -167,6 +169,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -178,6 +182,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -190,6 +195,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -942,9 +974,44 @@ TextureImporter:
     secondaryTextures:
     - texture: {fileID: 2800000, guid: ee6b0939c406f47bbbb16e75431b8a60, type: 3}
       name: _Emission
-  spritePackingTag: 
+    nameFileIdTable:
+      Corn_Yellow_SpriteSheet_0: -6138118957979899592
+      Corn_Yellow_SpriteSheet_1: -1620973464749017969
+      Corn_Yellow_SpriteSheet_10: -344516050610995142
+      Corn_Yellow_SpriteSheet_11: 8017164520614034259
+      Corn_Yellow_SpriteSheet_12: 7923405069360657502
+      Corn_Yellow_SpriteSheet_13: 6911290045811751147
+      Corn_Yellow_SpriteSheet_14: 7654575629224002908
+      Corn_Yellow_SpriteSheet_15: 5213858285092310317
+      Corn_Yellow_SpriteSheet_16: 438057623134733194
+      Corn_Yellow_SpriteSheet_17: 772027581150577840
+      Corn_Yellow_SpriteSheet_18: -1110590976377310370
+      Corn_Yellow_SpriteSheet_19: 2761951865645616391
+      Corn_Yellow_SpriteSheet_2: -8983725395545465703
+      Corn_Yellow_SpriteSheet_20: -8874460443229322531
+      Corn_Yellow_SpriteSheet_21: -6222050364663255526
+      Corn_Yellow_SpriteSheet_22: 9084008135237660475
+      Corn_Yellow_SpriteSheet_23: -8298576515611156271
+      Corn_Yellow_SpriteSheet_24: 879185042323627003
+      Corn_Yellow_SpriteSheet_25: -4581837684558590916
+      Corn_Yellow_SpriteSheet_26: 7178420264682668383
+      Corn_Yellow_SpriteSheet_27: 57231778151782437
+      Corn_Yellow_SpriteSheet_28: 3834836858115167686
+      Corn_Yellow_SpriteSheet_29: 4686857727936507203
+      Corn_Yellow_SpriteSheet_3: -7779087159830264563
+      Corn_Yellow_SpriteSheet_30: 9108580063827644959
+      Corn_Yellow_SpriteSheet_31: -88013582651554463
+      Corn_Yellow_SpriteSheet_32: -4165583569868759255
+      Corn_Yellow_SpriteSheet_33: -3611798310786517800
+      Corn_Yellow_SpriteSheet_34: 300461200881994758
+      Corn_Yellow_SpriteSheet_4: -1790912119810143712
+      Corn_Yellow_SpriteSheet_5: 3496749968585795714
+      Corn_Yellow_SpriteSheet_6: 634513287125117460
+      Corn_Yellow_SpriteSheet_7: 8995717151412349322
+      Corn_Yellow_SpriteSheet_8: -7086213240325938449
+      Corn_Yellow_SpriteSheet_9: -1761060723358071279
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

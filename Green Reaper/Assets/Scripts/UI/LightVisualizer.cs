@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
 
-[RequireComponent(typeof(Light2D))]
+
+[RequireComponent(typeof(UnityEngine.Rendering.Universal.Light2D))]
 public class LightVisualizer : ValueVisualizerBehaviour<float>
 {
     [SerializeField]
@@ -12,12 +12,12 @@ public class LightVisualizer : ValueVisualizerBehaviour<float>
     [SerializeField]
     private List<Color> colorsOverTime;
 
-    private Light2D lightToAnimate;
+    private UnityEngine.Rendering.Universal.Light2D lightToAnimate;
 
     // Start is called before the first frame update
     void Start()
     {
-        lightToAnimate = GetComponent<Light2D>();
+        lightToAnimate = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
     }
 
     public override void Visualize(float toVisualize)

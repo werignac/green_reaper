@@ -93,7 +93,7 @@ TextureImporter:
       213: 4130234160181476423
     second: ScareCrow_Sprite_Sheet_29
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -110,10 +110,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,6 +154,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -163,6 +167,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -175,6 +180,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -828,9 +860,39 @@ TextureImporter:
       name: _EmissionHands
     - texture: {fileID: 2800000, guid: 4794c7c83eb274ca09c7a809bf2c7bc4, type: 3}
       name: _EmissionHead
-  spritePackingTag: 
+    nameFileIdTable:
+      ScareCrow_Sprite_Sheet_0: 2619207310862346111
+      ScareCrow_Sprite_Sheet_1: 4009857385805149830
+      ScareCrow_Sprite_Sheet_10: 7214357089943978640
+      ScareCrow_Sprite_Sheet_11: 4125814967305448006
+      ScareCrow_Sprite_Sheet_12: 2952359454552958371
+      ScareCrow_Sprite_Sheet_13: -4477717739659798734
+      ScareCrow_Sprite_Sheet_14: 5143409380401291718
+      ScareCrow_Sprite_Sheet_15: -5135231071320943613
+      ScareCrow_Sprite_Sheet_16: -2345383860340999158
+      ScareCrow_Sprite_Sheet_17: 60690050859573928
+      ScareCrow_Sprite_Sheet_18: 4876080192923210334
+      ScareCrow_Sprite_Sheet_19: -3129033043624780558
+      ScareCrow_Sprite_Sheet_2: 411662282005389967
+      ScareCrow_Sprite_Sheet_20: 7100284785464386903
+      ScareCrow_Sprite_Sheet_21: 6174243022672970797
+      ScareCrow_Sprite_Sheet_22: 8005640065814682714
+      ScareCrow_Sprite_Sheet_23: -1735975419783015572
+      ScareCrow_Sprite_Sheet_24: -7338252789529895309
+      ScareCrow_Sprite_Sheet_25: 6760227297542787853
+      ScareCrow_Sprite_Sheet_26: 4976939811500369239
+      ScareCrow_Sprite_Sheet_27: -3953140818712748802
+      ScareCrow_Sprite_Sheet_28: -3001525015929400442
+      ScareCrow_Sprite_Sheet_29: 4130234160181476423
+      ScareCrow_Sprite_Sheet_3: 6592207982962324961
+      ScareCrow_Sprite_Sheet_4: -7830283924150234174
+      ScareCrow_Sprite_Sheet_5: 2091755467909726200
+      ScareCrow_Sprite_Sheet_6: 4054716950274216876
+      ScareCrow_Sprite_Sheet_7: 721279794071787591
+      ScareCrow_Sprite_Sheet_8: -2997305028442815610
+      ScareCrow_Sprite_Sheet_9: 4832255777562224011
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

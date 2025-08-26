@@ -99,7 +99,7 @@ TextureImporter:
       213: -8457802908964726490
     second: ScareCrow Emission Bird Eye_31
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -116,10 +116,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -158,6 +160,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -169,6 +173,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -181,6 +186,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -193,6 +199,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -205,6 +212,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -850,9 +871,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      ScareCrow Emission Bird Eye_0: 5543455510043252429
+      ScareCrow Emission Bird Eye_1: 873279316448025338
+      ScareCrow Emission Bird Eye_10: -172109800611533015
+      ScareCrow Emission Bird Eye_11: 688952259523382720
+      ScareCrow Emission Bird Eye_12: 7074269314679683840
+      ScareCrow Emission Bird Eye_13: -5199488760207482468
+      ScareCrow Emission Bird Eye_14: 5622442682145209220
+      ScareCrow Emission Bird Eye_15: 8148271373539164
+      ScareCrow Emission Bird Eye_16: -8680700061101285911
+      ScareCrow Emission Bird Eye_17: 118348356515101221
+      ScareCrow Emission Bird Eye_18: -333906347247439265
+      ScareCrow Emission Bird Eye_19: -7952411291892773332
+      ScareCrow Emission Bird Eye_2: 1385800360813691152
+      ScareCrow Emission Bird Eye_20: 2700435921570670469
+      ScareCrow Emission Bird Eye_21: 8733042118422948218
+      ScareCrow Emission Bird Eye_22: 7736560465098232848
+      ScareCrow Emission Bird Eye_23: -8504539707263356938
+      ScareCrow Emission Bird Eye_24: -6366582062671277821
+      ScareCrow Emission Bird Eye_25: -350257439873606082
+      ScareCrow Emission Bird Eye_26: 5984839524814140418
+      ScareCrow Emission Bird Eye_27: -3739835775734914306
+      ScareCrow Emission Bird Eye_28: -7977512522719169238
+      ScareCrow Emission Bird Eye_29: 7036527416796347299
+      ScareCrow Emission Bird Eye_3: -2660669091499901318
+      ScareCrow Emission Bird Eye_4: 8976344001586769501
+      ScareCrow Emission Bird Eye_5: -1738706436997821005
+      ScareCrow Emission Bird Eye_6: 6249507125941352604
+      ScareCrow Emission Bird Eye_7: -1533694368494628714
+      ScareCrow Emission Bird Eye_8: 804725124321173790
+      ScareCrow Emission Bird Eye_9: 2398248499829489304
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

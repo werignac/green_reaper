@@ -75,7 +75,7 @@ TextureImporter:
       213: 7944267083277435463
     second: GreenReaperSpriteSheet_23
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -92,10 +92,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -134,6 +136,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -145,6 +149,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -157,6 +162,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -169,6 +175,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -181,6 +188,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -700,9 +721,33 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      GreenReaperSpriteSheet_0: -681484883742251748
+      GreenReaperSpriteSheet_1: 6711791245687331295
+      GreenReaperSpriteSheet_10: 5476334414209907141
+      GreenReaperSpriteSheet_11: 1462958378523641786
+      GreenReaperSpriteSheet_12: 1726336143256465692
+      GreenReaperSpriteSheet_13: -4185257520614250013
+      GreenReaperSpriteSheet_14: 7978525577834086793
+      GreenReaperSpriteSheet_15: 1444020568235714267
+      GreenReaperSpriteSheet_16: -4120209677747225917
+      GreenReaperSpriteSheet_17: -4984539597796045637
+      GreenReaperSpriteSheet_18: -6813247241882725183
+      GreenReaperSpriteSheet_19: -7845128837549109146
+      GreenReaperSpriteSheet_2: -8827506845556937034
+      GreenReaperSpriteSheet_20: -4980268499024254393
+      GreenReaperSpriteSheet_21: -2853557069145039877
+      GreenReaperSpriteSheet_22: -604050806824072556
+      GreenReaperSpriteSheet_23: 7944267083277435463
+      GreenReaperSpriteSheet_3: -4093599741995008310
+      GreenReaperSpriteSheet_4: 8046686723866141605
+      GreenReaperSpriteSheet_5: -3564617106693581682
+      GreenReaperSpriteSheet_6: -8930839233397488098
+      GreenReaperSpriteSheet_7: 593081276713213521
+      GreenReaperSpriteSheet_8: 443730261513724815
+      GreenReaperSpriteSheet_9: -7502658808820374474
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
